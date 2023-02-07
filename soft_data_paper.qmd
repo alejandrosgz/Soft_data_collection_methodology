@@ -2,16 +2,15 @@
 #title: "Soft_data_paper"
 #author: "Alejandro Sánchez Gómez"
 bibliography: Paper_soft_data_collection.bib
-csl: vancouver.csl
 highlight-style: zenburn
 format: 
-   #docx: 
-   #  reference-doc: template.docx
-   #  fig-align: center
-   html: 
-    toc: true
-    toc-depth: 4
-    editor: visual
+   docx: 
+     reference-doc: template.docx
+     fig-align: center
+   #html: 
+   # toc: true
+   # toc-depth: 4
+   # editor: visual
 ---
 
 ```{r Used_libraries}
@@ -122,7 +121,7 @@ apa <- function(x){#, title = " ") {
 
 ## Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin.
 
-##### Alejandro Sánchez-Gómez\*^1^, Katrin Bieger^2^, Silvia Martínez-Pérez^1^, Christoph Schürz^3^, Hendrik Rathjens^4^, Eugenio Molina-Navarro^1^.
+##### Alejandro Sánchez-Gómez*^1^, Katrin Bieger^2^, Silvia Martínez-Pérez^1^, Christoph Schürz^3^, Hendrik Rathjens^4^, Eugenio Molina-Navarro^1^.
 
 ####### ^1^ Department of Geology, Geography and Environment. University of Alcalá.
 
@@ -134,7 +133,7 @@ apa <- function(x){#, title = " ") {
 
 ### Abstract
 
-Models in hydrology have enriched the knowledge about this discipline, bringing to the scientific community new insights about hydrological questions. However, modelers should ensure that models reproduce the hydrological processes in a realistic way, which is not always the case. Obtaining satisfactory values of performance metrics for one variable (e.g., streamflow) is often considered enough to take a hydrological model as satisfactory, which migth lead to a misrepresentation of the reality behind the model.
+Models in hydrology have enriched the knowledge about this discipline, bringing to the scientific community new insights about hydrological questions. However, modelers should ensure that models reproduce the hydrological processes in a realistic way, which is not always the case. Obtaining satisfactory values of performance metrics for one variable (e.g., streamflow) is often considered enough to take a hydrological model as satisfactory, which might lead to a misrepresentation of the reality behind the model.
 
 Soft data in hydrological modelling can be used to ensure that the main hydrological processes in a catchment are being realistically reproduced before starting a hard calibration. This process is known as soft calibration. Expert knowledge should guide it, being thus necessary to have available real data of some hydrological variables prior to carry out a soft calibration process.
 
@@ -190,11 +189,11 @@ Streamflow gauged data was analyzed in each subbasin to ensure its reliability, 
 
 #### 3.2. Input data and basins delineation
 
-The presented methodology requires some input data and also some files that have to created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.
+The presented methodology requires some input data and also some files that have to be created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.
 
 Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, @garcia_serie_2017), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Streamflow data was collected from the CEDEX streamflow gauging stations yearly report [@cedex_anuario_2021], which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, *afliq.csv*).
 
-After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute [@ign_centro_2010], and the GRASS module [@neteler_grass_2012] in QGIS [version 3.22, @qgis_development_team_qgis_2022] was used. For the subbasins´ delineation, the *r.watershed* command was used for creating from the digital elevation model a *Drainage direction* and a *Number of cells that drain through each cell* raster, using as attributes a *Minimum size of exterior watershed* of 10000 m² and *Enabling single flow direction*. With the *r.water.outlet* command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command *r.to.vect* was used to convert the generated raster into vector format (using the *Smoooth corners of areas features* option), and all the generated basins were merged using the *Merge vector layers* QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the sf and dplyr packages [@pebesma_simple_2018; @wickham_tidyverse_2022,] have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file *basins_file.csv*.
+After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute [@ign_centro_2010], and the GRASS module [@neteler_grass_2012] in QGIS [version 3.22, @qgis_development_team_qgis_2022] was used. For the subbasins´ delineation, the *r.watershed* command was used for creating from the digital elevation model a *Drainage direction* and a *Number of cells that drain through each cell* raster, using as attributes a *Minimum size of exterior watershed* of 10000 m² and *Enabling single flow direction*. With the *r.water.outlet* command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command *r.to.vect* was used to convert the generated raster into vector format (using the *Smoooth corners of areas features* option), and all the generated basins were merged using the *Merge vector layers* QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the *sf* and *dplyr* packages [@pebesma_simple_2018; @wickham_tidyverse_2022,] have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file *basins_file.csv*.
 
 ```{r}
 #| echo: true
@@ -265,8 +264,11 @@ From all the gauging stations inside the Tagus River basin, the ones used for th
 #| output: false
 
 #### Runoff calculation ####
-cods <- basins_file$gauging_code # Gauging stations codes
-areas <- basins_file$area # Drainage areas
+
+# Gauging stations codes
+cods <- basins_file$gauging_code 
+# Drainage areas
+areas <- basins_file$area 
 obs_anual <-  list() 
 for(i in 1:length(cods)){
   gaug_st <- filter(gauging_data_tagus, cod == cods[i],(year(date) %in% 2010:2018))
@@ -451,7 +453,7 @@ Considering @eq-alpha_rec_constant and @eq-gw_recession when $t = 1$, and making
 
 $$alpha = e^{-α}$$ {#eq-alpha_conversion}
 
-The effects of these parameters on the baseflow estimation have been assessed to know their importance (@fig-parameters_effect). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. *BFImax* affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the *BFImax* values. *alpha* controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of *alpha* less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of *alpha* prevents the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher *BFImax* values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore *alpha* value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported [@kang_baseflow_2022].
+The effects of these parameters on the baseflow estimation have been assessed to know their importance (@fig-parameters_effect). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. *BFImax* affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the *BFImax* values. *alpha* controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of *alpha* less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of *alpha* prevent the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher *BFImax* values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore *alpha* value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported [@kang_baseflow_2022].
 
 ![Parameters effect on the baseflow filter calculation.](figs/parameters_effect_plot.png){#fig-parameters_effect}
 
@@ -480,7 +482,7 @@ For the estimation of *alpha*, the groundwater recession constant (α) was calcu
    # alpha value equals to e^(-0.024) = 0.977
 ```
 
-![Peaks selection, groundwater recesssion curve identification and linear adjustment performed for subbasin 4.](figs/peaks_selection_adjustment.png){#fig-recession_curve}
+![Peaks selection, groundwater recession curve identification and linear adjustment performed for subbasin 4.](figs/peaks_selection_adjustment.png){#fig-recession_curve}
 
 Three *alpha* values were calculated with this method for each basin, having a range of values to introduce in the baseflow filter function. For *BFImax*, the recommended values are around 0.8 for perennial streams with porous aquifers, around 0.5 for ephemeral streams with porous aquifers, and around 0.25 for perennial streams with hard rock aquifers [@eckhardt_how_2005]. However, these values leaded in some cases to an overestimation of the baseflow and to unreal components separation, then these values were adjusted in each case considering the properties of each basin and the expert knowledge. For each basin, different *alpha* and *BFImax* values were adjusted to obtain a realistic baseflow component separation for three representative peaks, and once this was reached, the average contribution of the baseflow to the streamflow (Bf~c~) was calculated with @eq-bf_contribution, where n is the number of days for which the filter is applied, bf~k~ is the baseflow contribution for the day k and rn~k~ is the runoff contribution for the day k.
 
@@ -615,7 +617,7 @@ Subbasins with mixed lithology yielded the widest range of runoff coefficient va
 
 It should be reminded that *alpha* in this baseflow filter is not the classical recession constant (α), and when *alpha* approximates to 1, α approximates to 0. Besides, when α tends to 0, it becomes close to $1-alpha$, considering the Taylor development of the @eq-gw_recession. The obtained *alpha* values showed relevant differences in the immediacy of baseflow response. The lowest value was obtained for the carbonate (CRB) region, which is expected considering its hydrogeological behavior (i.e., relevant karst aquifers with fractures, where recharge and release events response quickly to precipitation events and with enough storage capacity to maintain the streamflow during dry season). It also matches with a larger baseflow index expected, as mentioned above.
 
-Considering the lithology, the highest alpha value would have been expected for the impervious region (IMP), since barely any baseflow response is expected there. However, the obtained value was not significantly different from another regions in the basin (@tbl-reg_alphas). Most probably, consecutive precipitation events in these subbasins and snowmelt processes could be maintaining a baseflow level which is not a result of groundwater contribution, and thus hindering recession constant calculation.
+Considering the lithology, the highest alpha value would have been expected for the impervious region (IMP), since barely any baseflow response is expected there. However, the obtained value was not significantly different from other regions in the basin (@tbl-reg_alphas). Most probably, consecutive precipitation events in these subbasins and snowmelt processes could be maintaining a baseflow level which is not a result of groundwater contribution, and thus hindering recession constant calculation.
 
 Regarding the detrital regions, the high permeability one showed the highest alpha value. The porosity of the high permeability materials, despite being higher than the materials of the CRB region, does not have fractures, which could have led to a slower recession response. The low permeability detrital region (DTBJ) showed an alpha value similar to the DTAL region, instead of being higher (thus less sensitive), as it would be expected. However, as mentioned before, the subbasins selected for the DTBJ region do not only consist of materials with low permeability, complicating results comparison. In fact, the DTBJ region seems to have a relevant contribution of baseflow, and its response to precipitation events seems to be slow (which can be explained to a low transmissivity derived from the low permeability materials). A graphical comparison of the hydrographs for one hydrological year (October-September) among subbasins located in the different geological regions is included in Appendix III, allowing to visualize some of the previous insights.
 
@@ -627,7 +629,7 @@ First, regarding the filter parameters, although *alpha* has been calculated fro
 
 Another consideration is about the data reliability. When applying the filter, the total value of streamflow in one day affects to the baseflow calculation in the next days. Therefore, if an anomalous value of streamflow is recorded (i.e., a very low value among a higher values series), we recommended to manually change this value to calculate the baseflow in a realistic way. Luckily enough, data used for this work have little anomalous values, and therefore, after examining them, a clean process was not considered necessary.
 
-In this case, a configuration of the baseflow parameters suitable for three different peaks has been searched, because looking at only one event could have led to a non representative value of baseflow contribution. A correct approximation for three different events has been preferred than a perfect hydrograph separation for only one peak, as it provides confidence regarding the acceptability of the chosen parameter values. However, it should be acknowledged that this method might not allow to achieve a completely realistic separation (e.g., baseflow underestimated during long low flows periods and overestimated when precipitation events occur, @fig-bfsep_example) and therefore, an intermediate solution must be found to compensate for these inaccuracies. These limitations have been reported by other authors [@kang_baseflow_2022], and should be keept in mind when applying digital filters.
+In this case, a configuration of the baseflow parameters suitable for three different peaks has been searched, because looking at only one event could have led to a non representative value of baseflow contribution. A correct approximation for three different events has been preferred than a perfect hydrograph separation for only one peak, as it provides confidence regarding the acceptability of the chosen parameter values. However, it should be acknowledged that this method might not allow to achieve a completely realistic separation (e.g., baseflow underestimated during long low flows periods and overestimated when precipitation events occur, @fig-bfsep_example) and therefore, an intermediate solution must be found to compensate for these inaccuracies. These limitations have been reported by other authors [@kang_baseflow_2022], and should be kept in mind when applying digital filters.
 
 Last consideration is about the time scale used to evaluate the separation of the hydrograph components, which also justifies validating the filter separation in three different peaks. Looking at the separation of the hydrograph components for a longer time series including several peaks might lead to a visual perception of a larger amount of groundwater contribution, but looking for individual events allow to conserve the scale and perform properly the separation. @fig-timescale_effect compares how a peak is represented when looking at it inside the entire time series and when looking at it individually.
 
@@ -649,7 +651,7 @@ Following these considerations, the baseflow contribution for each of the basin 
 
 Subbasins located in geological regions with low permeability were expected to have lower baseflow index, while those located in regions with relevant aquifers were expected to have higher rates. A baseflow index around 20% has been estimated for the igneous and metamorphic region (IMP). This value might be considered high for impervious basins, but based in the knowledge about the studied subbasins and the assessment performed, it seems correct. Some indicators, such as the presence of flow during dry periods or phreatophyte vegetation can be used as indicators of groundwater contribution, and these indicators has been observed in some of the subbasins characterized as impervious in this work [@martin-loeches_hydrogeochemistry_2020].
 
-As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes, and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies [@sanchez-gomez_optimization_2022] and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix IV).
+As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies [@sanchez-gomez_optimization_2022] and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix IV).
 
 Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTAL). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTBJ) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTBJ region are noticeable lower than in DTAL region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTBJ region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTBJ region reveal this behavior, since a baseflow is maintained throughout the year (Appendix 3). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.
 
@@ -793,7 +795,7 @@ read.csv("used_files/Created_csv/basins_file.csv") %>% left_join(., data_range, 
 
 ######## Appendix III: Hydrographs for one hydrological year comparison {.appendix}
 
-![Hydrographs comparisson of subbbasins located in the different geological regions.](figs/hydrographs.png){#fig-hydrographs}
+![Hydrographs comparison of subbasins located in the different geological regions.](figs/hydrographs.png){#fig-hydrographs}
 
 ######## Appendix IV: Groundwater results at subbasins scale {.appendix}
 

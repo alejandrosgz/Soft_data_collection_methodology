@@ -193,19 +193,19 @@ div.csl-indent {
 </section>
 <section id="introduction-and-objectives" class="level3">
 <h3 class="anchored" data-anchor-id="introduction-and-objectives">1. Introduction and objectives</h3>
-<p>Hydrological modelling has thrived in the last decades, and particularly during the last few years, mostly due to the increase of computational capacity and the availability of related open software <span class="citation" data-cites="singh_hydrologic_2018 fu_review_2019">(<a href="#ref-singh_hydrologic_2018" role="doc-biblioref">1</a>,<a href="#ref-fu_review_2019" role="doc-biblioref">2</a>)</span> which usually comes with friendly guided-user interfaces. This has enriched the knowledge about this discipline, bringing to the scientific community new insights about hydrological questions and contributing to assess the hydrological risks that the humanity faces in a worldwide context of uncertainty. However, the fact of having readily available hydrological modelling tools also entails some risks: their users, from different backgrounds, might not have comprehensive knowledge of hydrological process, and thus they might rely on model outputs without the necessary critical thinking <span class="citation" data-cites="seibert_dialog_2002 efstratiadis_one_2010">(<a href="#ref-seibert_dialog_2002" role="doc-biblioref">3</a>,<a href="#ref-efstratiadis_one_2010" role="doc-biblioref">4</a>)</span>.</p>
-<p>Particularly, hydrological modelling applications often present results which are solely based on analyzing the performance of a certain metric (or metrics) for the calibrated variable (e.g., streamflow, evapotranspiration, etc.), without further discussing if the hydrological processes in the model that are yielding this metric value resemble the reality of the area that is being modelled <span class="citation" data-cites="bahremand_hess_2016 acero_triana_beyond_2019">(<a href="#ref-bahremand_hess_2016" role="doc-biblioref">5</a>,<a href="#ref-acero_triana_beyond_2019" role="doc-biblioref">6</a>)</span>. The problem of equifinality within modelling techniques is well known: unrealistic parameter values can provide statistically satisfactory simulations <span class="citation" data-cites="muleta_model_2012 molina-navarro_impact_2017">(<a href="#ref-muleta_model_2012" role="doc-biblioref">7</a>,<a href="#ref-molina-navarro_impact_2017" role="doc-biblioref">8</a>)</span>. Thus, when it comes to hydrological modelling, and particularly to catchment scale modelling, modelers should at least ensure that the main components in the water balance are properly represented and the contribution of the different streamflow components (surface, lateral and groundwater contribution) resembles what is expected in the analyzed catchment.</p>
-<p>Some researchers have noticed about this issue in recent years, proposing the use of soft calibration techniques in order to guarantee realistic hydrological models <span class="citation" data-cites="arnold_hydrological_2015">(<a href="#ref-arnold_hydrological_2015" role="doc-biblioref">9</a>)</span>. Soft calibration precisely consists of assessing model results against soft data, such us annual averages of the water balance components or the expected relative contribution of the different components of streamflow. Soft calibration might be followed by hard calibration, which would involve the comparison of simulated vs.&nbsp;observed time series of a certain variable. The works of Pfannerstill et al. <span class="citation" data-cites="pfannerstill_how_2017">(<a href="#ref-pfannerstill_how_2017" role="doc-biblioref">10</a>)</span> and Chawanda et al. <span class="citation" data-cites="chawanda_mass_2020">(<a href="#ref-chawanda_mass_2020" role="doc-biblioref">11</a>)</span> are examples of successful experiences using soft data in hydrological modelling calibration.</p>
-<p>Two key soft data variables are the runoff coefficient and the baseflow index <span class="citation" data-cites="blume_rainfallrunoff_2007">(<a href="#ref-blume_rainfallrunoff_2007" role="doc-biblioref">12</a>)</span>. Runoff coefficient is the fraction of precipitation volume that becomes streamflow. This variable it is not constant and depends on factor such as lithology, topography and the characteristics of the precipitation events. When considering a hydrological series, this coefficient can also be used to estimate the evapotranspiration, which is the main loss of the water balance in Mediterranean regions. Opposite to streamflow, evapotranspiration cannot be directly measured at basin scale. Thus, despite having some limitations, the runoff coefficient helps to understand the water balance of a certain basin. The limitations of this assumption (other than those derived from human activity) are related to climate variability, the storage of water in the aquifers or soils, groundwater interbasins connections, or groundwater that becomes streamflow downstream the gauging stations. Therefore, the groundwater systems should be known before validating the runoff coefficient, and enough long time series should be used to ensure that the storage of water is null and the time series climate is representative of the basin <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(i.e., more than 30 years of data in Mediterranean regions, <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">13</a>)</span>. The estimation of this variable can be done if precipitation and flow data are available, the higher the resolution and reliability of the data the better. There are different methods to estimate this variable, with the SCS runoff curve number method of the USA Soil Conservation Service being the best known <span class="citation" data-cites="mockus_national_nodate">(<a href="#ref-mockus_national_nodate" role="doc-biblioref">14</a>)</span>. Despite the availability of streamflow and precipitation data in Spain, works estimating this variable in the literature are limited to specific rainfall events, focusing on the factors that influence runoff generation <span class="citation" data-cites="kirkby_influence_2002 rodriguez-blanco_rainfallrunoff_2012">(e.g., <a href="#ref-kirkby_influence_2002" role="doc-biblioref">15</a>,<a href="#ref-rodriguez-blanco_rainfallrunoff_2012" role="doc-biblioref">16</a>)</span>. To the best of our knowledge, there is a lack of studies analyzing long time series that could be used for modeling purposes.</p>
-<p>Baseflow is the component of the streamflow that does not immediately respond to the precipitation, but it is released from natural water storage systems such as glaciers or aquifers. Groundwater is the main source of baseflow in Mediterranean areas, and it is the responsible of maintain a permanent flow during low flow periods, i.e., during dry periods, which is particularly relevant regarding water quality and ecosystems functioning. It is therefore a key element of the water balance, which can suppose more than half of the total runoff <span class="citation" data-cites="jodar_groundwater_2017 sanchez-gomez_streamflow_2023">(<a href="#ref-jodar_groundwater_2017" role="doc-biblioref">17</a>,<a href="#ref-sanchez-gomez_streamflow_2023" role="doc-biblioref">18</a>)</span>. Groundwater depends on factors such as lithology, topography, climate or land use: the presence of aquifer rocks is needed for the existence of groundwater, and recharge processes are mainly determined by the topography, land covers, soil types and the characteristics of the precipitation events. The baseflow index indicates the fraction of the total streamflow that comes from groundwater systems. This variable can be estimated trough different methods, such as using hydrological models <span class="citation" data-cites="samper_hydrological_2015">(<a href="#ref-samper_hydrological_2015" role="doc-biblioref">19</a>)</span>, mass-balance methods with chemical tracers <span class="citation" data-cites="ortega_using_2015">(<a href="#ref-ortega_using_2015" role="doc-biblioref">20</a>)</span>, or applying numerical or graphical methods to streamflow records to perform a separation of its components (baseflow and direct runoff). Regarding the latter, different digital filters that perform this separation have been developed, allowing to estimate the baseflow index with only streamflow data <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">21</a>)</span>.</p>
-<p>The values of runoff coefficient or baseflow index for a certain catchment can be sometimes found in the literature, since previous hydrological studies might exist. Some works might also provide expected values for certain regions, depending on their climate and/or their hydrogeological characteristics <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(e.g., <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">13</a>)</span>. However, an ideal soft calibration procedure would involve obtaining runoff coefficient and baseflow index estimates for the catchment that is being analyzed and the period that is being modeled. This would help guaranteeing that the model is simulating the hydrological processes in a realistic manner, providing also a more robust starting point for the subsequent hard calibration. Thus, to avoid the issue of creating unrealistic hydrological models above discussed, there is a need to develop procedures and methodologies that facilitate soft data variables for a certain area and period, thus encouraging modellers to address soft calibration before hard calibration.</p>
-<p>The main goal of this work is to present a reproducible methodology developed in R for collecting soft data in a certain area and time period, particularly the runoff coefficient and the baseflow index. To prove the usefulness of this work, a study case for the Tagus River basin (Spain) is also presented, since the research team is developing a high-detailed hydrological model with SWAT+ for its upper sector <span class="citation" data-cites="sanchez-gomez_innovative_2022">(<a href="#ref-sanchez-gomez_innovative_2022" role="doc-biblioref">22</a>)</span>. Furthermore, this study case shows how this methodology allows to obtain different values of these two coefficients in different geological regions within the basin, which might be convenient since addressing a zonal calibration depending on the geological properties turns into a more robust and realistic model <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">23</a>)</span>. The proposed methodology uses precipitation and streamflow data to derive those two coefficients, together with expert knowledge: gridded precipitation data and streamflow from gauging stations were used to calculate the runoff coefficient for different subbasins in natural regime, while expert knowledge guided the application of a baseflow filter function to estimate the baseflow index from streamflow data.</p>
+<p>Hydrological modelling has thrived in the last decades, and particularly during the last few years, mostly due to the increase of computational capacity and the availability of related open software <span class="citation" data-cites="singh_hydrologic_2018 fu_review_2019">(<a href="#ref-singh_hydrologic_2018" role="doc-biblioref">Singh 2018</a>; <a href="#ref-fu_review_2019" role="doc-biblioref">Fu et al. 2019</a>)</span> which usually comes with friendly guided-user interfaces. This has enriched the knowledge about this discipline, bringing to the scientific community new insights about hydrological questions and contributing to assess the hydrological risks that the humanity faces in a worldwide context of uncertainty. However, the fact of having readily available hydrological modelling tools also entails some risks: their users, from different backgrounds, might not have comprehensive knowledge of hydrological process, and thus they might rely on model outputs without the necessary critical thinking <span class="citation" data-cites="seibert_dialog_2002 efstratiadis_one_2010">(<a href="#ref-seibert_dialog_2002" role="doc-biblioref">Seibert and McDonnell 2002</a>; <a href="#ref-efstratiadis_one_2010" role="doc-biblioref">Efstratiadis and Koutsoyiannis 2010</a>)</span>.</p>
+<p>Particularly, hydrological modelling applications often present results which are solely based on analyzing the performance of a certain metric (or metrics) for the calibrated variable (e.g., streamflow, evapotranspiration, etc.), without further discussing if the hydrological processes in the model that are yielding this metric value resemble the reality of the area that is being modelled <span class="citation" data-cites="bahremand_hess_2016 acero_triana_beyond_2019">(<a href="#ref-bahremand_hess_2016" role="doc-biblioref">Bahremand 2016</a>; <a href="#ref-acero_triana_beyond_2019" role="doc-biblioref">Acero Triana et al. 2019</a>)</span>. The problem of equifinality within modelling techniques is well known: unrealistic parameter values can provide statistically satisfactory simulations <span class="citation" data-cites="muleta_model_2012 molina-navarro_impact_2017">(<a href="#ref-muleta_model_2012" role="doc-biblioref">Muleta 2012</a>; <a href="#ref-molina-navarro_impact_2017" role="doc-biblioref">Molina-Navarro et al. 2017</a>)</span>. Thus, when it comes to hydrological modelling, and particularly to catchment scale modelling, modelers should at least ensure that the main components in the water balance are properly represented and the contribution of the different streamflow components (surface, lateral and groundwater contribution) resembles what is expected in the analyzed catchment.</p>
+<p>Some researchers have noticed about this issue in recent years, proposing the use of soft calibration techniques in order to guarantee realistic hydrological models <span class="citation" data-cites="arnold_hydrological_2015">(<a href="#ref-arnold_hydrological_2015" role="doc-biblioref">Arnold et al. 2015</a>)</span>. Soft calibration precisely consists of assessing model results against soft data, such us annual averages of the water balance components or the expected relative contribution of the different components of streamflow. Soft calibration might be followed by hard calibration, which would involve the comparison of simulated vs.&nbsp;observed time series of a certain variable. The works of Pfannerstill et al. <span class="citation" data-cites="pfannerstill_how_2017">(<a href="#ref-pfannerstill_how_2017" role="doc-biblioref">2017</a>)</span> and Chawanda et al. <span class="citation" data-cites="chawanda_mass_2020">(<a href="#ref-chawanda_mass_2020" role="doc-biblioref">2020</a>)</span> are examples of successful experiences using soft data in hydrological modelling calibration.</p>
+<p>Two key soft data variables are the runoff coefficient and the baseflow index <span class="citation" data-cites="blume_rainfallrunoff_2007">(<a href="#ref-blume_rainfallrunoff_2007" role="doc-biblioref">Blume, Zehe, and Bronstert 2007</a>)</span>. Runoff coefficient is the fraction of precipitation volume that becomes streamflow. This variable it is not constant and depends on factor such as lithology, topography and the characteristics of the precipitation events. When considering a hydrological series, this coefficient can also be used to estimate the evapotranspiration, which is the main loss of the water balance in Mediterranean regions. Opposite to streamflow, evapotranspiration cannot be directly measured at basin scale. Thus, despite having some limitations, the runoff coefficient helps to understand the water balance of a certain basin. The limitations of this assumption (other than those derived from human activity) are related to climate variability, the storage of water in the aquifers or soils, groundwater interbasins connections, or groundwater that becomes streamflow downstream the gauging stations. Therefore, the groundwater systems should be known before validating the runoff coefficient, and enough long time series should be used to ensure that the storage of water is null and the time series climate is representative of the basin <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(i.e., more than 30 years of data in Mediterranean regions, <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. The estimation of this variable can be done if precipitation and flow data are available, the higher the resolution and reliability of the data the better. There are different methods to estimate this variable, with the SCS runoff curve number method of the USA Soil Conservation Service being the best known <span class="citation" data-cites="mockus_national_nodate">(<a href="#ref-mockus_national_nodate" role="doc-biblioref">Mockus and Engineer, n.d.</a>)</span>. Despite the availability of streamflow and precipitation data in Spain, works estimating this variable in the literature are limited to specific rainfall events, focusing on the factors that influence runoff generation <span class="citation" data-cites="kirkby_influence_2002 rodriguez-blanco_rainfallrunoff_2012">(e.g., <a href="#ref-kirkby_influence_2002" role="doc-biblioref">Kirkby, Bracken, and Reaney 2002</a>; <a href="#ref-rodriguez-blanco_rainfallrunoff_2012" role="doc-biblioref">Rodríguez-Blanco, Taboada-Castro, and Taboada-Castro 2012</a>)</span>. To the best of our knowledge, there is a lack of studies analyzing long time series that could be used for modeling purposes.</p>
+<p>Baseflow is the component of the streamflow that does not immediately respond to the precipitation, but it is released from natural water storage systems such as glaciers or aquifers. Groundwater is the main source of baseflow in Mediterranean areas, and it is the responsible of maintain a permanent flow during low flow periods, i.e., during dry periods, which is particularly relevant regarding water quality and ecosystems functioning. It is therefore a key element of the water balance, which can suppose more than half of the total runoff <span class="citation" data-cites="jodar_groundwater_2017 sanchez-gomez_streamflow_2023">(<a href="#ref-jodar_groundwater_2017" role="doc-biblioref">Jódar et al. 2017</a>; <a href="#ref-sanchez-gomez_streamflow_2023" role="doc-biblioref">Sánchez-Gómez et al. 2023</a>)</span>. Groundwater depends on factors such as lithology, topography, climate or land use: the presence of aquifer rocks is needed for the existence of groundwater, and recharge processes are mainly determined by the topography, land covers, soil types and the characteristics of the precipitation events. The baseflow index indicates the fraction of the total streamflow that comes from groundwater systems. This variable can be estimated trough different methods, such as using hydrological models <span class="citation" data-cites="samper_hydrological_2015">(<a href="#ref-samper_hydrological_2015" role="doc-biblioref">Samper, Pisani, and Espinha Marques 2015</a>)</span>, mass-balance methods with chemical tracers <span class="citation" data-cites="ortega_using_2015">(<a href="#ref-ortega_using_2015" role="doc-biblioref">Ortega et al. 2015</a>)</span>, or applying numerical or graphical methods to streamflow records to perform a separation of its components (baseflow and direct runoff). Regarding the latter, different digital filters that perform this separation have been developed, allowing to estimate the baseflow index with only streamflow data <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
+<p>The values of runoff coefficient or baseflow index for a certain catchment can be sometimes found in the literature, since previous hydrological studies might exist. Some works might also provide expected values for certain regions, depending on their climate and/or their hydrogeological characteristics <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(e.g., <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. However, an ideal soft calibration procedure would involve obtaining runoff coefficient and baseflow index estimates for the catchment that is being analyzed and the period that is being modeled. This would help guaranteeing that the model is simulating the hydrological processes in a realistic manner, providing also a more robust starting point for the subsequent hard calibration. Thus, to avoid the issue of creating unrealistic hydrological models above discussed, there is a need to develop procedures and methodologies that facilitate soft data variables for a certain area and period, thus encouraging modellers to address soft calibration before hard calibration.</p>
+<p>The main goal of this work is to present a reproducible methodology developed in R for collecting soft data in a certain area and time period, particularly the runoff coefficient and the baseflow index. To prove the usefulness of this work, a study case for the Tagus River basin (Spain) is also presented, since the research team is developing a high-detailed hydrological model with SWAT+ for its upper sector <span class="citation" data-cites="sanchez-gomez_innovative_2022">(<a href="#ref-sanchez-gomez_innovative_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Sastre-Merlín, et al. 2022</a>)</span>. Furthermore, this study case shows how this methodology allows to obtain different values of these two coefficients in different geological regions within the basin, which might be convenient since addressing a zonal calibration depending on the geological properties turns into a more robust and realistic model <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. 2022</a>)</span>. The proposed methodology uses precipitation and streamflow data to derive those two coefficients, together with expert knowledge: gridded precipitation data and streamflow from gauging stations were used to calculate the runoff coefficient for different subbasins in natural regime, while expert knowledge guided the application of a baseflow filter function to estimate the baseflow index from streamflow data.</p>
 <p>The following sections of the manuscript describe the work done in detail, presenting an R script that could be applied in any region with gridded precipitation and streamflow data. Besides, the study case presented in the Tagus River basin, has in turn served to address a deep analysis of some of its hydrological processes, gaining knowledge about this region.</p>
 </section>
 <section id="study-area" class="level3">
 <h3 class="anchored" data-anchor-id="study-area">2. Study area</h3>
 <p>The Tagus River (<a href="#fig-location">Figure&nbsp;1</a>) is the longest in the Iberian Peninsula, and its basin is the most populated. Water resources in this basin are scarce considering the high demand of water, and it is expected that climate change will exacerbate this situation. In addition, a water transfer system extract water from the headwaters of the Tagus River to the southeast of Spain to supply irrigation and human consumption demands. Thus, realistic hydrological modelling of this catchment is of utmost importance in order to guarantee reliable future assessments of, for example, climate change impacts.</p>
-<p>The upper sector of the Tagus River basin (3,388 km²) covers around 47% of the extension of the entire basin. This sector is delimited by three mountain ranges: the Central System in the north, the Iberian System in the east, and the Toledo Mountains in the south. Altitude ranges from 2,400 m.a.s.l. in some peaks of the Central System to 360 m.a.s.l. in Talavera de la Reina (Toledo), the outlet of the upper basin. The upper sector of the basin (<a href="#fig-location">Figure&nbsp;1</a>) is characterized by a continental Mediterranean climate, which varies depending on factors such as altitude, proximity to the ocean and latitude. Chazarra et al. <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">24</a>)</span> classified this sector as temperate (C) and dry (B) following the Köppen-Geiger climate classification for the period 1980-2010. The mean precipitation for this period was around 550 mm, with values higher than 1.400 mm in the Central System, and lower than 400 mm in the driest areas of the southern sector. The mean temperature is around 12ºC, which varies between 13ºC in the east, 17ºC in the west and 8ºC to 10ºC in the Central System <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">24</a>)</span>. The average precipitation and water yield of the basin has been reduced in the last decades, which could be attributed to the impacts of climate change <span class="citation" data-cites="garcia_serie_2017">(<a href="#ref-garcia_serie_2017" role="doc-biblioref">25</a>)</span>.</p>
+<p>The upper sector of the Tagus River basin (3,388 km²) covers around 47% of the extension of the entire basin. This sector is delimited by three mountain ranges: the Central System in the north, the Iberian System in the east, and the Toledo Mountains in the south. Altitude ranges from 2,400 m.a.s.l. in some peaks of the Central System to 360 m.a.s.l. in Talavera de la Reina (Toledo), the outlet of the upper basin. The upper sector of the basin (<a href="#fig-location">Figure&nbsp;1</a>) is characterized by a continental Mediterranean climate, which varies depending on factors such as altitude, proximity to the ocean and latitude. Chazarra et al. <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">2018</a>)</span> classified this sector as temperate (C) and dry (B) following the Köppen-Geiger climate classification for the period 1980-2010. The mean precipitation for this period was around 550 mm, with values higher than 1.400 mm in the Central System, and lower than 400 mm in the driest areas of the southern sector. The mean temperature is around 12ºC, which varies between 13ºC in the east, 17ºC in the west and 8ºC to 10ºC in the Central System <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">Chazarra Bernabé et al. 2018</a>)</span>. The average precipitation and water yield of the basin has been reduced in the last decades, which could be attributed to the impacts of climate change <span class="citation" data-cites="garcia_serie_2017">(<a href="#ref-garcia_serie_2017" role="doc-biblioref">García, Fernández-Victorio, and Calzado 2017</a>)</span>.</p>
 <p>Natural vegetation and agricultural lands are the main land covers of the area, occupying around 48% and 47%, respectively of the total area, being cereals the dominant crop. Urban use covers around 3% of the total area, being approximately 8 million inhabitants in this sector of the basin. Therefore, relevant water demands are located in this area, with noticeable environmental and social implications.</p>
 <p>In this sector of the basin, the confluence of different mountain systems with different bedrocks has originated a heterogeneous geological configuration, which gives rise to differences in the main hydrological processes. Direct runoff is expected to predominate in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers, thus being the baseflow index more relevant. The sedimentary deposits of the basin also have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability. This basin, therefore, is a complex system which requires a comprehensive methodology to be modelled. This modelling process would benefit from a soft calibration phase towards the realistic simulation of the different geological sector. For such a purpose, collection of soft data is needed, and the methodology followed to achieve this task is described and discussed below.</p>
 <div id="fig-location" class="quarto-figure quarto-figure-center anchored">
@@ -219,22 +219,22 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="methodology">3. Methodology</h3>
 <section id="subbasins-and-time-series-selection" class="level4">
 <h4 class="anchored" data-anchor-id="subbasins-and-time-series-selection">3.1. Subbasins and time series selection</h4>
-<p>The objective of the methodology presented in this manuscript is to collect and derive soft data (runoff and baseflow coefficients) in different geological regions of the upper sector of the Tagus River basin with varying permeability, thus gaining knowledge about the main hydrological processes in each region that would guarantee a realistic soft calibration of a model under development. For this purpose, several subbasins have been selected considering various factors (<a href="#fig-location">Figure&nbsp;1</a>). The availability of updated streamflow records was the first selection factor. To characterize the runoff and baseflow coefficients of a certain catchment, the longer the time series the better, being advisable a minimum time series of 30 years <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">13</a>)</span>. However, in this study case the plan is to calibrate the model between 2010 and 2018, thus in order to simulate it in a realistic manner, the coefficients for that period had to be derived. Besides, despite it is not too large, this period has enough climatic variability to be considered representative of the global climate of the basin, having dry, wet, and medium years (<a href="#fig-pcp_plot">Figure&nbsp;2</a>), so results obtained during the soft data extraction might also serve to gain hydrological knowledge of the catchment. The current effect of climate change on this basin has to be taken into account as well: the precipitation is being reduced and the temperature is rising (i.e., comparing the time series 1960-2018 and 2000-2018, mean annual temperature has increased 0.5ºC and annual precipitation has been reduced by 7%). Thus, a longer period may not be representative of the current situation.</p>
+<p>The objective of the methodology presented in this manuscript is to collect and derive soft data (runoff and baseflow coefficients) in different geological regions of the upper sector of the Tagus River basin with varying permeability, thus gaining knowledge about the main hydrological processes in each region that would guarantee a realistic soft calibration of a model under development. For this purpose, several subbasins have been selected considering various factors (<a href="#fig-location">Figure&nbsp;1</a>). The availability of updated streamflow records was the first selection factor. To characterize the runoff and baseflow coefficients of a certain catchment, the longer the time series the better, being advisable a minimum time series of 30 years <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. However, in this study case the plan is to calibrate the model between 2010 and 2018, thus in order to simulate it in a realistic manner, the coefficients for that period had to be derived. Besides, despite it is not too large, this period has enough climatic variability to be considered representative of the global climate of the basin, having dry, wet, and medium years (<a href="#fig-pcp_plot">Figure&nbsp;2</a>), so results obtained during the soft data extraction might also serve to gain hydrological knowledge of the catchment. The current effect of climate change on this basin has to be taken into account as well: the precipitation is being reduced and the temperature is rising (i.e., comparing the time series 1960-2018 and 2000-2018, mean annual temperature has increased 0.5ºC and annual precipitation has been reduced by 7%). Thus, a longer period may not be representative of the current situation.</p>
 <div id="fig-pcp_plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/precipitation_tagus.tiff" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2: Modeled basin annual and average precipitation (1951-2018) and selected period (in blue).</figcaption><p></p>
 </figure>
 </div>
-<p>Since different geological regions are object of study, lithology was the second factor considered for selecting the subbasins. Four different geological zones were defined according to the permeability of the basin <span class="citation" data-cites="del_pozo_gomez_mapa_2009">(<a href="#ref-del_pozo_gomez_mapa_2009" role="doc-biblioref">26</a>)</span>, and at least three basins representative of each of these regions were selected (<a href="#fig-location">Figure&nbsp;1</a>). Five basins with a mixed lithology were also chosen, in order to characterize the hydrological behaviour in heterogeneous regions (MIX). The geological regions defined were: an impervious region (IMP), with by metamorphic and igneous impervious rocks; a high and medium permeability carbonate region (CRB), a high permeability detrital region (DTAL), conformed by Tertiary sedimentary rocks and Quaternary sediments; and a low permeability detrital region (DTBJ), conformed by detrital and evaporitic materials (i.e., marls, gypsum). Unfortunately, there is not geologically homogeneous gauged subbasins within the low permeability detrital region, so subbasins with abundance of these materials were selected as representative, despite being mixed with other materials too.</p>
+<p>Since different geological regions are object of study, lithology was the second factor considered for selecting the subbasins. Four different geological zones were defined according to the permeability of the basin <span class="citation" data-cites="del_pozo_gomez_mapa_2009">(<a href="#ref-del_pozo_gomez_mapa_2009" role="doc-biblioref">Pozo Gómez 2009</a>)</span>, and at least three basins representative of each of these regions were selected (<a href="#fig-location">Figure&nbsp;1</a>). Five basins with a mixed lithology were also chosen, in order to characterize the hydrological behaviour in heterogeneous regions (MIX). The geological regions defined were: an impervious region (IMP), with by metamorphic and igneous impervious rocks; a high and medium permeability carbonate region (CRB), a high permeability detrital region (DTAL), conformed by Tertiary sedimentary rocks and Quaternary sediments; and a low permeability detrital region (DTBJ), conformed by detrital and evaporitic materials (i.e., marls, gypsum). Unfortunately, there is not geologically homogeneous gauged subbasins within the low permeability detrital region, so subbasins with abundance of these materials were selected as representative, despite being mixed with other materials too.</p>
 <p>For an accurate estimation of the runoff and baseflow coefficient, subbasins in natural regime were selected, thus without relevant reservoirs or water withdrawals, being this the last selection criterion.</p>
 <p>Streamflow gauged data was analyzed in each subbasin to ensure its reliability, both with graphical and statistical methods. Information about the selected subbasins and their available streamflow data can be found in Appendix I. Some of the subbasins (subbasins 2, 6 and 14) did not have data for the entire time series, and therefore the coefficients have been calculated for the years with complete gauging data. Verify the data availability for the entire period is recommended, as the used source of streamflow data does not warn about missing data, which can lead to incorrect results.</p>
 </section>
 <section id="input-data-and-basins-delineation" class="level4">
 <h4 class="anchored" data-anchor-id="input-data-and-basins-delineation">3.2. Input data and basins delineation</h4>
 <p>The presented methodology requires some input data and also some files that have to created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.</p>
-<p>Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, <span class="citation" data-cites="garcia_serie_2017">(<a href="#ref-garcia_serie_2017" role="doc-biblioref">25</a>)</span>), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Streamflow data was collected from the CEDEX streamflow gauging stations yearly report <span class="citation" data-cites="cedex_anuario_2021">(<a href="#ref-cedex_anuario_2021" role="doc-biblioref">27</a>)</span>, which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, <em>afliq.csv</em>).</p>
-<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">28</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">29</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">30</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the sf and dplyr packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">31</a>,<a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">32</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>basins_file.csv</em>.</p>
+<p>Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, <span class="citation" data-cites="garcia_serie_2017">García, Fernández-Victorio, and Calzado (<a href="#ref-garcia_serie_2017" role="doc-biblioref">2017</a>)</span>), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Streamflow data was collected from the CEDEX streamflow gauging stations yearly report <span class="citation" data-cites="cedex_anuario_2021">(<a href="#ref-cedex_anuario_2021" role="doc-biblioref">CEDEX 2021</a>)</span>, which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, <em>afliq.csv</em>).</p>
+<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the sf and dplyr packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">Pebesma 2018</a>; <a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">Wickham and RStudio 2022</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>basins_file.csv</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data: Shapefile with the delineated subbasins </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>subbasins <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"used_files/Shapefiles/basins_studied.shp"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., id)</span>
@@ -266,7 +266,7 @@ div.csl-indent {
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>grid_points_clip_csv <span class="ot">&lt;-</span> grid_points_clip <span class="sc">%&gt;%</span> <span class="fu">st_drop_geometry</span>(.) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Basin_ID =</span> id)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> grid_points_clip_csv, <span class="at">file =</span> <span class="st">"used_files/Created_csv/ids_stations_file.csv"</span>, <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>With these two csv files (created from the subbasins and weather grid vectorial layers) the methodology can be carried out. A third csv file will be created with the results of the baseflow index obtained, as explained in the respective section (3.4). Examples of these files are available for the reader in order to allow reproducibility of the work (see Data availability section). From this point on, all the work has been developed from R-Studio <span class="citation" data-cites="rstudio_team_rstudio_2020">(<a href="#ref-rstudio_team_rstudio_2020" role="doc-biblioref">33</a>)</span> using different libraries <span class="citation" data-cites="wickham_readr_2022 pebesma_simple_2018 spinu_lubridate_2023 sievert_plotly_2022 pedersen_patchwork_2022 iannone_gt_2022">(<a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">32</a>)</span>.</p>
+<p>With these two csv files (created from the subbasins and weather grid vectorial layers) the methodology can be carried out. A third csv file will be created with the results of the baseflow index obtained, as explained in the respective section (3.4). Examples of these files are available for the reader in order to allow reproducibility of the work (see Data availability section). From this point on, all the work has been developed from R-Studio <span class="citation" data-cites="rstudio_team_rstudio_2020">(<a href="#ref-rstudio_team_rstudio_2020" role="doc-biblioref">RStudio Team 2020</a>)</span> using different libraries <span class="citation" data-cites="wickham_readr_2022 pebesma_simple_2018 spinu_lubridate_2023 sievert_plotly_2022 pedersen_patchwork_2022 iannone_gt_2022">Wickham and RStudio (<a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">2022</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File with basins data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>basins_file <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"used_files/Created_csv/basins_file.csv"</span>) </span>
@@ -305,7 +305,7 @@ div.csl-indent {
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Basin 14 have data only from July 2011. The first row (2011) is therefore eliminated</span></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>obs_anual[[<span class="dv">14</span>]] <span class="ot">&lt;-</span> obs_anual[[<span class="dv">14</span>]][<span class="sc">-</span><span class="dv">1</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Daily precipitation data (mm) was aggregated to calculate the annual precipitation (mm/year) for each grid point and then the average precipitation for each subbasin. Despite other methods (i.e., interpolation) could estimate the average precipitation in a more accurate way, considering the resolution of the used weather grids this approximation has been considered appropriate. The average maximum, minimum and mean temperature was calculated in a similar way <span class="citation" data-cites="garcia_serie_2017">(but from the AEMET maximum and minimum temperature grid, <a href="#ref-garcia_serie_2017" role="doc-biblioref">25</a>)</span> for each year in all the subbasins to reinforce the discussion of the results, as this variable directly affects the evapotranspiration and therefore to the runoff coefficient.</p>
+<p>Daily precipitation data (mm) was aggregated to calculate the annual precipitation (mm/year) for each grid point and then the average precipitation for each subbasin. Despite other methods (i.e., interpolation) could estimate the average precipitation in a more accurate way, considering the resolution of the used weather grids this approximation has been considered appropriate. The average maximum, minimum and mean temperature was calculated in a similar way <span class="citation" data-cites="garcia_serie_2017">(but from the AEMET maximum and minimum temperature grid, <a href="#ref-garcia_serie_2017" role="doc-biblioref">García, Fernández-Victorio, and Calzado 2017</a>)</span> for each year in all the subbasins to reinforce the discussion of the results, as this variable directly affects the evapotranspiration and therefore to the runoff coefficient.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Precipitation points files path</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"used_files/Data/Climate_data_extracted/pcp_spain/"</span></span>
@@ -377,25 +377,25 @@ div.csl-indent {
 </section>
 <section id="baseflow-contribution-estimation" class="level4">
 <h4 class="anchored" data-anchor-id="baseflow-contribution-estimation">3.4. Baseflow contribution estimation</h4>
-<p>In this work, the baseflow contribution has been calculated for the 19 selected subbasins using a baseflow filter function based on the equation proposed by <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">39</a>)</span>, <a href="#eq-bf_filter">Equation&nbsp;1</a>. This equation calculates the baseflow for a day (b<sub>k</sub>) based on the two filter parameters (<em>alpha</em> and <em>BFImax</em>) and the streamflow of this day (y<sub>k</sub>).</p>
+<p>In this work, the baseflow contribution has been calculated for the 19 selected subbasins using a baseflow filter function based on the equation proposed by <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">Eckhardt 2005</a>)</span>, <a href="#eq-bf_filter">Equation&nbsp;1</a>. This equation calculates the baseflow for a day (b<sub>k</sub>) based on the two filter parameters (<em>alpha</em> and <em>BFImax</em>) and the streamflow of this day (y<sub>k</sub>).</p>
 <p><span id="eq-bf_filter"><span class="math display">\[ b_{k} = \frac{(1 - BFImax) * alpha * b_{k-1} + (1 - alpha) * BFImax * y_{k}} { 1 - alpha * BFImax}  \tag{1}\]</span></span></p>
-<p><em>BFImax</em> is the maximum value of baseflow contribution expected for one day, and <em>alpha</em> is defined by <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">39</a>)</span> as a recession constant in the form:</p>
+<p><em>BFImax</em> is the maximum value of baseflow contribution expected for one day, and <em>alpha</em> is defined by <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">Eckhardt 2005</a>)</span> as a recession constant in the form:</p>
 <p><span id="eq-alpha_rec_constant"><span class="math display">\[ b_{k} = alpha * b_{k-1}  \tag{2}\]</span></span></p>
-<p>This might be slightly confusing since the literature <span class="citation" data-cites="maillet_essais_1905 zhu_estimation_2010">(<a href="#ref-maillet_essais_1905" role="doc-biblioref">40</a>,<a href="#ref-zhu_estimation_2010" role="doc-biblioref">41</a>)</span> usually represents the groundwater recession constant as α, like in <a href="#eq-gw_recession">Equation&nbsp;3</a>, where Q<sub>0</sub> is the streamflow at the beginning of the recession and Q<sub>t</sub> is the streamflow in the day t:</p>
+<p>This might be slightly confusing since the literature <span class="citation" data-cites="maillet_essais_1905 zhu_estimation_2010">(<a href="#ref-maillet_essais_1905" role="doc-biblioref">Maillet 1905</a>; <a href="#ref-zhu_estimation_2010" role="doc-biblioref">Zhu, Zheng, and Liu 2010</a>)</span> usually represents the groundwater recession constant as α, like in <a href="#eq-gw_recession">Equation&nbsp;3</a>, where Q<sub>0</sub> is the streamflow at the beginning of the recession and Q<sub>t</sub> is the streamflow in the day t:</p>
 <p><span id="eq-gw_recession"><span class="math display">\[  Q_{t} = Q_{0} * e^{-α * t}  \tag{3}\]</span></span></p>
 <p><a href="#eq-gw_recession">Equation&nbsp;3</a> can be converted to a linear equation (<span class="math inline">\(y = mx + b\)</span>) using logarithms, where the intercept is the streamflow at the beginning of the recession and the slope is the groundwater recession constant (α):</p>
 <p><span id="eq-gw_linear_recession"><span class="math display">\[ ln(Q_{t}) = ln(Q_{0})-α * t \tag{4}\]</span></span></p>
 <p>Considering <a href="#eq-alpha_rec_constant">Equation&nbsp;2</a> and <a href="#eq-gw_recession">Equation&nbsp;3</a> when <span class="math inline">\(t = 1\)</span>, and making the assumption that during the recession all the flow is baseflow, it can be deduced that:</p>
 <p><span id="eq-alpha_conversion"><span class="math display">\[alpha = e^{-α} \tag{5}\]</span></span></p>
-<p>The effects of these parameters on the baseflow estimation have been assessed to know their importance (<a href="#fig-parameters_effect">Figure&nbsp;3</a>). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. <em>BFImax</em> affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the <em>BFImax</em> values. <em>alpha</em> controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of <em>alpha</em> less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of <em>alpha</em> prevents the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher <em>BFImax</em> values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore <em>alpha</em> value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">21</a>)</span>.</p>
+<p>The effects of these parameters on the baseflow estimation have been assessed to know their importance (<a href="#fig-parameters_effect">Figure&nbsp;3</a>). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. <em>BFImax</em> affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the <em>BFImax</em> values. <em>alpha</em> controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of <em>alpha</em> less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of <em>alpha</em> prevents the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher <em>BFImax</em> values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore <em>alpha</em> value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
 <div id="fig-parameters_effect" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/parameters_effect_plot.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3: Parameters effect on the baseflow filter calculation.</figcaption><p></p>
 </figure>
 </div>
-<p>In order to provide realistic values to the baseflow filter, <em>alpha</em> has been estimated for each basin, and <em>BFImax</em> has been established considering the recommended ranges depending on the basin properties <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">39</a>)</span>, expert knowledge and ensuring that the baseflow separation obtained is realistic through its graphical representation.</p>
-<p>For the estimation of <em>alpha</em>, the groundwater recession constant (α) was calculated using the function attributed to Maillet <span class="citation" data-cites="maillet_essais_1905">(<a href="#ref-maillet_essais_1905" role="doc-biblioref">40</a>)</span>, <a href="#eq-gw_recession">Equation&nbsp;3</a>. This equation assumes that the aquifer behaves like a reservoir which releases water following a linear function, and although this assumption is not strictly correct, it is considered a valid and convenient simplification <span class="citation" data-cites="wittenberg_baseflow_1999">(<a href="#ref-wittenberg_baseflow_1999" role="doc-biblioref">42</a>)</span>. In this way, from daily streamflow records, the groundwater recession constant can be estimated through a linear regression of the recession curve, where the slope is this constant. The groundwater recession curve was identified for three representative streamflow peaks in each subbasin. These peaks were selected considering aspects such as their magnitude, duration and shape (<a href="#fig-recession_curve">Figure&nbsp;4</a>). A linear regression of the neperian logarithm of the streamflow on the recession time (<a href="#fig-recession_curve">Figure&nbsp;4</a>) was performed using the <em>stats::lm()</em> function, obtaining a linear equation similar to <a href="#eq-gw_recession">Equation&nbsp;3</a>. The initial point of the recession curve has been selected when the direct runoff ceased and the baseflow took maximum values. Despite the ambiguity in determining the beginning and the end of the recession curve <span class="citation" data-cites="blume_rainfallrunoff_2007">(<a href="#ref-blume_rainfallrunoff_2007" role="doc-biblioref">12</a>)</span>, representing the streamflow with a semi logarithmic axis can help to determine these points, since the recession curve conforms approximately to a straight line (<a href="#fig-recession_curve">Figure&nbsp;4</a>). A minimum of 10 days of recession curve, which ensures that the linearity of the equation is a good approximation <span class="citation" data-cites="chapman_comparison_1999">(<a href="#ref-chapman_comparison_1999" role="doc-biblioref">43</a>)</span>, and a minimum value of determination coefficient 0.8 were used as criteria for calculating the groundwater recession constant. Despite a recession curve without any precipitation is desirable for adjusting the linear regression, it was not always possible to comply with this condition due to the data itself. Following this methodology, the linear regression equation slope (α) has been calculated for deriving the <em>alpha</em> parameter <a href="#eq-alpha_conversion">Equation&nbsp;5</a>, as showed below.</p>
+<p>In order to provide realistic values to the baseflow filter, <em>alpha</em> has been estimated for each basin, and <em>BFImax</em> has been established considering the recommended ranges depending on the basin properties <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">Eckhardt 2005</a>)</span>, expert knowledge and ensuring that the baseflow separation obtained is realistic through its graphical representation.</p>
+<p>For the estimation of <em>alpha</em>, the groundwater recession constant (α) was calculated using the function attributed to Maillet <span class="citation" data-cites="maillet_essais_1905">(<a href="#ref-maillet_essais_1905" role="doc-biblioref">1905</a>)</span>, <a href="#eq-gw_recession">Equation&nbsp;3</a>. This equation assumes that the aquifer behaves like a reservoir which releases water following a linear function, and although this assumption is not strictly correct, it is considered a valid and convenient simplification <span class="citation" data-cites="wittenberg_baseflow_1999">(<a href="#ref-wittenberg_baseflow_1999" role="doc-biblioref">Wittenberg 1999</a>)</span>. In this way, from daily streamflow records, the groundwater recession constant can be estimated through a linear regression of the recession curve, where the slope is this constant. The groundwater recession curve was identified for three representative streamflow peaks in each subbasin. These peaks were selected considering aspects such as their magnitude, duration and shape (<a href="#fig-recession_curve">Figure&nbsp;4</a>). A linear regression of the neperian logarithm of the streamflow on the recession time (<a href="#fig-recession_curve">Figure&nbsp;4</a>) was performed using the <em>stats::lm()</em> function, obtaining a linear equation similar to <a href="#eq-gw_recession">Equation&nbsp;3</a>. The initial point of the recession curve has been selected when the direct runoff ceased and the baseflow took maximum values. Despite the ambiguity in determining the beginning and the end of the recession curve <span class="citation" data-cites="blume_rainfallrunoff_2007">(<a href="#ref-blume_rainfallrunoff_2007" role="doc-biblioref">Blume, Zehe, and Bronstert 2007</a>)</span>, representing the streamflow with a semi logarithmic axis can help to determine these points, since the recession curve conforms approximately to a straight line (<a href="#fig-recession_curve">Figure&nbsp;4</a>). A minimum of 10 days of recession curve, which ensures that the linearity of the equation is a good approximation <span class="citation" data-cites="chapman_comparison_1999">(<a href="#ref-chapman_comparison_1999" role="doc-biblioref">Chapman 1999</a>)</span>, and a minimum value of determination coefficient 0.8 were used as criteria for calculating the groundwater recession constant. Despite a recession curve without any precipitation is desirable for adjusting the linear regression, it was not always possible to comply with this condition due to the data itself. Following this methodology, the linear regression equation slope (α) has been calculated for deriving the <em>alpha</em> parameter <a href="#eq-alpha_conversion">Equation&nbsp;5</a>, as showed below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Performed for subbasin 4, Peralejo</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   peralejo <span class="ot">&lt;-</span> gauging_data_tagus <span class="sc">%&gt;%</span> <span class="fu">filter</span>(., cod <span class="sc">==</span> <span class="dv">3001</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">&gt;</span> <span class="dv">2009</span>)</span>
@@ -418,7 +418,7 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">Figure&nbsp;4: Peaks selection, groundwater recesssion curve identification and linear adjustment performed for subbasin 4.</figcaption><p></p>
 </figure>
 </div>
-<p>Three <em>alpha</em> values were calculated with this method for each basin, having a range of values to introduce in the baseflow filter function. For <em>BFImax</em>, the recommended values are around 0.8 for perennial streams with porous aquifers, around 0.5 for ephemeral streams with porous aquifers, and around 0.25 for perennial streams with hard rock aquifers <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">39</a>)</span>. However, these values leaded in some cases to an overestimation of the baseflow and to unreal components separation, then these values were adjusted in each case considering the properties of each basin and the expert knowledge. For each basin, different <em>alpha</em> and <em>BFImax</em> values were adjusted to obtain a realistic baseflow component separation for three representative peaks, and once this was reached, the average contribution of the baseflow to the streamflow (Bf<sub>c</sub>) was calculated with <a href="#eq-bf_contribution">Equation&nbsp;6</a>, where n is the number of days for which the filter is applied, bf<sub>k</sub> is the baseflow contribution for the day k and rn<sub>k</sub> is the runoff contribution for the day k.</p>
+<p>Three <em>alpha</em> values were calculated with this method for each basin, having a range of values to introduce in the baseflow filter function. For <em>BFImax</em>, the recommended values are around 0.8 for perennial streams with porous aquifers, around 0.5 for ephemeral streams with porous aquifers, and around 0.25 for perennial streams with hard rock aquifers <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">Eckhardt 2005</a>)</span>. However, these values leaded in some cases to an overestimation of the baseflow and to unreal components separation, then these values were adjusted in each case considering the properties of each basin and the expert knowledge. For each basin, different <em>alpha</em> and <em>BFImax</em> values were adjusted to obtain a realistic baseflow component separation for three representative peaks, and once this was reached, the average contribution of the baseflow to the streamflow (Bf<sub>c</sub>) was calculated with <a href="#eq-bf_contribution">Equation&nbsp;6</a>, where n is the number of days for which the filter is applied, bf<sub>k</sub> is the baseflow contribution for the day k and rn<sub>k</sub> is the runoff contribution for the day k.</p>
 <p><span id="eq-bf_contribution"><span class="math display">\[ Bf_c =  \frac {\sum_{1}^{n} bf_k}  {\sum_{1}^{n} (bf_k + rn_k)}    \tag{6}\]</span></span></p>
 <p>The following example shows for one subbasin how the filter has been used. This example is represented in <a href="#fig-bfsep_example">Figure&nbsp;5</a>, where daily precipitation has been represented above the baselow estimation in order to help to perform the streamflow components separation.</p>
 <div class="cell">
@@ -464,12 +464,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_runoff_rates" class="anchored">
 
-<div id="hjhnhgjgyn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="dseyxugpjz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#hjhnhgjgyn) .gt_table {
+:where(#dseyxugpjz) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -494,7 +494,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_heading {
+:where(#dseyxugpjz) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -506,12 +506,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_caption {
+:where(#dseyxugpjz) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#hjhnhgjgyn) .gt_title {
+:where(#dseyxugpjz) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -523,7 +523,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#hjhnhgjgyn) .gt_subtitle {
+:where(#dseyxugpjz) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -535,13 +535,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#hjhnhgjgyn) .gt_bottom_border {
+:where(#dseyxugpjz) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_col_headings {
+:where(#dseyxugpjz) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -556,7 +556,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_col_heading {
+:where(#dseyxugpjz) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -576,7 +576,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#hjhnhgjgyn) .gt_column_spanner_outer {
+:where(#dseyxugpjz) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -588,15 +588,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#hjhnhgjgyn) .gt_column_spanner_outer:first-child {
+:where(#dseyxugpjz) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#hjhnhgjgyn) .gt_column_spanner_outer:last-child {
+:where(#dseyxugpjz) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#hjhnhgjgyn) .gt_column_spanner {
+:where(#dseyxugpjz) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -608,7 +608,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#hjhnhgjgyn) .gt_group_heading {
+:where(#dseyxugpjz) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -634,7 +634,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#hjhnhgjgyn) .gt_empty_group_heading {
+:where(#dseyxugpjz) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -649,15 +649,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#hjhnhgjgyn) .gt_from_md > :first-child {
+:where(#dseyxugpjz) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#hjhnhgjgyn) .gt_from_md > :last-child {
+:where(#dseyxugpjz) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#hjhnhgjgyn) .gt_row {
+:where(#dseyxugpjz) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -676,7 +676,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#hjhnhgjgyn) .gt_stub {
+:where(#dseyxugpjz) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -689,7 +689,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#hjhnhgjgyn) .gt_stub_row_group {
+:where(#dseyxugpjz) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -703,11 +703,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#hjhnhgjgyn) .gt_row_group_first td {
+:where(#dseyxugpjz) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#hjhnhgjgyn) .gt_summary_row {
+:where(#dseyxugpjz) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -717,16 +717,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#hjhnhgjgyn) .gt_first_summary_row {
+:where(#dseyxugpjz) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_first_summary_row.thick {
+:where(#dseyxugpjz) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#hjhnhgjgyn) .gt_last_summary_row {
+:where(#dseyxugpjz) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -736,7 +736,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_grand_summary_row {
+:where(#dseyxugpjz) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -746,7 +746,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#hjhnhgjgyn) .gt_first_grand_summary_row {
+:where(#dseyxugpjz) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,11 +756,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_striped {
+:where(#dseyxugpjz) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#hjhnhgjgyn) .gt_table_body {
+:where(#dseyxugpjz) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -769,7 +769,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#hjhnhgjgyn) .gt_footnotes {
+:where(#dseyxugpjz) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +783,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_footnote {
+:where(#dseyxugpjz) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -792,7 +792,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#hjhnhgjgyn) .gt_sourcenotes {
+:where(#dseyxugpjz) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -806,7 +806,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#hjhnhgjgyn) .gt_sourcenote {
+:where(#dseyxugpjz) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -814,64 +814,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#hjhnhgjgyn) .gt_left {
+:where(#dseyxugpjz) .gt_left {
   text-align: left;
 }
 
-:where(#hjhnhgjgyn) .gt_center {
+:where(#dseyxugpjz) .gt_center {
   text-align: center;
 }
 
-:where(#hjhnhgjgyn) .gt_right {
+:where(#dseyxugpjz) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#hjhnhgjgyn) .gt_font_normal {
+:where(#dseyxugpjz) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#hjhnhgjgyn) .gt_font_bold {
+:where(#dseyxugpjz) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#hjhnhgjgyn) .gt_font_italic {
+:where(#dseyxugpjz) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#hjhnhgjgyn) .gt_super {
+:where(#dseyxugpjz) .gt_super {
   font-size: 65%;
 }
 
-:where(#hjhnhgjgyn) .gt_footnote_marks {
+:where(#dseyxugpjz) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#hjhnhgjgyn) .gt_asterisk {
+:where(#dseyxugpjz) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#hjhnhgjgyn) .gt_indent_1 {
+:where(#dseyxugpjz) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#hjhnhgjgyn) .gt_indent_2 {
+:where(#dseyxugpjz) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#hjhnhgjgyn) .gt_indent_3 {
+:where(#dseyxugpjz) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#hjhnhgjgyn) .gt_indent_4 {
+:where(#dseyxugpjz) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#hjhnhgjgyn) .gt_indent_5 {
+:where(#dseyxugpjz) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -930,7 +930,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The influence of the lithology is highlighted when aggregating at region scale. For example, although temperature is slightly higher and precipitation is slightly lower in the high permeability detrital region, its runoff coefficient doubles the runoff coefficient of the low permeability region. Runoff coefficient is higher in the IMP and CRB regions, where not only precipitation and temperature are more favorable for generating runoff, but also lithology and the mountainous topography. Regions DTAL and DTBJ are flatter and warmer than the CRB region, and evapotranspiration is favored under these conditions <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">13</a>)</span>. It should be noted the subbasins selected in CRB region are closely located (<a href="#fig-location">Figure&nbsp;1</a>), thus they have a similar climate. Therefore, the runoff coefficient varies less than in the IMP region, where subbasin 3 is located in a more arid region than subbasins 1 and 2. Regardless this, the CRB region seems to be less influenced by climate than IMP region, which could be explained by its aquifer properties, allowing a higher recharge thus limiting the amount of water available for evapotranspiration. In DTAL and DTBJ regions, runoff coefficient its always lower than 10% (even 4% in DTBJ), which indicates that most of the precipitation becomes evapotranspirated. Even though some areas of the DTBJ region subbasins are conformed by medium permeability carbonate and detrital materials, runoff coefficient in this region is much lower than in DTAL, which points to a high influence of the presence of low permeability materials, which in combination with a flat topography, low precipitation and warmer temperatures lead to a very high evapotranspiration. Precisely due to the flat topography, it should be also acknowledged the possibility that a small amount of the recharged water might be released to the streamflow downstream the gauging points, but it is not expected to be a significant amount since the subbasins selected are relatively large.</p>
+<p>The influence of the lithology is highlighted when aggregating at region scale. For example, although temperature is slightly higher and precipitation is slightly lower in the high permeability detrital region, its runoff coefficient doubles the runoff coefficient of the low permeability region. Runoff coefficient is higher in the IMP and CRB regions, where not only precipitation and temperature are more favorable for generating runoff, but also lithology and the mountainous topography. Regions DTAL and DTBJ are flatter and warmer than the CRB region, and evapotranspiration is favored under these conditions <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. It should be noted the subbasins selected in CRB region are closely located (<a href="#fig-location">Figure&nbsp;1</a>), thus they have a similar climate. Therefore, the runoff coefficient varies less than in the IMP region, where subbasin 3 is located in a more arid region than subbasins 1 and 2. Regardless this, the CRB region seems to be less influenced by climate than IMP region, which could be explained by its aquifer properties, allowing a higher recharge thus limiting the amount of water available for evapotranspiration. In DTAL and DTBJ regions, runoff coefficient its always lower than 10% (even 4% in DTBJ), which indicates that most of the precipitation becomes evapotranspirated. Even though some areas of the DTBJ region subbasins are conformed by medium permeability carbonate and detrital materials, runoff coefficient in this region is much lower than in DTAL, which points to a high influence of the presence of low permeability materials, which in combination with a flat topography, low precipitation and warmer temperatures lead to a very high evapotranspiration. Precisely due to the flat topography, it should be also acknowledged the possibility that a small amount of the recharged water might be released to the streamflow downstream the gauging points, but it is not expected to be a significant amount since the subbasins selected are relatively large.</p>
 <p>Subbasins with mixed lithology yielded the widest range of runoff coefficient values, which could be expected. In line with the results discussed above, mixed lithology subbasins where igneous, metamorphic or carbonated materials dominate showed higher runoff coefficients, while the lowest values were obtained in those mixed subbasins where detrital materials with low permeability are present (e.g., subbasin 17, Appendix 2).</p>
 </section>
 <section id="baseflow-index-values" class="level4">
@@ -940,12 +940,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_alphas" class="anchored">
 
-<div id="rppggukcem" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gpxnlcpecr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#rppggukcem) .gt_table {
+:where(#gpxnlcpecr) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -970,7 +970,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_heading {
+:where(#gpxnlcpecr) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -982,12 +982,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_caption {
+:where(#gpxnlcpecr) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#rppggukcem) .gt_title {
+:where(#gpxnlcpecr) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -999,7 +999,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#rppggukcem) .gt_subtitle {
+:where(#gpxnlcpecr) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1011,13 +1011,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#rppggukcem) .gt_bottom_border {
+:where(#gpxnlcpecr) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_col_headings {
+:where(#gpxnlcpecr) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1032,7 +1032,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_col_heading {
+:where(#gpxnlcpecr) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1052,7 +1052,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rppggukcem) .gt_column_spanner_outer {
+:where(#gpxnlcpecr) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1064,15 +1064,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#rppggukcem) .gt_column_spanner_outer:first-child {
+:where(#gpxnlcpecr) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#rppggukcem) .gt_column_spanner_outer:last-child {
+:where(#gpxnlcpecr) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#rppggukcem) .gt_column_spanner {
+:where(#gpxnlcpecr) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1084,7 +1084,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#rppggukcem) .gt_group_heading {
+:where(#gpxnlcpecr) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1110,7 +1110,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#rppggukcem) .gt_empty_group_heading {
+:where(#gpxnlcpecr) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1125,15 +1125,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#rppggukcem) .gt_from_md > :first-child {
+:where(#gpxnlcpecr) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#rppggukcem) .gt_from_md > :last-child {
+:where(#gpxnlcpecr) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#rppggukcem) .gt_row {
+:where(#gpxnlcpecr) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1152,7 +1152,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rppggukcem) .gt_stub {
+:where(#gpxnlcpecr) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1165,7 +1165,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rppggukcem) .gt_stub_row_group {
+:where(#gpxnlcpecr) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1179,11 +1179,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#rppggukcem) .gt_row_group_first td {
+:where(#gpxnlcpecr) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#rppggukcem) .gt_summary_row {
+:where(#gpxnlcpecr) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1193,16 +1193,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rppggukcem) .gt_first_summary_row {
+:where(#gpxnlcpecr) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_first_summary_row.thick {
+:where(#gpxnlcpecr) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#rppggukcem) .gt_last_summary_row {
+:where(#gpxnlcpecr) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1212,7 +1212,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_grand_summary_row {
+:where(#gpxnlcpecr) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1222,7 +1222,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rppggukcem) .gt_first_grand_summary_row {
+:where(#gpxnlcpecr) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1232,11 +1232,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_striped {
+:where(#gpxnlcpecr) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#rppggukcem) .gt_table_body {
+:where(#gpxnlcpecr) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1245,7 +1245,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#rppggukcem) .gt_footnotes {
+:where(#gpxnlcpecr) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1259,7 +1259,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_footnote {
+:where(#gpxnlcpecr) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1268,7 +1268,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rppggukcem) .gt_sourcenotes {
+:where(#gpxnlcpecr) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1282,7 +1282,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rppggukcem) .gt_sourcenote {
+:where(#gpxnlcpecr) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1290,64 +1290,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rppggukcem) .gt_left {
+:where(#gpxnlcpecr) .gt_left {
   text-align: left;
 }
 
-:where(#rppggukcem) .gt_center {
+:where(#gpxnlcpecr) .gt_center {
   text-align: center;
 }
 
-:where(#rppggukcem) .gt_right {
+:where(#gpxnlcpecr) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#rppggukcem) .gt_font_normal {
+:where(#gpxnlcpecr) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#rppggukcem) .gt_font_bold {
+:where(#gpxnlcpecr) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#rppggukcem) .gt_font_italic {
+:where(#gpxnlcpecr) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#rppggukcem) .gt_super {
+:where(#gpxnlcpecr) .gt_super {
   font-size: 65%;
 }
 
-:where(#rppggukcem) .gt_footnote_marks {
+:where(#gpxnlcpecr) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#rppggukcem) .gt_asterisk {
+:where(#gpxnlcpecr) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#rppggukcem) .gt_indent_1 {
+:where(#gpxnlcpecr) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#rppggukcem) .gt_indent_2 {
+:where(#gpxnlcpecr) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#rppggukcem) .gt_indent_3 {
+:where(#gpxnlcpecr) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#rppggukcem) .gt_indent_4 {
+:where(#gpxnlcpecr) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#rppggukcem) .gt_indent_5 {
+:where(#gpxnlcpecr) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1399,9 +1399,9 @@ div.csl-indent {
 <p>Regarding the detrital regions, the high permeability one showed the highest alpha value. The porosity of the high permeability materials, despite being higher than the materials of the CRB region, does not have fractures, which could have led to a slower recession response. The low permeability detrital region (DTBJ) showed an alpha value similar to the DTAL region, instead of being higher (thus less sensitive), as it would be expected. However, as mentioned before, the subbasins selected for the DTBJ region do not only consist of materials with low permeability, complicating results comparison. In fact, the DTBJ region seems to have a relevant contribution of baseflow, and its response to precipitation events seems to be slow (which can be explained to a low transmissivity derived from the low permeability materials). A graphical comparison of the hydrographs for one hydrological year (October-September) among subbasins located in the different geological regions is included in Appendix III, allowing to visualize some of the previous insights.</p>
 <p>Once the three <em>alpha</em> values were obtained for each basin, a range of potential <em>alpha</em> values was estimated. Different values within this range were used for running the filter, in order to obtain a realistic separation of the hydrograph components. The values of <em>BFImax</em> were based both in the recommended values and in the expert knowledge of each basin, and the baseflow index was calculated for the entire period with <a href="#eq-bf_contribution">Equation&nbsp;6</a>. The results obtained through this methodology are highly influenced by the parameters used (specially <em>BFImax</em>), and therefore it is a subjective methodology. However, it is a useful tool that, used based on expert knowledge criterion, helps to estimate the relevance of groundwater contribution to the streamflow, thus further aiding in eventual soft calibration procedures.</p>
 <p>After using this methodology, authors want to highlight some considerations or advises in order to help other modelers.</p>
-<p>First, regarding the filter parameters, although <em>alpha</em> has been calculated from real hydrographs and <em>BFImax</em> values are recommended in literature, the values of the parameters must be settled by the user considering the basin characteristics. The influence that some factors (such as snowmelt or precipitations during the recession curve) have on the <em>alpha</em> value calculation should be considered. Therefore, the obtained <em>alpha</em> average does not necessarily have to be the used value, and it can be modified depending on factors such as the mentioned. Regarding the <em>BFImax</em> parameter, which will influence in a major extent the result obtained, should be adjusted carefully after reviewing the basin lithology and the characteristics of the peaks (e.g., recession curves during first months of the year could be also altered by snowmelt, which can suppose most of the baseflow in regions with snow processes, particularly if they are impervious). Adjustment of this parameter has been subjective in some subbasins with an impervious lithology (e.g., Basin 1, Navaluenga), as looking at the hydrograph, groundwater contribution should not be neglected despite presumably being impervious <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">44</a>)</span>. As <a href="#fig-parameters_effect">Figure&nbsp;3</a> shows, both parameters are sensitive to the baseflow separation, and a realistic baseflow separation has been prioritized rather than using the calculated or recommended parameter values for <em>alpha</em> and <em>BFImax</em>.</p>
+<p>First, regarding the filter parameters, although <em>alpha</em> has been calculated from real hydrographs and <em>BFImax</em> values are recommended in literature, the values of the parameters must be settled by the user considering the basin characteristics. The influence that some factors (such as snowmelt or precipitations during the recession curve) have on the <em>alpha</em> value calculation should be considered. Therefore, the obtained <em>alpha</em> average does not necessarily have to be the used value, and it can be modified depending on factors such as the mentioned. Regarding the <em>BFImax</em> parameter, which will influence in a major extent the result obtained, should be adjusted carefully after reviewing the basin lithology and the characteristics of the peaks (e.g., recession curves during first months of the year could be also altered by snowmelt, which can suppose most of the baseflow in regions with snow processes, particularly if they are impervious). Adjustment of this parameter has been subjective in some subbasins with an impervious lithology (e.g., Basin 1, Navaluenga), as looking at the hydrograph, groundwater contribution should not be neglected despite presumably being impervious <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">Martín-Loeches et al. 2020</a>)</span>. As <a href="#fig-parameters_effect">Figure&nbsp;3</a> shows, both parameters are sensitive to the baseflow separation, and a realistic baseflow separation has been prioritized rather than using the calculated or recommended parameter values for <em>alpha</em> and <em>BFImax</em>.</p>
 <p>Another consideration is about the data reliability. When applying the filter, the total value of streamflow in one day affects to the baseflow calculation in the next days. Therefore, if an anomalous value of streamflow is recorded (i.e., a very low value among a higher values series), we recommended to manually change this value to calculate the baseflow in a realistic way. Luckily enough, data used for this work have little anomalous values, and therefore, after examining them, a clean process was not considered necessary.</p>
-<p>In this case, a configuration of the baseflow parameters suitable for three different peaks has been searched, because looking at only one event could have led to a non representative value of baseflow contribution. A correct approximation for three different events has been preferred than a perfect hydrograph separation for only one peak, as it provides confidence regarding the acceptability of the chosen parameter values. However, it should be acknowledged that this method might not allow to achieve a completely realistic separation (e.g., baseflow underestimated during long low flows periods and overestimated when precipitation events occur, <a href="#fig-bfsep_example">Figure&nbsp;5</a>) and therefore, an intermediate solution must be found to compensate for these inaccuracies. These limitations have been reported by other authors <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">21</a>)</span>, and should be keept in mind when applying digital filters.</p>
+<p>In this case, a configuration of the baseflow parameters suitable for three different peaks has been searched, because looking at only one event could have led to a non representative value of baseflow contribution. A correct approximation for three different events has been preferred than a perfect hydrograph separation for only one peak, as it provides confidence regarding the acceptability of the chosen parameter values. However, it should be acknowledged that this method might not allow to achieve a completely realistic separation (e.g., baseflow underestimated during long low flows periods and overestimated when precipitation events occur, <a href="#fig-bfsep_example">Figure&nbsp;5</a>) and therefore, an intermediate solution must be found to compensate for these inaccuracies. These limitations have been reported by other authors <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>, and should be keept in mind when applying digital filters.</p>
 <p>Last consideration is about the time scale used to evaluate the separation of the hydrograph components, which also justifies validating the filter separation in three different peaks. Looking at the separation of the hydrograph components for a longer time series including several peaks might lead to a visual perception of a larger amount of groundwater contribution, but looking for individual events allow to conserve the scale and perform properly the separation. <a href="#fig-timescale_effect">Figure&nbsp;6</a> compares how a peak is represented when looking at it inside the entire time series and when looking at it individually.</p>
 <div id="fig-timescale_effect" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -1414,12 +1414,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_gw_results" class="anchored">
 
-<div id="vndaoildpw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rohuiqrejw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#vndaoildpw) .gt_table {
+:where(#rohuiqrejw) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1444,7 +1444,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_heading {
+:where(#rohuiqrejw) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1456,12 +1456,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_caption {
+:where(#rohuiqrejw) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#vndaoildpw) .gt_title {
+:where(#rohuiqrejw) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1473,7 +1473,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#vndaoildpw) .gt_subtitle {
+:where(#rohuiqrejw) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1485,13 +1485,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#vndaoildpw) .gt_bottom_border {
+:where(#rohuiqrejw) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_col_headings {
+:where(#rohuiqrejw) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1506,7 +1506,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_col_heading {
+:where(#rohuiqrejw) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1526,7 +1526,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#vndaoildpw) .gt_column_spanner_outer {
+:where(#rohuiqrejw) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1538,15 +1538,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#vndaoildpw) .gt_column_spanner_outer:first-child {
+:where(#rohuiqrejw) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#vndaoildpw) .gt_column_spanner_outer:last-child {
+:where(#rohuiqrejw) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#vndaoildpw) .gt_column_spanner {
+:where(#rohuiqrejw) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1558,7 +1558,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#vndaoildpw) .gt_group_heading {
+:where(#rohuiqrejw) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1584,7 +1584,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#vndaoildpw) .gt_empty_group_heading {
+:where(#rohuiqrejw) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1599,15 +1599,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#vndaoildpw) .gt_from_md > :first-child {
+:where(#rohuiqrejw) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#vndaoildpw) .gt_from_md > :last-child {
+:where(#rohuiqrejw) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#vndaoildpw) .gt_row {
+:where(#rohuiqrejw) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1626,7 +1626,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#vndaoildpw) .gt_stub {
+:where(#rohuiqrejw) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1639,7 +1639,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vndaoildpw) .gt_stub_row_group {
+:where(#rohuiqrejw) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1653,11 +1653,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#vndaoildpw) .gt_row_group_first td {
+:where(#rohuiqrejw) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#vndaoildpw) .gt_summary_row {
+:where(#rohuiqrejw) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1667,16 +1667,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vndaoildpw) .gt_first_summary_row {
+:where(#rohuiqrejw) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_first_summary_row.thick {
+:where(#rohuiqrejw) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#vndaoildpw) .gt_last_summary_row {
+:where(#rohuiqrejw) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1686,7 +1686,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_grand_summary_row {
+:where(#rohuiqrejw) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1696,7 +1696,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vndaoildpw) .gt_first_grand_summary_row {
+:where(#rohuiqrejw) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1706,11 +1706,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_striped {
+:where(#rohuiqrejw) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#vndaoildpw) .gt_table_body {
+:where(#rohuiqrejw) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1719,7 +1719,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#vndaoildpw) .gt_footnotes {
+:where(#rohuiqrejw) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1733,7 +1733,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_footnote {
+:where(#rohuiqrejw) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1742,7 +1742,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vndaoildpw) .gt_sourcenotes {
+:where(#rohuiqrejw) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1756,7 +1756,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vndaoildpw) .gt_sourcenote {
+:where(#rohuiqrejw) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1764,64 +1764,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vndaoildpw) .gt_left {
+:where(#rohuiqrejw) .gt_left {
   text-align: left;
 }
 
-:where(#vndaoildpw) .gt_center {
+:where(#rohuiqrejw) .gt_center {
   text-align: center;
 }
 
-:where(#vndaoildpw) .gt_right {
+:where(#rohuiqrejw) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#vndaoildpw) .gt_font_normal {
+:where(#rohuiqrejw) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#vndaoildpw) .gt_font_bold {
+:where(#rohuiqrejw) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#vndaoildpw) .gt_font_italic {
+:where(#rohuiqrejw) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#vndaoildpw) .gt_super {
+:where(#rohuiqrejw) .gt_super {
   font-size: 65%;
 }
 
-:where(#vndaoildpw) .gt_footnote_marks {
+:where(#rohuiqrejw) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#vndaoildpw) .gt_asterisk {
+:where(#rohuiqrejw) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#vndaoildpw) .gt_indent_1 {
+:where(#rohuiqrejw) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#vndaoildpw) .gt_indent_2 {
+:where(#rohuiqrejw) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#vndaoildpw) .gt_indent_3 {
+:where(#rohuiqrejw) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#vndaoildpw) .gt_indent_4 {
+:where(#rohuiqrejw) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#vndaoildpw) .gt_indent_5 {
+:where(#rohuiqrejw) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1868,8 +1868,8 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Subbasins located in geological regions with low permeability were expected to have lower baseflow index, while those located in regions with relevant aquifers were expected to have higher rates. A baseflow index around 20% has been estimated for the igneous and metamorphic region (IMP). This value might be considered high for impervious basins, but based in the knowledge about the studied subbasins and the assessment performed, it seems correct. Some indicators, such as the presence of flow during dry periods or phreatophyte vegetation can be used as indicators of groundwater contribution, and these indicators has been observed in some of the subbasins characterized as impervious in this work <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">44</a>)</span>.</p>
-<p>As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes, and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">23</a>)</span> and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix IV).</p>
+<p>Subbasins located in geological regions with low permeability were expected to have lower baseflow index, while those located in regions with relevant aquifers were expected to have higher rates. A baseflow index around 20% has been estimated for the igneous and metamorphic region (IMP). This value might be considered high for impervious basins, but based in the knowledge about the studied subbasins and the assessment performed, it seems correct. Some indicators, such as the presence of flow during dry periods or phreatophyte vegetation can be used as indicators of groundwater contribution, and these indicators has been observed in some of the subbasins characterized as impervious in this work <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">Martín-Loeches et al. 2020</a>)</span>.</p>
+<p>As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes, and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. 2022</a>)</span> and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix IV).</p>
 <p>Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTAL). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTBJ) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTBJ region are noticeable lower than in DTAL region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTBJ region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTBJ region reveal this behavior, since a baseflow is maintained throughout the year (Appendix 3). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.</p>
 <p>In the subbasins located in mixed lithology regions, the baseflow index obtained in average is around 46%, thus relatively high. It could be explained because four of these subbasins (subbasins 16 to 19, Appendix 4) are constituted in a greater extent by carbonate materials, from medium to very high permeability (<a href="#fig-location">Figure&nbsp;1</a>), while only two of these subbasins have impervious igneous and metamorphic materials.</p>
 </section>
@@ -1910,12 +1910,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="yasfdyotxh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="uwwnftpack" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#yasfdyotxh) .gt_table {
+:where(#uwwnftpack) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1940,7 +1940,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_heading {
+:where(#uwwnftpack) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1952,12 +1952,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_caption {
+:where(#uwwnftpack) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#yasfdyotxh) .gt_title {
+:where(#uwwnftpack) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1969,7 +1969,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#yasfdyotxh) .gt_subtitle {
+:where(#uwwnftpack) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1981,13 +1981,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#yasfdyotxh) .gt_bottom_border {
+:where(#uwwnftpack) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_col_headings {
+:where(#uwwnftpack) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2002,7 +2002,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_col_heading {
+:where(#uwwnftpack) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2022,7 +2022,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#yasfdyotxh) .gt_column_spanner_outer {
+:where(#uwwnftpack) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2034,15 +2034,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#yasfdyotxh) .gt_column_spanner_outer:first-child {
+:where(#uwwnftpack) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#yasfdyotxh) .gt_column_spanner_outer:last-child {
+:where(#uwwnftpack) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#yasfdyotxh) .gt_column_spanner {
+:where(#uwwnftpack) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2054,7 +2054,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#yasfdyotxh) .gt_group_heading {
+:where(#uwwnftpack) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2080,7 +2080,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#yasfdyotxh) .gt_empty_group_heading {
+:where(#uwwnftpack) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2095,15 +2095,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#yasfdyotxh) .gt_from_md > :first-child {
+:where(#uwwnftpack) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#yasfdyotxh) .gt_from_md > :last-child {
+:where(#uwwnftpack) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#yasfdyotxh) .gt_row {
+:where(#uwwnftpack) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2122,7 +2122,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#yasfdyotxh) .gt_stub {
+:where(#uwwnftpack) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2135,7 +2135,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yasfdyotxh) .gt_stub_row_group {
+:where(#uwwnftpack) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2149,11 +2149,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#yasfdyotxh) .gt_row_group_first td {
+:where(#uwwnftpack) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#yasfdyotxh) .gt_summary_row {
+:where(#uwwnftpack) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2163,16 +2163,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yasfdyotxh) .gt_first_summary_row {
+:where(#uwwnftpack) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_first_summary_row.thick {
+:where(#uwwnftpack) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#yasfdyotxh) .gt_last_summary_row {
+:where(#uwwnftpack) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2182,7 +2182,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_grand_summary_row {
+:where(#uwwnftpack) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2192,7 +2192,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yasfdyotxh) .gt_first_grand_summary_row {
+:where(#uwwnftpack) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2202,11 +2202,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_striped {
+:where(#uwwnftpack) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#yasfdyotxh) .gt_table_body {
+:where(#uwwnftpack) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2215,7 +2215,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#yasfdyotxh) .gt_footnotes {
+:where(#uwwnftpack) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2229,7 +2229,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_footnote {
+:where(#uwwnftpack) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2238,7 +2238,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yasfdyotxh) .gt_sourcenotes {
+:where(#uwwnftpack) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2252,7 +2252,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yasfdyotxh) .gt_sourcenote {
+:where(#uwwnftpack) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2260,64 +2260,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yasfdyotxh) .gt_left {
+:where(#uwwnftpack) .gt_left {
   text-align: left;
 }
 
-:where(#yasfdyotxh) .gt_center {
+:where(#uwwnftpack) .gt_center {
   text-align: center;
 }
 
-:where(#yasfdyotxh) .gt_right {
+:where(#uwwnftpack) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#yasfdyotxh) .gt_font_normal {
+:where(#uwwnftpack) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#yasfdyotxh) .gt_font_bold {
+:where(#uwwnftpack) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#yasfdyotxh) .gt_font_italic {
+:where(#uwwnftpack) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#yasfdyotxh) .gt_super {
+:where(#uwwnftpack) .gt_super {
   font-size: 65%;
 }
 
-:where(#yasfdyotxh) .gt_footnote_marks {
+:where(#uwwnftpack) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#yasfdyotxh) .gt_asterisk {
+:where(#uwwnftpack) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#yasfdyotxh) .gt_indent_1 {
+:where(#uwwnftpack) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#yasfdyotxh) .gt_indent_2 {
+:where(#uwwnftpack) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#yasfdyotxh) .gt_indent_3 {
+:where(#uwwnftpack) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#yasfdyotxh) .gt_indent_4 {
+:where(#uwwnftpack) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#yasfdyotxh) .gt_indent_5 {
+:where(#uwwnftpack) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2445,12 +2445,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="pvpknuqbpi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qlzdltkrjj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pvpknuqbpi) .gt_table {
+:where(#qlzdltkrjj) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2475,7 +2475,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_heading {
+:where(#qlzdltkrjj) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2487,12 +2487,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_caption {
+:where(#qlzdltkrjj) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#pvpknuqbpi) .gt_title {
+:where(#qlzdltkrjj) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2504,7 +2504,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#pvpknuqbpi) .gt_subtitle {
+:where(#qlzdltkrjj) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2516,13 +2516,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#pvpknuqbpi) .gt_bottom_border {
+:where(#qlzdltkrjj) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_col_headings {
+:where(#qlzdltkrjj) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2537,7 +2537,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_col_heading {
+:where(#qlzdltkrjj) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2557,7 +2557,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#pvpknuqbpi) .gt_column_spanner_outer {
+:where(#qlzdltkrjj) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2569,15 +2569,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#pvpknuqbpi) .gt_column_spanner_outer:first-child {
+:where(#qlzdltkrjj) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pvpknuqbpi) .gt_column_spanner_outer:last-child {
+:where(#qlzdltkrjj) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pvpknuqbpi) .gt_column_spanner {
+:where(#qlzdltkrjj) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2589,7 +2589,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#pvpknuqbpi) .gt_group_heading {
+:where(#qlzdltkrjj) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2615,7 +2615,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#pvpknuqbpi) .gt_empty_group_heading {
+:where(#qlzdltkrjj) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2630,15 +2630,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#pvpknuqbpi) .gt_from_md > :first-child {
+:where(#qlzdltkrjj) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pvpknuqbpi) .gt_from_md > :last-child {
+:where(#qlzdltkrjj) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pvpknuqbpi) .gt_row {
+:where(#qlzdltkrjj) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2657,7 +2657,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#pvpknuqbpi) .gt_stub {
+:where(#qlzdltkrjj) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2670,7 +2670,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvpknuqbpi) .gt_stub_row_group {
+:where(#qlzdltkrjj) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2684,11 +2684,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#pvpknuqbpi) .gt_row_group_first td {
+:where(#qlzdltkrjj) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pvpknuqbpi) .gt_summary_row {
+:where(#qlzdltkrjj) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2698,16 +2698,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvpknuqbpi) .gt_first_summary_row {
+:where(#qlzdltkrjj) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_first_summary_row.thick {
+:where(#qlzdltkrjj) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pvpknuqbpi) .gt_last_summary_row {
+:where(#qlzdltkrjj) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2717,7 +2717,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_grand_summary_row {
+:where(#qlzdltkrjj) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2727,7 +2727,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvpknuqbpi) .gt_first_grand_summary_row {
+:where(#qlzdltkrjj) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2737,11 +2737,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_striped {
+:where(#qlzdltkrjj) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pvpknuqbpi) .gt_table_body {
+:where(#qlzdltkrjj) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2750,7 +2750,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#pvpknuqbpi) .gt_footnotes {
+:where(#qlzdltkrjj) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2764,7 +2764,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_footnote {
+:where(#qlzdltkrjj) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2773,7 +2773,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvpknuqbpi) .gt_sourcenotes {
+:where(#qlzdltkrjj) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2787,7 +2787,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#pvpknuqbpi) .gt_sourcenote {
+:where(#qlzdltkrjj) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2795,64 +2795,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#pvpknuqbpi) .gt_left {
+:where(#qlzdltkrjj) .gt_left {
   text-align: left;
 }
 
-:where(#pvpknuqbpi) .gt_center {
+:where(#qlzdltkrjj) .gt_center {
   text-align: center;
 }
 
-:where(#pvpknuqbpi) .gt_right {
+:where(#qlzdltkrjj) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pvpknuqbpi) .gt_font_normal {
+:where(#qlzdltkrjj) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pvpknuqbpi) .gt_font_bold {
+:where(#qlzdltkrjj) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pvpknuqbpi) .gt_font_italic {
+:where(#qlzdltkrjj) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pvpknuqbpi) .gt_super {
+:where(#qlzdltkrjj) .gt_super {
   font-size: 65%;
 }
 
-:where(#pvpknuqbpi) .gt_footnote_marks {
+:where(#qlzdltkrjj) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pvpknuqbpi) .gt_asterisk {
+:where(#qlzdltkrjj) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pvpknuqbpi) .gt_indent_1 {
+:where(#qlzdltkrjj) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#pvpknuqbpi) .gt_indent_2 {
+:where(#qlzdltkrjj) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#pvpknuqbpi) .gt_indent_3 {
+:where(#qlzdltkrjj) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#pvpknuqbpi) .gt_indent_4 {
+:where(#qlzdltkrjj) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#pvpknuqbpi) .gt_indent_5 {
+:where(#qlzdltkrjj) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3053,12 +3053,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-groundwater_results" class="anchored">
 
-<div id="vvznzvgzfd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="abosmynpqp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#vvznzvgzfd) .gt_table {
+:where(#abosmynpqp) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3083,7 +3083,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_heading {
+:where(#abosmynpqp) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -3095,12 +3095,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_caption {
+:where(#abosmynpqp) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#vvznzvgzfd) .gt_title {
+:where(#abosmynpqp) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3112,7 +3112,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#vvznzvgzfd) .gt_subtitle {
+:where(#abosmynpqp) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3124,13 +3124,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#vvznzvgzfd) .gt_bottom_border {
+:where(#abosmynpqp) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_col_headings {
+:where(#abosmynpqp) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -3145,7 +3145,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_col_heading {
+:where(#abosmynpqp) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3165,7 +3165,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#vvznzvgzfd) .gt_column_spanner_outer {
+:where(#abosmynpqp) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3177,15 +3177,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#vvznzvgzfd) .gt_column_spanner_outer:first-child {
+:where(#abosmynpqp) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#vvznzvgzfd) .gt_column_spanner_outer:last-child {
+:where(#abosmynpqp) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#vvznzvgzfd) .gt_column_spanner {
+:where(#abosmynpqp) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -3197,7 +3197,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#vvznzvgzfd) .gt_group_heading {
+:where(#abosmynpqp) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3223,7 +3223,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#vvznzvgzfd) .gt_empty_group_heading {
+:where(#abosmynpqp) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3238,15 +3238,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#vvznzvgzfd) .gt_from_md > :first-child {
+:where(#abosmynpqp) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#vvznzvgzfd) .gt_from_md > :last-child {
+:where(#abosmynpqp) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#vvznzvgzfd) .gt_row {
+:where(#abosmynpqp) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3265,7 +3265,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#vvznzvgzfd) .gt_stub {
+:where(#abosmynpqp) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3278,7 +3278,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vvznzvgzfd) .gt_stub_row_group {
+:where(#abosmynpqp) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3292,11 +3292,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#vvznzvgzfd) .gt_row_group_first td {
+:where(#abosmynpqp) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#vvznzvgzfd) .gt_summary_row {
+:where(#abosmynpqp) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3306,16 +3306,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vvznzvgzfd) .gt_first_summary_row {
+:where(#abosmynpqp) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_first_summary_row.thick {
+:where(#abosmynpqp) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#vvznzvgzfd) .gt_last_summary_row {
+:where(#abosmynpqp) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3325,7 +3325,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_grand_summary_row {
+:where(#abosmynpqp) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3335,7 +3335,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vvznzvgzfd) .gt_first_grand_summary_row {
+:where(#abosmynpqp) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3345,11 +3345,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_striped {
+:where(#abosmynpqp) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#vvznzvgzfd) .gt_table_body {
+:where(#abosmynpqp) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3358,7 +3358,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#vvznzvgzfd) .gt_footnotes {
+:where(#abosmynpqp) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3372,7 +3372,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_footnote {
+:where(#abosmynpqp) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3381,7 +3381,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vvznzvgzfd) .gt_sourcenotes {
+:where(#abosmynpqp) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3395,7 +3395,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#vvznzvgzfd) .gt_sourcenote {
+:where(#abosmynpqp) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3403,64 +3403,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#vvznzvgzfd) .gt_left {
+:where(#abosmynpqp) .gt_left {
   text-align: left;
 }
 
-:where(#vvznzvgzfd) .gt_center {
+:where(#abosmynpqp) .gt_center {
   text-align: center;
 }
 
-:where(#vvznzvgzfd) .gt_right {
+:where(#abosmynpqp) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#vvznzvgzfd) .gt_font_normal {
+:where(#abosmynpqp) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#vvznzvgzfd) .gt_font_bold {
+:where(#abosmynpqp) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#vvznzvgzfd) .gt_font_italic {
+:where(#abosmynpqp) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#vvznzvgzfd) .gt_super {
+:where(#abosmynpqp) .gt_super {
   font-size: 65%;
 }
 
-:where(#vvznzvgzfd) .gt_footnote_marks {
+:where(#abosmynpqp) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#vvznzvgzfd) .gt_asterisk {
+:where(#abosmynpqp) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#vvznzvgzfd) .gt_indent_1 {
+:where(#abosmynpqp) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#vvznzvgzfd) .gt_indent_2 {
+:where(#abosmynpqp) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#vvznzvgzfd) .gt_indent_3 {
+:where(#abosmynpqp) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#vvznzvgzfd) .gt_indent_4 {
+:where(#abosmynpqp) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#vvznzvgzfd) .gt_indent_5 {
+:where(#abosmynpqp) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3608,138 +3608,138 @@ div.csl-indent {
 </div>
 </div>
 </div>
-</div></section><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-singh_hydrologic_2018" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Singh VP. Hydrologic modeling: Progress and future directions. Geoscience Letters [Internet]. 2018 May 28 [cited 2023 Jan 31];5(1):15. Available from: <a href="https://doi.org/10.1186/s40562-018-0113-z">https://doi.org/10.1186/s40562-018-0113-z</a></div>
-</div>
-<div id="ref-fu_review_2019" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Fu B, Merritt WS, Croke BFW, Weber TR, Jakeman AJ. A review of catchment-scale water quality and erosion models and a synthesis of future prospects. Environmental Modelling &amp; Software [Internet]. 2019 Apr 1 [cited 2023 Jan 31];114:75–97. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S1364815218307461">https://www.sciencedirect.com/science/article/pii/S1364815218307461</a></div>
-</div>
-<div id="ref-seibert_dialog_2002" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Seibert J, McDonnell JJ. On the dialog between experimentalist and modeler in catchment hydrology: Use of soft data for multicriteria model calibration: <span>SOFT</span> <span>DATA</span>. Water Resour Res [Internet]. 2002 Nov [cited 2022 Dec 3];38(11):23-1-23-14. Available from: <a href="http://doi.wiley.com/10.1029/2001WR000978">http://doi.wiley.com/10.1029/2001WR000978</a></div>
-</div>
-<div id="ref-efstratiadis_one_2010" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline">Efstratiadis A, Koutsoyiannis D. One decade of multi-objective calibration approaches in hydrological modelling: A review. Hydrological Sciences Journal [Internet]. 2010 Mar 10 [cited 2022 Dec 3];55(1):58–78. Available from: <a href="https://doi.org/10.1080/02626660903526292">https://doi.org/10.1080/02626660903526292</a></div>
-</div>
-<div id="ref-bahremand_hess_2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline">Bahremand A. <span>HESS</span> opinions: Advocating process modeling and de-emphasizing parameter estimation. Hydrology and Earth System Sciences [Internet]. 2016 Apr 15 [cited 2023 Jan 31];20(4):1433–45. Available from: <a href="https://hess.copernicus.org/articles/20/1433/2016/">https://hess.copernicus.org/articles/20/1433/2016/</a></div>
-</div>
+</div></section><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-acero_triana_beyond_2019" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline">Acero Triana JS, Chu ML, Guzman JA, Moriasi DN, Steiner JL. Beyond model metrics: The perils of calibrating hydrologic models. Journal of Hydrology [Internet]. 2019 Nov 1 [cited 2023 Jan 31];578:124032. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0022169419307590">https://www.sciencedirect.com/science/article/pii/S0022169419307590</a></div>
-</div>
-<div id="ref-muleta_model_2012" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline">Muleta MK. Model performance sensitivity to objective function during automated calibrations. J Hydrol Eng [Internet]. 2012 Jun [cited 2023 Jan 23];17(6):756–67. Available from: <a href="https://ascelibrary.org/doi/10.1061/%28ASCE%29HE.1943-5584.0000497">https://ascelibrary.org/doi/10.1061/%28ASCE%29HE.1943-5584.0000497</a></div>
-</div>
-<div id="ref-molina-navarro_impact_2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline">Molina-Navarro E, Andersen HE, Nielsen A, Thodsen H, Trolle D. The impact of the objective function in multi-site and multi-variable calibration of the <span>SWAT</span> model. Environmental Modelling &amp; Software [Internet]. 2017 Jul 1 [cited 2023 Jan 23];93:255–67. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S1364815217303262">https://www.sciencedirect.com/science/article/pii/S1364815217303262</a></div>
+Acero Triana, Juan S., Maria L. Chu, Jorge A. Guzman, Daniel N. Moriasi, and Jean L. Steiner. 2019. <span>“Beyond Model Metrics: The Perils of Calibrating Hydrologic Models.”</span> <em>Journal of Hydrology</em> 578 (November): 124032. <a href="https://doi.org/10.1016/j.jhydrol.2019.124032">https://doi.org/10.1016/j.jhydrol.2019.124032</a>.
 </div>
 <div id="ref-arnold_hydrological_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline">Arnold, M. A. Youssef, H. Yen, M. J. White, A. Y. Sheshukov, A. M. Sadeghi, et al. Hydrological processes and model representation: Impact of soft data on calibration. Transactions of the <span>ASABE</span> [Internet]. 2015 [cited 2023 Jan 31];58(6):1637–60. Available from: <a href="https://handle.nal.usda.gov/10113/61901">https://handle.nal.usda.gov/10113/61901</a></div>
+Arnold, M. A. Youssef, H. Yen, M. J. White, A. Y. Sheshukov, A. M. Sadeghi, D. N. Moriasi, et al. 2015. <span>“Hydrological Processes and Model Representation: Impact of Soft Data on Calibration.”</span> <em>Transactions of the <span>ASABE</span></em> 58 (6): 1637–60. <a href="https://doi.org/10.13031/trans.58.10726">https://doi.org/10.13031/trans.58.10726</a>.
 </div>
-<div id="ref-pfannerstill_how_2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline">Pfannerstill M, Bieger K, Guse B, Bosch DD, Fohrer N, Arnold JG. How to constrain multi-objective calibrations of the <span>SWAT</span> model using water balance components. <span>JAWRA</span> Journal of the American Water Resources Association [Internet]. 2017 [cited 2023 Jan 31];53(3):532–46. Available from: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1752-1688.12524">https://onlinelibrary.wiley.com/doi/abs/10.1111/1752-1688.12524</a></div>
-</div>
-<div id="ref-chawanda_mass_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div class="csl-right-inline">Chawanda CJ, Arnold J, Thiery W, Griensven A van. Mass balance calibration and reservoir representations for large-scale hydrological impact studies using <span>SWAT</span>+. Climatic Change [Internet]. 2020 Dec 1 [cited 2023 Jan 31];163(3):1307–27. Available from: <a href="https://doi.org/10.1007/s10584-020-02924-x">https://doi.org/10.1007/s10584-020-02924-x</a></div>
+<div id="ref-bahremand_hess_2016" class="csl-entry" role="doc-biblioentry">
+Bahremand, Abdolreza. 2016. <span>“<span>HESS</span> Opinions: Advocating Process Modeling and de-Emphasizing Parameter Estimation.”</span> <em>Hydrology and Earth System Sciences</em> 20 (4): 1433–45. <a href="https://doi.org/10.5194/hess-20-1433-2016">https://doi.org/10.5194/hess-20-1433-2016</a>.
 </div>
 <div id="ref-blume_rainfallrunoff_2007" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div class="csl-right-inline">Blume T, Zehe E, Bronstert A. Rainfall—runoff response, event-based runoff coefficients and hydrograph separation. Hydrological Sciences Journal [Internet]. 2007 [cited 2022 Dec 3];52(5):843–62. Available from: <a href="http://www.tandfonline.com/doi/abs/10.1623/hysj.52.5.843">http://www.tandfonline.com/doi/abs/10.1623/hysj.52.5.843</a></div>
-</div>
-<div id="ref-custodio_hidrologisubterranea_1983" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">13. </div><div class="csl-right-inline">Custodio E, Llamas MR. Hidrología subterránea. Barcelona: Omega, S.A; 1983. </div>
-</div>
-<div id="ref-mockus_national_nodate" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">14. </div><div class="csl-right-inline">Mockus V, Engineer E. <span>NATIONAL</span> <span>ENGINEERING</span> <span>HANDBOOK</span> <span>SECTION</span> 4 <span>HYDROLOGY</span>. </div>
-</div>
-<div id="ref-kirkby_influence_2002" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">15. </div><div class="csl-right-inline">Kirkby M, Bracken L, Reaney S. The influence of land use, soils and topography on the delivery of hillslope runoff to channels in <span>SE</span> spain. Earth Surface Processes and Landforms [Internet]. 2002 [cited 2023 Jan 31];27(13):1459–73. Available from: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/esp.441">https://onlinelibrary.wiley.com/doi/abs/10.1002/esp.441</a></div>
-</div>
-<div id="ref-rodriguez-blanco_rainfallrunoff_2012" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">16. </div><div class="csl-right-inline">Rodríguez-Blanco ML, Taboada-Castro MM, Taboada-Castro MT. Rainfall–runoff response and event-based runoff coefficients in a humid area (northwest spain). Hydrological Sciences Journal [Internet]. 2012 Apr 1 [cited 2023 Jan 31];57(3):445–59. Available from: <a href="https://doi.org/10.1080/02626667.2012.666351">https://doi.org/10.1080/02626667.2012.666351</a></div>
-</div>
-<div id="ref-jodar_groundwater_2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">17. </div><div class="csl-right-inline">Jódar J, Cabrera JA, Martos-Rosillo S, Ruiz-Constán A, González-Ramón A, Lambán LJ, et al. Groundwater discharge in high-mountain watersheds: A valuable resource for downstream semi-arid zones. The case of the bérchules river in sierra nevada (southern spain). Science of The Total Environment [Internet]. 2017 Sep 1 [cited 2023 Jan 31];593-594:760–72. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0048969717307131">https://www.sciencedirect.com/science/article/pii/S0048969717307131</a></div>
-</div>
-<div id="ref-sanchez-gomez_streamflow_2023" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">18. </div><div class="csl-right-inline">Sánchez-Gómez A, Martínez-Pérez S, Leduc S, Sastre-Merlín A, Molina-Navarro E. Streamflow components and climate change: Lessons learnt and energy implications after hydrological modeling experiences in catchments with a mediterranean climate. Energy Reports [Internet]. 2023 Dec 1 [cited 2023 Jan 12];9:277–91. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S2352484722025781">https://www.sciencedirect.com/science/article/pii/S2352484722025781</a></div>
-</div>
-<div id="ref-samper_hydrological_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">19. </div><div class="csl-right-inline">Samper J, Pisani B, Espinha Marques J. Hydrological models of interflow in three iberian mountain basins. Environ Earth Sci [Internet]. 2015 Mar 1 [cited 2023 Jan 31];73(6):2645–56. Available from: <a href="https://doi.org/10.1007/s12665-014-3676-9">https://doi.org/10.1007/s12665-014-3676-9</a></div>
-</div>
-<div id="ref-ortega_using_2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">20. </div><div class="csl-right-inline">Ortega L, Manzano M, Custodio E, Hornero J, Rodríguez-Arévalo J. Using 222Rn to identify and quantify groundwater inflows to the mundo river (<span>SE</span> spain). Chemical Geology [Internet]. 2015 Feb 24 [cited 2023 Jan 31];395:67–79. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S000925411400566X">https://www.sciencedirect.com/science/article/pii/S000925411400566X</a></div>
-</div>
-<div id="ref-kang_baseflow_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">21. </div><div class="csl-right-inline">Kang T, Lee S, Lee N, Jin Y. Baseflow separation using the digital filter method: Review and sensitivity analysis. Water [Internet]. 2022 Jan [cited 2023 Jan 31];14(3):485. Available from: <a href="https://www.mdpi.com/2073-4441/14/3/485">https://www.mdpi.com/2073-4441/14/3/485</a></div>
-</div>
-<div id="ref-sanchez-gomez_innovative_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">22. </div><div class="csl-right-inline">Sánchez-Gómez A, Martínez-Pérez S, Sastre-Merlín A, Bieger K, Molina-Navarro E. Innovative hydrological modelling tools to simulate climate change impacts: Setting up a detailed <span>SWAT</span>+ model in the tagus river basin. In: Proceedings of the 39th <span>IAHR</span> world congress [Internet]. International Association for Hydro-Environment Engineering; Research (<span>IAHR</span>); 2022 [cited 2023 Jan 31]. p. 3030–9. Available from: <a href="https://www.iahr.org/library/infor?pid=21099">https://www.iahr.org/library/infor?pid=21099</a></div>
-</div>
-<div id="ref-sanchez-gomez_optimization_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">23. </div><div class="csl-right-inline">Sánchez-Gómez A, Martínez-Pérez S, Pérez-Chavero FM, Molina-Navarro E. Optimization of a <span>SWAT</span> model by incorporating geological information through calibration strategies. Optim Eng [Internet]. 2022 Dec 1 [cited 2022 Dec 3];23(4):2203–33. Available from: <a href="https://doi.org/10.1007/s11081-022-09744-1">https://doi.org/10.1007/s11081-022-09744-1</a></div>
-</div>
-<div id="ref-chazarra_bernabe_mapas_2018" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">24. </div><div class="csl-right-inline">Chazarra Bernabé A, Flórez García E, Peraza Sánchez B, Tohá Rebull T, Lorenzo Mariño B, Criado Pinto E, et al. Mapas climáticos de España (1981-2010) y <span>ETo</span> (1996-2016) [Internet]. Agencia Estatal de Meteorología; 2018 [cited 2023 Jan 12]. Available from: <a href="http://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/MapasclimaticosdeEspana19812010">http://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/MapasclimaticosdeEspana19812010</a></div>
-</div>
-<div id="ref-garcia_serie_2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">25. </div><div class="csl-right-inline">García CP, Fernández-Victorio BN, Calzado PR. Serie de precipitación diaria en rejilla con fines climáticos [Internet]. Agencia Estatal de Meteorología; 2017 [cited 2023 Jan 12]. Available from: <a href="http://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/NT_24_AEMET">http://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/NT_24_AEMET</a></div>
-</div>
-<div id="ref-del_pozo_gomez_mapa_2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">26. </div><div class="csl-right-inline">Pozo Gómez M del. Mapa litoestratigráfico, de permeabilidades e hidrogeológico de españa a escala 1:200.000 [Internet]. 2009 [cited 2023 Jan 31]. Available from: <a href="https://info.igme.es/cartografiadigital/geologica/mapa.aspx?parent=../tematica/tematicossingulares.aspx&amp;Id=15#mapas">https://info.igme.es/cartografiadigital/geologica/mapa.aspx?parent=../tematica/tematicossingulares.aspx&amp;Id=15#mapas</a></div>
+Blume, Theresa, Erwin Zehe, and Axel Bronstert. 2007. <span>“Rainfall—Runoff Response, Event-Based Runoff Coefficients and Hydrograph Separation.”</span> <em>Hydrological Sciences Journal</em> 52 (5): 843–62. <a href="https://doi.org/10.1623/hysj.52.5.843">https://doi.org/10.1623/hysj.52.5.843</a>.
 </div>
 <div id="ref-cedex_anuario_2021" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">27. </div><div class="csl-right-inline">CEDEX. Anuario de aforos. Centro de estudios hidrográficos (<span>CEH</span>) [Internet]. 2021 [cited 2023 Jan 12]. Available from: <a href="https://ceh.cedex.es/anuarioaforos/default.asp">https://ceh.cedex.es/anuarioaforos/default.asp</a></div>
-</div>
-<div id="ref-ign_centro_2010" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">28. </div><div class="csl-right-inline">IGN. Centro de descargas del <span>CNIG</span> (<span>IGN</span>). Centro de descargas del <span>CNIG</span> [Internet]. 2010 [cited 2023 Feb 6]. Available from: <a href="http://centrodedescargas.cnig.es">http://centrodedescargas.cnig.es</a></div>
-</div>
-<div id="ref-neteler_grass_2012" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">29. </div><div class="csl-right-inline">Neteler M, Bowman MH, Landa M, Metz M. <span>GRASS</span> <span>GIS</span>: A multi-purpose open source <span>GIS</span>. Environmental Modelling &amp; Software [Internet]. 2012 May 1 [cited 2023 Jan 12];31:124–30. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S1364815211002775">https://www.sciencedirect.com/science/article/pii/S1364815211002775</a></div>
-</div>
-<div id="ref-qgis_development_team_qgis_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">30. </div><div class="csl-right-inline">QGIS Development Team. <span>QGIS</span> geographic information system (version 3.22) [Internet]. Open Source Geospatial Foundation; 2022. Available from: <a href="http://qgis.org">http://qgis.org</a></div>
-</div>
-<div id="ref-pebesma_simple_2018" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">31. </div><div class="csl-right-inline">Pebesma E. Simple features for r: Standardized support for spatial vector data. The R Journal [Internet]. 2018;10(1):439–46. Available from: <a href="https://doi.org/10.32614/RJ-2018-009">https://doi.org/10.32614/RJ-2018-009</a></div>
-</div>
-<div id="ref-wickham_tidyverse_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">32. </div><div class="csl-right-inline">Wickham H, RStudio. Tidyverse: Easily install and load the ’tidyverse’ [Internet]. 2022 [cited 2023 Feb 1]. Available from: <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a></div>
-</div>
-<div id="ref-rstudio_team_rstudio_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">33. </div><div class="csl-right-inline">RStudio Team. <span>RStudio</span>: Integrated development environment for r [Internet]. Boston, <span>MA</span>: <span>RStudio</span>, <span>PBC</span>.; 2020. Available from: <a href="http://www.rstudio.com/">http://www.rstudio.com/</a></div>
-</div>
-<div id="ref-wickham_readr_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">34. </div><div class="csl-right-inline">Wickham H, Hester J, Francois R, Bryan J, Bearrows S, RStudio, et al. Readr: Read rectangular text data [Internet]. 2022 [cited 2023 Feb 1]. Available from: <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a></div>
-</div>
-<div id="ref-spinu_lubridate_2023" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">35. </div><div class="csl-right-inline">Spinu V, Grolemund G, Wickham H, Vaughan D, Lyttle I, Costigan I, et al. Lubridate: Make dealing with dates a little easier [Internet]. 2023 [cited 2023 Feb 1]. Available from: <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a></div>
-</div>
-<div id="ref-sievert_plotly_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">36. </div><div class="csl-right-inline">Sievert C, Parmer C, Hocking T, Chamberlain S, Ram K, Corvellec M, et al. Plotly: Create interactive web graphics via ’plotly.js’ [Internet]. 2022 [cited 2023 Feb 1]. Available from: <a href="https://CRAN.R-project.org/package=plotly">https://CRAN.R-project.org/package=plotly</a></div>
-</div>
-<div id="ref-pedersen_patchwork_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">37. </div><div class="csl-right-inline">Pedersen TL. Patchwork: The composer of plots [Internet]. 2022 [cited 2023 Feb 1]. Available from: <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a></div>
-</div>
-<div id="ref-iannone_gt_2022" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">38. </div><div class="csl-right-inline">Iannone R, Cheng J, Schloerke B, Hughes E, Seo J, RStudio. Gt: Easily create presentation-ready display tables [Internet]. 2022 [cited 2023 Feb 1]. Available from: <a href="https://CRAN.R-project.org/package=gt">https://CRAN.R-project.org/package=gt</a></div>
-</div>
-<div id="ref-eckhardt_how_2005" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">39. </div><div class="csl-right-inline">Eckhardt K. How to construct recursive digital filters for baseflow separation. Hydrological Processes [Internet]. 2005 [cited 2022 Dec 27];19(2):507–15. Available from: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/hyp.5675">https://onlinelibrary.wiley.com/doi/abs/10.1002/hyp.5675</a></div>
-</div>
-<div id="ref-maillet_essais_1905" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">40. </div><div class="csl-right-inline">Maillet E. Essais d’hydraulique souterraine et fluviale. Nature [Internet]. 1905 May [cited 2022 Dec 27];72(1854):25–6. Available from: <a href="https://www.nature.com/articles/072025a0">https://www.nature.com/articles/072025a0</a></div>
-</div>
-<div id="ref-zhu_estimation_2010" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">41. </div><div class="csl-right-inline">Zhu R, Zheng H, Liu C. Estimation of groundwater residence time and recession rate in watershed of the loess plateau. J Geogr Sci [Internet]. 2010 Apr [cited 2023 Jan 25];20(2):273–82. Available from: <a href="http://link.springer.com/10.1007/s11442-010-0273-z">http://link.springer.com/10.1007/s11442-010-0273-z</a></div>
-</div>
-<div id="ref-wittenberg_baseflow_1999" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">42. </div><div class="csl-right-inline">Wittenberg H. Baseflow recession and recharge as nonlinear storage processes. Hydrological Processes [Internet]. 1999 [cited 2023 Jan 3];13(5):715–26. Available from: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291099-1085%2819990415%2913%3A5%3C715%3A%3AAID-HYP775%3E3.0.CO%3B2-N">https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291099-1085%2819990415%2913%3A5%3C715%3A%3AAID-HYP775%3E3.0.CO%3B2-N</a></div>
+CEDEX. 2021. <span>“Anuario de Aforos. Centro de Estudios Hidrográficos (<span>CEH</span>).”</span> 2021. <a href="https://ceh.cedex.es/anuarioaforos/default.asp">https://ceh.cedex.es/anuarioaforos/default.asp</a>.
 </div>
 <div id="ref-chapman_comparison_1999" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">43. </div><div class="csl-right-inline">Chapman T. A comparison of algorithms for stream flow recession and baseflow separation. Hydrological Processes [Internet]. 1999 [cited 2022 Dec 27];13(5):701–14. Available from: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291099-1085%2819990415%2913%3A5%3C701%3A%3AAID-HYP774%3E3.0.CO%3B2-2">https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291099-1085%2819990415%2913%3A5%3C701%3A%3AAID-HYP774%3E3.0.CO%3B2-2</a></div>
+Chapman, Tom. 1999. <span>“A Comparison of Algorithms for Stream Flow Recession and Baseflow Separation.”</span> <em>Hydrological Processes</em> 13 (5): 701–14. <a href="https://doi.org/10.1002/(SICI)1099-1085(19990415)13:5<701::AID-HYP774>3.0.CO;2-2">https://doi.org/10.1002/(SICI)1099-1085(19990415)13:5&lt;701::AID-HYP774&gt;3.0.CO;2-2</a>.
+</div>
+<div id="ref-chawanda_mass_2020" class="csl-entry" role="doc-biblioentry">
+Chawanda, Celray James, Jeffrey Arnold, Wim Thiery, and Ann van Griensven. 2020. <span>“Mass Balance Calibration and Reservoir Representations for Large-Scale Hydrological Impact Studies Using <span>SWAT</span>+.”</span> <em>Climatic Change</em> 163 (3): 1307–27. <a href="https://doi.org/10.1007/s10584-020-02924-x">https://doi.org/10.1007/s10584-020-02924-x</a>.
+</div>
+<div id="ref-chazarra_bernabe_mapas_2018" class="csl-entry" role="doc-biblioentry">
+Chazarra Bernabé, Andrés, Elena Flórez García, Beatriz Peraza Sánchez, Teresa Tohá Rebull, Belinda Lorenzo Mariño, Elías Criado Pinto, José Vicente Moreno García, Ramiro Romero Fresneda, and Roser Botey Fullat. 2018. <em>Mapas climáticos de España (1981-2010) y <span>ETo</span> (1996-2016)</em>. Agencia Estatal de Meteorología. <a href="https://doi.org/10.31978/014-18-004-2">https://doi.org/10.31978/014-18-004-2</a>.
+</div>
+<div id="ref-custodio_hidrologisubterranea_1983" class="csl-entry" role="doc-biblioentry">
+Custodio, Emilio, and Manuel Ramón Llamas. 1983. <em>Hidrología Subterránea</em>. Barcelona: Omega, S.A.
+</div>
+<div id="ref-eckhardt_how_2005" class="csl-entry" role="doc-biblioentry">
+Eckhardt, K. 2005. <span>“How to Construct Recursive Digital Filters for Baseflow Separation.”</span> <em>Hydrological Processes</em> 19 (2): 507–15. <a href="https://doi.org/10.1002/hyp.5675">https://doi.org/10.1002/hyp.5675</a>.
+</div>
+<div id="ref-efstratiadis_one_2010" class="csl-entry" role="doc-biblioentry">
+Efstratiadis, Andreas, and Demetris Koutsoyiannis. 2010. <span>“One Decade of Multi-Objective Calibration Approaches in Hydrological Modelling: A Review.”</span> <em>Hydrological Sciences Journal</em> 55 (1): 58–78. <a href="https://doi.org/10.1080/02626660903526292">https://doi.org/10.1080/02626660903526292</a>.
+</div>
+<div id="ref-fu_review_2019" class="csl-entry" role="doc-biblioentry">
+Fu, Baihua, Wendy S. Merritt, Barry F. W. Croke, Tony R. Weber, and Anthony J. Jakeman. 2019. <span>“A Review of Catchment-Scale Water Quality and Erosion Models and a Synthesis of Future Prospects.”</span> <em>Environmental Modelling &amp; Software</em> 114 (April): 75–97. <a href="https://doi.org/10.1016/j.envsoft.2018.12.008">https://doi.org/10.1016/j.envsoft.2018.12.008</a>.
+</div>
+<div id="ref-garcia_serie_2017" class="csl-entry" role="doc-biblioentry">
+García, Candelas Peral, Beatriz Navascués Fernández-Victorio, and Petra Ramos Calzado. 2017. <em>Serie de precipitación diaria en rejilla con fines climáticos</em>. Agencia Estatal de Meteorología. <a href="https://doi.org/10.31978/014-17-009-5">https://doi.org/10.31978/014-17-009-5</a>.
+</div>
+<div id="ref-iannone_gt_2022" class="csl-entry" role="doc-biblioentry">
+Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, JooYoung Seo, and RStudio. 2022. <em>Gt: Easily Create Presentation-Ready Display Tables</em> (version 0.8.0). <a href="https://CRAN.R-project.org/package=gt">https://CRAN.R-project.org/package=gt</a>.
+</div>
+<div id="ref-ign_centro_2010" class="csl-entry" role="doc-biblioentry">
+IGN. 2010. <span>“Centro de Descargas Del <span>CNIG</span> (<span>IGN</span>). Centro de Descargas Del <span>CNIG</span>.”</span> 2010. <a href="http://centrodedescargas.cnig.es">http://centrodedescargas.cnig.es</a>.
+</div>
+<div id="ref-jodar_groundwater_2017" class="csl-entry" role="doc-biblioentry">
+Jódar, Jorge, José Antonio Cabrera, Sergio Martos-Rosillo, Ana Ruiz-Constán, Antonio González-Ramón, Luis Javier Lambán, Christian Herrera, and Emilio Custodio. 2017. <span>“Groundwater Discharge in High-Mountain Watersheds: A Valuable Resource for Downstream Semi-Arid Zones. The Case of the Bérchules River in Sierra Nevada (Southern Spain).”</span> <em>Science of The Total Environment</em> 593-594 (September): 760–72. <a href="https://doi.org/10.1016/j.scitotenv.2017.03.190">https://doi.org/10.1016/j.scitotenv.2017.03.190</a>.
+</div>
+<div id="ref-kang_baseflow_2022" class="csl-entry" role="doc-biblioentry">
+Kang, Taeuk, Sangho Lee, Namjoo Lee, and Youngkyu Jin. 2022. <span>“Baseflow Separation Using the Digital Filter Method: Review and Sensitivity Analysis.”</span> <em>Water</em> 14 (3): 485. <a href="https://doi.org/10.3390/w14030485">https://doi.org/10.3390/w14030485</a>.
+</div>
+<div id="ref-kirkby_influence_2002" class="csl-entry" role="doc-biblioentry">
+Kirkby, Mike, Louise Bracken, and Sim Reaney. 2002. <span>“The Influence of Land Use, Soils and Topography on the Delivery of Hillslope Runoff to Channels in <span>SE</span> Spain.”</span> <em>Earth Surface Processes and Landforms</em> 27 (13): 1459–73. <a href="https://doi.org/10.1002/esp.441">https://doi.org/10.1002/esp.441</a>.
+</div>
+<div id="ref-maillet_essais_1905" class="csl-entry" role="doc-biblioentry">
+Maillet, Edmon. 1905. <span>“Essais d’hydraulique Souterraine Et Fluviale.”</span> <em>Nature</em> 72 (1854): 25–26. <a href="https://doi.org/10.1038/072025a0">https://doi.org/10.1038/072025a0</a>.
 </div>
 <div id="ref-martin-loeches_hydrogeochemistry_2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">44. </div><div class="csl-right-inline">Martín-Loeches M, Pavón-García J, Molina-Navarro E, Martínez-Santos P, Almeida C, Reyes-López J, et al. <a href="https://doi.org/10.1007/s10040-020-02202-1">Hydrogeochemistry of granitic mountain zones and the influence of adjacent sedimentary basins at their tectonic borders: The case of the spanish central system batholith: Hidrogeoquímica de regiões montanhosas graníticas e influência de bacias sedimentares adjacentes nas bordas tectônicas: Caso do batólito do sistema central espanhol.</a> Hidrogeoquímica de zonas montañosas graníticas e influencia de las cuencas sedimentarias adyacentes en sus bordes tectónicos: el caso del batolito del Sistema Central Español. 2020 Nov;28(7):2477–500. </div>
+Martín-Loeches, Miguel, Javier Pavón-García, Eugenio Molina-Navarro, Pedro Martínez-Santos, Carlos Almeida, Jaime Reyes-López, Ignacio Cienfuegos-Hevia, and Antonio Sastre-Merlín. 2020. <span>“Hydrogeochemistry of Granitic Mountain Zones and the Influence of Adjacent Sedimentary Basins at Their Tectonic Borders: The Case of the Spanish Central System Batholith: Hidrogeoquímica de Regiões Montanhosas Graníticas e Influência de Bacias Sedimentares Adjacentes Nas Bordas Tectônicas: Caso Do Batólito Do Sistema Central Espanhol.”</span> <em>Hidrogeoquímica de Zonas Montañosas Graníticas e Influencia de Las Cuencas Sedimentarias Adyacentes En Sus Bordes Tectónicos: El Caso Del Batolito Del Sistema Central Español.</em> 28 (7): 2477–2500. <a href="https://doi.org/10.1007/s10040-020-02202-1">https://doi.org/10.1007/s10040-020-02202-1</a>.
+</div>
+<div id="ref-mockus_national_nodate" class="csl-entry" role="doc-biblioentry">
+Mockus, Victor, and Eydraulic Engineer. n.d. <span>“<span>NATIONAL</span> <span>ENGINEERING</span> <span>HANDBOOK</span> <span>SECTION</span> 4 <span>HYDROLOGY</span>.”</span>
+</div>
+<div id="ref-molina-navarro_impact_2017" class="csl-entry" role="doc-biblioentry">
+Molina-Navarro, Eugenio, Hans E. Andersen, Anders Nielsen, Hans Thodsen, and Dennis Trolle. 2017. <span>“The Impact of the Objective Function in Multi-Site and Multi-Variable Calibration of the <span>SWAT</span> Model.”</span> <em>Environmental Modelling &amp; Software</em> 93 (July): 255–67. <a href="https://doi.org/10.1016/j.envsoft.2017.03.018">https://doi.org/10.1016/j.envsoft.2017.03.018</a>.
+</div>
+<div id="ref-muleta_model_2012" class="csl-entry" role="doc-biblioentry">
+Muleta, Misgana K. 2012. <span>“Model Performance Sensitivity to Objective Function During Automated Calibrations.”</span> <em>Journal of Hydrologic Engineering</em> 17 (6): 756–67. <a href="https://doi.org/10.1061/(ASCE)HE.1943-5584.0000497">https://doi.org/10.1061/(ASCE)HE.1943-5584.0000497</a>.
+</div>
+<div id="ref-neteler_grass_2012" class="csl-entry" role="doc-biblioentry">
+Neteler, Markus, M. Hamish Bowman, Martin Landa, and Markus Metz. 2012. <span>“<span>GRASS</span> <span>GIS</span>: A Multi-Purpose Open Source <span>GIS</span>.”</span> <em>Environmental Modelling &amp; Software</em> 31 (May): 124–30. <a href="https://doi.org/10.1016/j.envsoft.2011.11.014">https://doi.org/10.1016/j.envsoft.2011.11.014</a>.
+</div>
+<div id="ref-ortega_using_2015" class="csl-entry" role="doc-biblioentry">
+Ortega, L., M. Manzano, E. Custodio, J. Hornero, and J. Rodríguez-Arévalo. 2015. <span>“Using 222Rn to Identify and Quantify Groundwater Inflows to the Mundo River (<span>SE</span> Spain).”</span> <em>Chemical Geology</em> 395 (February): 67–79. <a href="https://doi.org/10.1016/j.chemgeo.2014.12.002">https://doi.org/10.1016/j.chemgeo.2014.12.002</a>.
+</div>
+<div id="ref-pebesma_simple_2018" class="csl-entry" role="doc-biblioentry">
+Pebesma, Edzer. 2018. <span>“Simple Features for r: Standardized Support for Spatial Vector Data.”</span> <em>The R Journal</em> 10 (1): 439–46. <a href="https://doi.org/10.32614/RJ-2018-009">https://doi.org/10.32614/RJ-2018-009</a>.
+</div>
+<div id="ref-pedersen_patchwork_2022" class="csl-entry" role="doc-biblioentry">
+Pedersen, Thomas Lin. 2022. <em>Patchwork: The Composer of Plots</em> (version 1.1.2). <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
+</div>
+<div id="ref-pfannerstill_how_2017" class="csl-entry" role="doc-biblioentry">
+Pfannerstill, Matthias, Katrin Bieger, Björn Guse, David D. Bosch, Nicola Fohrer, and Jeffrey G. Arnold. 2017. <span>“How to Constrain Multi-Objective Calibrations of the <span>SWAT</span> Model Using Water Balance Components.”</span> <em><span>JAWRA</span> Journal of the American Water Resources Association</em> 53 (3): 532–46. <a href="https://doi.org/10.1111/1752-1688.12524">https://doi.org/10.1111/1752-1688.12524</a>.
+</div>
+<div id="ref-del_pozo_gomez_mapa_2009" class="csl-entry" role="doc-biblioentry">
+Pozo Gómez, M. del. 2009. <span>“Mapa Litoestratigráfico, de Permeabilidades e Hidrogeológico de España a Escala 1:200.000.”</span> 2009. <a href="https://info.igme.es/cartografiadigital/geologica/mapa.aspx?parent=../tematica/tematicossingulares.aspx&amp;Id=15#mapas">https://info.igme.es/cartografiadigital/geologica/mapa.aspx?parent=../tematica/tematicossingulares.aspx&amp;Id=15#mapas</a>.
+</div>
+<div id="ref-qgis_development_team_qgis_2022" class="csl-entry" role="doc-biblioentry">
+QGIS Development Team. 2022. <em><span>QGIS</span> Geographic Information System (Version 3.22)</em>. Open Source Geospatial Foundation. <a href="http://qgis.org">http://qgis.org</a>.
+</div>
+<div id="ref-rodriguez-blanco_rainfallrunoff_2012" class="csl-entry" role="doc-biblioentry">
+Rodríguez-Blanco, M. L., M. M. Taboada-Castro, and M. T. Taboada-Castro. 2012. <span>“Rainfall–Runoff Response and Event-Based Runoff Coefficients in a Humid Area (Northwest Spain).”</span> <em>Hydrological Sciences Journal</em> 57 (3): 445–59. <a href="https://doi.org/10.1080/02626667.2012.666351">https://doi.org/10.1080/02626667.2012.666351</a>.
+</div>
+<div id="ref-rstudio_team_rstudio_2020" class="csl-entry" role="doc-biblioentry">
+RStudio Team. 2020. <em><span>RStudio</span>: Integrated Development Environment for r</em>. Boston, <span>MA</span>: <span>RStudio</span>, <span>PBC</span>. <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>.
+</div>
+<div id="ref-samper_hydrological_2015" class="csl-entry" role="doc-biblioentry">
+Samper, Javier, Bruno Pisani, and Jorge Espinha Marques. 2015. <span>“Hydrological Models of Interflow in Three Iberian Mountain Basins.”</span> <em>Environmental Earth Sciences</em> 73 (6): 2645–56. <a href="https://doi.org/10.1007/s12665-014-3676-9">https://doi.org/10.1007/s12665-014-3676-9</a>.
+</div>
+<div id="ref-sanchez-gomez_streamflow_2023" class="csl-entry" role="doc-biblioentry">
+Sánchez-Gómez, Alejandro, Silvia Martínez-Pérez, Sylvain Leduc, Antonio Sastre-Merlín, and Eugenio Molina-Navarro. 2023. <span>“Streamflow Components and Climate Change: Lessons Learnt and Energy Implications After Hydrological Modeling Experiences in Catchments with a Mediterranean Climate.”</span> <em>Energy Reports</em> 9 (December): 277–91. <a href="https://doi.org/10.1016/j.egyr.2022.11.191">https://doi.org/10.1016/j.egyr.2022.11.191</a>.
+</div>
+<div id="ref-sanchez-gomez_optimization_2022" class="csl-entry" role="doc-biblioentry">
+Sánchez-Gómez, Alejandro, Silvia Martínez-Pérez, Francisco M. Pérez-Chavero, and Eugenio Molina-Navarro. 2022. <span>“Optimization of a <span>SWAT</span> Model by Incorporating Geological Information Through Calibration Strategies.”</span> <em>Optimization and Engineering</em> 23 (4): 2203–33. <a href="https://doi.org/10.1007/s11081-022-09744-1">https://doi.org/10.1007/s11081-022-09744-1</a>.
+</div>
+<div id="ref-sanchez-gomez_innovative_2022" class="csl-entry" role="doc-biblioentry">
+Sánchez-Gómez, Alejandro, Silvia Martínez-Pérez, Antonio Sastre-Merlín, Katrin Bieger, and Eugenio Molina-Navarro. 2022. <span>“Innovative Hydrological Modelling Tools to Simulate Climate Change Impacts: Setting up a Detailed <span>SWAT</span>+ Model in the Tagus River Basin.”</span> In <em>Proceedings of the 39th <span>IAHR</span> World Congress</em>, 3030–39. International Association for Hydro-Environment Engineering; Research (<span>IAHR</span>). <a href="https://doi.org/10.3850/IAHR-39WC252171192022981">https://doi.org/10.3850/IAHR-39WC252171192022981</a>.
+</div>
+<div id="ref-seibert_dialog_2002" class="csl-entry" role="doc-biblioentry">
+Seibert, Jan, and Jeffrey J. McDonnell. 2002. <span>“On the Dialog Between Experimentalist and Modeler in Catchment Hydrology: Use of Soft Data for Multicriteria Model Calibration: <span>SOFT</span> <span>DATA</span>.”</span> <em>Water Resources Research</em> 38 (11): 23-1-23-14. <a href="https://doi.org/10.1029/2001WR000978">https://doi.org/10.1029/2001WR000978</a>.
+</div>
+<div id="ref-sievert_plotly_2022" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, Pedro Despouy, Salim Brüggemann, and Plotly Technologies Inc. 2022. <em>Plotly: Create Interactive Web Graphics via ’Plotly.js’</em> (version 4.10.1). <a href="https://CRAN.R-project.org/package=plotly">https://CRAN.R-project.org/package=plotly</a>.
+</div>
+<div id="ref-singh_hydrologic_2018" class="csl-entry" role="doc-biblioentry">
+Singh, Vijay P. 2018. <span>“Hydrologic Modeling: Progress and Future Directions.”</span> <em>Geoscience Letters</em> 5 (1): 15. <a href="https://doi.org/10.1186/s40562-018-0113-z">https://doi.org/10.1186/s40562-018-0113-z</a>.
+</div>
+<div id="ref-spinu_lubridate_2023" class="csl-entry" role="doc-biblioentry">
+Spinu, Vitalie, Garrett Grolemund, Hadley Wickham, Davis Vaughan, Ian Lyttle, Imanuel Costigan, Jason Law, et al. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em> (version 1.9.1). <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
+</div>
+<div id="ref-wickham_readr_2022" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Jim Hester, Romain Francois, Jennifer Bryan, Shelby Bearrows, RStudio, https://github com/mandreyel/ (mio library), Jukka Jylänki (grisu3 implementation), and Mikkel Jørgensen (grisu3 implementation). 2022. <em>Readr: Read Rectangular Text Data</em> (version 2.1.3). <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+</div>
+<div id="ref-wickham_tidyverse_2022" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and RStudio. 2022. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em> (version 1.3.2). <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+</div>
+<div id="ref-wittenberg_baseflow_1999" class="csl-entry" role="doc-biblioentry">
+Wittenberg, Hartmut. 1999. <span>“Baseflow Recession and Recharge as Nonlinear Storage Processes.”</span> <em>Hydrological Processes</em> 13 (5): 715–26. <a href="https://doi.org/10.1002/(SICI)1099-1085(19990415)13:5<715::AID-HYP775>3.0.CO;2-N">https://doi.org/10.1002/(SICI)1099-1085(19990415)13:5&lt;715::AID-HYP775&gt;3.0.CO;2-N</a>.
+</div>
+<div id="ref-zhu_estimation_2010" class="csl-entry" role="doc-biblioentry">
+Zhu, Ruirui, Hongxing Zheng, and Changming Liu. 2010. <span>“Estimation of Groundwater Residence Time and Recession Rate in Watershed of the Loess Plateau.”</span> <em>Journal of Geographical Sciences</em> 20 (2): 273–82. <a href="https://doi.org/10.1007/s11442-010-0273-z">https://doi.org/10.1007/s11442-010-0273-z</a>.
 </div>
 </div></section></div></main>
 <!-- /main column -->
