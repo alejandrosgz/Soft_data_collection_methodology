@@ -380,14 +380,14 @@ has been used as study case, evaluating the two variables mentioned in
 <div id="used_files-directory" class="section level4">
 <h4>1. used_files directory</h4>
 <p>The data necessary to reproduce the work is located in the
-<strong>used_files</strong> folder, which contains three folders
-within:</p>
+<strong>used_files</strong> folder, which contains three folders within
+and a zip file:</p>
 <ul>
 <li><p><strong>Created_csv</strong> Contains the csv files that should
 be created for making the scripts work. To apply this methodology in
 other regions, these script have to be reproduced as explained in the
-manuscript or in corresponding script
-(<strong>script_1_CSV_files_preparation.R</strong>). A vector layer with
+manuscript or in the corresponding script (Script 1,
+<strong>script_1_CSV_files_preparation.R</strong>). A vector layer with
 the weather data grid and a vector layer with the basin/s that will be
 assessed are necessary to create these files. A brief description of
 these files follows:</p>
@@ -398,27 +398,65 @@ name, ID, and area of each basin, and the ID of the gauging station are
 the fields of this table (<em>Basin</em>, <em>Basin_ID</em>,
 <em>area</em>, <em>gauging_code</em>, respectively). Another field,
 (which has been named <em>region</em> in this case) can be used to group
-the assessed basins according to any characteristic.</p></li>
+the assessed basins according to any characteristic. Created with Script
+1.</p></li>
 <li><p><strong>2_ids_stations_file.csv</strong> Contains the ID, name
 and location of each weather grid point located within the buffer of
 each basin (<em>ID</em>, <em>NAME</em>, <em>LAT</em>, <em>LONG</em>,
 <em>ELEVATION</em>). The basins where they are located (both ID and name
 are also indicated, as some points are present in more than one
-contiguous subbasins).</p></li>
+contiguous subbasins). Note that in this case, precipitation and
+temperature points IDs were the same, but if not one file for each grid
+should be created and used. Created with Script 1.</p></li>
+<li><p><strong>3_alpha_estimation.csv</strong> This file contains for
+each basin the alpha obtained with the regression for the three peaks
+(<em>alphas</em>) and their determination coefficients
+<em>det_coefs</em>. The name, ID and region of each basin is also
+included. Created with the results of the Script 3
+(<strong>script_3_alphas_calculation.R</strong>).</p></li>
 <li><p><strong>4_groundwater_results.csv</strong> This file has been
 used to save the data obtained during the baseflow index estimation.
 Concretely, for each basin, the alpha and BFImax parameters values used
 for the filter and the estimated baseflow index (columns <em>alpha</em>,
-<em>BFImax</em>, <em>BF_Rate</em>, respectively) are stored.</p></li>
+<em>BFImax</em>, <em>BF_Rate</em>, respectively) are stored. Created
+with the results of the Script 4
+(<strong>script_4_Groundwater_contribution_estimation.R</strong>).</p></li>
 </ul></li>
-<li><p><strong>Data</strong> Contains both the Streamflow and weather
-data used for this work. In fact, the streamflow data contains data for
-all the gauging stations of the Tagus River basin. The weather (pcp and
-tmp) files have been filtered in order to reduce the weight of the data,
-but can be downloaded for all Spain in (<a href="https://swat.tamu.edu/data/spain/" class="uri">https://swat.tamu.edu/data/spain/</a>).</p></li>
-<li><p><strong>Shapefiles</strong> includes some shp files that has been
-used for this work (i.e., delineated subbasins, weather grids, gauging
-stations, permeability map).</p></li>
+<li><p><strong>Data</strong> This directory contains two folders:</p>
+<ul>
+<li><p><strong>climate_data_extracted</strong> Contains two folders (one
+for each variable, <em>pcp_spain</em> and <em>tmp_spain</em>,
+respectively) which contain the files with the data for each point of
+the grid used in this work. Files for all the Spanish territory can be
+downloaded from (<a href="https://swat.tamu.edu/data/spain/" class="uri">https://swat.tamu.edu/data/spain/</a>). These files have one
+column with the daily value of the variable, being the name of the
+column the initial date of the time series (19510101).</p></li>
+<li><p><strong>Gauging_data</strong> Contains the file
+<strong>afliq.csv</strong>, downloaded from (<a href="https://ceh.cedex.es/anuarioaforos/TAJO_csv.asp" class="uri">https://ceh.cedex.es/anuarioaforos/TAJO_csv.asp</a>). This
+file contains daily streamflow data for all the gauging stations located
+within the Tagus River basin, and have four columns: the gauging station
+code (<em>indroea</em>), the date (<em>fecha</em>), the height of the
+water (<em>altura</em>, which has not been used), and the streamflow
+(<em>caudal</em>, in cubic meters per second).</p></li>
+</ul></li>
+<li><p><strong>GIS</strong> This directory contains all the vector and
+raster data used for this work. It have two folders:</p>
+<ul>
+<li><p><strong>Shapefiles</strong> Directory that includes the shp (and
+related) files that has been used for this work: the upper sector of the
+Tagus River basin (<strong>modeled_basin</strong>), the delineated
+subbasins (<strong>basins_studied</strong>), weather grids
+(<strong>grid_tagus</strong>), gauging stations
+(<strong>gauging_stations</strong>) and the permeability
+map(<strong>permeabilit_map</strong>).</p></li>
+<li><p><strong>Delineation.zip</strong> Compressed folder which contains
+three raster layers: the digital elevation model
+(<strong>ClipMDTproj.tif</strong>) used to create the drainage direction
+(<strong>drainage_direction_Tagus.tif</strong>) and accumulation rasters
+(<strong>drainage_acumulation_Tagus.tif</strong>), which were used to
+delineate the subbasins. This file was compressed to reduce its
+weight.</p></li>
+</ul></li>
 </ul>
 <p>The manuscript can be generated with the
 <strong>soft_data_paper.qmd</strong> file, as all the needed data is

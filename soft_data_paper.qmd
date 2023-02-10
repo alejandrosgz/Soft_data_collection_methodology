@@ -200,7 +200,7 @@ After verifying that the selected gauging stations for each subbasin had enough 
 #| eval: false
 
 # Input data: Shapefile with the delineated subbasins 
-subbasins <- read_sf("used_files/Shapefiles/basins_studied.shp") %>% arrange(., id)
+subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
 # Changing column names
 subbasins_csv <- subbasins %>% rename(Basin_ID = id) %>% 
 #Calculating area
@@ -225,7 +225,7 @@ In order to estimate the precipitation and temperature for each subbasin, it was
 # Gauging points
 pcp_points <- read_sf("D:/Trabajo/Tajo/datos_meteo_buenos/grid_tagus.shp")
 # Subbasins 
-subbasins <- read_sf("used_files/Shapefiles/basins_studied.shp") %>% arrange(., id)
+subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
 # Buffer created for subbasins (1 km distance)
 subbasins_buffer <- st_buffer(subbasins, dist = 1000) 
 # Clipping grid points with the subbasins buffer

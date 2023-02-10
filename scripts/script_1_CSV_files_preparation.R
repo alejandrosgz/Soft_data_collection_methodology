@@ -5,7 +5,7 @@ library(tidyverse)
 # 1.- Subbasins csv file
 
 # Input data: Shapefile with the delineated subbasins 
-subbasins <- read_sf("used_files/Shapefiles/basins_studied.shp") %>% arrange(., id)
+subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
 # Changing column names
 subbasins_csv <- subbasins %>% rename(Basin_ID = id) %>% 
 #Calculating area
@@ -18,7 +18,7 @@ mutate(gauging_code = c(3231, 3049, 3211, 3001, 3045, 3040,
 st_drop_geometry(.) %>% 
 # Ordering table
 .[,c("Basin", "Basin_ID", "area", "gauging_code", "region")]
-write.csv(x = subbasins_csv, file = "used_files/Created_csv/basins_file.csv", row.names = F)
+write.csv(x = subbasins_csv, file = "used_files/Created_csv/1_basins_file.csv", row.names = F)
 
 
 # 2. Gauging points csv file
@@ -26,9 +26,9 @@ write.csv(x = subbasins_csv, file = "used_files/Created_csv/basins_file.csv", ro
 #Input data: weather grid and delineated subbasins
 
 # Gauging points: Note that the numbering for precipitation and temperature stations is constant, and therefore only one file is necessary.
-pcp_points <- read_sf("D:/Trabajo/Tajo/datos_meteo_buenos/grid_tagus.shp")
+pcp_points <- read_sf("used_files/GIS/Shapefiles/grid_tagus.shp")
 
-subbasins <- read_sf("used_files/Shapefiles/basins_studied.shp") %>% arrange(., id)
+subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
 
 # 2.1. Buffer created for subbasins (1 km distance)
 
@@ -46,16 +46,25 @@ grid_points_clip_csv <- grid_points_clip %>% st_drop_geometry(.) %>% rename(Basi
 
 
 
+# Plot to see the selected points
 
+subbasins$region <- factor(subbasins$region, levels = c("DTAL", "DTBJ", "CRB", "MIX", "IMP"), 
+                                    labels = c("Detrital, High permeability", "Detrital, Low permeability", 
+                                               "Carbonate", "Mixed", "Impervious"))
+pcps_selected_id <- grid_points_clip$ID
+grid_points <- pcp_points %>% mutate(Selected_points = case_when(ID %in% pcps_selected_id ~ "Selected", 
+                                TRUE ~ "No selected"))
 
-tagus_upp <- read_sf("D:/Cartografia/Tajo/consumos/creadas/cuenca_modelada.shp")
+tagus_upp <- read_sf("used_files/GIS/Shapefiles/modeled_basin.shp")
 
-ggplot()+
-  geom_sf(data = tagus_upp, fill = "transparent", color = "blue", linewidth = 1)+
+  ggplot()+
+  geom_sf(data = tagus_upp, fill = "transparent", color = "black", linewidth = 1)+
+  geom_sf(data = subbasins, aes(fill = as.factor(id), color = region), linewidth = 1)+ labs(color = "Lithology")+
+  scale_color_manual(values = c("orange", "darkgrey", "blue", "purple", "red"))+
   geom_sf(data = subbasins_buffer, fill = "transparent", linetype = 2, linewidth = 0.7)+
-  geom_sf(data = subbasins, aes(fill = as.factor(id), color = region), linewidth = 0.65)+
-  scale_fill_discrete()+
-  geom_sf(data = pcp_points, shape = 17)+
+  guides(fill = FALSE)+
+  geom_sf(data = grid_points, aes(shape = Selected_points), size = 2)+
+  scale_shape_manual(values = c(1, 16))+
   theme_bw()
 
 
