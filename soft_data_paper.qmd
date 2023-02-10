@@ -169,7 +169,7 @@ The upper sector of the Tagus River basin (3,388 km²) covers around 47% of the 
 
 Natural vegetation and agricultural lands are the main land covers of the area, occupying around 48% and 47%, respectively of the total area, being cereals the dominant crop. Urban use covers around 3% of the total area, being approximately 8 million inhabitants in this sector of the basin. Therefore, relevant water demands are located in this area, with noticeable environmental and social implications.
 
-In this sector of the basin, the confluence of different mountain systems with different bedrocks has originated a heterogeneous geological configuration, which gives rise to differences in the main hydrological processes. Direct runoff is expected to predominate in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers, thus being the baseflow index more relevant. The sedimentary deposits of the basin also have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability. This basin, therefore, is a complex system which requires a comprehensive methodology to be modelled. This modelling process would benefit from a soft calibration phase towards the realistic simulation of the different geological sector. For such a purpose, collection of soft data is needed, and the methodology followed to achieve this task is described and discussed below.
+In this sector of the basin, the confluence of different mountain systems with different bedrocks has originated a heterogeneous geological configuration, which gives rise to differences in the main hydrological processes. Direct runoff is expected to predominate in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers, thus being the baseflow index more relevant. The sedimentary deposits of the basin also have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability. This basin, therefore, is a complex system which requires a comprehensive methodology to be modeled. This modelling process would benefit from a soft calibration phase towards the realistic simulation of the different geological sector. For such a purpose, collection of soft data is needed, and the methodology followed to achieve this task is described and discussed below.
 
 ![Study area location, lithology, permeability and selected basins.](figs/Studied_basinss.png){#fig-location}
 
@@ -223,7 +223,7 @@ In order to estimate the precipitation and temperature for each subbasin, it was
 #| eval: false
 
 # Gauging points
-pcp_points <- read_sf("D:/Trabajo/Tajo/datos_meteo_buenos/grid_tagus.shp")
+pcp_points <- read_sf("used_files/GIS/Shapefiles/grid_tagus.shp")
 # Subbasins 
 subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
 # Buffer created for subbasins (1 km distance)
@@ -647,7 +647,7 @@ All the data and code used for this work is available in the following GitHub re
 
 ### Ackowledgements
 
-Alejandro Sánchez-Gómez received support from the University of Alcalá (UAH) PhD Fellowships Program. Other projects?
+Alejandro SÃ¡nchez-GÃ³mez received support from the University of AlcalÃ¡ (UAH) PhD Fellowships Program. Other projects?
 
 Some of the used functions in R were written by other researchers. Concretely, in addition to the used packages (cited in References section), the baseflow filter function was written by Hendrik Rathjens, and the tables format function was taken from https://www.anthonyschmidt.co/post/2020-06-03-making-apa-tables-with-gt/.
 

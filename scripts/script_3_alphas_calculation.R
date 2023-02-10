@@ -1,4 +1,4 @@
-   #### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff rate and Baseflow contribution ####
+   #### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff coefficient and Baseflow index ####
    #### Part 2.1: Groundwater recession constant calculation ####
    
    
@@ -14,12 +14,12 @@
      .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
    
    
-   basins_file <- read.csv("used_files/Created_csv/basins_file.csv") # File with IDs, names, regions and areas of the basin, and gauging stations codes  
+   basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") # File with IDs, names, regions and areas of the basin, and gauging stations codes  
    
    
    # Methodology: For each basin, three representative peaks between 2010-2019 have been selected, and a linear regression has been adjusted to 
-   # the baseflow recession curve in order to determine the groundwater recession constant (α).Initial point for the recession curve has been selected when 
-   # the direct runoff peak ends. The estimated slope of the regression is the α value. A minimum of 10 days of recession curve was selected as criteria. A minimum
+   # the baseflow recession curve in order to determine the groundwater recession constant (N1).Initial point for the recession curve has been selected when 
+   # the direct runoff peak ends. The estimated slope of the regression is the N1 value. A minimum of 10 days of recession curve was selected as criteria. A minimum
    # determination coefficient of 0.80 was also used as criteria. 
    
    # The linear adjustment regression has been performed with the stats::lm function. With this function, two coefficients are obtained in this case:
@@ -258,7 +258,7 @@
    1-(0.035392)
    
    
-   # Basin 6, Santa María del Val, gauging code = 3040, region = CRB
+   # Basin 6, Santa MarC-a del Val, gauging code = 3040, region = CRB
    #Alphas obtained : 0.9151292, 0.9387557, 0.9657213
    santamaria <- gauging_data_tagus %>% filter(., cod == 3040) %>% filter(year(date) > 2009)
    # Peak selection: Three representative peaks
@@ -943,7 +943,7 @@
    
    
    # Saving the alpha values in a csv file
-   # alphas_tibble %>% write.csv(., "used_files/Created_csv/alpha_estimation.csv", quote = F, row.names = F)
+   # alphas_tibble %>% write.csv(., "used_files/Created_csv/3_alpha_estimation.csv", quote = F, row.names = F)
    
    
    alphas_tibble <- read.csv("used_files/Created_csv/3_alpha_estimation.csv") %>% 
@@ -1050,16 +1050,16 @@
 
    adj_recession_curve_plot <- ggplot(peak_3_perjo[c(55:90),], aes(x =date, y = log(obs_flow)))+geom_area(fill = "skyblue", color = "darkblue")+
      theme_bw()+ylab("ln(streamflow)")+xlab("Date")+theme(text = element_text(size = 12, colour = "black"))+
-     ggtitle("Recession curve linear adjustment (slope = -0.024, R² = 0.97)")+ theme(title = element_text(size = 10))+
+     ggtitle("Recession curve linear adjustment (slope = -0.024, RB2 = 0.97)")+ theme(title = element_text(size = 10))+
      annotate("segment", x = as.Date(peak_3_perjo$date[55]), xend = as.Date(peak_3_perjo$date[90]), 
                                 y = (1.7659-0.02421*1), yend = log(peak_3_perjo$obs_flow[55])-0.02421*36, color = "black",
               linetype = 2, linewidth = 0.7)
    
    peaks_selection_plot <- peaks_plot / (recession_curve_plot / adj_recession_curve_plot)
    
-   #ggsave(plot = peaks_selection_plot, filename = "D:/Trabajo/Papers/Paper_caracterizacion/soft_data_obtaining/figs/peaks_selection_adjustment.png",
+   #ggsave(plot = peaks_selection_plot, filename = "figs/peaks_selection_adjustment.png",
    device = "png", width = 12, height = 10, dpi = 600)
-   #ggsave(plot = peaks_selection_plot, filename = "D:/Trabajo/Papers/Paper_caracterizacion/soft_data_obtaining/figs/peaks_selection.tiff",
+   #ggsave(plot = peaks_selection_plot, filename = "figs/peaks_selection.tiff",
    device = "tiff", width = 10, height = 6, dpi = 600)
 
 

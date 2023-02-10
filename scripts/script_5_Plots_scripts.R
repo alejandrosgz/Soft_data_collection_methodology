@@ -35,7 +35,7 @@ baseflow_sep <- function(df=NA, Q="Q",
   return(data.frame(B,R))
 }
 
-basins_file <- read.csv("used_files/Created_csv/basins_file.csv") 
+basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") 
 
 # File with gauging data
 gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
@@ -175,7 +175,7 @@ recession_curve_plot <- ggplot(peak_3_perjo, aes(x =date, y = obs_flow))+geom_ar
 
 adj_recession_curve_plot <- ggplot(peak_3_perjo[c(55:90),], aes(x =date, y = log(obs_flow)))+geom_area(fill = "skyblue", color = "darkblue")+
   theme_bw()+ylab("ln(streamflow)")+xlab("Date")+theme(text = element_text(size = 12, colour = "black"))+
-  ggtitle("Recession curve linear adjustment (slope = -0.024, R² = 0.97)")+ theme(title = element_text(size = 10))+
+  ggtitle("Recession curve linear adjustment (slope = -0.024, RB2 = 0.97)")+ theme(title = element_text(size = 10))+
   annotate("segment", x = as.Date(peak_3_perjo$date[55]), xend = as.Date(peak_3_perjo$date[90]), 
            y = (1.7659-0.02421*1), yend = log(peak_3_perjo$obs_flow[55])-0.02421*36, color = "black",
            linetype = 2, linewidth = 0.7)
@@ -195,7 +195,7 @@ init_date <- as.Date("1951-01-01")
 end_date <- as.Date("2019-12-31")
 dates <- seq(init_date, end_date, 1) # A sequence of dates for the entire period with data is created
 period_dates <- tibble(dates) %>% filter(., year(dates) %in% 2010:2018)
-pcp_grid_points <-  read.csv("used_files/Created_csv/ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
+pcp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
 
 # Loop for calculating the daily precipitation of each basin 
 pcpday_bas_list <- list()
@@ -244,7 +244,7 @@ pcp_plot2 <- ggplot(peak_2, aes( x=date))+geom_bar(aes(y = precipitation), stat 
   xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
 plot_b4 <- (pcp_plot2 / bf_plot_2 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
 
-ggsave(plot = plot_b4, filename = "D:/Trabajo/Papers/Paper_caracterizacion/Soft_data_collection_methodology/figs/subb_4_bfsep_N.png", device = "png",dpi = 600, 
+#ggsave(plot = plot_b4, filename = "figs/subb_4_bfsep_N.png", device = "png",dpi = 600, 
        height = 10, width = 12 )
 
 #### 4. Time scale effect on baseflow filter plot ####
@@ -291,3 +291,7 @@ hyd_comp <- gauging_data_tagus %>% filter(., cod %in% cod_ex, date > as.Date("20
   mutate(names = factor(names_ex, levels = c("Matallana (IMP)", "Priego Escabas (CRB)", "Torote (DTAL)", "Villasequilla Yepes (DTBJ)"))) %>% ggplot(., aes(x = date, y = obs_flow))+
   geom_area(color = "darkblue", fill = "skyblue", linewidth = 0.6)+facet_grid(facets = "names", scales = "free")+ theme_bw()+ 
   ylab("Streamflow (m³/s)")+xlab("Date") +theme(text = element_text(size = 12, color = "black"), strip.text.y = element_text(face = "bold", size = 12), axis.title.x = element_blank() )
+
+
+
+

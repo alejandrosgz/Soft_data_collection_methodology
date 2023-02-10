@@ -358,6 +358,10 @@ display: none;
 soft-data collection methodology presented in the manuscript <em>Soft
 data collection for realistic hydrological modelling: a reproducible
 methodology developed in R for the Tagus River basin</em>.</p>
+<p>The developed methodology can be reproduced but the authors shall not
+be liable for their use.</p>
+<p>If the methodology is used, authors will appreciate that the
+developed manuscript is cited.</p>
 <div id="purpose-and-utility" class="section level3">
 <h3>Purpose and utility</h3>
 <p>Soft data in hydrology can be used to characterize the hydrological
@@ -365,17 +369,39 @@ behavior of a basin or region, and also to guide hydrological models
 soft calibration processes. Despite in countries such as Spain there are
 available weather and hydrological datasets to collect soft data for all
 the territory, studies which aim to do it are few and limited to small
-areas and time series. In this work, a soft data collection methodology
-has been developed to obtain soft data from available weather and
-streamflow data, focusing into two variables: the runoff coefficient and
-the baseflow index. This methodology can be reproduced for any gauged
-catchment in Spain, and can be also used for any other region with
-similar available datasets. The upper sector of the Tagus River basin
-has been used as study case, evaluating the two variables mentioned in
-19 subbasins of this river located in different geological regions.</p>
+areas and time series.</p>
+<p>In this work, a soft data collection methodology has been developed
+to obtain soft data from available weather and streamflow data, focusing
+into two variables: the runoff coefficient and the baseflow index. This
+methodology can be reproduced for any gauged catchment in Spain, and can
+be also used for any other region with similar available datasets. The
+upper sector of the Tagus River basin has been used as study case,
+evaluating the two variables mentioned in 19 subbasins of this river
+located in different geological regions.</p>
 </div>
 <div id="structure" class="section level3">
 <h3>Structure</h3>
+<p>In the main directory of the repository, there are several files:</p>
+<ul>
+<li><p><strong>README</strong> This file. It is recommended to read it
+to know how the repository has been structured and how this methodology
+can be applied in other regions.</p></li>
+<li><p><strong>soft_data_paper.qmd</strong> Contains all the work and
+data presented in the manuscript. In this file, the more important parts
+of the code are located (which can be also found in the scripts) and
+some examples have been introduced. However, the code for reproducing
+all the results of the presented manuscript can be found in the
+<strong>scripts</strong> folder. This document can be used to generate
+different output formats of the document
+(<strong>soft_data_paper.docx</strong>,
+<strong>soft_data_paper.html</strong>), which are also located in the
+main repository directory.</p></li>
+<li><p><strong>Paper_soft_data_collection.bib</strong> contains the
+references in BibTex format, generated with the software
+<em>Zotero</em>.</p></li>
+</ul>
+<p>Other files are related to the repository functioning or to the
+output adjustments and can be ignored.</p>
 <p>Within the repository, three directories can be found:</p>
 <div id="used_files-directory" class="section level4">
 <h4>1. used_files directory</h4>
@@ -458,46 +484,39 @@ delineate the subbasins. This file was compressed to reduce its
 weight.</p></li>
 </ul></li>
 </ul>
-<p>The manuscript can be generated with the
-<strong>soft_data_paper.qmd</strong> file, as all the needed data is
-located in the repository. However, a pdf of the manuscript is included
-<strong>soft_data_paper.pdf</strong>. The code for generating the
-results included as examples is located in the .qmd document. However,
-the code for reproducing all the results of the paper can be found in
+</div>
+<div id="scripts-directory" class="section level4">
+<h4>2. scripts directory</h4>
+<p>The code for reproducing all the results of the paper can be found in
 the folder <strong>scripts</strong>, where 5 scripts are located:</p>
 <ul>
 <li><p><strong>script_1_CSV_files_preparation.R</strong> Can be used to
 create the csv files needed to use this methodology. As inputs, two
 vector files (delineated basins and gridded data) are needed.</p></li>
 <li><p><strong>script_2_Runoff_rate calculation.R</strong> Include all
-the code necessary to calculate runoff rate at annual and average
-basins, for subbasins and geological regions.</p></li>
+the code necessary to calculate the runoff coefficients at annual and
+average basis, for subbasins and geological regions. With this script,
+the annual precipitation, temperature, runoff and runoff coefficient can
+be calculated.</p></li>
 <li><p><strong>script_3_alphas_calculation.R</strong> Allow to calculate
 the <em>alpha</em> values using a linear regression. Three recession
-curves for each subbasins have been performed, and the R² and standard
-variation values have also been extracted.</p></li>
+curves for each subbasins have been performed, and the determination
+coefficient and standard variation values have been extracted.</p></li>
 <li><p><strong>script_4_Groundwater_contribution_estimation.R</strong>
 Include all the code necessary to apply the baseflow filter for three
 peaks in each subbasins and calculating the groundwater contribution to
 the streamflow.</p></li>
-<li><p><strong>script_5_Plots_scripts.R</strong> Allow to generate the
-figures included in the manuscript. Note that Figure 2 it is not
+<li><p><strong>script_5_Plots_scripts.R</strong> Can be used to generate
+the figures included in the manuscript. Note that Figure 2 it is not
 possible to be reproduced with the included precipitation data, as it
 uses data from all the upper third of the Tagus River basin.</p></li>
 </ul>
+</div>
+<div id="figs-directory" class="section level4">
+<h4>3. Figs directory</h4>
 <p><strong>Figs</strong> directory contains the images used in the
 manuscript</p>
-<p><strong>Paper_soft_data_obtention.bib</strong> contains the
-references in BibTex format.</p>
-<p>Other files are related to format adjustments and can be ignored.</p>
 </div>
-</div>
-<div id="workflow" class="section level2">
-<h2>Workflow</h2>
-<p>The developed methodology can be reproduced but the authors shall not
-be liable for their use.</p>
-<p>If the methodology is used, authors will appreciate that the
-developed manuscript is cited.</p>
 </div>
 </div>
 

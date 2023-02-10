@@ -207,7 +207,7 @@ div.csl-indent {
 <p>The Tagus River (<a href="#fig-location">Figure&nbsp;1</a>) is the longest in the Iberian Peninsula, and its basin is the most populated. Water resources in this basin are scarce considering the high demand of water, and it is expected that climate change will exacerbate this situation. In addition, a water transfer system extract water from the headwaters of the Tagus River to the southeast of Spain to supply irrigation and human consumption demands. Thus, realistic hydrological modelling of this catchment is of utmost importance in order to guarantee reliable future assessments of, for example, climate change impacts.</p>
 <p>The upper sector of the Tagus River basin (3,388 km²) covers around 47% of the extension of the entire basin. This sector is delimited by three mountain ranges: the Central System in the north, the Iberian System in the east, and the Toledo Mountains in the south. Altitude ranges from 2,400 m.a.s.l. in some peaks of the Central System to 360 m.a.s.l. in Talavera de la Reina (Toledo), the outlet of the upper basin. The upper sector of the basin (<a href="#fig-location">Figure&nbsp;1</a>) is characterized by a continental Mediterranean climate, which varies depending on factors such as altitude, proximity to the ocean and latitude. Chazarra et al. <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">2018</a>)</span> classified this sector as temperate (C) and dry (B) following the Köppen-Geiger climate classification for the period 1980-2010. The mean precipitation for this period was around 550 mm, with values higher than 1.400 mm in the Central System, and lower than 400 mm in the driest areas of the southern sector. The mean temperature is around 12ºC, which varies between 13ºC in the east, 17ºC in the west and 8ºC to 10ºC in the Central System <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">Chazarra Bernabé et al. 2018</a>)</span>. The average precipitation and water yield of the basin has been reduced in the last decades, which could be attributed to the impacts of climate change <span class="citation" data-cites="garcia_serie_2017">(<a href="#ref-garcia_serie_2017" role="doc-biblioref">García, Fernández-Victorio, and Calzado 2017</a>)</span>.</p>
 <p>Natural vegetation and agricultural lands are the main land covers of the area, occupying around 48% and 47%, respectively of the total area, being cereals the dominant crop. Urban use covers around 3% of the total area, being approximately 8 million inhabitants in this sector of the basin. Therefore, relevant water demands are located in this area, with noticeable environmental and social implications.</p>
-<p>In this sector of the basin, the confluence of different mountain systems with different bedrocks has originated a heterogeneous geological configuration, which gives rise to differences in the main hydrological processes. Direct runoff is expected to predominate in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers, thus being the baseflow index more relevant. The sedimentary deposits of the basin also have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability. This basin, therefore, is a complex system which requires a comprehensive methodology to be modelled. This modelling process would benefit from a soft calibration phase towards the realistic simulation of the different geological sector. For such a purpose, collection of soft data is needed, and the methodology followed to achieve this task is described and discussed below.</p>
+<p>In this sector of the basin, the confluence of different mountain systems with different bedrocks has originated a heterogeneous geological configuration, which gives rise to differences in the main hydrological processes. Direct runoff is expected to predominate in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers, thus being the baseflow index more relevant. The sedimentary deposits of the basin also have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability. This basin, therefore, is a complex system which requires a comprehensive methodology to be modeled. This modelling process would benefit from a soft calibration phase towards the realistic simulation of the different geological sector. For such a purpose, collection of soft data is needed, and the methodology followed to achieve this task is described and discussed below.</p>
 <div id="fig-location" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/Studied_basinss.png" class="img-fluid figure-img"></p>
@@ -234,10 +234,10 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="input-data-and-basins-delineation">3.2. Input data and basins delineation</h4>
 <p>The presented methodology requires some input data and also some files that have to be created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.</p>
 <p>Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, <span class="citation" data-cites="garcia_serie_2017">García, Fernández-Victorio, and Calzado (<a href="#ref-garcia_serie_2017" role="doc-biblioref">2017</a>)</span>), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Streamflow data was collected from the CEDEX streamflow gauging stations yearly report <span class="citation" data-cites="cedex_anuario_2021">(<a href="#ref-cedex_anuario_2021" role="doc-biblioref">CEDEX 2021</a>)</span>, which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, <em>afliq.csv</em>).</p>
-<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the <em>sf</em> and <em>dplyr</em> packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">Pebesma 2018</a>; <a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">Wickham and RStudio 2022</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>basins_file.csv</em>.</p>
+<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the <em>sf</em> and <em>dplyr</em> packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">Pebesma 2018</a>; <a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">Wickham and RStudio 2022</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>1_basins_file.csv</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data: Shapefile with the delineated subbasins </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>subbasins <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"used_files/Shapefiles/basins_studied.shp"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., id)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>subbasins <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"used_files/GIS/Shapefiles/basins_studied.shp"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., id)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Changing column names</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>subbasins_csv <span class="ot">&lt;-</span> subbasins <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Basin_ID =</span> id) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating area</span></span>
@@ -250,28 +250,28 @@ div.csl-indent {
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">st_drop_geometry</span>(.) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordering table</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>.[,<span class="fu">c</span>(<span class="st">"Basin"</span>, <span class="st">"Basin_ID"</span>, <span class="st">"area"</span>, <span class="st">"gauging_code"</span>, <span class="st">"region"</span>)]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> subbasins_csv, <span class="at">file =</span> <span class="st">"used_files/Created_csv/basins_file.csv"</span>, <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span>subbasins_csv, <span class="at">file =</span> <span class="st">"used_files/Created_csv/1_basins_file.csv"</span>, <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In order to estimate the precipitation and temperature for each subbasin, it was necessary to know which points of the weather grids are located within. A grid vector layer was created with all the weather points located in the study area, and those points located inside a 1 km buffer performed for each of the subbasins were identified. The buffer and clipping processes were performed with sf package. The buffer distance depends on the data resolution, and in this case it has been considered appropriated. A csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it is) has been created and saved as <em>ids_stations_file.csv</em>. Note that in this case the identifiers and location of precipitation and temperature points of the grid matched, thus being only necessary to have one file for both variables.</p>
+<p>In order to estimate the precipitation and temperature for each subbasin, it was necessary to know which points of the weather grids are located within. A grid vector layer was created with all the weather points located in the study area, and those points located inside a 1 km buffer performed for each of the subbasins were identified. The buffer and clipping processes were performed with sf package. The buffer distance depends on the data resolution, and in this case it has been considered appropriated. A csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it is) has been created and saved as <em>2_ids_stations_file.csv</em>. Note that in this case the identifiers and location of precipitation and temperature points of the grid matched, thus being only necessary to have one file for both variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gauging points</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pcp_points <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"D:/Trabajo/Tajo/datos_meteo_buenos/grid_tagus.shp"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pcp_points <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"used_files/GIS/Shapefiles/grid_tagus.shp"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Subbasins </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>subbasins <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"used_files/Shapefiles/basins_studied.shp"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., id)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>subbasins <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"used_files/GIS/Shapefiles/basins_studied.shp"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., id)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Buffer created for subbasins (1 km distance)</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>subbasins_buffer <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(subbasins, <span class="at">dist =</span> <span class="dv">1000</span>) </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Clipping grid points with the subbasins buffer</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>grid_points_clip <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(pcp_points, subbasins_buffer[, <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"Basin"</span>, <span class="st">"geometry"</span>)])</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial data is no longer necessary, and a variable is renamed before saving</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>grid_points_clip_csv <span class="ot">&lt;-</span> grid_points_clip <span class="sc">%&gt;%</span> <span class="fu">st_drop_geometry</span>(.) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Basin_ID =</span> id)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> grid_points_clip_csv, <span class="at">file =</span> <span class="st">"used_files/Created_csv/ids_stations_file.csv"</span>, <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> grid_points_clip_csv, <span class="at">file =</span> <span class="st">"used_files/Created_csv/2_ids_stations_file.csv"</span>, <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>With these two csv files (created from the subbasins and weather grid vectorial layers) the methodology can be carried out. A third csv file will be created with the results of the baseflow index obtained, as explained in the respective section (3.4). Examples of these files are available for the reader in order to allow reproducibility of the work (see Data availability section). From this point on, all the work has been developed from R-Studio <span class="citation" data-cites="rstudio_team_rstudio_2020">(<a href="#ref-rstudio_team_rstudio_2020" role="doc-biblioref">RStudio Team 2020</a>)</span> using different libraries <span class="citation" data-cites="wickham_readr_2022 pebesma_simple_2018 spinu_lubridate_2023 sievert_plotly_2022 pedersen_patchwork_2022 iannone_gt_2022">Wickham and RStudio (<a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>With these two csv files (created from the subbasins and weather grid vectorial layers) the methodology can be carried out. Two more csv files will be created with the results of the baseflow index assessment, as explained in the respective section (3.4). Examples of these files are available for the reader in order to allow reproducibility of the work (see Data availability section). From this point on, all the work has been developed from R-Studio <span class="citation" data-cites="rstudio_team_rstudio_2020">(<a href="#ref-rstudio_team_rstudio_2020" role="doc-biblioref">RStudio Team 2020</a>)</span> using different libraries <span class="citation" data-cites="wickham_readr_2022 pebesma_simple_2018 spinu_lubridate_2023 sievert_plotly_2022 pedersen_patchwork_2022 iannone_gt_2022">Wickham and RStudio (<a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">2022</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File with basins data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>basins_file <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"used_files/Created_csv/basins_file.csv"</span>) </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>basins_file <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"used_files/Created_csv/1_basins_file.csv"</span>) </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># File with grid points identifiers </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pcp_grid_points <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">"used_files/Created_csv/ids_stations_file.csv"</span>) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pcp_grid_points <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">"used_files/Created_csv/2_ids_stations_file.csv"</span>) </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># File with gauging data</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>gauging_data_tagus <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"used_files/Data/Gauging_data/afliq.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(.,<span class="st">"cod"</span> <span class="ot">=</span> indroea, <span class="st">"date"</span> <span class="ot">=</span> fecha, <span class="st">"obs_flow"</span> <span class="ot">=</span> caudal) <span class="sc">%&gt;%</span> </span>
@@ -313,7 +313,7 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Precipitation points files path</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"used_files/Data/Climate_data_extracted/pcp_spain/"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># File with grid points identifiers </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pcp_grid_points <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">"used_files/Created_csv/ids_stations_file.csv"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pcp_grid_points <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">"used_files/Created_csv/2_ids_stations_file.csv"</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating dates for the entire period (1951-2019)</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>init_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"1951-01-01"</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>end_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2019-12-31"</span>)</span>
@@ -454,7 +454,7 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">Figure&nbsp;5: Baseflow separation example performed for the peak 2 of the subbasin 4.</figcaption><p></p>
 </figure>
 </div>
-<p>The estimation of baseflow contribution has been performed through a more complex and subjective method than the runoff coefficient calculation. The use of a baseflow filter program allows to make the hydrograph components division in an easy way, but also can leads to unrealistic results, since some key factors are not automatically taken into account by the filter and thus need expert knowledge supervision. The filter used, based on two parameters, is relatively simple but also allows to take into account factors such as porosity and transmissivity when separating the hydrograph, therefore being able to reproduce the groundwater systems behavior. As the <em>alpha</em> and baseflow index estimation has been performed through a manual process, the obtained values have been saved on the scripts or in a csv file in the case of the baseflow index (<em>groundwater_results.csv</em>).</p>
+<p>The estimation of baseflow contribution has been performed through a more complex and subjective method than the runoff coefficient calculation. The use of a baseflow filter program allows to make the hydrograph components division in an easy way, but also can leads to unrealistic results, since some key factors are not automatically taken into account by the filter and thus need expert knowledge supervision. The filter used, based on two parameters, is relatively simple but also allows to take into account factors such as porosity and transmissivity when separating the hydrograph, therefore being able to reproduce the groundwater systems behavior. As the <em>alpha</em> and baseflow index estimation has been performed through a manual process, the obtained values have been saved on the csv files <em>3_alpha_estimation.csv</em> and <em>4_groundwater_results.csv</em>, respectively.</p>
 </section>
 </section>
 <section id="results-and-discussion" class="level3">
@@ -467,12 +467,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_runoff_rates" class="anchored">
 
-<div id="kpgujdrdha" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="icolyddfkb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#kpgujdrdha) .gt_table {
+:where(#icolyddfkb) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -497,7 +497,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_heading {
+:where(#icolyddfkb) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -509,12 +509,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_caption {
+:where(#icolyddfkb) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#kpgujdrdha) .gt_title {
+:where(#icolyddfkb) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -526,7 +526,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#kpgujdrdha) .gt_subtitle {
+:where(#icolyddfkb) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -538,13 +538,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#kpgujdrdha) .gt_bottom_border {
+:where(#icolyddfkb) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_col_headings {
+:where(#icolyddfkb) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -559,7 +559,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_col_heading {
+:where(#icolyddfkb) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -579,7 +579,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#kpgujdrdha) .gt_column_spanner_outer {
+:where(#icolyddfkb) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -591,15 +591,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#kpgujdrdha) .gt_column_spanner_outer:first-child {
+:where(#icolyddfkb) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#kpgujdrdha) .gt_column_spanner_outer:last-child {
+:where(#icolyddfkb) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#kpgujdrdha) .gt_column_spanner {
+:where(#icolyddfkb) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -611,7 +611,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#kpgujdrdha) .gt_group_heading {
+:where(#icolyddfkb) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -637,7 +637,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#kpgujdrdha) .gt_empty_group_heading {
+:where(#icolyddfkb) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -652,15 +652,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#kpgujdrdha) .gt_from_md > :first-child {
+:where(#icolyddfkb) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#kpgujdrdha) .gt_from_md > :last-child {
+:where(#icolyddfkb) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#kpgujdrdha) .gt_row {
+:where(#icolyddfkb) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -679,7 +679,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#kpgujdrdha) .gt_stub {
+:where(#icolyddfkb) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -692,7 +692,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#kpgujdrdha) .gt_stub_row_group {
+:where(#icolyddfkb) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -706,11 +706,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#kpgujdrdha) .gt_row_group_first td {
+:where(#icolyddfkb) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#kpgujdrdha) .gt_summary_row {
+:where(#icolyddfkb) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -720,16 +720,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#kpgujdrdha) .gt_first_summary_row {
+:where(#icolyddfkb) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_first_summary_row.thick {
+:where(#icolyddfkb) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#kpgujdrdha) .gt_last_summary_row {
+:where(#icolyddfkb) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -739,7 +739,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_grand_summary_row {
+:where(#icolyddfkb) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -749,7 +749,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#kpgujdrdha) .gt_first_grand_summary_row {
+:where(#icolyddfkb) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -759,11 +759,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_striped {
+:where(#icolyddfkb) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#kpgujdrdha) .gt_table_body {
+:where(#icolyddfkb) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -772,7 +772,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#kpgujdrdha) .gt_footnotes {
+:where(#icolyddfkb) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -786,7 +786,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_footnote {
+:where(#icolyddfkb) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -795,7 +795,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#kpgujdrdha) .gt_sourcenotes {
+:where(#icolyddfkb) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -809,7 +809,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#kpgujdrdha) .gt_sourcenote {
+:where(#icolyddfkb) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -817,64 +817,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#kpgujdrdha) .gt_left {
+:where(#icolyddfkb) .gt_left {
   text-align: left;
 }
 
-:where(#kpgujdrdha) .gt_center {
+:where(#icolyddfkb) .gt_center {
   text-align: center;
 }
 
-:where(#kpgujdrdha) .gt_right {
+:where(#icolyddfkb) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#kpgujdrdha) .gt_font_normal {
+:where(#icolyddfkb) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#kpgujdrdha) .gt_font_bold {
+:where(#icolyddfkb) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#kpgujdrdha) .gt_font_italic {
+:where(#icolyddfkb) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#kpgujdrdha) .gt_super {
+:where(#icolyddfkb) .gt_super {
   font-size: 65%;
 }
 
-:where(#kpgujdrdha) .gt_footnote_marks {
+:where(#icolyddfkb) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#kpgujdrdha) .gt_asterisk {
+:where(#icolyddfkb) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#kpgujdrdha) .gt_indent_1 {
+:where(#icolyddfkb) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#kpgujdrdha) .gt_indent_2 {
+:where(#icolyddfkb) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#kpgujdrdha) .gt_indent_3 {
+:where(#icolyddfkb) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#kpgujdrdha) .gt_indent_4 {
+:where(#icolyddfkb) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#kpgujdrdha) .gt_indent_5 {
+:where(#icolyddfkb) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -943,12 +943,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_alphas" class="anchored">
 
-<div id="fsleagczip" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jlufiyjjll" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#fsleagczip) .gt_table {
+:where(#jlufiyjjll) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -973,7 +973,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_heading {
+:where(#jlufiyjjll) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -985,12 +985,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_caption {
+:where(#jlufiyjjll) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#fsleagczip) .gt_title {
+:where(#jlufiyjjll) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1002,7 +1002,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#fsleagczip) .gt_subtitle {
+:where(#jlufiyjjll) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1014,13 +1014,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#fsleagczip) .gt_bottom_border {
+:where(#jlufiyjjll) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_col_headings {
+:where(#jlufiyjjll) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1035,7 +1035,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_col_heading {
+:where(#jlufiyjjll) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1055,7 +1055,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#fsleagczip) .gt_column_spanner_outer {
+:where(#jlufiyjjll) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1067,15 +1067,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#fsleagczip) .gt_column_spanner_outer:first-child {
+:where(#jlufiyjjll) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#fsleagczip) .gt_column_spanner_outer:last-child {
+:where(#jlufiyjjll) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#fsleagczip) .gt_column_spanner {
+:where(#jlufiyjjll) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1087,7 +1087,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#fsleagczip) .gt_group_heading {
+:where(#jlufiyjjll) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1113,7 +1113,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#fsleagczip) .gt_empty_group_heading {
+:where(#jlufiyjjll) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1128,15 +1128,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#fsleagczip) .gt_from_md > :first-child {
+:where(#jlufiyjjll) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#fsleagczip) .gt_from_md > :last-child {
+:where(#jlufiyjjll) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#fsleagczip) .gt_row {
+:where(#jlufiyjjll) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1155,7 +1155,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#fsleagczip) .gt_stub {
+:where(#jlufiyjjll) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1168,7 +1168,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsleagczip) .gt_stub_row_group {
+:where(#jlufiyjjll) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1182,11 +1182,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#fsleagczip) .gt_row_group_first td {
+:where(#jlufiyjjll) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#fsleagczip) .gt_summary_row {
+:where(#jlufiyjjll) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1196,16 +1196,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsleagczip) .gt_first_summary_row {
+:where(#jlufiyjjll) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_first_summary_row.thick {
+:where(#jlufiyjjll) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#fsleagczip) .gt_last_summary_row {
+:where(#jlufiyjjll) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1215,7 +1215,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_grand_summary_row {
+:where(#jlufiyjjll) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1225,7 +1225,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsleagczip) .gt_first_grand_summary_row {
+:where(#jlufiyjjll) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1235,11 +1235,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_striped {
+:where(#jlufiyjjll) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#fsleagczip) .gt_table_body {
+:where(#jlufiyjjll) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1248,7 +1248,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#fsleagczip) .gt_footnotes {
+:where(#jlufiyjjll) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1262,7 +1262,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_footnote {
+:where(#jlufiyjjll) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1271,7 +1271,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsleagczip) .gt_sourcenotes {
+:where(#jlufiyjjll) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1285,7 +1285,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsleagczip) .gt_sourcenote {
+:where(#jlufiyjjll) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1293,64 +1293,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsleagczip) .gt_left {
+:where(#jlufiyjjll) .gt_left {
   text-align: left;
 }
 
-:where(#fsleagczip) .gt_center {
+:where(#jlufiyjjll) .gt_center {
   text-align: center;
 }
 
-:where(#fsleagczip) .gt_right {
+:where(#jlufiyjjll) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#fsleagczip) .gt_font_normal {
+:where(#jlufiyjjll) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#fsleagczip) .gt_font_bold {
+:where(#jlufiyjjll) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#fsleagczip) .gt_font_italic {
+:where(#jlufiyjjll) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#fsleagczip) .gt_super {
+:where(#jlufiyjjll) .gt_super {
   font-size: 65%;
 }
 
-:where(#fsleagczip) .gt_footnote_marks {
+:where(#jlufiyjjll) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#fsleagczip) .gt_asterisk {
+:where(#jlufiyjjll) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#fsleagczip) .gt_indent_1 {
+:where(#jlufiyjjll) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#fsleagczip) .gt_indent_2 {
+:where(#jlufiyjjll) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#fsleagczip) .gt_indent_3 {
+:where(#jlufiyjjll) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#fsleagczip) .gt_indent_4 {
+:where(#jlufiyjjll) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#fsleagczip) .gt_indent_5 {
+:where(#jlufiyjjll) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1417,12 +1417,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_gw_results" class="anchored">
 
-<div id="yyzzgmansu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="apvsrptyvq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#yyzzgmansu) .gt_table {
+:where(#apvsrptyvq) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1447,7 +1447,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_heading {
+:where(#apvsrptyvq) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1459,12 +1459,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_caption {
+:where(#apvsrptyvq) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#yyzzgmansu) .gt_title {
+:where(#apvsrptyvq) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1476,7 +1476,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#yyzzgmansu) .gt_subtitle {
+:where(#apvsrptyvq) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1488,13 +1488,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#yyzzgmansu) .gt_bottom_border {
+:where(#apvsrptyvq) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_col_headings {
+:where(#apvsrptyvq) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1509,7 +1509,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_col_heading {
+:where(#apvsrptyvq) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1529,7 +1529,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#yyzzgmansu) .gt_column_spanner_outer {
+:where(#apvsrptyvq) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1541,15 +1541,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#yyzzgmansu) .gt_column_spanner_outer:first-child {
+:where(#apvsrptyvq) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#yyzzgmansu) .gt_column_spanner_outer:last-child {
+:where(#apvsrptyvq) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#yyzzgmansu) .gt_column_spanner {
+:where(#apvsrptyvq) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1561,7 +1561,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#yyzzgmansu) .gt_group_heading {
+:where(#apvsrptyvq) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1587,7 +1587,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#yyzzgmansu) .gt_empty_group_heading {
+:where(#apvsrptyvq) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1602,15 +1602,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#yyzzgmansu) .gt_from_md > :first-child {
+:where(#apvsrptyvq) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#yyzzgmansu) .gt_from_md > :last-child {
+:where(#apvsrptyvq) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#yyzzgmansu) .gt_row {
+:where(#apvsrptyvq) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1629,7 +1629,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#yyzzgmansu) .gt_stub {
+:where(#apvsrptyvq) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1642,7 +1642,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yyzzgmansu) .gt_stub_row_group {
+:where(#apvsrptyvq) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1656,11 +1656,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#yyzzgmansu) .gt_row_group_first td {
+:where(#apvsrptyvq) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#yyzzgmansu) .gt_summary_row {
+:where(#apvsrptyvq) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1670,16 +1670,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yyzzgmansu) .gt_first_summary_row {
+:where(#apvsrptyvq) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_first_summary_row.thick {
+:where(#apvsrptyvq) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#yyzzgmansu) .gt_last_summary_row {
+:where(#apvsrptyvq) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1689,7 +1689,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_grand_summary_row {
+:where(#apvsrptyvq) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1699,7 +1699,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yyzzgmansu) .gt_first_grand_summary_row {
+:where(#apvsrptyvq) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1709,11 +1709,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_striped {
+:where(#apvsrptyvq) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#yyzzgmansu) .gt_table_body {
+:where(#apvsrptyvq) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1722,7 +1722,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#yyzzgmansu) .gt_footnotes {
+:where(#apvsrptyvq) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1736,7 +1736,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_footnote {
+:where(#apvsrptyvq) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1745,7 +1745,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yyzzgmansu) .gt_sourcenotes {
+:where(#apvsrptyvq) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1759,7 +1759,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#yyzzgmansu) .gt_sourcenote {
+:where(#apvsrptyvq) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1767,64 +1767,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#yyzzgmansu) .gt_left {
+:where(#apvsrptyvq) .gt_left {
   text-align: left;
 }
 
-:where(#yyzzgmansu) .gt_center {
+:where(#apvsrptyvq) .gt_center {
   text-align: center;
 }
 
-:where(#yyzzgmansu) .gt_right {
+:where(#apvsrptyvq) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#yyzzgmansu) .gt_font_normal {
+:where(#apvsrptyvq) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#yyzzgmansu) .gt_font_bold {
+:where(#apvsrptyvq) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#yyzzgmansu) .gt_font_italic {
+:where(#apvsrptyvq) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#yyzzgmansu) .gt_super {
+:where(#apvsrptyvq) .gt_super {
   font-size: 65%;
 }
 
-:where(#yyzzgmansu) .gt_footnote_marks {
+:where(#apvsrptyvq) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#yyzzgmansu) .gt_asterisk {
+:where(#apvsrptyvq) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#yyzzgmansu) .gt_indent_1 {
+:where(#apvsrptyvq) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#yyzzgmansu) .gt_indent_2 {
+:where(#apvsrptyvq) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#yyzzgmansu) .gt_indent_3 {
+:where(#apvsrptyvq) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#yyzzgmansu) .gt_indent_4 {
+:where(#apvsrptyvq) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#yyzzgmansu) .gt_indent_5 {
+:where(#apvsrptyvq) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1891,7 +1891,7 @@ div.csl-indent {
 </section>
 <section id="ackowledgements" class="level3">
 <h3 class="anchored" data-anchor-id="ackowledgements">Ackowledgements</h3>
-<p>Alejandro Sánchez-Gómez received support from the University of Alcalá (UAH) PhD Fellowships Program. Other projects?</p>
+<p>Alejandro SÃ¡nchez-GÃ³mez received support from the University of AlcalÃ¡ (UAH) PhD Fellowships Program. Other projects?</p>
 <p>Some of the used functions in R were written by other researchers. Concretely, in addition to the used packages (cited in References section), the baseflow filter function was written by Hendrik Rathjens, and the tables format function was taken from https://www.anthonyschmidt.co/post/2020-06-03-making-apa-tables-with-gt/.</p>
 <p>Authors want to thank to AEMET for the gridded weather datasets and to the Water Resources Management and Planning Research Group (and particularly Dr.&nbsp;Javier Senent Aparicio) from the Catholic University of Murcia for adapting the weather datasets format and make it available (https://swat.tamu.edu/data/spain/).</p>
 </section>
@@ -1913,12 +1913,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="frogdcgmbt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mqhsvxbmxo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#frogdcgmbt) .gt_table {
+:where(#mqhsvxbmxo) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1943,7 +1943,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_heading {
+:where(#mqhsvxbmxo) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1955,12 +1955,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_caption {
+:where(#mqhsvxbmxo) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#frogdcgmbt) .gt_title {
+:where(#mqhsvxbmxo) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1972,7 +1972,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#frogdcgmbt) .gt_subtitle {
+:where(#mqhsvxbmxo) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1984,13 +1984,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#frogdcgmbt) .gt_bottom_border {
+:where(#mqhsvxbmxo) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_col_headings {
+:where(#mqhsvxbmxo) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2005,7 +2005,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_col_heading {
+:where(#mqhsvxbmxo) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2025,7 +2025,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#frogdcgmbt) .gt_column_spanner_outer {
+:where(#mqhsvxbmxo) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2037,15 +2037,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#frogdcgmbt) .gt_column_spanner_outer:first-child {
+:where(#mqhsvxbmxo) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#frogdcgmbt) .gt_column_spanner_outer:last-child {
+:where(#mqhsvxbmxo) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#frogdcgmbt) .gt_column_spanner {
+:where(#mqhsvxbmxo) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2057,7 +2057,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#frogdcgmbt) .gt_group_heading {
+:where(#mqhsvxbmxo) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2083,7 +2083,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#frogdcgmbt) .gt_empty_group_heading {
+:where(#mqhsvxbmxo) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2098,15 +2098,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#frogdcgmbt) .gt_from_md > :first-child {
+:where(#mqhsvxbmxo) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#frogdcgmbt) .gt_from_md > :last-child {
+:where(#mqhsvxbmxo) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#frogdcgmbt) .gt_row {
+:where(#mqhsvxbmxo) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2125,7 +2125,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#frogdcgmbt) .gt_stub {
+:where(#mqhsvxbmxo) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2138,7 +2138,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#frogdcgmbt) .gt_stub_row_group {
+:where(#mqhsvxbmxo) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2152,11 +2152,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#frogdcgmbt) .gt_row_group_first td {
+:where(#mqhsvxbmxo) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#frogdcgmbt) .gt_summary_row {
+:where(#mqhsvxbmxo) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2166,16 +2166,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#frogdcgmbt) .gt_first_summary_row {
+:where(#mqhsvxbmxo) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_first_summary_row.thick {
+:where(#mqhsvxbmxo) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#frogdcgmbt) .gt_last_summary_row {
+:where(#mqhsvxbmxo) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2185,7 +2185,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_grand_summary_row {
+:where(#mqhsvxbmxo) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2195,7 +2195,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#frogdcgmbt) .gt_first_grand_summary_row {
+:where(#mqhsvxbmxo) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2205,11 +2205,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_striped {
+:where(#mqhsvxbmxo) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#frogdcgmbt) .gt_table_body {
+:where(#mqhsvxbmxo) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2218,7 +2218,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#frogdcgmbt) .gt_footnotes {
+:where(#mqhsvxbmxo) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2232,7 +2232,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_footnote {
+:where(#mqhsvxbmxo) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2241,7 +2241,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#frogdcgmbt) .gt_sourcenotes {
+:where(#mqhsvxbmxo) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2255,7 +2255,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#frogdcgmbt) .gt_sourcenote {
+:where(#mqhsvxbmxo) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2263,64 +2263,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#frogdcgmbt) .gt_left {
+:where(#mqhsvxbmxo) .gt_left {
   text-align: left;
 }
 
-:where(#frogdcgmbt) .gt_center {
+:where(#mqhsvxbmxo) .gt_center {
   text-align: center;
 }
 
-:where(#frogdcgmbt) .gt_right {
+:where(#mqhsvxbmxo) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#frogdcgmbt) .gt_font_normal {
+:where(#mqhsvxbmxo) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#frogdcgmbt) .gt_font_bold {
+:where(#mqhsvxbmxo) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#frogdcgmbt) .gt_font_italic {
+:where(#mqhsvxbmxo) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#frogdcgmbt) .gt_super {
+:where(#mqhsvxbmxo) .gt_super {
   font-size: 65%;
 }
 
-:where(#frogdcgmbt) .gt_footnote_marks {
+:where(#mqhsvxbmxo) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#frogdcgmbt) .gt_asterisk {
+:where(#mqhsvxbmxo) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#frogdcgmbt) .gt_indent_1 {
+:where(#mqhsvxbmxo) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#frogdcgmbt) .gt_indent_2 {
+:where(#mqhsvxbmxo) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#frogdcgmbt) .gt_indent_3 {
+:where(#mqhsvxbmxo) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#frogdcgmbt) .gt_indent_4 {
+:where(#mqhsvxbmxo) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#frogdcgmbt) .gt_indent_5 {
+:where(#mqhsvxbmxo) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2448,12 +2448,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="tsbwxhpnyj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hrvmuptcqj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#tsbwxhpnyj) .gt_table {
+:where(#hrvmuptcqj) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2478,7 +2478,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_heading {
+:where(#hrvmuptcqj) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2490,12 +2490,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_caption {
+:where(#hrvmuptcqj) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#tsbwxhpnyj) .gt_title {
+:where(#hrvmuptcqj) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2507,7 +2507,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#tsbwxhpnyj) .gt_subtitle {
+:where(#hrvmuptcqj) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2519,13 +2519,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#tsbwxhpnyj) .gt_bottom_border {
+:where(#hrvmuptcqj) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_col_headings {
+:where(#hrvmuptcqj) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2540,7 +2540,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_col_heading {
+:where(#hrvmuptcqj) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2560,7 +2560,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#tsbwxhpnyj) .gt_column_spanner_outer {
+:where(#hrvmuptcqj) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2572,15 +2572,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#tsbwxhpnyj) .gt_column_spanner_outer:first-child {
+:where(#hrvmuptcqj) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#tsbwxhpnyj) .gt_column_spanner_outer:last-child {
+:where(#hrvmuptcqj) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#tsbwxhpnyj) .gt_column_spanner {
+:where(#hrvmuptcqj) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2592,7 +2592,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#tsbwxhpnyj) .gt_group_heading {
+:where(#hrvmuptcqj) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2618,7 +2618,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#tsbwxhpnyj) .gt_empty_group_heading {
+:where(#hrvmuptcqj) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2633,15 +2633,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#tsbwxhpnyj) .gt_from_md > :first-child {
+:where(#hrvmuptcqj) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#tsbwxhpnyj) .gt_from_md > :last-child {
+:where(#hrvmuptcqj) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#tsbwxhpnyj) .gt_row {
+:where(#hrvmuptcqj) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2660,7 +2660,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#tsbwxhpnyj) .gt_stub {
+:where(#hrvmuptcqj) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2673,7 +2673,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tsbwxhpnyj) .gt_stub_row_group {
+:where(#hrvmuptcqj) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2687,11 +2687,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#tsbwxhpnyj) .gt_row_group_first td {
+:where(#hrvmuptcqj) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#tsbwxhpnyj) .gt_summary_row {
+:where(#hrvmuptcqj) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2701,16 +2701,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tsbwxhpnyj) .gt_first_summary_row {
+:where(#hrvmuptcqj) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_first_summary_row.thick {
+:where(#hrvmuptcqj) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#tsbwxhpnyj) .gt_last_summary_row {
+:where(#hrvmuptcqj) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2720,7 +2720,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_grand_summary_row {
+:where(#hrvmuptcqj) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2730,7 +2730,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tsbwxhpnyj) .gt_first_grand_summary_row {
+:where(#hrvmuptcqj) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2740,11 +2740,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_striped {
+:where(#hrvmuptcqj) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#tsbwxhpnyj) .gt_table_body {
+:where(#hrvmuptcqj) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2753,7 +2753,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#tsbwxhpnyj) .gt_footnotes {
+:where(#hrvmuptcqj) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2767,7 +2767,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_footnote {
+:where(#hrvmuptcqj) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2776,7 +2776,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tsbwxhpnyj) .gt_sourcenotes {
+:where(#hrvmuptcqj) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2790,7 +2790,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tsbwxhpnyj) .gt_sourcenote {
+:where(#hrvmuptcqj) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2798,64 +2798,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tsbwxhpnyj) .gt_left {
+:where(#hrvmuptcqj) .gt_left {
   text-align: left;
 }
 
-:where(#tsbwxhpnyj) .gt_center {
+:where(#hrvmuptcqj) .gt_center {
   text-align: center;
 }
 
-:where(#tsbwxhpnyj) .gt_right {
+:where(#hrvmuptcqj) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#tsbwxhpnyj) .gt_font_normal {
+:where(#hrvmuptcqj) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#tsbwxhpnyj) .gt_font_bold {
+:where(#hrvmuptcqj) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#tsbwxhpnyj) .gt_font_italic {
+:where(#hrvmuptcqj) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#tsbwxhpnyj) .gt_super {
+:where(#hrvmuptcqj) .gt_super {
   font-size: 65%;
 }
 
-:where(#tsbwxhpnyj) .gt_footnote_marks {
+:where(#hrvmuptcqj) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#tsbwxhpnyj) .gt_asterisk {
+:where(#hrvmuptcqj) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#tsbwxhpnyj) .gt_indent_1 {
+:where(#hrvmuptcqj) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#tsbwxhpnyj) .gt_indent_2 {
+:where(#hrvmuptcqj) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#tsbwxhpnyj) .gt_indent_3 {
+:where(#hrvmuptcqj) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#tsbwxhpnyj) .gt_indent_4 {
+:where(#hrvmuptcqj) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#tsbwxhpnyj) .gt_indent_5 {
+:where(#hrvmuptcqj) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3056,12 +3056,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-groundwater_results" class="anchored">
 
-<div id="voetayvmtc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="oacdqnpzax" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#voetayvmtc) .gt_table {
+:where(#oacdqnpzax) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3086,7 +3086,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_heading {
+:where(#oacdqnpzax) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -3098,12 +3098,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_caption {
+:where(#oacdqnpzax) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#voetayvmtc) .gt_title {
+:where(#oacdqnpzax) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3115,7 +3115,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#voetayvmtc) .gt_subtitle {
+:where(#oacdqnpzax) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3127,13 +3127,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#voetayvmtc) .gt_bottom_border {
+:where(#oacdqnpzax) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_col_headings {
+:where(#oacdqnpzax) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -3148,7 +3148,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_col_heading {
+:where(#oacdqnpzax) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3168,7 +3168,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#voetayvmtc) .gt_column_spanner_outer {
+:where(#oacdqnpzax) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3180,15 +3180,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#voetayvmtc) .gt_column_spanner_outer:first-child {
+:where(#oacdqnpzax) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#voetayvmtc) .gt_column_spanner_outer:last-child {
+:where(#oacdqnpzax) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#voetayvmtc) .gt_column_spanner {
+:where(#oacdqnpzax) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -3200,7 +3200,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#voetayvmtc) .gt_group_heading {
+:where(#oacdqnpzax) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3226,7 +3226,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#voetayvmtc) .gt_empty_group_heading {
+:where(#oacdqnpzax) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3241,15 +3241,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#voetayvmtc) .gt_from_md > :first-child {
+:where(#oacdqnpzax) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#voetayvmtc) .gt_from_md > :last-child {
+:where(#oacdqnpzax) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#voetayvmtc) .gt_row {
+:where(#oacdqnpzax) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3268,7 +3268,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#voetayvmtc) .gt_stub {
+:where(#oacdqnpzax) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3281,7 +3281,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#voetayvmtc) .gt_stub_row_group {
+:where(#oacdqnpzax) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3295,11 +3295,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#voetayvmtc) .gt_row_group_first td {
+:where(#oacdqnpzax) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#voetayvmtc) .gt_summary_row {
+:where(#oacdqnpzax) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3309,16 +3309,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#voetayvmtc) .gt_first_summary_row {
+:where(#oacdqnpzax) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_first_summary_row.thick {
+:where(#oacdqnpzax) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#voetayvmtc) .gt_last_summary_row {
+:where(#oacdqnpzax) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3328,7 +3328,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_grand_summary_row {
+:where(#oacdqnpzax) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3338,7 +3338,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#voetayvmtc) .gt_first_grand_summary_row {
+:where(#oacdqnpzax) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3348,11 +3348,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_striped {
+:where(#oacdqnpzax) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#voetayvmtc) .gt_table_body {
+:where(#oacdqnpzax) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3361,7 +3361,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#voetayvmtc) .gt_footnotes {
+:where(#oacdqnpzax) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3375,7 +3375,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_footnote {
+:where(#oacdqnpzax) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3384,7 +3384,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#voetayvmtc) .gt_sourcenotes {
+:where(#oacdqnpzax) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3398,7 +3398,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#voetayvmtc) .gt_sourcenote {
+:where(#oacdqnpzax) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3406,64 +3406,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#voetayvmtc) .gt_left {
+:where(#oacdqnpzax) .gt_left {
   text-align: left;
 }
 
-:where(#voetayvmtc) .gt_center {
+:where(#oacdqnpzax) .gt_center {
   text-align: center;
 }
 
-:where(#voetayvmtc) .gt_right {
+:where(#oacdqnpzax) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#voetayvmtc) .gt_font_normal {
+:where(#oacdqnpzax) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#voetayvmtc) .gt_font_bold {
+:where(#oacdqnpzax) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#voetayvmtc) .gt_font_italic {
+:where(#oacdqnpzax) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#voetayvmtc) .gt_super {
+:where(#oacdqnpzax) .gt_super {
   font-size: 65%;
 }
 
-:where(#voetayvmtc) .gt_footnote_marks {
+:where(#oacdqnpzax) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#voetayvmtc) .gt_asterisk {
+:where(#oacdqnpzax) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#voetayvmtc) .gt_indent_1 {
+:where(#oacdqnpzax) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#voetayvmtc) .gt_indent_2 {
+:where(#oacdqnpzax) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#voetayvmtc) .gt_indent_3 {
+:where(#oacdqnpzax) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#voetayvmtc) .gt_indent_4 {
+:where(#oacdqnpzax) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#voetayvmtc) .gt_indent_5 {
+:where(#oacdqnpzax) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
