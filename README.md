@@ -4,7 +4,7 @@ This repository contains the data and code used to perform the soft-data collect
 
 ### Purpose and utility
 
-Soft data in hydrology can be used to characterize the hydrological behavior of a basin or region, and also to guide hydrological models soft calibration processes. Despite in countries such as Spain there are available weather and hydrological datasets to collect soft data for all the territory, studies which aim to do it are few and limited to small areas and time series. In this work, a soft data collection methodology has been developed to obtain soft data from available weather and streamflow data, focusing into two variables: the runoff coefficient and the baseflow index. This methodology can be reproduced for any gauged catchment in Spain, and can be also used for any other region with similar available datasets.  
+Soft data in hydrology can be used to characterize the hydrological behavior of a basin or region, and also to guide hydrological models soft calibration processes. Despite in countries such as Spain there are available weather and hydrological datasets to collect soft data for all the territory, studies which aim to do it are few and limited to small areas and time series. In this work, a soft data collection methodology has been developed to obtain soft data from available weather and streamflow data, focusing into two variables: the runoff coefficient and the baseflow index. This methodology can be reproduced for any gauged catchment in Spain, and can be also used for any other region with similar available datasets. The upper sector of the Tagus River basin has been used as study case, evaluating the two variables mentioned in 19 subbasins of this river locates in different geological regions.
 
 ### Structure 
 
