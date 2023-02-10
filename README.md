@@ -1,6 +1,12 @@
 # Information about the repository
 
-This repository contains the data used to perform the soft-data collection methodology presented in the manuscript *Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin*.
+This repository contains the data and code used to perform the soft-data collection methodology presented in the manuscript *Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin*.
+
+### Purpose and utility
+
+Soft data in hydrology can be used to characterize the hydrological behavior of a basin or region, and also to guide hydrological models soft calibration processes. Despite in countries such as Spain there are available weather and hydrological datasets to collect soft data for all the territory, studies which aim to do it are few and limited to small areas and time series. In this work, a soft data collection methodology has been developed to obtain soft data from available weather and streamflow data, focusing into two variables: the runoff coefficient and the baseflow index. This methodology can be reproduced for any gauged catchment in Spain, and can be also used for any other region with similar available datasets.  
+
+### Structure 
 
 The data necessary to reproduce the work is located in the **used_files** folder. Three folder are can be found within:
 
@@ -28,6 +34,10 @@ The manuscript can be generated with the **soft_data_paper.qmd** file, as all th
 **Paper_soft_data_obtention.bib** contains the references in BibTex format.
 
 Other files are related to format adjustments and can be ignored.
+
+## Workflow
+
+
 
 The developed methodology can be reproduced but the authors shall not be liable for their use. 
 

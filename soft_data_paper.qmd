@@ -4,13 +4,13 @@
 bibliography: Paper_soft_data_collection.bib
 highlight-style: zenburn
 format: 
-   docx: 
-     reference-doc: template.docx
-     fig-align: center
-   #html: 
-   # toc: true
-   # toc-depth: 4
-   # editor: visual
+   #docx: 
+   #  reference-doc: template.docx
+   #  fig-align: center
+   html: 
+    toc: true
+    toc-depth: 4
+    editor: visual
 ---
 
 ```{r Used_libraries}

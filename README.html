@@ -352,12 +352,28 @@ display: none;
 </div>
 
 
-<div id="rep_soft_data_obtaining" class="section level1">
-<h1>rep_soft_data_obtaining</h1>
+<div id="information-about-the-repository" class="section level1">
+<h1>Information about the repository</h1>
 <p>This repository contains the data used to perform the soft-data
 collection methodology presented in the manuscript <em>Soft data
 collection for realistic hydrological modelling: a reproducible
 methodology developed in R for the Tagus River basin</em>.</p>
+<div id="purpose-and-utility" class="section level3">
+<h3>Purpose and utility</h3>
+<p>Soft data in hydrology can be used to characterize the hydrological
+behavior of a basin or region, and also to guide hydrological models
+soft calibration processes. Despite in countries such as Spain there are
+available weather and hydrological datasets to collect soft data for all
+the territory, studies which aim to do it are few and limited to small
+areas and time series. In this work, a soft data collection methodology
+has been developed to obtain soft data from available weather and
+streamflow data, focusing into two variables: the runoff coefficient and
+the baseflow index. This methodology can be reproduced for any gauged
+catchment in Spain, and can be also used for other countries with
+similar available data.</p>
+</div>
+<div id="structure" class="section level2">
+<h2>Structure</h2>
 <p>The data necessary to reproduce the work is located in the
 <strong>used_files</strong> folder. Three folder are can be found
 within:</p>
@@ -365,14 +381,14 @@ within:</p>
 <li><p><strong>Data</strong> Contains both the Streamflow and weather
 data used for this work. In fact, the streamflow data contains data for
 all the gauging stations of the Tagus River basin. The weather (pcp and
-tmp) files have been filter in order to reduce the weigth of the data,
+tmp) files have been filtered in order to reduce the weight of the data,
 but can be downloaded for all Spain in (<a href="https://swat.tamu.edu/data/spain/" class="uri">https://swat.tamu.edu/data/spain/</a>).</p></li>
 <li><p><strong>Created_csv</strong> Contains the csv that should be
 created for making the scripts work. To apply this methodology in other
 regions, these script have to be reproduced.</p></li>
 <li><p><strong>Shapefiles</strong> includes some shp files that has been
-used for this work (i.e., delineated subbasins and buffers, weather
-grids, gauing stations, permeability map).</p></li>
+used for this work (i.e., delineated subbasins, weather grids, gauging
+stations, permeability map).</p></li>
 </ul>
 <p>The manuscript can be generated with the
 <strong>soft_data_paper.qmd</strong> file, as all the needed data is
@@ -380,20 +396,23 @@ located in the repository. However, a pdf of the manuscript is included
 <strong>soft_data_paper.pdf</strong>. The code for generating the
 results included as examples is located in the .qmd document. However,
 the code for reproducing all the results of the paper can be found in
-the folder <strong>scripts</strong>, where 4 scripts are located:</p>
+the folder <strong>scripts</strong>, where 5 scripts are located:</p>
 <ul>
-<li><p><strong>script_1_Runoff_rate calculation.R</strong> Include all
+<li><p><strong>script_1_CSV_files_preparation.R</strong> Can be used to
+create the csv files needed to use this methodology. As inputs, two
+vector files (delineated basins and gridded data) are needed.</p></li>
+<li><p><strong>script_2_Runoff_rate calculation.R</strong> Include all
 the code necessary to calculate runoff rate at annual and average
 basins, for subbasins and geological regions.</p></li>
-<li><p><strong>script_2_alphas_calculation.R</strong> Allow to calculate
+<li><p><strong>script_3_alphas_calculation.R</strong> Allow to calculate
 the <em>alpha</em> values using a linear regression. Three recession
 curves for each subbasins have been performed, and the R² and standard
 variation values have also been extracted.</p></li>
-<li><p><strong>script_3_Groundwater_contribution_estimation.R</strong>
+<li><p><strong>script_4_Groundwater_contribution_estimation.R</strong>
 Include all the code necessary to apply the baseflow filter for three
 peaks in each subbasins and calculating the groundwater contribution to
 the streamflow.</p></li>
-<li><p><strong>script_4_Plots_scripts.R</strong> Allow to generate the
+<li><p><strong>script_5_Plots_scripts.R</strong> Allow to generate the
 figures included in the manuscript. Note that Figure 2 it is not
 possible to be reproduced with the included precipitation data, as it
 uses data from all the upper third of the Tagus River basin.</p></li>
@@ -403,6 +422,14 @@ manuscript</p>
 <p><strong>Paper_soft_data_obtention.bib</strong> contains the
 references in BibTex format.</p>
 <p>Other files are related to format adjustments and can be ignored.</p>
+</div>
+<div id="workflow" class="section level2">
+<h2>Workflow</h2>
+<p>The developed methodology can be reproduced but the authors shall not
+be liable for their use.</p>
+<p>If the methodology is used, authors will appreciate that the
+developed manuscript is cited.</p>
+</div>
 </div>
 
 

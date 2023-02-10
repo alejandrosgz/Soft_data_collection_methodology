@@ -185,7 +185,7 @@ div.csl-indent {
 </section>
 <section id="abstract" class="level3">
 <h3 class="anchored" data-anchor-id="abstract">Abstract</h3>
-<p>Models in hydrology have enriched the knowledge about this discipline, bringing to the scientific community new insights about hydrological questions. However, modelers should ensure that models reproduce the hydrological processes in a realistic way, which is not always the case. Obtaining satisfactory values of performance metrics for one variable (e.g., streamflow) is often considered enough to take a hydrological model as satisfactory, which migth lead to a misrepresentation of the reality behind the model.</p>
+<p>Models in hydrology have enriched the knowledge about this discipline, bringing to the scientific community new insights about hydrological questions. However, modelers should ensure that models reproduce the hydrological processes in a realistic way, which is not always the case. Obtaining satisfactory values of performance metrics for one variable (e.g., streamflow) is often considered enough to take a hydrological model as satisfactory, which might lead to a misrepresentation of the reality behind the model.</p>
 <p>Soft data in hydrological modelling can be used to ensure that the main hydrological processes in a catchment are being realistically reproduced before starting a hard calibration. This process is known as soft calibration. Expert knowledge should guide it, being thus necessary to have available real data of some hydrological variables prior to carry out a soft calibration process.</p>
 <p>This work presents a reproducible methodology for collecting soft data in a certain area and period. This methodology, developed in R, allows to estimate two key variables related to the hydrological processes in a catchment: the runoff coefficient (fraction of the precipitation volume that is converted to streamflow) and the baseflow index (fraction of groundwater contribution to the streamflow). As input data, gridded weather data and streamflow records are necessary to estimate both coefficients, and a baseflow filter is used for estimating the groundwater index.</p>
 <p>The methodology has been tested in the upper sector of the Tagus River basin, addressing a multi-spatial hydrological assessment, estimating these two variables for 19 subbasins located in 5 different geological regions. Results obtained show relevant differences among regions, justifying the necessity of addressing such an evaluation.</p>
@@ -232,9 +232,9 @@ div.csl-indent {
 </section>
 <section id="input-data-and-basins-delineation" class="level4">
 <h4 class="anchored" data-anchor-id="input-data-and-basins-delineation">3.2. Input data and basins delineation</h4>
-<p>The presented methodology requires some input data and also some files that have to created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.</p>
+<p>The presented methodology requires some input data and also some files that have to be created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.</p>
 <p>Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, <span class="citation" data-cites="garcia_serie_2017">García, Fernández-Victorio, and Calzado (<a href="#ref-garcia_serie_2017" role="doc-biblioref">2017</a>)</span>), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Streamflow data was collected from the CEDEX streamflow gauging stations yearly report <span class="citation" data-cites="cedex_anuario_2021">(<a href="#ref-cedex_anuario_2021" role="doc-biblioref">CEDEX 2021</a>)</span>, which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, <em>afliq.csv</em>).</p>
-<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the sf and dplyr packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">Pebesma 2018</a>; <a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">Wickham and RStudio 2022</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>basins_file.csv</em>.</p>
+<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the <em>sf</em> and <em>dplyr</em> packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">Pebesma 2018</a>; <a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">Wickham and RStudio 2022</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>basins_file.csv</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data: Shapefile with the delineated subbasins </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>subbasins <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"used_files/Shapefiles/basins_studied.shp"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., id)</span>
@@ -284,26 +284,29 @@ div.csl-indent {
 <p>From all the gauging stations inside the Tagus River basin, the ones used for this work were filtered using their identifier. Then, gauged data was aggregated from daily values (m³/s) to annual contribution (mm/year) using the basins area. As mentioned above, basins 2, 6 and 14, despite not having data since 2010, were selected because they were in natural regime, being other basins representative of their lithology regulated. In this way, an annual runoff value (mm) was obtained for each of the studied basins using the code below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Runoff calculation ####</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>cods <span class="ot">&lt;-</span> basins_file<span class="sc">$</span>gauging_code <span class="co"># Gauging stations codes</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>areas <span class="ot">&lt;-</span> basins_file<span class="sc">$</span>area <span class="co"># Drainage areas</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>obs_anual <span class="ot">&lt;-</span>  <span class="fu">list</span>() </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(cods)){</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  gaug_st <span class="ot">&lt;-</span> <span class="fu">filter</span>(gauging_data_tagus, cod <span class="sc">==</span> cods[i],(<span class="fu">year</span>(date) <span class="sc">%in%</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2018</span>))</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Average annual flow (m³/s)</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  caud_anual <span class="ot">&lt;-</span> gaug_st[,<span class="fu">c</span>(<span class="st">"date"</span>, <span class="st">"obs_flow"</span>)] <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="at">year =</span> <span class="fu">year</span>(date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(., <span class="at">obs_m3 =</span> <span class="fu">mean</span>(obs_flow)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Annual contribution (mm/year) </span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">obs_mm =</span> (obs_m3<span class="sc">*</span><span class="dv">86400</span><span class="sc">*</span><span class="dv">365</span><span class="sc">*</span><span class="dv">1000</span>)<span class="sc">/</span> (areas[i])) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>   <span class="fu">cbind</span>(<span class="at">bas =</span> i) <span class="sc">%&gt;%</span> .[,<span class="fu">c</span>(<span class="st">"bas"</span>, <span class="st">"year"</span>, <span class="st">"obs_mm"</span>)]</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Gauged data for all the basins</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  obs_anual[[i]] <span class="ot">&lt;-</span> caud_anual </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixing basins </span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Basins 2 and 6 have data only from October 2010. The first row (2010) is therefore eliminated</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>obs_anual[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> obs_anual[[<span class="dv">2</span>]][<span class="sc">-</span><span class="dv">1</span>,]</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>obs_anual[[<span class="dv">6</span>]] <span class="ot">&lt;-</span> obs_anual[[<span class="dv">6</span>]][<span class="sc">-</span><span class="dv">1</span>,]</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Basin 14 have data only from July 2011. The first row (2011) is therefore eliminated</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>obs_anual[[<span class="dv">14</span>]] <span class="ot">&lt;-</span> obs_anual[[<span class="dv">14</span>]][<span class="sc">-</span><span class="dv">1</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Gauging stations codes</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cods <span class="ot">&lt;-</span> basins_file<span class="sc">$</span>gauging_code </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Drainage areas</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>areas <span class="ot">&lt;-</span> basins_file<span class="sc">$</span>area </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>obs_anual <span class="ot">&lt;-</span>  <span class="fu">list</span>() </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(cods)){</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  gaug_st <span class="ot">&lt;-</span> <span class="fu">filter</span>(gauging_data_tagus, cod <span class="sc">==</span> cods[i],(<span class="fu">year</span>(date) <span class="sc">%in%</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2018</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Average annual flow (m³/s)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  caud_anual <span class="ot">&lt;-</span> gaug_st[,<span class="fu">c</span>(<span class="st">"date"</span>, <span class="st">"obs_flow"</span>)] <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="at">year =</span> <span class="fu">year</span>(date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(., <span class="at">obs_m3 =</span> <span class="fu">mean</span>(obs_flow)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Annual contribution (mm/year) </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">obs_mm =</span> (obs_m3<span class="sc">*</span><span class="dv">86400</span><span class="sc">*</span><span class="dv">365</span><span class="sc">*</span><span class="dv">1000</span>)<span class="sc">/</span> (areas[i])) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>   <span class="fu">cbind</span>(<span class="at">bas =</span> i) <span class="sc">%&gt;%</span> .[,<span class="fu">c</span>(<span class="st">"bas"</span>, <span class="st">"year"</span>, <span class="st">"obs_mm"</span>)]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Gauged data for all the basins</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  obs_anual[[i]] <span class="ot">&lt;-</span> caud_anual </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixing basins </span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Basins 2 and 6 have data only from October 2010. The first row (2010) is therefore eliminated</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>obs_anual[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> obs_anual[[<span class="dv">2</span>]][<span class="sc">-</span><span class="dv">1</span>,]</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>obs_anual[[<span class="dv">6</span>]] <span class="ot">&lt;-</span> obs_anual[[<span class="dv">6</span>]][<span class="sc">-</span><span class="dv">1</span>,]</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Basin 14 have data only from July 2011. The first row (2011) is therefore eliminated</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>obs_anual[[<span class="dv">14</span>]] <span class="ot">&lt;-</span> obs_anual[[<span class="dv">14</span>]][<span class="sc">-</span><span class="dv">1</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Daily precipitation data (mm) was aggregated to calculate the annual precipitation (mm/year) for each grid point and then the average precipitation for each subbasin. Despite other methods (i.e., interpolation) could estimate the average precipitation in a more accurate way, considering the resolution of the used weather grids this approximation has been considered appropriate. The average maximum, minimum and mean temperature was calculated in a similar way <span class="citation" data-cites="garcia_serie_2017">(but from the AEMET maximum and minimum temperature grid, <a href="#ref-garcia_serie_2017" role="doc-biblioref">García, Fernández-Victorio, and Calzado 2017</a>)</span> for each year in all the subbasins to reinforce the discussion of the results, as this variable directly affects the evapotranspiration and therefore to the runoff coefficient.</p>
 <div class="cell">
@@ -387,7 +390,7 @@ div.csl-indent {
 <p><span id="eq-gw_linear_recession"><span class="math display">\[ ln(Q_{t}) = ln(Q_{0})-α * t \tag{4}\]</span></span></p>
 <p>Considering <a href="#eq-alpha_rec_constant">Equation&nbsp;2</a> and <a href="#eq-gw_recession">Equation&nbsp;3</a> when <span class="math inline">\(t = 1\)</span>, and making the assumption that during the recession all the flow is baseflow, it can be deduced that:</p>
 <p><span id="eq-alpha_conversion"><span class="math display">\[alpha = e^{-α} \tag{5}\]</span></span></p>
-<p>The effects of these parameters on the baseflow estimation have been assessed to know their importance (<a href="#fig-parameters_effect">Figure&nbsp;3</a>). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. <em>BFImax</em> affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the <em>BFImax</em> values. <em>alpha</em> controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of <em>alpha</em> less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of <em>alpha</em> prevents the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher <em>BFImax</em> values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore <em>alpha</em> value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
+<p>The effects of these parameters on the baseflow estimation have been assessed to know their importance (<a href="#fig-parameters_effect">Figure&nbsp;3</a>). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. <em>BFImax</em> affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the <em>BFImax</em> values. <em>alpha</em> controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of <em>alpha</em> less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of <em>alpha</em> prevent the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher <em>BFImax</em> values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore <em>alpha</em> value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
 <div id="fig-parameters_effect" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/parameters_effect_plot.png" class="img-fluid figure-img"></p>
@@ -415,7 +418,7 @@ div.csl-indent {
 <div id="fig-recession_curve" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/peaks_selection_adjustment.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Peaks selection, groundwater recesssion curve identification and linear adjustment performed for subbasin 4.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: Peaks selection, groundwater recession curve identification and linear adjustment performed for subbasin 4.</figcaption><p></p>
 </figure>
 </div>
 <p>Three <em>alpha</em> values were calculated with this method for each basin, having a range of values to introduce in the baseflow filter function. For <em>BFImax</em>, the recommended values are around 0.8 for perennial streams with porous aquifers, around 0.5 for ephemeral streams with porous aquifers, and around 0.25 for perennial streams with hard rock aquifers <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">Eckhardt 2005</a>)</span>. However, these values leaded in some cases to an overestimation of the baseflow and to unreal components separation, then these values were adjusted in each case considering the properties of each basin and the expert knowledge. For each basin, different <em>alpha</em> and <em>BFImax</em> values were adjusted to obtain a realistic baseflow component separation for three representative peaks, and once this was reached, the average contribution of the baseflow to the streamflow (Bf<sub>c</sub>) was calculated with <a href="#eq-bf_contribution">Equation&nbsp;6</a>, where n is the number of days for which the filter is applied, bf<sub>k</sub> is the baseflow contribution for the day k and rn<sub>k</sub> is the runoff contribution for the day k.</p>
@@ -464,12 +467,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_runoff_rates" class="anchored">
 
-<div id="dseyxugpjz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kpgujdrdha" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#dseyxugpjz) .gt_table {
+:where(#kpgujdrdha) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -494,7 +497,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_heading {
+:where(#kpgujdrdha) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -506,12 +509,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_caption {
+:where(#kpgujdrdha) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#dseyxugpjz) .gt_title {
+:where(#kpgujdrdha) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -523,7 +526,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#dseyxugpjz) .gt_subtitle {
+:where(#kpgujdrdha) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -535,13 +538,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#dseyxugpjz) .gt_bottom_border {
+:where(#kpgujdrdha) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_col_headings {
+:where(#kpgujdrdha) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -556,7 +559,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_col_heading {
+:where(#kpgujdrdha) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -576,7 +579,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#dseyxugpjz) .gt_column_spanner_outer {
+:where(#kpgujdrdha) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -588,15 +591,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#dseyxugpjz) .gt_column_spanner_outer:first-child {
+:where(#kpgujdrdha) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#dseyxugpjz) .gt_column_spanner_outer:last-child {
+:where(#kpgujdrdha) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#dseyxugpjz) .gt_column_spanner {
+:where(#kpgujdrdha) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -608,7 +611,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#dseyxugpjz) .gt_group_heading {
+:where(#kpgujdrdha) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -634,7 +637,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#dseyxugpjz) .gt_empty_group_heading {
+:where(#kpgujdrdha) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -649,15 +652,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#dseyxugpjz) .gt_from_md > :first-child {
+:where(#kpgujdrdha) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#dseyxugpjz) .gt_from_md > :last-child {
+:where(#kpgujdrdha) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#dseyxugpjz) .gt_row {
+:where(#kpgujdrdha) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -676,7 +679,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#dseyxugpjz) .gt_stub {
+:where(#kpgujdrdha) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -689,7 +692,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dseyxugpjz) .gt_stub_row_group {
+:where(#kpgujdrdha) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -703,11 +706,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#dseyxugpjz) .gt_row_group_first td {
+:where(#kpgujdrdha) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#dseyxugpjz) .gt_summary_row {
+:where(#kpgujdrdha) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -717,16 +720,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dseyxugpjz) .gt_first_summary_row {
+:where(#kpgujdrdha) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_first_summary_row.thick {
+:where(#kpgujdrdha) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#dseyxugpjz) .gt_last_summary_row {
+:where(#kpgujdrdha) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -736,7 +739,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_grand_summary_row {
+:where(#kpgujdrdha) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -746,7 +749,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dseyxugpjz) .gt_first_grand_summary_row {
+:where(#kpgujdrdha) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,11 +759,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_striped {
+:where(#kpgujdrdha) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#dseyxugpjz) .gt_table_body {
+:where(#kpgujdrdha) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -769,7 +772,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#dseyxugpjz) .gt_footnotes {
+:where(#kpgujdrdha) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +786,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_footnote {
+:where(#kpgujdrdha) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -792,7 +795,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dseyxugpjz) .gt_sourcenotes {
+:where(#kpgujdrdha) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -806,7 +809,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#dseyxugpjz) .gt_sourcenote {
+:where(#kpgujdrdha) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -814,64 +817,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#dseyxugpjz) .gt_left {
+:where(#kpgujdrdha) .gt_left {
   text-align: left;
 }
 
-:where(#dseyxugpjz) .gt_center {
+:where(#kpgujdrdha) .gt_center {
   text-align: center;
 }
 
-:where(#dseyxugpjz) .gt_right {
+:where(#kpgujdrdha) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#dseyxugpjz) .gt_font_normal {
+:where(#kpgujdrdha) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#dseyxugpjz) .gt_font_bold {
+:where(#kpgujdrdha) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#dseyxugpjz) .gt_font_italic {
+:where(#kpgujdrdha) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#dseyxugpjz) .gt_super {
+:where(#kpgujdrdha) .gt_super {
   font-size: 65%;
 }
 
-:where(#dseyxugpjz) .gt_footnote_marks {
+:where(#kpgujdrdha) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#dseyxugpjz) .gt_asterisk {
+:where(#kpgujdrdha) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#dseyxugpjz) .gt_indent_1 {
+:where(#kpgujdrdha) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#dseyxugpjz) .gt_indent_2 {
+:where(#kpgujdrdha) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#dseyxugpjz) .gt_indent_3 {
+:where(#kpgujdrdha) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#dseyxugpjz) .gt_indent_4 {
+:where(#kpgujdrdha) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#dseyxugpjz) .gt_indent_5 {
+:where(#kpgujdrdha) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -940,12 +943,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_alphas" class="anchored">
 
-<div id="gpxnlcpecr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fsleagczip" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#gpxnlcpecr) .gt_table {
+:where(#fsleagczip) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -970,7 +973,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_heading {
+:where(#fsleagczip) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -982,12 +985,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_caption {
+:where(#fsleagczip) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#gpxnlcpecr) .gt_title {
+:where(#fsleagczip) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -999,7 +1002,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#gpxnlcpecr) .gt_subtitle {
+:where(#fsleagczip) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1011,13 +1014,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#gpxnlcpecr) .gt_bottom_border {
+:where(#fsleagczip) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_col_headings {
+:where(#fsleagczip) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1032,7 +1035,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_col_heading {
+:where(#fsleagczip) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1052,7 +1055,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#gpxnlcpecr) .gt_column_spanner_outer {
+:where(#fsleagczip) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1064,15 +1067,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#gpxnlcpecr) .gt_column_spanner_outer:first-child {
+:where(#fsleagczip) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#gpxnlcpecr) .gt_column_spanner_outer:last-child {
+:where(#fsleagczip) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#gpxnlcpecr) .gt_column_spanner {
+:where(#fsleagczip) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1084,7 +1087,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#gpxnlcpecr) .gt_group_heading {
+:where(#fsleagczip) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1110,7 +1113,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#gpxnlcpecr) .gt_empty_group_heading {
+:where(#fsleagczip) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1125,15 +1128,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#gpxnlcpecr) .gt_from_md > :first-child {
+:where(#fsleagczip) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#gpxnlcpecr) .gt_from_md > :last-child {
+:where(#fsleagczip) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#gpxnlcpecr) .gt_row {
+:where(#fsleagczip) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1152,7 +1155,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#gpxnlcpecr) .gt_stub {
+:where(#fsleagczip) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1165,7 +1168,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gpxnlcpecr) .gt_stub_row_group {
+:where(#fsleagczip) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1179,11 +1182,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#gpxnlcpecr) .gt_row_group_first td {
+:where(#fsleagczip) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#gpxnlcpecr) .gt_summary_row {
+:where(#fsleagczip) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1193,16 +1196,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gpxnlcpecr) .gt_first_summary_row {
+:where(#fsleagczip) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_first_summary_row.thick {
+:where(#fsleagczip) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#gpxnlcpecr) .gt_last_summary_row {
+:where(#fsleagczip) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1212,7 +1215,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_grand_summary_row {
+:where(#fsleagczip) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1222,7 +1225,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gpxnlcpecr) .gt_first_grand_summary_row {
+:where(#fsleagczip) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1232,11 +1235,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_striped {
+:where(#fsleagczip) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#gpxnlcpecr) .gt_table_body {
+:where(#fsleagczip) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1245,7 +1248,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#gpxnlcpecr) .gt_footnotes {
+:where(#fsleagczip) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1259,7 +1262,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_footnote {
+:where(#fsleagczip) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1268,7 +1271,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gpxnlcpecr) .gt_sourcenotes {
+:where(#fsleagczip) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1282,7 +1285,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gpxnlcpecr) .gt_sourcenote {
+:where(#fsleagczip) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1290,64 +1293,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gpxnlcpecr) .gt_left {
+:where(#fsleagczip) .gt_left {
   text-align: left;
 }
 
-:where(#gpxnlcpecr) .gt_center {
+:where(#fsleagczip) .gt_center {
   text-align: center;
 }
 
-:where(#gpxnlcpecr) .gt_right {
+:where(#fsleagczip) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#gpxnlcpecr) .gt_font_normal {
+:where(#fsleagczip) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#gpxnlcpecr) .gt_font_bold {
+:where(#fsleagczip) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#gpxnlcpecr) .gt_font_italic {
+:where(#fsleagczip) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#gpxnlcpecr) .gt_super {
+:where(#fsleagczip) .gt_super {
   font-size: 65%;
 }
 
-:where(#gpxnlcpecr) .gt_footnote_marks {
+:where(#fsleagczip) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#gpxnlcpecr) .gt_asterisk {
+:where(#fsleagczip) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#gpxnlcpecr) .gt_indent_1 {
+:where(#fsleagczip) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#gpxnlcpecr) .gt_indent_2 {
+:where(#fsleagczip) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#gpxnlcpecr) .gt_indent_3 {
+:where(#fsleagczip) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#gpxnlcpecr) .gt_indent_4 {
+:where(#fsleagczip) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#gpxnlcpecr) .gt_indent_5 {
+:where(#fsleagczip) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1395,13 +1398,13 @@ div.csl-indent {
 </div>
 </div>
 <p>It should be reminded that <em>alpha</em> in this baseflow filter is not the classical recession constant (α), and when <em>alpha</em> approximates to 1, α approximates to 0. Besides, when α tends to 0, it becomes close to <span class="math inline">\(1-alpha\)</span>, considering the Taylor development of the <a href="#eq-gw_recession">Equation&nbsp;3</a>. The obtained <em>alpha</em> values showed relevant differences in the immediacy of baseflow response. The lowest value was obtained for the carbonate (CRB) region, which is expected considering its hydrogeological behavior (i.e., relevant karst aquifers with fractures, where recharge and release events response quickly to precipitation events and with enough storage capacity to maintain the streamflow during dry season). It also matches with a larger baseflow index expected, as mentioned above.</p>
-<p>Considering the lithology, the highest alpha value would have been expected for the impervious region (IMP), since barely any baseflow response is expected there. However, the obtained value was not significantly different from another regions in the basin (<a href="#tbl-reg_alphas">Table&nbsp;2</a>). Most probably, consecutive precipitation events in these subbasins and snowmelt processes could be maintaining a baseflow level which is not a result of groundwater contribution, and thus hindering recession constant calculation.</p>
+<p>Considering the lithology, the highest alpha value would have been expected for the impervious region (IMP), since barely any baseflow response is expected there. However, the obtained value was not significantly different from other regions in the basin (<a href="#tbl-reg_alphas">Table&nbsp;2</a>). Most probably, consecutive precipitation events in these subbasins and snowmelt processes could be maintaining a baseflow level which is not a result of groundwater contribution, and thus hindering recession constant calculation.</p>
 <p>Regarding the detrital regions, the high permeability one showed the highest alpha value. The porosity of the high permeability materials, despite being higher than the materials of the CRB region, does not have fractures, which could have led to a slower recession response. The low permeability detrital region (DTBJ) showed an alpha value similar to the DTAL region, instead of being higher (thus less sensitive), as it would be expected. However, as mentioned before, the subbasins selected for the DTBJ region do not only consist of materials with low permeability, complicating results comparison. In fact, the DTBJ region seems to have a relevant contribution of baseflow, and its response to precipitation events seems to be slow (which can be explained to a low transmissivity derived from the low permeability materials). A graphical comparison of the hydrographs for one hydrological year (October-September) among subbasins located in the different geological regions is included in Appendix III, allowing to visualize some of the previous insights.</p>
 <p>Once the three <em>alpha</em> values were obtained for each basin, a range of potential <em>alpha</em> values was estimated. Different values within this range were used for running the filter, in order to obtain a realistic separation of the hydrograph components. The values of <em>BFImax</em> were based both in the recommended values and in the expert knowledge of each basin, and the baseflow index was calculated for the entire period with <a href="#eq-bf_contribution">Equation&nbsp;6</a>. The results obtained through this methodology are highly influenced by the parameters used (specially <em>BFImax</em>), and therefore it is a subjective methodology. However, it is a useful tool that, used based on expert knowledge criterion, helps to estimate the relevance of groundwater contribution to the streamflow, thus further aiding in eventual soft calibration procedures.</p>
 <p>After using this methodology, authors want to highlight some considerations or advises in order to help other modelers.</p>
 <p>First, regarding the filter parameters, although <em>alpha</em> has been calculated from real hydrographs and <em>BFImax</em> values are recommended in literature, the values of the parameters must be settled by the user considering the basin characteristics. The influence that some factors (such as snowmelt or precipitations during the recession curve) have on the <em>alpha</em> value calculation should be considered. Therefore, the obtained <em>alpha</em> average does not necessarily have to be the used value, and it can be modified depending on factors such as the mentioned. Regarding the <em>BFImax</em> parameter, which will influence in a major extent the result obtained, should be adjusted carefully after reviewing the basin lithology and the characteristics of the peaks (e.g., recession curves during first months of the year could be also altered by snowmelt, which can suppose most of the baseflow in regions with snow processes, particularly if they are impervious). Adjustment of this parameter has been subjective in some subbasins with an impervious lithology (e.g., Basin 1, Navaluenga), as looking at the hydrograph, groundwater contribution should not be neglected despite presumably being impervious <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">Martín-Loeches et al. 2020</a>)</span>. As <a href="#fig-parameters_effect">Figure&nbsp;3</a> shows, both parameters are sensitive to the baseflow separation, and a realistic baseflow separation has been prioritized rather than using the calculated or recommended parameter values for <em>alpha</em> and <em>BFImax</em>.</p>
 <p>Another consideration is about the data reliability. When applying the filter, the total value of streamflow in one day affects to the baseflow calculation in the next days. Therefore, if an anomalous value of streamflow is recorded (i.e., a very low value among a higher values series), we recommended to manually change this value to calculate the baseflow in a realistic way. Luckily enough, data used for this work have little anomalous values, and therefore, after examining them, a clean process was not considered necessary.</p>
-<p>In this case, a configuration of the baseflow parameters suitable for three different peaks has been searched, because looking at only one event could have led to a non representative value of baseflow contribution. A correct approximation for three different events has been preferred than a perfect hydrograph separation for only one peak, as it provides confidence regarding the acceptability of the chosen parameter values. However, it should be acknowledged that this method might not allow to achieve a completely realistic separation (e.g., baseflow underestimated during long low flows periods and overestimated when precipitation events occur, <a href="#fig-bfsep_example">Figure&nbsp;5</a>) and therefore, an intermediate solution must be found to compensate for these inaccuracies. These limitations have been reported by other authors <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>, and should be keept in mind when applying digital filters.</p>
+<p>In this case, a configuration of the baseflow parameters suitable for three different peaks has been searched, because looking at only one event could have led to a non representative value of baseflow contribution. A correct approximation for three different events has been preferred than a perfect hydrograph separation for only one peak, as it provides confidence regarding the acceptability of the chosen parameter values. However, it should be acknowledged that this method might not allow to achieve a completely realistic separation (e.g., baseflow underestimated during long low flows periods and overestimated when precipitation events occur, <a href="#fig-bfsep_example">Figure&nbsp;5</a>) and therefore, an intermediate solution must be found to compensate for these inaccuracies. These limitations have been reported by other authors <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>, and should be kept in mind when applying digital filters.</p>
 <p>Last consideration is about the time scale used to evaluate the separation of the hydrograph components, which also justifies validating the filter separation in three different peaks. Looking at the separation of the hydrograph components for a longer time series including several peaks might lead to a visual perception of a larger amount of groundwater contribution, but looking for individual events allow to conserve the scale and perform properly the separation. <a href="#fig-timescale_effect">Figure&nbsp;6</a> compares how a peak is represented when looking at it inside the entire time series and when looking at it individually.</p>
 <div id="fig-timescale_effect" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -1414,12 +1417,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_gw_results" class="anchored">
 
-<div id="rohuiqrejw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="yyzzgmansu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#rohuiqrejw) .gt_table {
+:where(#yyzzgmansu) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1444,7 +1447,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_heading {
+:where(#yyzzgmansu) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1456,12 +1459,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_caption {
+:where(#yyzzgmansu) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#rohuiqrejw) .gt_title {
+:where(#yyzzgmansu) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1473,7 +1476,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#rohuiqrejw) .gt_subtitle {
+:where(#yyzzgmansu) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1485,13 +1488,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#rohuiqrejw) .gt_bottom_border {
+:where(#yyzzgmansu) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_col_headings {
+:where(#yyzzgmansu) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1506,7 +1509,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_col_heading {
+:where(#yyzzgmansu) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1526,7 +1529,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rohuiqrejw) .gt_column_spanner_outer {
+:where(#yyzzgmansu) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1538,15 +1541,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#rohuiqrejw) .gt_column_spanner_outer:first-child {
+:where(#yyzzgmansu) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#rohuiqrejw) .gt_column_spanner_outer:last-child {
+:where(#yyzzgmansu) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#rohuiqrejw) .gt_column_spanner {
+:where(#yyzzgmansu) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1558,7 +1561,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#rohuiqrejw) .gt_group_heading {
+:where(#yyzzgmansu) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1584,7 +1587,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#rohuiqrejw) .gt_empty_group_heading {
+:where(#yyzzgmansu) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1599,15 +1602,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#rohuiqrejw) .gt_from_md > :first-child {
+:where(#yyzzgmansu) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#rohuiqrejw) .gt_from_md > :last-child {
+:where(#yyzzgmansu) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#rohuiqrejw) .gt_row {
+:where(#yyzzgmansu) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1626,7 +1629,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rohuiqrejw) .gt_stub {
+:where(#yyzzgmansu) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1639,7 +1642,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rohuiqrejw) .gt_stub_row_group {
+:where(#yyzzgmansu) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1653,11 +1656,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#rohuiqrejw) .gt_row_group_first td {
+:where(#yyzzgmansu) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#rohuiqrejw) .gt_summary_row {
+:where(#yyzzgmansu) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1667,16 +1670,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rohuiqrejw) .gt_first_summary_row {
+:where(#yyzzgmansu) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_first_summary_row.thick {
+:where(#yyzzgmansu) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#rohuiqrejw) .gt_last_summary_row {
+:where(#yyzzgmansu) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1686,7 +1689,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_grand_summary_row {
+:where(#yyzzgmansu) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1696,7 +1699,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rohuiqrejw) .gt_first_grand_summary_row {
+:where(#yyzzgmansu) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1706,11 +1709,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_striped {
+:where(#yyzzgmansu) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#rohuiqrejw) .gt_table_body {
+:where(#yyzzgmansu) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1719,7 +1722,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#rohuiqrejw) .gt_footnotes {
+:where(#yyzzgmansu) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1733,7 +1736,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_footnote {
+:where(#yyzzgmansu) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1742,7 +1745,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rohuiqrejw) .gt_sourcenotes {
+:where(#yyzzgmansu) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1756,7 +1759,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rohuiqrejw) .gt_sourcenote {
+:where(#yyzzgmansu) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1764,64 +1767,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rohuiqrejw) .gt_left {
+:where(#yyzzgmansu) .gt_left {
   text-align: left;
 }
 
-:where(#rohuiqrejw) .gt_center {
+:where(#yyzzgmansu) .gt_center {
   text-align: center;
 }
 
-:where(#rohuiqrejw) .gt_right {
+:where(#yyzzgmansu) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#rohuiqrejw) .gt_font_normal {
+:where(#yyzzgmansu) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#rohuiqrejw) .gt_font_bold {
+:where(#yyzzgmansu) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#rohuiqrejw) .gt_font_italic {
+:where(#yyzzgmansu) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#rohuiqrejw) .gt_super {
+:where(#yyzzgmansu) .gt_super {
   font-size: 65%;
 }
 
-:where(#rohuiqrejw) .gt_footnote_marks {
+:where(#yyzzgmansu) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#rohuiqrejw) .gt_asterisk {
+:where(#yyzzgmansu) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#rohuiqrejw) .gt_indent_1 {
+:where(#yyzzgmansu) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#rohuiqrejw) .gt_indent_2 {
+:where(#yyzzgmansu) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#rohuiqrejw) .gt_indent_3 {
+:where(#yyzzgmansu) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#rohuiqrejw) .gt_indent_4 {
+:where(#yyzzgmansu) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#rohuiqrejw) .gt_indent_5 {
+:where(#yyzzgmansu) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1869,7 +1872,7 @@ div.csl-indent {
 </div>
 </div>
 <p>Subbasins located in geological regions with low permeability were expected to have lower baseflow index, while those located in regions with relevant aquifers were expected to have higher rates. A baseflow index around 20% has been estimated for the igneous and metamorphic region (IMP). This value might be considered high for impervious basins, but based in the knowledge about the studied subbasins and the assessment performed, it seems correct. Some indicators, such as the presence of flow during dry periods or phreatophyte vegetation can be used as indicators of groundwater contribution, and these indicators has been observed in some of the subbasins characterized as impervious in this work <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">Martín-Loeches et al. 2020</a>)</span>.</p>
-<p>As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes, and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. 2022</a>)</span> and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix IV).</p>
+<p>As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. 2022</a>)</span> and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix IV).</p>
 <p>Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTAL). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTBJ) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTBJ region are noticeable lower than in DTAL region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTBJ region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTBJ region reveal this behavior, since a baseflow is maintained throughout the year (Appendix 3). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.</p>
 <p>In the subbasins located in mixed lithology regions, the baseflow index obtained in average is around 46%, thus relatively high. It could be explained because four of these subbasins (subbasins 16 to 19, Appendix 4) are constituted in a greater extent by carbonate materials, from medium to very high permeability (<a href="#fig-location">Figure&nbsp;1</a>), while only two of these subbasins have impervious igneous and metamorphic materials.</p>
 </section>
@@ -1910,12 +1913,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="uwwnftpack" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="frogdcgmbt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#uwwnftpack) .gt_table {
+:where(#frogdcgmbt) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1940,7 +1943,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_heading {
+:where(#frogdcgmbt) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1952,12 +1955,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_caption {
+:where(#frogdcgmbt) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#uwwnftpack) .gt_title {
+:where(#frogdcgmbt) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1969,7 +1972,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#uwwnftpack) .gt_subtitle {
+:where(#frogdcgmbt) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1981,13 +1984,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#uwwnftpack) .gt_bottom_border {
+:where(#frogdcgmbt) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_col_headings {
+:where(#frogdcgmbt) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2002,7 +2005,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_col_heading {
+:where(#frogdcgmbt) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2022,7 +2025,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#uwwnftpack) .gt_column_spanner_outer {
+:where(#frogdcgmbt) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2034,15 +2037,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#uwwnftpack) .gt_column_spanner_outer:first-child {
+:where(#frogdcgmbt) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#uwwnftpack) .gt_column_spanner_outer:last-child {
+:where(#frogdcgmbt) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#uwwnftpack) .gt_column_spanner {
+:where(#frogdcgmbt) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2054,7 +2057,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#uwwnftpack) .gt_group_heading {
+:where(#frogdcgmbt) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2080,7 +2083,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#uwwnftpack) .gt_empty_group_heading {
+:where(#frogdcgmbt) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2095,15 +2098,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#uwwnftpack) .gt_from_md > :first-child {
+:where(#frogdcgmbt) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#uwwnftpack) .gt_from_md > :last-child {
+:where(#frogdcgmbt) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#uwwnftpack) .gt_row {
+:where(#frogdcgmbt) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2122,7 +2125,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#uwwnftpack) .gt_stub {
+:where(#frogdcgmbt) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2135,7 +2138,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uwwnftpack) .gt_stub_row_group {
+:where(#frogdcgmbt) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2149,11 +2152,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#uwwnftpack) .gt_row_group_first td {
+:where(#frogdcgmbt) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#uwwnftpack) .gt_summary_row {
+:where(#frogdcgmbt) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2163,16 +2166,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uwwnftpack) .gt_first_summary_row {
+:where(#frogdcgmbt) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_first_summary_row.thick {
+:where(#frogdcgmbt) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#uwwnftpack) .gt_last_summary_row {
+:where(#frogdcgmbt) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2182,7 +2185,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_grand_summary_row {
+:where(#frogdcgmbt) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2192,7 +2195,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uwwnftpack) .gt_first_grand_summary_row {
+:where(#frogdcgmbt) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2202,11 +2205,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_striped {
+:where(#frogdcgmbt) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#uwwnftpack) .gt_table_body {
+:where(#frogdcgmbt) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2215,7 +2218,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#uwwnftpack) .gt_footnotes {
+:where(#frogdcgmbt) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2229,7 +2232,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_footnote {
+:where(#frogdcgmbt) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2238,7 +2241,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uwwnftpack) .gt_sourcenotes {
+:where(#frogdcgmbt) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2252,7 +2255,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uwwnftpack) .gt_sourcenote {
+:where(#frogdcgmbt) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2260,64 +2263,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uwwnftpack) .gt_left {
+:where(#frogdcgmbt) .gt_left {
   text-align: left;
 }
 
-:where(#uwwnftpack) .gt_center {
+:where(#frogdcgmbt) .gt_center {
   text-align: center;
 }
 
-:where(#uwwnftpack) .gt_right {
+:where(#frogdcgmbt) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#uwwnftpack) .gt_font_normal {
+:where(#frogdcgmbt) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#uwwnftpack) .gt_font_bold {
+:where(#frogdcgmbt) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#uwwnftpack) .gt_font_italic {
+:where(#frogdcgmbt) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#uwwnftpack) .gt_super {
+:where(#frogdcgmbt) .gt_super {
   font-size: 65%;
 }
 
-:where(#uwwnftpack) .gt_footnote_marks {
+:where(#frogdcgmbt) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#uwwnftpack) .gt_asterisk {
+:where(#frogdcgmbt) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#uwwnftpack) .gt_indent_1 {
+:where(#frogdcgmbt) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#uwwnftpack) .gt_indent_2 {
+:where(#frogdcgmbt) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#uwwnftpack) .gt_indent_3 {
+:where(#frogdcgmbt) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#uwwnftpack) .gt_indent_4 {
+:where(#frogdcgmbt) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#uwwnftpack) .gt_indent_5 {
+:where(#frogdcgmbt) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2445,12 +2448,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="qlzdltkrjj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tsbwxhpnyj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#qlzdltkrjj) .gt_table {
+:where(#tsbwxhpnyj) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2475,7 +2478,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_heading {
+:where(#tsbwxhpnyj) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2487,12 +2490,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_caption {
+:where(#tsbwxhpnyj) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#qlzdltkrjj) .gt_title {
+:where(#tsbwxhpnyj) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2504,7 +2507,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#qlzdltkrjj) .gt_subtitle {
+:where(#tsbwxhpnyj) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2516,13 +2519,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#qlzdltkrjj) .gt_bottom_border {
+:where(#tsbwxhpnyj) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_col_headings {
+:where(#tsbwxhpnyj) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2537,7 +2540,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_col_heading {
+:where(#tsbwxhpnyj) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2557,7 +2560,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#qlzdltkrjj) .gt_column_spanner_outer {
+:where(#tsbwxhpnyj) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2569,15 +2572,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#qlzdltkrjj) .gt_column_spanner_outer:first-child {
+:where(#tsbwxhpnyj) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#qlzdltkrjj) .gt_column_spanner_outer:last-child {
+:where(#tsbwxhpnyj) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#qlzdltkrjj) .gt_column_spanner {
+:where(#tsbwxhpnyj) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2589,7 +2592,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#qlzdltkrjj) .gt_group_heading {
+:where(#tsbwxhpnyj) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2615,7 +2618,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#qlzdltkrjj) .gt_empty_group_heading {
+:where(#tsbwxhpnyj) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2630,15 +2633,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#qlzdltkrjj) .gt_from_md > :first-child {
+:where(#tsbwxhpnyj) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#qlzdltkrjj) .gt_from_md > :last-child {
+:where(#tsbwxhpnyj) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#qlzdltkrjj) .gt_row {
+:where(#tsbwxhpnyj) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2657,7 +2660,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#qlzdltkrjj) .gt_stub {
+:where(#tsbwxhpnyj) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2670,7 +2673,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qlzdltkrjj) .gt_stub_row_group {
+:where(#tsbwxhpnyj) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2684,11 +2687,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#qlzdltkrjj) .gt_row_group_first td {
+:where(#tsbwxhpnyj) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#qlzdltkrjj) .gt_summary_row {
+:where(#tsbwxhpnyj) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2698,16 +2701,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qlzdltkrjj) .gt_first_summary_row {
+:where(#tsbwxhpnyj) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_first_summary_row.thick {
+:where(#tsbwxhpnyj) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#qlzdltkrjj) .gt_last_summary_row {
+:where(#tsbwxhpnyj) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2717,7 +2720,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_grand_summary_row {
+:where(#tsbwxhpnyj) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2727,7 +2730,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qlzdltkrjj) .gt_first_grand_summary_row {
+:where(#tsbwxhpnyj) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2737,11 +2740,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_striped {
+:where(#tsbwxhpnyj) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#qlzdltkrjj) .gt_table_body {
+:where(#tsbwxhpnyj) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2750,7 +2753,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#qlzdltkrjj) .gt_footnotes {
+:where(#tsbwxhpnyj) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2764,7 +2767,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_footnote {
+:where(#tsbwxhpnyj) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2773,7 +2776,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qlzdltkrjj) .gt_sourcenotes {
+:where(#tsbwxhpnyj) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2787,7 +2790,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qlzdltkrjj) .gt_sourcenote {
+:where(#tsbwxhpnyj) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2795,64 +2798,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qlzdltkrjj) .gt_left {
+:where(#tsbwxhpnyj) .gt_left {
   text-align: left;
 }
 
-:where(#qlzdltkrjj) .gt_center {
+:where(#tsbwxhpnyj) .gt_center {
   text-align: center;
 }
 
-:where(#qlzdltkrjj) .gt_right {
+:where(#tsbwxhpnyj) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#qlzdltkrjj) .gt_font_normal {
+:where(#tsbwxhpnyj) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#qlzdltkrjj) .gt_font_bold {
+:where(#tsbwxhpnyj) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#qlzdltkrjj) .gt_font_italic {
+:where(#tsbwxhpnyj) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#qlzdltkrjj) .gt_super {
+:where(#tsbwxhpnyj) .gt_super {
   font-size: 65%;
 }
 
-:where(#qlzdltkrjj) .gt_footnote_marks {
+:where(#tsbwxhpnyj) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#qlzdltkrjj) .gt_asterisk {
+:where(#tsbwxhpnyj) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#qlzdltkrjj) .gt_indent_1 {
+:where(#tsbwxhpnyj) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#qlzdltkrjj) .gt_indent_2 {
+:where(#tsbwxhpnyj) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#qlzdltkrjj) .gt_indent_3 {
+:where(#tsbwxhpnyj) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#qlzdltkrjj) .gt_indent_4 {
+:where(#tsbwxhpnyj) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#qlzdltkrjj) .gt_indent_5 {
+:where(#tsbwxhpnyj) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3044,7 +3047,7 @@ div.csl-indent {
 <div id="fig-hydrographs" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figs/hydrographs.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7: Hydrographs comparisson of subbbasins located in the different geological regions.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7: Hydrographs comparison of subbasins located in the different geological regions.</figcaption><p></p>
 </figure>
 </div>
 </div></section><section id="appendix-iv-groundwater-results-at-subbasins-scale" class="level8 appendix"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
@@ -3053,12 +3056,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-groundwater_results" class="anchored">
 
-<div id="abosmynpqp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="voetayvmtc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#abosmynpqp) .gt_table {
+:where(#voetayvmtc) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3083,7 +3086,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_heading {
+:where(#voetayvmtc) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -3095,12 +3098,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_caption {
+:where(#voetayvmtc) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#abosmynpqp) .gt_title {
+:where(#voetayvmtc) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3112,7 +3115,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#abosmynpqp) .gt_subtitle {
+:where(#voetayvmtc) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3124,13 +3127,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#abosmynpqp) .gt_bottom_border {
+:where(#voetayvmtc) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_col_headings {
+:where(#voetayvmtc) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -3145,7 +3148,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_col_heading {
+:where(#voetayvmtc) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3165,7 +3168,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#abosmynpqp) .gt_column_spanner_outer {
+:where(#voetayvmtc) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3177,15 +3180,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#abosmynpqp) .gt_column_spanner_outer:first-child {
+:where(#voetayvmtc) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#abosmynpqp) .gt_column_spanner_outer:last-child {
+:where(#voetayvmtc) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#abosmynpqp) .gt_column_spanner {
+:where(#voetayvmtc) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -3197,7 +3200,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#abosmynpqp) .gt_group_heading {
+:where(#voetayvmtc) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3223,7 +3226,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#abosmynpqp) .gt_empty_group_heading {
+:where(#voetayvmtc) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3238,15 +3241,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#abosmynpqp) .gt_from_md > :first-child {
+:where(#voetayvmtc) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#abosmynpqp) .gt_from_md > :last-child {
+:where(#voetayvmtc) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#abosmynpqp) .gt_row {
+:where(#voetayvmtc) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3265,7 +3268,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#abosmynpqp) .gt_stub {
+:where(#voetayvmtc) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3278,7 +3281,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#abosmynpqp) .gt_stub_row_group {
+:where(#voetayvmtc) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3292,11 +3295,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#abosmynpqp) .gt_row_group_first td {
+:where(#voetayvmtc) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#abosmynpqp) .gt_summary_row {
+:where(#voetayvmtc) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3306,16 +3309,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#abosmynpqp) .gt_first_summary_row {
+:where(#voetayvmtc) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_first_summary_row.thick {
+:where(#voetayvmtc) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#abosmynpqp) .gt_last_summary_row {
+:where(#voetayvmtc) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3325,7 +3328,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_grand_summary_row {
+:where(#voetayvmtc) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3335,7 +3338,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#abosmynpqp) .gt_first_grand_summary_row {
+:where(#voetayvmtc) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3345,11 +3348,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_striped {
+:where(#voetayvmtc) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#abosmynpqp) .gt_table_body {
+:where(#voetayvmtc) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3358,7 +3361,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#abosmynpqp) .gt_footnotes {
+:where(#voetayvmtc) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3372,7 +3375,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_footnote {
+:where(#voetayvmtc) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3381,7 +3384,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#abosmynpqp) .gt_sourcenotes {
+:where(#voetayvmtc) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3395,7 +3398,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#abosmynpqp) .gt_sourcenote {
+:where(#voetayvmtc) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3403,64 +3406,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#abosmynpqp) .gt_left {
+:where(#voetayvmtc) .gt_left {
   text-align: left;
 }
 
-:where(#abosmynpqp) .gt_center {
+:where(#voetayvmtc) .gt_center {
   text-align: center;
 }
 
-:where(#abosmynpqp) .gt_right {
+:where(#voetayvmtc) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#abosmynpqp) .gt_font_normal {
+:where(#voetayvmtc) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#abosmynpqp) .gt_font_bold {
+:where(#voetayvmtc) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#abosmynpqp) .gt_font_italic {
+:where(#voetayvmtc) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#abosmynpqp) .gt_super {
+:where(#voetayvmtc) .gt_super {
   font-size: 65%;
 }
 
-:where(#abosmynpqp) .gt_footnote_marks {
+:where(#voetayvmtc) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#abosmynpqp) .gt_asterisk {
+:where(#voetayvmtc) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#abosmynpqp) .gt_indent_1 {
+:where(#voetayvmtc) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#abosmynpqp) .gt_indent_2 {
+:where(#voetayvmtc) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#abosmynpqp) .gt_indent_3 {
+:where(#voetayvmtc) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#abosmynpqp) .gt_indent_4 {
+:where(#voetayvmtc) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#abosmynpqp) .gt_indent_5 {
+:where(#voetayvmtc) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
