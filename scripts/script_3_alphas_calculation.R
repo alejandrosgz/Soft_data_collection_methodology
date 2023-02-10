@@ -942,6 +942,31 @@
    alphas_tibble$regions <- factor(alphas_tibble$regions, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
    
    
+   # Saving the alpha values in a csv file
+   # alphas_tibble %>% write.csv(., "used_files/Created_csv/alpha_estimation.csv", quote = F, row.names = F)
+   
+   
+   alphas_tibble <- read.csv("used_files/Created_csv/3_alpha_estimation.csv") %>% 
+   mutate(regions = factor(alphas_tibble$regions, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX")))
+   regions <-  factor(basins_file$region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
+            
+            
+    tab_bas <- alphas_tibble %>% group_by(Basins) %>% summarise(alpha_bas = round(mean(alphas), 3), dcoef_bas = round(mean(det_coefs), 3)) %>% 
+    inner_join(., basins_file[, c("Basin","Basin_ID")], c("Basins" = "Basin")) %>% arrange(., Basin_ID) %>% .[, c(1:3)]
+    
+    colnames(tab_bas) <- c("Subbasin", "Mean alpha value", "Alpha standard deviation", "Mean determination coefficient")
+    apa(tab_bas)
+    
+    
+    tab_reg <- alphas_tibble %>% group_by(Basins) %>% summarise(alpha_bas = mean(alphas), dcoef_bas = mean(det_coefs)) %>% cbind(regions) %>%  
+    group_by(regions)   %>%  summarise(alpha_reg = round(mean(alpha_bas), 3), alpha_sd = round(sd(alpha_bas), 3), det_coef_reg = round(mean(dcoef_bas), 3)) 
+   
+    colnames(tab_reg) <- c("Region", "Mean alpha value", "Alpha standard deviation", "Mean determination coefficient")
+   
+    apa(tab_reg)
+   
+   
+   
    # Graphical summary at region scale
    alphas_tibble %>% ggplot(., aes(x = regions))+geom_violin(aes(y = alphas, fill = regions))
    alphas_tibble %>% ggplot(., aes(x = regions))+geom_violin(aes(y = det_coefs, fill = regions))

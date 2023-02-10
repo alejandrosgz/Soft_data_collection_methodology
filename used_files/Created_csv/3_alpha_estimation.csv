@@ -1,0 +1,58 @@
+Basins,Basin_IDs,regions,alphas,det_coefs
+Navaluenga,1,IMP,0.9641022,0.9728
+Navaluenga,1,IMP,0.9776144,0.9673
+Navaluenga,1,IMP,0.9721647,0.9223
+Matallana,2,IMP,0.9645728,0.9926
+Matallana,2,IMP,0.9420848,0.9889
+Matallana,2,IMP,0.9469329,0.9856
+Villarejo de Montalban,3,IMP,0.9589081,0.9711
+Villarejo de Montalban,3,IMP,0.9260473,0.9007
+Villarejo de Montalban,3,IMP,0.9681386,0.9789
+Peralejo de las Truchas,4,CRB,0.9856145,0.9515
+Peralejo de las Truchas,4,CRB,0.9834357,0.9288
+Peralejo de las Truchas,4,CRB,0.9760807,0.969
+Priego Escabas,5,CRB,0.9897529,0.9538
+Priego Escabas,5,CRB,0.9707561,0.9776
+Priego Escabas,5,CRB,0.965227,0.9258
+Santa Maria del Val,6,CRB,0.9151292,0.96
+Santa Maria del Val,6,CRB,0.9387557,0.9279
+Santa Maria del Val,6,CRB,0.9657213,0.9742
+Jabalera,7,DTAL,0.9462959,0.972
+Jabalera,7,DTAL,0.9489312,0.9592
+Jabalera,7,DTAL,0.943499,0.8686
+Huete,8,DTAL,0.9726986,0.9635
+Huete,8,DTAL,0.9664391,0.9807
+Huete,8,DTAL,0.9698062,0.923
+Torote,9,DTAL,0.9632243,0.9531
+Torote,9,DTAL,0.9357191,0.9703
+Torote,9,DTAL,0.9063679,0.9755
+La Pueblanueva,10,DTAL,0.9432395,0.9628
+La Pueblanueva,10,DTAL,0.944205,0.9612
+La Pueblanueva,10,DTAL,0.8910097,0.9748
+Priego Trabraque,11,DTBJ,0.9208851,0.9481
+Priego Trabraque,11,DTBJ,0.9474719,0.8649
+Priego Trabraque,11,DTBJ,0.9608115,0.9856
+La Peraleja,12,DTBJ,0.921143,0.9684
+La Peraleja,12,DTBJ,0.9540082,0.9298
+La Peraleja,12,DTBJ,0.9075379,0.8952
+Villasequilla de Yepes,13,DTBJ,0.9771452,0.9678
+Villasequilla de Yepes,13,DTBJ,0.967856,0.9395
+Villasequilla de Yepes,13,DTBJ,0.9517413,0.9799
+Valverde de los Arroyos,14,MIX,0.9130451,0.9059
+Valverde de los Arroyos,14,MIX,0.9254178,0.987
+Valverde de los Arroyos,14,MIX,0.9206273,0.9881
+Malpica,15,MIX,0.876867,0.8463
+Malpica,15,MIX,0.8598477,0.9524
+Malpica,15,MIX,0.8595038,0.9708
+Taravillas,16,MIX,0.9753392,0.9816
+Taravillas,16,MIX,0.9488866,0.9469
+Taravillas,16,MIX,0.9444335,0.9866
+Romanones,17,MIX,0.9898914,0.9541
+Romanones,17,MIX,0.9860147,0.8964
+Romanones,17,MIX,0.9903093,0.9802
+Ventosa,18,MIX,0.9925588,0.9226
+Ventosa,18,MIX,0.9768892,0.8626
+Ventosa,18,MIX,0.9488667,0.9548
+Bujalaro,19,MIX,0.9775362,0.9638
+Bujalaro,19,MIX,0.9882891,0.9651
+Bujalaro,19,MIX,0.9617796,0.9854

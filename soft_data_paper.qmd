@@ -193,7 +193,7 @@ The presented methodology requires some input data and also some files that have
 
 Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, @garcia_serie_2017), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Streamflow data was collected from the CEDEX streamflow gauging stations yearly report [@cedex_anuario_2021], which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, *afliq.csv*).
 
-After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute [@ign_centro_2010], and the GRASS module [@neteler_grass_2012] in QGIS [version 3.22, @qgis_development_team_qgis_2022] was used. For the subbasins´ delineation, the *r.watershed* command was used for creating from the digital elevation model a *Drainage direction* and a *Number of cells that drain through each cell* raster, using as attributes a *Minimum size of exterior watershed* of 10000 m² and *Enabling single flow direction*. With the *r.water.outlet* command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command *r.to.vect* was used to convert the generated raster into vector format (using the *Smoooth corners of areas features* option), and all the generated basins were merged using the *Merge vector layers* QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the *sf* and *dplyr* packages [@pebesma_simple_2018; @wickham_tidyverse_2022,] have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file *basins_file.csv*.
+After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute [@ign_centro_2010], and the GRASS module [@neteler_grass_2012] in QGIS [version 3.22, @qgis_development_team_qgis_2022] was used. For the subbasins´ delineation, the *r.watershed* command was used for creating from the digital elevation model a *Drainage direction* and a *Number of cells that drain through each cell* raster, using as attributes a *Minimum size of exterior watershed* of 10000 m² and *Enabling single flow direction*. With the *r.water.outlet* command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command *r.to.vect* was used to convert the generated raster into vector format (using the *Smoooth corners of areas features* option), and all the generated basins were merged using the *Merge vector layers* QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the *sf* and *dplyr* packages [@pebesma_simple_2018; @wickham_tidyverse_2022,] have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file *1_basins_file.csv*.
 
 ```{r}
 #| echo: true
@@ -213,10 +213,10 @@ mutate(gauging_code = c(3231, 3049, 3211, 3001, 3045, 3040,
 st_drop_geometry(.) %>% 
 # Ordering table
 .[,c("Basin", "Basin_ID", "area", "gauging_code", "region")]
-write.csv(x = subbasins_csv, file = "used_files/Created_csv/basins_file.csv", row.names = F)
+write.csv(x =subbasins_csv, file = "used_files/Created_csv/1_basins_file.csv", row.names = F)
 ```
 
-In order to estimate the precipitation and temperature for each subbasin, it was necessary to know which points of the weather grids are located within. A grid vector layer was created with all the weather points located in the study area, and those points located inside a 1 km buffer performed for each of the subbasins were identified. The buffer and clipping processes were performed with sf package. The buffer distance depends on the data resolution, and in this case it has been considered appropriated. A csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it is) has been created and saved as *ids_stations_file.csv*. Note that in this case the identifiers and location of precipitation and temperature points of the grid matched, thus being only necessary to have one file for both variables.
+In order to estimate the precipitation and temperature for each subbasin, it was necessary to know which points of the weather grids are located within. A grid vector layer was created with all the weather points located in the study area, and those points located inside a 1 km buffer performed for each of the subbasins were identified. The buffer and clipping processes were performed with sf package. The buffer distance depends on the data resolution, and in this case it has been considered appropriated. A csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it is) has been created and saved as *2_ids_stations_file.csv*. Note that in this case the identifiers and location of precipitation and temperature points of the grid matched, thus being only necessary to have one file for both variables.
 
 ```{r}
 #| echo: true
@@ -232,10 +232,10 @@ subbasins_buffer <- st_buffer(subbasins, dist = 1000)
 grid_points_clip <- st_intersection(pcp_points, subbasins_buffer[, c("id", "Basin", "geometry")])
 # Spatial data is no longer necessary, and a variable is renamed before saving
 grid_points_clip_csv <- grid_points_clip %>% st_drop_geometry(.) %>% rename(Basin_ID = id)
-write.csv(x = grid_points_clip_csv, file = "used_files/Created_csv/ids_stations_file.csv", row.names = F)
+write.csv(x = grid_points_clip_csv, file = "used_files/Created_csv/2_ids_stations_file.csv", row.names = F)
 ```
 
-With these two csv files (created from the subbasins and weather grid vectorial layers) the methodology can be carried out. A third csv file will be created with the results of the baseflow index obtained, as explained in the respective section (3.4). Examples of these files are available for the reader in order to allow reproducibility of the work (see Data availability section). From this point on, all the work has been developed from R-Studio [@rstudio_team_rstudio_2020] using different libraries [@wickham_readr_2022; @pebesma_simple_2018, @wickham_tidyverse_2022; @spinu_lubridate_2023; @sievert_plotly_2022; @pedersen_patchwork_2022; @iannone_gt_2022].
+With these two csv files (created from the subbasins and weather grid vectorial layers) the methodology can be carried out. Two more csv files will be created with the results of the baseflow index assessment, as explained in the respective section (3.4). Examples of these files are available for the reader in order to allow reproducibility of the work (see Data availability section). From this point on, all the work has been developed from R-Studio [@rstudio_team_rstudio_2020] using different libraries [@wickham_readr_2022; @pebesma_simple_2018, @wickham_tidyverse_2022; @spinu_lubridate_2023; @sievert_plotly_2022; @pedersen_patchwork_2022; @iannone_gt_2022].
 
 ```{r used_files}
 #| eval: true
@@ -243,9 +243,9 @@ With these two csv files (created from the subbasins and weather grid vectorial 
 #| output: false
 
 # File with basins data
-basins_file <- read.csv("used_files/Created_csv/basins_file.csv") 
+basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") 
 # File with grid points identifiers 
-pcp_grid_points <-  read.csv("used_files/Created_csv/ids_stations_file.csv") 
+pcp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") 
 # File with gauging data
 gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
   tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
@@ -299,7 +299,7 @@ Daily precipitation data (mm) was aggregated to calculate the annual precipitati
 # Precipitation points files path
 path <- "used_files/Data/Climate_data_extracted/pcp_spain/"
 # File with grid points identifiers 
-pcp_grid_points <-  read.csv("used_files/Created_csv/ids_stations_file.csv")
+pcp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv")
 # Creating dates for the entire period (1951-2019)
 init_date <- as.Date("1951-01-01")
 end_date <- as.Date("2019-12-31")
@@ -341,7 +341,7 @@ for(i in 1:length(unique(pcp_grid_points$Basin_ID))){
    init_date <- as.Date("1951-01-01")
    end_date <- as.Date("2019-12-31")
    dates <- seq(init_date, end_date, 1) # A sequence of dates for the entire serie is created
-   tmp_grid_points <-  read.csv("used_files/Created_csv/ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and subbasins data  
+   tmp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and subbasins data  
    
    # Loop for calculating the temperature of each basin trough the average of the annual temperature (Max, min, mean) for each station within the basin
    tmp_bas_list <- list() #empty list 
@@ -520,7 +520,7 @@ The following example shows for one subbasin how the filter has been used. This 
 
 ![Baseflow separation example performed for the peak 2 of the subbasin 4.](figs/subb_4_bfsep.png){#fig-bfsep_example}
 
-The estimation of baseflow contribution has been performed through a more complex and subjective method than the runoff coefficient calculation. The use of a baseflow filter program allows to make the hydrograph components division in an easy way, but also can leads to unrealistic results, since some key factors are not automatically taken into account by the filter and thus need expert knowledge supervision. The filter used, based on two parameters, is relatively simple but also allows to take into account factors such as porosity and transmissivity when separating the hydrograph, therefore being able to reproduce the groundwater systems behavior. As the *alpha* and baseflow index estimation has been performed through a manual process, the obtained values have been saved on the scripts or in a csv file in the case of the baseflow index (*groundwater_results.csv*).
+The estimation of baseflow contribution has been performed through a more complex and subjective method than the runoff coefficient calculation. The use of a baseflow filter program allows to make the hydrograph components division in an easy way, but also can leads to unrealistic results, since some key factors are not automatically taken into account by the filter and thus need expert knowledge supervision. The filter used, based on two parameters, is relatively simple but also allows to take into account factors such as porosity and transmissivity when separating the hydrograph, therefore being able to reproduce the groundwater systems behavior. As the *alpha* and baseflow index estimation has been performed through a manual process, the obtained values have been saved on the csv files *3_alpha_estimation.csv* and *4_groundwater_results.csv*, respectively.
 
 ### 4. Results and discussion
 
@@ -573,45 +573,17 @@ Subbasins with mixed lithology yielded the widest range of runoff coefficient va
 #| label: tbl-reg_alphas
 #| tbl-cap: Results at region scale of the groundwater recession curves linear adjustment
 
-  #Alphas calculated in previous script and their Determination Coefficient
-   alphas <- c(0.9641022, 0.9776144, 0.9721647, 0.9645728,
-               0.9420848, 0.9469329, 0.9589081, 0.9260473, 0.9681386, 0.9856145, 0.9834357, 
-               0.9760807, 0.9897529, 0.9707561, 0.965227, 0.9151292, 0.9387557, 0.9657213, 
-               0.9462959, 0.9489312, 0.943499, 0.9726986, 0.9664391, 0.9698062, 0.9632243, 
-               0.9357191, 0.9063679, 0.9432395, 0.944205, 0.8910097, 0.9208851 , 0.9474719,
-               0.9608115,  0.921143, 0.9540082, 0.9075379,  0.9771452, 0.967856, 0.9517413, 
-               0.9130451, 0.9254178, 0.9206273, 0.876867, 0.8598477, 0.8595038, 0.9753392,
-               0.9488866, 0.9444335, 0.9898914, 0.9860147, 0.9903093, 0.9925588, 0.9768892, 
-               0.9488667, 0.9775362, 0.9882891, 0.9617796)
+ 
+alphas_tibble <- read.csv("used_files/Created_csv/3_alpha_estimation.csv") %>% 
+mutate(regions = factor(regions, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX")))
+            
+regions <-  factor(basins_file$region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
+         
    
-   det_coefs <- c(0.9728,  0.9673,  0.9223, 0.9926, 0.9889, 0.9856, 
-                  0.9711, 0.9007, 0.9789, 0.9515, 0.9288, 0.969, 0.9538, 0.9776, 0.9258, 
-                  0.96, 0.9279, 0.9742, 0.972, 0.9592, 0.8686, 0.9635, 0.9807, 0.923,  
-                  0.9531, 0.9703, 0.9755, 0.9628, 0.9612, 0.9748, 0.9481, 0.8649, 0.9856, 
-                  0.9684, 0.9298, 0.8952, 0.9678, 0.9395, 0.9799, 0.9059, 0.987, 0.9881, 
-                  0.8463, 0.9524, 0.9708, 0.9816, 0.9469, 0.9866, 0.9541, 0.8964, 0.9802,  
-                  0.9226, 0.8626, 0.9548, 0.9638, 0.9651, 0.9854)
-   
-    basins_file <- read.csv("used_files/Created_csv/basins_file.csv") # File with IDs, names, regions and areas of the basin, and gauging stations codes  
-   #Table with the Alpha values 
-   Basins <- c()
-   Basin_IDs <- c()
-   regions <- c()
-   for(i in 1:length(basins_file$Basin)){
-     Basin <- c(rep(basins_file$Basin[i], 3))
-     Basins <- c(Basins, Basin)
-     Basin_ID <- c(rep(basins_file$Basin_ID[i],3))
-     Basin_IDs <- c(Basin_IDs, Basin_ID)
-     region <- c(rep(basins_file$region[i], 3))
-     regions <- c(regions, region)
-   }
-   alphas_tibble<- tibble(Basins, Basin_IDs, regions, alphas, det_coefs) 
-   alphas_tibble$regions <- factor(alphas_tibble$regions, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
-   regions <-  factor(basins_file$region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
-   
-  tab <- alphas_tibble %>% group_by(Basins) %>% summarise(alpha_bas = mean(alphas), dcoef_bas = mean(det_coefs)) %>% cbind(regions) %>%  group_by(regions)   %>%  summarise(alpha_reg = round(mean(alpha_bas), 3), alpha_sd = round(sd(alpha_bas), 3), det_coef_reg = round(mean(dcoef_bas), 3)) 
-   colnames(tab) <- c("Region", "Mean alpha value", "Alpha standard deviation", "Mean determination coefficient")
-  apa(tab)%>% tab_footnote("")
+tab <- alphas_tibble %>% group_by(Basins) %>% summarise(alpha_bas = mean(alphas), dcoef_bas = mean(det_coefs)) %>% cbind(regions) %>%  group_by(regions)   %>%  summarise(alpha_reg = round(mean(alpha_bas), 3), alpha_sd = round(sd(alpha_bas), 3), det_coef_reg = round(mean(dcoef_bas), 3)) 
+colnames(tab) <- c("Region", "Mean alpha value", "Alpha standard deviation", "Mean determination coefficient")
+  
+apa(tab)%>% tab_footnote("")
   
 ```
 
@@ -644,7 +616,7 @@ Following these considerations, the baseflow contribution for each of the basin 
 #| label: tbl-reg_gw_results
 #| tbl-cap:
 
- read.csv("used_files/Created_csv/groundwater_results.csv") %>% .[,c(2,1,3,4,5,6)]%>% 
+ read.csv("used_files/Created_csv/4_groundwater_results.csv") %>% .[,c(2,1,3,4,5,6)]%>% 
   mutate(Region = factor(region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))) %>% group_by(Region) %>% summarise('Mean alpha used' = round(mean(alpha), 3), 'Mean BFImax used' = round(mean(BFImax), 2),'Estimated baseflow index' = round(mean(BF_Rate), 2)) %>% apa(.) %>% tab_footnote("")
 
 ```
@@ -744,7 +716,7 @@ Authors want to thank to AEMET for the gridded weather datasets and to the Water
 #Checking the available gauging data dates: 
 data_range <- gauging_data_tagus %>% filter(cod %in% cods) %>% mutate(gauging_code = cod) %>% 
      group_by(gauging_code) %>% summarise(mindat=min(date), maxdat = max(date)) %>% 
-     left_join(., basins_file[,c(1:2,4)],by =  "gauging_code") %>% arrange(., Basin_ID) %>% 
+     left_join(., basins_file[,c(1:2,4)], by =  "gauging_code") %>% arrange(., Basin_ID) %>% 
      mutate(`Streamflow data availability` = paste(year(mindat), year(maxdat), sep =  "-")) %>% 
      .[,c(1,6)]
 
@@ -760,7 +732,7 @@ complete_data <- gauging_data_tagus %>% filter(cod %in% cods, year(date) %in% 20
    ndays < ndys ~ paste("No, ", ndys-ndays, " days missing", sep = "")))
   
 # Creating summary table
-read.csv("used_files/Created_csv/basins_file.csv") %>% left_join(., data_range, "gauging_code") %>% 
+read.csv("used_files/Created_csv/1_basins_file.csv") %>% left_join(., data_range, "gauging_code") %>% 
   left_join(., complete_data, "gauging_code") %>% mutate(`Area (sq. km)` = round(area/1e6), 
   Region = region, `ID, subbasin and streamflow station code` = paste(Basin_ID, ", ", Basin, " (", gauging_code, ")", sep = "")) %>%
   .[,c(11,10,9,6,8)] %>% apa(., "Selected subbasins properties and data availability")
@@ -806,7 +778,7 @@ read.csv("used_files/Created_csv/basins_file.csv") %>% left_join(., data_range, 
 #| label: tbl-groundwater_results
 #| tbl-cap: Filter parameters values and estimated baseflow index for each basin
 
-gw_file <- read.csv("used_files/Created_csv/groundwater_results.csv") %>% .[,c(2,1,3,4,5,6)]
+gw_file <- read.csv("used_files/Created_csv/4_groundwater_results.csv") %>% .[,c(2,1,3,4,5,6)]
 
 colnames(gw_file) <- c("Subbasin ID","Subbasin","Region","alpha used", "BFImax used", "Estimated baseflow index")
  apa(gw_file, "Filter parameters values and estimated baseflow index for each basin")%>% tab_footnote("")

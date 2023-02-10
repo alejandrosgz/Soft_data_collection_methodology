@@ -354,9 +354,9 @@ display: none;
 
 <div id="information-about-the-repository" class="section level1">
 <h1>Information about the repository</h1>
-<p>This repository contains the data used to perform the soft-data
-collection methodology presented in the manuscript <em>Soft data
-collection for realistic hydrological modelling: a reproducible
+<p>This repository contains the data and code used to perform the
+soft-data collection methodology presented in the manuscript <em>Soft
+data collection for realistic hydrological modelling: a reproducible
 methodology developed in R for the Tagus River basin</em>.</p>
 <div id="purpose-and-utility" class="section level3">
 <h3>Purpose and utility</h3>
@@ -369,23 +369,53 @@ areas and time series. In this work, a soft data collection methodology
 has been developed to obtain soft data from available weather and
 streamflow data, focusing into two variables: the runoff coefficient and
 the baseflow index. This methodology can be reproduced for any gauged
-catchment in Spain, and can be also used for other countries with
-similar available data.</p>
+catchment in Spain, and can be also used for any other region with
+similar available datasets. The upper sector of the Tagus River basin
+has been used as study case, evaluating the two variables mentioned in
+19 subbasins of this river located in different geological regions.</p>
 </div>
-<div id="structure" class="section level2">
-<h2>Structure</h2>
+<div id="structure" class="section level3">
+<h3>Structure</h3>
+<p>Within the repository, three directories can be found:</p>
+<div id="used_files-directory" class="section level4">
+<h4>1. used_files directory</h4>
 <p>The data necessary to reproduce the work is located in the
-<strong>used_files</strong> folder. Three folder are can be found
+<strong>used_files</strong> folder, which contains three folders
 within:</p>
 <ul>
+<li><p><strong>Created_csv</strong> Contains the csv files that should
+be created for making the scripts work. To apply this methodology in
+other regions, these script have to be reproduced as explained in the
+manuscript or in corresponding script
+(<strong>script_1_CSV_files_preparation.R</strong>). A vector layer with
+the weather data grid and a vector layer with the basin/s that will be
+assessed are necessary to create these files. A brief description of
+these files follows:</p>
+<ul>
+<li><p><strong>1_basins_file.csv</strong> This file contains basic data
+about the basin or subbasins that will be assessed. Concretely, the
+name, ID, and area of each basin, and the ID of the gauging station are
+the fields of this table (<em>Basin</em>, <em>Basin_ID</em>,
+<em>area</em>, <em>gauging_code</em>, respectively). Another field,
+(which has been named <em>region</em> in this case) can be used to group
+the assessed basins according to any characteristic.</p></li>
+<li><p><strong>2_ids_stations_file.csv</strong> Contains the ID, name
+and location of each weather grid point located within the buffer of
+each basin (<em>ID</em>, <em>NAME</em>, <em>LAT</em>, <em>LONG</em>,
+<em>ELEVATION</em>). The basins where they are located (both ID and name
+are also indicated, as some points are present in more than one
+contiguous subbasins).</p></li>
+<li><p><strong>4_groundwater_results.csv</strong> This file has been
+used to save the data obtained during the baseflow index estimation.
+Concretely, for each basin, the alpha and BFImax parameters values used
+for the filter and the estimated baseflow index (columns <em>alpha</em>,
+<em>BFImax</em>, <em>BF_Rate</em>, respectively) are stored.</p></li>
+</ul></li>
 <li><p><strong>Data</strong> Contains both the Streamflow and weather
 data used for this work. In fact, the streamflow data contains data for
 all the gauging stations of the Tagus River basin. The weather (pcp and
 tmp) files have been filtered in order to reduce the weight of the data,
 but can be downloaded for all Spain in (<a href="https://swat.tamu.edu/data/spain/" class="uri">https://swat.tamu.edu/data/spain/</a>).</p></li>
-<li><p><strong>Created_csv</strong> Contains the csv that should be
-created for making the scripts work. To apply this methodology in other
-regions, these script have to be reproduced.</p></li>
 <li><p><strong>Shapefiles</strong> includes some shp files that has been
 used for this work (i.e., delineated subbasins, weather grids, gauging
 stations, permeability map).</p></li>
@@ -422,6 +452,7 @@ manuscript</p>
 <p><strong>Paper_soft_data_obtention.bib</strong> contains the
 references in BibTex format.</p>
 <p>Other files are related to format adjustments and can be ignored.</p>
+</div>
 </div>
 <div id="workflow" class="section level2">
 <h2>Workflow</h2>
