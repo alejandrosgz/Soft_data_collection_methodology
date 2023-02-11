@@ -20,7 +20,7 @@ In the main directory of the repository, there are several files:
 
 * **README** This file. It is recommended to read it to know how the repository has been structured and how this methodology can be applied in other regions.
 
-* **soft_data_paper.qmd** Contains all the work and data presented in the manuscript. In this file, the more important parts of the code are located (which can be also found in the scripts) and some examples have been introduced. However, the code for reproducing all the results of the presented manuscript can be found in the **scripts** folder. This document can be used to generate different output formats of the document (**soft_data_paper.docx**, **soft_data_paper.html**), which are also located in the main repository directory.
+* **soft_data_paper.qmd** Contains all the work and data presented in the manuscript. In this file, the more important parts of the code are located (which can be also found in the scripts) and some examples have been introduced. However, the code for reproducing all the results of the presented manuscript can be found in the **scripts** folder. This document can be used to generate different output formats of the document (**soft_data_paper.docx**, **soft_data_paper.html**), which are also located in the main repository directory. Note that the qmd document has been optimized to rendering to html.
 
 * **Paper_soft_data_collection.bib** contains the references in BibTex format, generated with the software *Zotero*.
 
@@ -73,6 +73,25 @@ The code for reproducing all the results of the paper can be found in the folder
 #### 3. Figs directory
 
 **Figs** directory contains the images used in the manuscript
+
+
+### Instructions for the user
+
+In the manuscript the instructions for reproducing this work are located, but in this section the main workflow will be explained. 
+
+As inputs for making this assessments in other regions, the user would need to prepare:
+
+* A vectorial file with the basins to be assessed. Instructions for delineating subbasins are located in the section 3.2 of the manuscript. It is recommended to adjust the fields of this layer in order to control the order to calculate the variables, i.e., indicating the name and creating IDs if multiple basins will be assessed. The code of the gauging station for each subbasin have to be included in this vectorial file or in the csv that it is created from it using the **Script 1**.
+
+* A vectorial file with the weather data. In this case, a grid has been used, but this is not strictly necessary. Note that, if a grid is not use, the average of the points may be not an accurate interpolation. If precipitation and temperature points/stations are not coincident, two files may be used. A csv file with the points located within a buffer for each assessed basin can be created using the **Script 1**.
+
+If these files are prepared in the same way as in the example, the **Script 2** will work  automatically. In the example case, the subbasins have been grouped by geological regions, but any other characteristic or none can be used. Runoff coefficients will be generated at annual and average basis for the chosen period.
+
+For reproducing the groundwater assessment, as it has been done manually, the user should follow the presented steps, but adapting the code for its streamflow data. This apply for **Scripts 3 and 4**. It is recommended to creater csv files with the results obtained with these scripts, at it has been done in the example.
+
+
+
+
 
 
 

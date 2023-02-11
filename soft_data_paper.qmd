@@ -254,7 +254,7 @@ gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = "
 
 #### 3.3. Runoff coefficient calculation
 
-For the calculation of the runoff coefficient, precipitation, temperature and streamflow data were used. The csv files created in section 3.2 were used for this purpose, as the area calculated and the identifiers of the gauging stations and the grid points located within the buffer of each subbasin were necessary
+For the calculation of the runoff coefficient, precipitation, temperature and streamflow data were used. The csv files created in section 3.2 were used for this purpose, as the area calculated and the identifiers of the gauging stations and the grid points located within the buffer of each subbasin were necessary.
 
 From all the gauging stations inside the Tagus River basin, the ones used for this work were filtered using their identifier. Then, gauged data was aggregated from daily values (m³/s) to annual contribution (mm/year) using the basins area. As mentioned above, basins 2, 6 and 14, despite not having data since 2010, were selected because they were in natural regime, being other basins representative of their lithology regulated. In this way, an annual runoff value (mm) was obtained for each of the studied basins using the code below.
 
@@ -560,7 +560,7 @@ runoff_reg_tab <- runoff_rate_tibble %>% mutate(Region = factor(Region, levels =
 
 The influence of the lithology is highlighted when aggregating at region scale. For example, although temperature is slightly higher and precipitation is slightly lower in the high permeability detrital region, its runoff coefficient doubles the runoff coefficient of the low permeability region. Runoff coefficient is higher in the IMP and CRB regions, where not only precipitation and temperature are more favorable for generating runoff, but also lithology and the mountainous topography. Regions DTAL and DTBJ are flatter and warmer than the CRB region, and evapotranspiration is favored under these conditions [@custodio_hidrologisubterranea_1983]. It should be noted the subbasins selected in CRB region are closely located (@fig-location), thus they have a similar climate. Therefore, the runoff coefficient varies less than in the IMP region, where subbasin 3 is located in a more arid region than subbasins 1 and 2. Regardless this, the CRB region seems to be less influenced by climate than IMP region, which could be explained by its aquifer properties, allowing a higher recharge thus limiting the amount of water available for evapotranspiration. In DTAL and DTBJ regions, runoff coefficient its always lower than 10% (even 4% in DTBJ), which indicates that most of the precipitation becomes evapotranspirated. Even though some areas of the DTBJ region subbasins are conformed by medium permeability carbonate and detrital materials, runoff coefficient in this region is much lower than in DTAL, which points to a high influence of the presence of low permeability materials, which in combination with a flat topography, low precipitation and warmer temperatures lead to a very high evapotranspiration. Precisely due to the flat topography, it should be also acknowledged the possibility that a small amount of the recharged water might be released to the streamflow downstream the gauging points, but it is not expected to be a significant amount since the subbasins selected are relatively large.
 
-Subbasins with mixed lithology yielded the widest range of runoff coefficient values, which could be expected. In line with the results discussed above, mixed lithology subbasins where igneous, metamorphic or carbonated materials dominate showed higher runoff coefficients, while the lowest values were obtained in those mixed subbasins where detrital materials with low permeability are present (e.g., subbasin 17, Appendix 2).
+Subbasins with mixed lithology yielded the widest range of runoff coefficient values, which could be expected. In line with the results discussed above, mixed lithology subbasins where igneous, metamorphic or carbonated materials dominate showed higher runoff coefficients, while the lowest values were obtained in those mixed subbasins where detrital materials with low permeability are present (e.g., subbasin 17, Appendix II).
 
 #### 4.2. Baseflow index values
 
@@ -607,14 +607,14 @@ Last consideration is about the time scale used to evaluate the separation of th
 
 ![Time scale effect on the visualization of the baseflow estimated with the filter.](figs/bfi_filter_timescale_ed.png){#fig-timescale_effect}
 
-Following these considerations, the baseflow contribution for each of the basin has been calculated with @eq-bf_contribution. Appendix IV contains the values of the parameters used and the baseflow contribution values obtained for each of the subbasins. To assess the lithology effect, the estimated contribution values have been aggregated at geological region level as showed in @tbl-reg_gw_results.
+Following these considerations, the baseflow contribution for each of the basin has been calculated with @eq-bf_contribution. Appendix II contains the values of the parameters used and the baseflow contribution values obtained for each of the subbasins. To assess the lithology effect, the estimated contribution values have been aggregated at geological region level as showed in @tbl-reg_gw_results.
 
 ```{r Groundwater_regions}
 #| eval: true
 #| echo: false
 #| output: true
 #| label: tbl-reg_gw_results
-#| tbl-cap:
+#| tbl-cap: Average parameter values used and groundwater indexes estimated at region scale.
 
  read.csv("used_files/Created_csv/4_groundwater_results.csv") %>% .[,c(2,1,3,4,5,6)]%>% 
   mutate(Region = factor(region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))) %>% group_by(Region) %>% summarise('Mean alpha used' = round(mean(alpha), 3), 'Mean BFImax used' = round(mean(BFImax), 2),'Estimated baseflow index' = round(mean(BF_Rate), 2)) %>% apa(.) %>% tab_footnote("")
@@ -623,11 +623,11 @@ Following these considerations, the baseflow contribution for each of the basin 
 
 Subbasins located in geological regions with low permeability were expected to have lower baseflow index, while those located in regions with relevant aquifers were expected to have higher rates. A baseflow index around 20% has been estimated for the igneous and metamorphic region (IMP). This value might be considered high for impervious basins, but based in the knowledge about the studied subbasins and the assessment performed, it seems correct. Some indicators, such as the presence of flow during dry periods or phreatophyte vegetation can be used as indicators of groundwater contribution, and these indicators has been observed in some of the subbasins characterized as impervious in this work [@martin-loeches_hydrogeochemistry_2020].
 
-As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies [@sanchez-gomez_optimization_2022] and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix IV).
+As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies [@sanchez-gomez_optimization_2022] and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix II).
 
-Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTAL). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTBJ) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTBJ region are noticeable lower than in DTAL region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTBJ region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTBJ region reveal this behavior, since a baseflow is maintained throughout the year (Appendix 3). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.
+Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTAL). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTBJ) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTBJ region are noticeable lower than in DTAL region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTBJ region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTBJ region reveal this behavior, since a baseflow is maintained throughout the year (Appendix III). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.
 
-In the subbasins located in mixed lithology regions, the baseflow index obtained in average is around 46%, thus relatively high. It could be explained because four of these subbasins (subbasins 16 to 19, Appendix 4) are constituted in a greater extent by carbonate materials, from medium to very high permeability (@fig-location), while only two of these subbasins have impervious igneous and metamorphic materials.
+In the subbasins located in mixed lithology regions, the baseflow index obtained in average is around 46%, thus relatively high. It could be explained because four of these subbasins (subbasins 16 to 19, Appendix IV) are constituted in a greater extent by carbonate materials, from medium to very high permeability (@fig-location), while only two of these subbasins have impervious igneous and metamorphic materials.
 
 ### 5. Conclusions
 
@@ -647,7 +647,7 @@ All the data and code used for this work is available in the following GitHub re
 
 ### Ackowledgements
 
-Alejandro SÃ¡nchez-GÃ³mez received support from the University of AlcalÃ¡ (UAH) PhD Fellowships Program. Other projects?
+Alejandro Sánchez-Gómez received support from the University of Alcalá (UAH) PhD Fellowships Program. Other projects?
 
 Some of the used functions in R were written by other researchers. Concretely, in addition to the used packages (cited in References section), the baseflow filter function was written by Hendrik Rathjens, and the tables format function was taken from https://www.anthonyschmidt.co/post/2020-06-03-making-apa-tables-with-gt/.
 
@@ -738,7 +738,7 @@ read.csv("used_files/Created_csv/1_basins_file.csv") %>% left_join(., data_range
   .[,c(11,10,9,6,8)] %>% apa(., "Selected subbasins properties and data availability")
 ```
 
-######## Appendix II: Runoff coefficients obtained for subbasins {.appendix}
+######## Appendix II: Runoff coefficients and baseflow indexes obtained for subbasins {.appendix}
 
 ```{r Runoff_rate_basins}
 #| eval: true
@@ -761,22 +761,14 @@ read.csv("used_files/Created_csv/1_basins_file.csv") %>% left_join(., data_range
                                                          min_runoff_rate = round(min_runoff_rate,2), Max_runoff_rate = round(Max_runoff_rate,2))
       colnames(runoff_rate_tibble) <- c("Region", "Basin_ID", "Basin", "Mean Temperature", "Mean Precipitation", "Mean Runoff coefficient", "Min Runoff coefficient", "Max Runoff coefficient")
       
-      apa(runoff_rate_tibble, "Basins runoff coefficients. Average, minimum and maximum value for the entire period")%>% tab_footnote("")
+      apa(runoff_rate_tibble, "Basins´s runoff coefficients. Average, minimum and maximum value for the entire period")%>% tab_footnote("")
       
 ```
-
-######## Appendix III: Hydrographs for one hydrological year comparison {.appendix}
-
-![Hydrographs comparison of subbasins located in the different geological regions.](figs/hydrographs.png){#fig-hydrographs}
-
-######## Appendix IV: Groundwater results at subbasins scale {.appendix}
 
 ```{r Groundwater_basins}
 #| eval: true
 #| echo: false
 #| output: true
-#| label: tbl-groundwater_results
-#| tbl-cap: Filter parameters values and estimated baseflow index for each basin
 
 gw_file <- read.csv("used_files/Created_csv/4_groundwater_results.csv") %>% .[,c(2,1,3,4,5,6)]
 
@@ -784,3 +776,11 @@ colnames(gw_file) <- c("Subbasin ID","Subbasin","Region","alpha used", "BFImax u
  apa(gw_file, "Filter parameters values and estimated baseflow index for each basin")%>% tab_footnote("")
 
 ```
+
+######## Appendix III: Hydrographs for one hydrological year comparison {.appendix}
+
+![Hydrographs comparison of subbasins located in the different geological regions.](figs/hydrographs.png){#fig-hydrographs}
+
+######## Appendix IV: Repository README file {.appendix}
+
+
