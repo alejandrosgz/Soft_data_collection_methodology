@@ -1,13 +1,14 @@
-   #### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff rate and Baseflow contribution ####
-   #### Part 1: Runoff rate calculation ####
+#### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff coefficient and Baseflow index ####
+#### Script 2: Runoff coefficient calculation ####
    
-   # Methodology: the runoff rate for 19 subbasins within the upper sector of Tagus River basin has been calculated through this script.
-   # Previous csv files were prepared: basins_file and pcp_grid_points, which contain data about the subbasins and their weather data points
-   # First, annual precipitation has been calculated using the AEMET grid precipitation data. Daily streamflow data has been extracted 
-   # from the CEDEX streamflow gauging stations yearly report and aggregated to annual values to compare with the precipitation.
+   # Methodology: the runoff coefficient for 19 subbasins within the upper sector of Tagus River basin has been calculated. Through this script,
+   # the anual precipitation and the anual runoff have been calculated, deriving the runoff coefficient.
    # Temperature values in each of the basin has been also obtained in order to discuss the obtained runoff rate values.
-   
-   # Used packages
+
+   # Previous csv files were prepared with Script 1: 1_basins_file and 2_ids_stations_file, which contain data about the subbasins and their weather data points
+   # In addition, as input data, daily weather (precipitation and temperature) and streamflow data are being used (see manuscript or README file for more info).
+
+   # Used libraries
    library(readr)
    library(tidyverse)
    library(lubridate)
@@ -38,8 +39,8 @@
    
    complete_data <- gauging_data_tagus %>% filter(cod %in% cods, year(date) %in% 2010:2018) %>%
      mutate(gauging_code = cod) %>% group_by(gauging_code) %>% summarise( ndays = n()) %>% 
-     mutate('Complete data (2010-2018)' =  case_when(ndays == ndys ~ "Yes", 
-     ndays < ndys ~ paste("No, ", ndys-ndays, " days missing", sep = ""))) %>% left_join(., basins_file, "gauging_code") %>%
+     mutate('Complete data (2010-2018)' =  case_when(ndays == ndays ~ "Yes", 
+     ndays < ndays ~ paste("No, ", ndays-ndays, " days missing", sep = ""))) %>% left_join(., basins_file, "gauging_code") %>%
      .[,c(5, 4, 3)] %>% arrange(., Basin_ID)
    complete_data
    

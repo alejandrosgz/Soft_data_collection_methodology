@@ -77,13 +77,13 @@ The code for reproducing all the results of the paper can be found in the folder
 
 ### Instructions for the user
 
-In the manuscript the instructions for reproducing this work are located, but in this section the main workflow will be explained. 
+In the manuscript the instructions for reproducing this work can be found, but in this section the main workflow will be explained. 
 
 As inputs for making this assessments in other regions, the user would need to prepare:
 
-* A vectorial file with the basins to be assessed. Instructions for delineating subbasins are located in the section 3.2 of the manuscript. It is recommended to adjust the fields of this layer in order to control the order to calculate the variables, i.e., indicating the name and creating IDs if multiple basins will be assessed. The code of the gauging station for each subbasin have to be included in this vectorial file or in the csv that it is created from it using the **Script 1**.
+* A vectorial file with the basins to be assessed. Instructions for delineating subbasins are located in the section 3.2 of the manuscript. It is recommended to adjust the fields of this layer in order to control the order to calculate the variables, i.e., indicating the name and creating IDs if multiple basins will be assessed. The code of the gauging station for each subbasin have to be included in this vector file or in the csv that it is created from it using the **Script 1**.
 
-* A vectorial file with the weather data. In this case, a grid has been used, but this is not strictly necessary. Note that, if a grid is not use, the average of the points may be not an accurate interpolation. If precipitation and temperature points/stations are not coincident, two files may be used. A csv file with the points located within a buffer for each assessed basin can be created using the **Script 1**.
+* A vector file with the weather data. In this case, a grid has been used, but this is not strictly necessary. Note that, if a grid is not use, the average of the points may be not an accurate interpolation. If precipitation and temperature points/stations are not coincident, two files may be used. A csv file with the points located within a buffer for each assessed basin can be created using the **Script 1**.
 
 If these files are prepared in the same way as in the example, the **Script 2** will work  automatically. In the example case, the subbasins have been grouped by geological regions, but any other characteristic or none can be used. Runoff coefficients will be generated at annual and average basis for the chosen period.
 

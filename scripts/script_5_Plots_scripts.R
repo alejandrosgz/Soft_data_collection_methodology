@@ -1,3 +1,6 @@
+#### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff coefficient and Baseflow index ####
+#### Script 5: Generating plots of the manuscript
+
 
 # Libraries and datasets
 

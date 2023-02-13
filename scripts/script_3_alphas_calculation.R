@@ -1,7 +1,24 @@
-   #### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff coefficient and Baseflow index ####
-   #### Part 2.1: Groundwater recession constant calculation ####
+#### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff coefficient and Baseflow index ####
+#### Script 3: Estimation of alpha values  ####
+
+   # Methodology: This script has been used to estimate the Groundwater recession constant, and in turn the alpha values.
+   # Therefore, it can be considered the first part of the groundwater index estimation, as the obtained alpha values 
+   # have been used as reference when using the digital filter.
+
+   #For each basin, three representative peaks between 2010-2019 have been selected, and a linear regression has been adjusted to 
+   # the baseflow recession curve in order to determine the groundwater recession constant (α). The initial point for the recession 
+   #curve has been selected when the direct runoff peak ends. The estimated slope of the regression is the α value. A minimum of 10 
+   # days of recession curve was selected as criteria. A minimum determination coefficient of 0.80 was also used as criteria. 
    
-   
+   # The linear adjustment regression has been performed with the stats::lm function. With this function, two coefficients are obtained in this case:
+   # Intercept is the log() of the streamflow when time (t) = 0. 
+   # The other coefficient is the Slope of the lineal regression, which is the groundwater recession coefficient * t, being t the number of days after t0.
+
+
+   # As input data, the files with streamflow data and wih the subbasins data have been used.
+   # An output csv file with the obtained alpha values and the determination coefficient has been generated (3_alpha_estimation)     
+
+   # Used libraries
    library(readr)
    library(tidyverse)
    library(lubridate)
@@ -9,24 +26,17 @@
    library(gt)
    library(patchwork)
    
+   # Streamflow data
    gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
      tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
      .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
    
-   
-   basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") # File with IDs, names, regions and areas of the basin, and gauging stations codes  
-   
-   
-   # Methodology: For each basin, three representative peaks between 2010-2019 have been selected, and a linear regression has been adjusted to 
-   # the baseflow recession curve in order to determine the groundwater recession constant (N1).Initial point for the recession curve has been selected when 
-   # the direct runoff peak ends. The estimated slope of the regression is the N1 value. A minimum of 10 days of recession curve was selected as criteria. A minimum
-   # determination coefficient of 0.80 was also used as criteria. 
-   
-   # The linear adjustment regression has been performed with the stats::lm function. With this function, two coefficients are obtained in this case:
-   # Intercept is the log() of the streamflow when time (t) = 0. 
-   # The other coefficient is the Slope of the lineal regression, which is the groundwater recession coefficient * t, being t the number of days after t0.
+   # File with IDs, names, regions and areas of the basin, and gauging stations codes  
+    basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") 
    
    
+   # alpha estimation for subbasins
+    
    # Basin 1, Navaluenga, gauging code = 3231, region = IMP
    #Alphas obtained : 0.9641022, 0.9776144, 0.9721647
    navaluenga <- gauging_data_tagus %>% filter(., cod == 3231) %>% filter(year(date) > 2009)
@@ -943,7 +953,7 @@
    
    
    # Saving the alpha values in a csv file
-   # alphas_tibble %>% write.csv(., "used_files/Created_csv/3_alpha_estimation.csv", quote = F, row.names = F)
+   alphas_tibble %>% write.csv(., "used_files/Created_csv/3_alpha_estimation.csv", quote = F, row.names = F)
    
    
    alphas_tibble <- read.csv("used_files/Created_csv/3_alpha_estimation.csv") %>% 
@@ -963,7 +973,7 @@
    
     colnames(tab_reg) <- c("Region", "Mean alpha value", "Alpha standard deviation", "Mean determination coefficient")
    
-    apa(tab_reg)
+    view(tab_reg)
    
    
    

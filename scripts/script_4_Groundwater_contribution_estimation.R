@@ -1,43 +1,39 @@
 #### SCRIPTS FOR ANALYSING HYDROLOGICAL PROCESSES: Calculation of Runoff coefficient and Baseflow index ####
-#### Part 2.2: Groundwater contribution estimation using a baseflow filter function ####  
+#### Script 4: Groundwater contribution estimation using a baseflow filter function ####  
 
 
+   #Methodology: Baseflow indexes have been calculated for each basin using the Baseflow filter proposed by Eckhardt, K. (2005) (Ecuation 19) and writted in R by
+   # Hendrik Rathjens. This filter have two parameters: BFIMax, which is the maximum expected value of baseflow contribution expected for one day, and alpha, 
+   # which is a constant obtained from the groundwater recession constant (alpha = e^α). For each basin, a range of possible values of alohas was calculated in the 
+   # Script 3 (alphas_calculation), and the BFIMax values have been established depending on the lithology and properties of each river and adjusting it for different 
+   # peaks. When appropriated values of alpha and BFIMax has been chosen, the groundwater contribution has been estimated. 
+   # Daily precipitation graphs have been used to determine a realistic baseflow contribution rate
+   
+   # NOTE THAT
+   # For running the script FIRSTLY is necessary to run the "RUN THIS FIRST" section. This section contains the alpha values obtained, the streamflow data,
+   # the code used to create a list with the daily precipitation for each basin and the baseflow filter function used to separate the hydrograph components.
+    
+   # As input data, the files with streamflow data and wih the subbasins data have been used.
+   # An output csv file with the obtained baseflow index and the values of the parameters has been generadted (4_groundwater_results)     
+
+   # Used libraries
    library(readr)
    library(tidyverse)
    library(lubridate)
    library(plotly)
    library(gt)
-   library(patchwork)
+   library(patchwork)  
+
    
    
-   # BFI --> Perennial streams, porous aquifers (0.8), hard rock aquifers (0.25); Ephemeral streams poroues aquifers (0.5)
-   #https://doi.org/10.1002/hyp.5675
-   #https://user.engineering.uiowa.edu/~flood/handouts/HO-L17-Baseflow-Separation.pdf
-  
-   # Basins data
-   basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") # File with IDs, names, regions and areas of the basin, and gauging stations codes  
-   
-   # Gaugin stations data
-   gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
-     tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
-     .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
-   
-  
-   #Methodology: Baseflow indexes have been calculated for each basin using the Baseflow filter proposed by Eckhardt, K. (2005) (Ecuation 19) and writted in R by
-   # Hendrik Rathjens. This filter have two parameters: BFIMax, which is the maximum expected value of baseflow contribution expected for one day, and alpha, which is a constant obtained
-   # from the groundwater recession constant (alpha = e^N1). For each basin, a range of possible values of alohas was calculated in the Script 2 (alphas_calculation),
-   # and the BFIMax values have been established depending on the lithology and properties of each river and adjusting it in different peaks. When appropriated values of
-   # alpha and BFIMax has been chosen, the groundwater contribution has been estimated. Daily precipitation graphs have been used to determine a realistic baseflow 
-   # contribution rate
-   
-   # NOTE THAT
-   # For running the script FIRSTLY is necessary to run the "RUN THIS FIRST" section. This section contains the alpha values obtained,
-   # the code used to create a list with the daily precipitation for each basin and the baseflow filter function used to separate the hydrograph components.
-    
    ####RUN THIS FIRST####
    
-   # Baseflow Filter Function, written by Hendrik Rathjens 
-   
+   # Baseflow Filter Function, written by Hendrik Rathjens. The two_param method has been used in all the cases
+   # Baseflow filter equation source
+   #https://doi.org/10.1002/hyp.5675
+   #https://user.engineering.uiowa.edu/~flood/handouts/HO-L17-Baseflow-Separation.pdf
+   # Recommended values of BFImax --> Perennial streams, porous aquifers (0.8), hard rock aquifers (0.25); Ephemeral streams porous aquifers (0.5)
+
    baseflow_sep <- function(df=NA, Q="Q",
                             alpha=0.98,
                             BFIma=0.5,
@@ -84,9 +80,12 @@
    # File with IDs, names, regions and areas of the basin, and gauging stations codes  
    basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") 
    
+   # Gaugin stations data
+   gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
+     tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
+     .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
    
    #Alphas calculated in previous script
-   
    alphas_tibble <- read.csv("used_files/Created_csv/3_alpha_estimation.csv")
    
    
@@ -1213,22 +1212,37 @@
 
    
    # Values of the Baseflow (groundwater) rates obtained with the code above
-  
+    
+    alpha_used <- c(0.975,	0.965,	0.951,	0.982,	0.985,	0.97,	0.95,	0.975,	
+                    0.95,	0.926,	0.96,	0.95,	0.97,	0.92,	0.9,	0.975,	0.99,	0.985,	0.985)
+
+    bfimax_used <- c(0.25,	0.2,	0.25,	0.5,	0.6,	0.45,	0.5,	0.45,	0.45,	0.4,
+                     0.5,	0.4,	0.4,	0.25,	0.3,	0.55,	0.55,	0.6,	0.55)
+      
     bf_rates <- c( 0.24, 0.19, 0.24, 0.49, 0.57, 0.42, 0.49, 0.45, 0.39,
                    0.39, 0.46, 0.38, 0.39, 0.25, 0.29, 0.54, 0.54, 0.59, 0.54)
-        
+    
    
+    # Saving the obtained values in a csv file
+    gw_tibble <-  tibble(basins_file[,c("Basin","Basin_ID","region")],alpha = alpha_used, BFImax = bfimax_used, BF_Rate = bf_rates) 
+     write.csv(gw_tibble, "used_files/Created_csv/4_groundwater_results.csv", quote = F, row.names = F)
+  
+    
+    
+     
    #Final Table with all the baseflow data at basin level
      gw_basins_tibble <- alphas_tibble %>% group_by(Basins) %>% summarise(alpha_mean = mean(alphas), alpha_sd = sd(alphas), ID = mean(Basin_IDs)) %>% 
-     arrange(., ID) %>% mutate(bf_rate = bf_rates)  %>% mutate(alpha_mean = round(alpha_mean, 3), alpha_sd = round(alpha_sd, 3), baseflow_rt = bf_rates) %>% 
+     arrange(., ID) %>% mutate(bf_rate = gw_tibble$BF_Rate)  %>% mutate(alpha_mean = round(alpha_mean, 3), alpha_sd = round(alpha_sd, 3), baseflow_rt = bf_rates) %>% 
      cbind(region = basins_file$region) %>%  .[,c("ID", "Basins", "alpha_mean", "alpha_sd", "baseflow_rt", "region")]
-   gw_basins_tibble$region <- factor(gw_tibble$region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
-   
+     gw_basins_tibble$region <- factor(gw_tibble$region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
+     
+
    #Final Table with all the baseflow data at region level
    alpha_regions <-  alphas_tibble %>% group_by(regions) %>% summarise( alpha_mean = mean(alphas), alpha_sd = sd(alphas))
-   gw_tibble %>% group_by(region) %>% summarise(gw_rate = mean(baseflow_rt)) %>% cbind(alpha_regions) %>% .[,c(1,4,5,2)]
+   gw_basins_tibble %>% group_by(region) %>% summarise(BF_index = mean(baseflow_rt)) %>% cbind(alpha_regions) %>% .[,c(1,4,5,2)]
    
-  
+
+   
    
    #### Plots #### 
    
