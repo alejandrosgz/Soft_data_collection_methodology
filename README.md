@@ -1,31 +1,25 @@
-# Information about the repository
+# Soft data collection for realistic hydrological modelling
 
-This repository contains the data and code used to perform the soft-data collection methodology presented in the manuscript *Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin*.
-
-The developed methodology can be reproduced but the authors shall not be liable for their use. 
-
-If the methodology is used, authors will appreciate that the developed manuscript is cited.
-
+This is the accompanying code repository for the manuscript *"Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin"*. The repository contains the data and code which were used to perform the soft-data collection methodology presented in the manuscript. Feel free to use the methodology or any parts of the code, but please make sure to cite our work (see [License](#license) and [Citation](#citation)).
 
 ### Purpose and utility
 
-Soft data in hydrology can be used to characterize the hydrological behavior of a basin or region, and also to guide hydrological models soft calibration processes. Despite in countries such as Spain there are available weather and hydrological datasets to collect soft data for all the territory, studies which aim to do it are few and limited to small areas and time series. 
+In hydrology soft data can be used to characterize the hydrological behavior of a basin or region and can therefore be used in the soft calibration process for a hydrological model setup of a basin. In countries such as Spain there are several potential sources for collecting soft data for the entire territory, such as weather and hydrological data. Yet, studies which include soft data in hydrological modeling are few and often limited to small areas and short time series. 
 
-In this work, a soft data collection methodology has been developed to obtain soft data from available weather and streamflow data, focusing into two variables: the runoff coefficient and the baseflow index. This methodology can be reproduced for any gauged catchment in Spain, and can be also used for any other region with similar available datasets. The upper sector of the Tagus River basin has been used as study case, evaluating the two variables mentioned in 19 subbasins of this river located in different geological regions.
+In this work, we present a soft data collection methodology to obtain soft data from available weather and streamflow data, while focusing on two variables: the runoff coefficient and the baseflow index. This methodology can be reproduced for any gauged catchment in Spain, and can be also used for any other region with similar available datasets. The upper part of the Tagus River basin has been used as study case, evaluating the two variables runoff coefficient and baseflow index in 19 subbasins of the Tagus River in different geological regions.
 
 
 ### Structure
 
-In the main directory of the repository, there are several files:
+Following files can be found in the main directory of the repository:
 
-* **README** This file. It is recommended to read it to know how the repository has been structured and how this methodology can be applied in other regions.
+* **README** (this file). It is recommended to read it to know how the repository has been structured and how this methodology can be applied in other regions.
 
-* **soft_data_paper.qmd** Contains all the work and data presented in the manuscript. In this file, the more important parts of the code are located (which can be also found in the scripts) and some examples have been introduced. However, the code for reproducing all the results of the presented manuscript can be found in the **scripts** folder. This document can be used to generate different output formats of the document (**soft_data_paper.docx**, **soft_data_paper.html**), which are also located in the main repository directory. Note that the qmd document has been optimized to rendering to html.
+* **soft_data_paper.qmd** Contains all the work and data presented in the manuscript. In this file, the relevant parts of the code can be found (which can be also be found in the scripts) and some examples have been introduced. The code to reproduce all the results of the presented manuscript can be found in the **scripts** folder. This document can be used to generate different output formats of the document (**soft_data_paper.docx**, **soft_data_paper.html**), which are also located in the main repository directory. Note that the qmd document has been optimized to rendering to html.
 
 * **Paper_soft_data_collection.bib** contains the references in BibTex format, generated with the software *Zotero*.
 
 Other files are related to the repository functioning or to the output adjustments and can be ignored.
-
 
 Within the repository, three directories can be found:
 
@@ -77,19 +71,42 @@ The code for reproducing all the results of the paper can be found in the folder
 
 ### Instructions for the user
 
-In the manuscript the instructions for reproducing this work can be found, but in this section the main workflow will be explained. 
+In the manuscript the instructions for reproducing this work can be found. In this section the main workflow will be explained in brief. 
 
 As inputs for making this assessments in other regions, the user would need to prepare:
 
-* A vectorial file with the basins to be assessed. Instructions for delineating subbasins are located in the section 3.2 of the manuscript. It is recommended to adjust the fields of this layer in order to control the order to calculate the variables, i.e., indicating the name and creating IDs if multiple basins will be assessed. The code of the gauging station for each subbasin have to be included in this vector file or in the csv that it is created from it using the **Script 1**.
+* A vector file with the basins to be assessed. Instructions for delineating subbasins are located in the section 3.2 of the manuscript. It is recommended to adjust the fields of this layer in order to control the order to calculate the variables, i.e., indicating the name and creating IDs if multiple basins will be assessed. The code of the gauging station for each subbasin have to be included in this vector file or in the csv that it is created from it using the **Script 1**.
 
-* A vector file with the weather data. In this case, a grid has been used, but this is not strictly necessary. Note that, if a grid is not use, the average of the points may be not an accurate interpolation. If precipitation and temperature points/stations are not coincident, two files may be used. A csv file with the points located within a buffer for each assessed basin can be created using the **Script 1**.
+* A vector file with the weather data. In this case, a grid has been used, but this is not strictly necessary. Note that, if no grid is used, the average values of the points may not be accurately interpolated. If precipitation and temperature points/stations are not coincident, two files may be used. A csv file with the points located within a buffer for each assessed basin can be created using the **Script 1**.
 
 If these files are prepared in the same way as in the example, the **Script 2** will work  automatically. In the example case, the subbasins have been grouped by geological regions, but any other characteristic or none can be used. Runoff coefficients will be generated at annual and average basis for the chosen period.
 
-For reproducing the groundwater assessment, as it has been done manually, the user should follow the presented steps, but adapting the code for its streamflow data. This apply for **Scripts 3 and 4**. It is recommended to creater csv files with the results obtained with these scripts, at it has been done in the example.
+For reproducing the groundwater assessment, as it has been done manually, the user should follow the presented steps, but adapting the code for its streamflow data. This applies for **Scripts 3 and 4**. It is recommended to create csv files with the results obtained with these scripts, as it has been done in the example.
 
+### License
 
+The content of this repository is licensed under the MIT License.
+
+### Citation
+
+**Note**: Currently this project is work in progress and the manuscript is about to be submitted. Please check the citation for an update .
+
+Sánchez Gómez A.: *Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin*, GitHub Repository, https://github.com/alejandrosgz/Soft_data_collection_methodology, 2023.
+
+```
+@misc{alejandrosgz2023,
+  author  = {Alejandro Sánchez Gómez},
+  note    = {GitHub Repository},
+  title   = {{Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin}},
+  year    = {2023},
+  url     = {https://github.com/alejandrosgz/Soft_data_collection_methodology},
+  version = {1.0},
+}
+```
+
+### Contact
+
+Alejandro Sánchez Gómez my@email.adress
 
 
 
