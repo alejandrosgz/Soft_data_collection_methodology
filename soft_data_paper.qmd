@@ -728,8 +728,8 @@ ndys <- seq(ini, end, 1) %>% length(.)
 complete_data <- gauging_data_tagus %>% filter(cod %in% cods, year(date) %in% 2010:2018) %>%
    mutate(gauging_code = cod) %>% left_join(., basins_file, "gauging_code") %>% 
    group_by(gauging_code) %>% summarise( ndays = n()) %>% 
-   mutate('Complete data (2010-2018)' =  case_when(ndays == ndys ~ "Yes", 
-   ndays < ndys ~ paste("No, ", ndys-ndays, " days missing", sep = "")))
+   mutate('Complete data (2010-2018)' =  case_when(ndays == ndays ~ "Yes", 
+   ndays < ndays ~ paste("No, ", ndays-ndays, " days missing", sep = "")))
   
 # Creating summary table
 read.csv("used_files/Created_csv/1_basins_file.csv") %>% left_join(., data_range, "gauging_code") %>% 
