@@ -85,7 +85,7 @@ For reproducing the groundwater assessment, as it has been done manually, the us
 
 ### License
 
-The content of this repository is licensed under the MIT License.
+The content of this repository is licensed under the [MIT License](https://github.com/alejandrosgz/Soft_data_collection_methodology/blob/main/LICENSE).
 
 ### Citation
 
