@@ -106,7 +106,10 @@ Sánchez Gómez A.: *Soft data collection for realistic hydrological modelling: 
 
 ### Contact
 
-Alejandro Sánchez Gómez my@email.adress
+Alejandro Sánchez Gómez 
+
+alejandro.sanchezgomez97@gmail.com
+
 
 
 
