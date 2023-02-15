@@ -12,7 +12,7 @@
    
    # FILE 1.- Subbasins csv file
    
-   # Input data: Shapefile with the delineated subbasins 
+   # Input data: Shapefile with the delineated subbasins. 
    subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
    # Changing column names
    subbasins_csv <- subbasins %>% rename(Basin_ID = id) %>% 
@@ -31,7 +31,7 @@
    
    # FILE 2. Gauging points csv file
    
-   #Input data: weather grid and delineated subbasins
+   #Input data: weather grid and delineated subbasins. NOTE THAT BOTH CRSs MUST BE THE SAME.
    
    # Gauging points: Note that the IDs for precipitation and temperature stations is constant, and therefore only one file is necessary.
    pcp_points <- read_sf("used_files/GIS/Shapefiles/grid_tagus.shp")

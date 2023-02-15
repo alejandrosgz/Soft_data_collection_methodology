@@ -121,7 +121,7 @@ apa <- function(x){#, title = " ") {
 
 ## Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin.
 
-##### Alejandro Sánchez-Gómez*^1^, Katrin Bieger^2^, Silvia Martínez-Pérez^1^, Christoph Schürz^3^, Hendrik Rathjens^4^, Eugenio Molina-Navarro^1^.
+##### Alejandro Sánchez-Gómez\*^1^, Katrin Bieger^2^, Silvia Martínez-Pérez^1^, Christoph Schürz^3^, Hendrik Rathjens^4^, Eugenio Molina-Navarro^1^.
 
 ####### ^1^ Department of Geology, Geography and Environment. University of Alcalá.
 
@@ -226,7 +226,7 @@ In order to estimate the precipitation and temperature for each subbasin, it was
 pcp_points <- read_sf("used_files/GIS/Shapefiles/grid_tagus.shp")
 # Subbasins 
 subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
-# Buffer created for subbasins (1 km distance)
+# Buffer created for subbasins (1 km distance). CRS must be the same.
 subbasins_buffer <- st_buffer(subbasins, dist = 1000) 
 # Clipping grid points with the subbasins buffer
 grid_points_clip <- st_intersection(pcp_points, subbasins_buffer[, c("id", "Basin", "geometry")])
@@ -782,5 +782,3 @@ colnames(gw_file) <- c("Subbasin ID","Subbasin","Region","alpha used", "BFImax u
 ![Hydrographs comparison of subbasins located in the different geological regions.](figs/hydrographs.png){#fig-hydrographs}
 
 ######## Appendix IV: Repository README file {.appendix}
-
-
