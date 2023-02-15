@@ -27,12 +27,12 @@
    library(patchwork)
    
    # Streamflow data
-   gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
+   gauging_data_tagus <- read.csv("Used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
      tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
      .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
    
    # File with IDs, names, regions and areas of the basin, and gauging stations codes  
-    basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") 
+    basins_file <- read.csv("Used_files/Created_csv/1_basins_file.csv") 
    
    
    # alpha estimation for subbasins
@@ -953,10 +953,10 @@
    
    
    # Saving the alpha values in a csv file
-   alphas_tibble %>% write.csv(., "used_files/Created_csv/3_alpha_estimation.csv", quote = F, row.names = F)
+   alphas_tibble %>% write.csv(., "Used_files/Created_csv/3_alpha_estimation.csv", quote = F, row.names = F)
    
    
-   alphas_tibble <- read.csv("used_files/Created_csv/3_alpha_estimation.csv") %>% 
+   alphas_tibble <- read.csv("Used_files/Created_csv/3_alpha_estimation.csv") %>% 
    mutate(regions = factor(alphas_tibble$regions, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX")))
    regions <-  factor(basins_file$region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
             
@@ -1018,7 +1018,7 @@
      geom_area(color = "darkblue", fill = "skyblue", linewidth = 0.6)+facet_grid(facets = "names", scales = "free")+ theme_bw()+ 
      ylab("Streamflow (m³/s)")+xlab("Date") +theme(text = element_text(size = 12, color = "black"), strip.text.y = element_text(face = "bold", size = 12), axis.title.x = element_blank() )
    
-   #ggsave(plot = hyd_comp, filename = "D:/Trabajo/Papers/Paper_caracterizacion/soft_data_obtaining/figs/hydrographs.png",
+   #ggsave(plot = hyd_comp, filename = "Figures/hydrographs.png",
           device = "png", width = 12, height = 12, dpi = 600)
    
 
@@ -1067,9 +1067,9 @@
    
    peaks_selection_plot <- peaks_plot / (recession_curve_plot / adj_recession_curve_plot)
    
-   #ggsave(plot = peaks_selection_plot, filename = "figs/peaks_selection_adjustment.png",
+   #ggsave(plot = peaks_selection_plot, filename = "Figures/peaks_selection_adjustment.png",
    device = "png", width = 12, height = 10, dpi = 600)
-   #ggsave(plot = peaks_selection_plot, filename = "figs/peaks_selection.tiff",
+   #ggsave(plot = peaks_selection_plot, filename = "Figures/peaks_selection.tiff",
    device = "tiff", width = 10, height = 6, dpi = 600)
 
 

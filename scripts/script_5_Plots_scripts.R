@@ -38,10 +38,10 @@ baseflow_sep <- function(df=NA, Q="Q",
   return(data.frame(B,R))
 }
 
-basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") 
+basins_file <- read.csv("Used_files/Created_csv/1_basins_file.csv") 
 
 # File with gauging data
-gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
+gauging_data_tagus <- read.csv("Used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
   tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
   .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
 
@@ -193,12 +193,12 @@ peaks_selection_plot <- peaks_plot / (recession_curve_plot / adj_recession_curve
 # Mean Alpha obtained : 0.982, Max 0.986, Min 0.976
 
 # First: Daily precipitation obtention
-path <- "used_files/Data/Climate_data_extracted/pcp_spain/" # Directory where the precipitation file for each point of the grid is located
+path <- "Used_files/Data/Climate_data_extracted/pcp_spain/" # Directory where the precipitation file for each point of the grid is located
 init_date <- as.Date("1951-01-01")
 end_date <- as.Date("2019-12-31")
 dates <- seq(init_date, end_date, 1) # A sequence of dates for the entire period with data is created
 period_dates <- tibble(dates) %>% filter(., year(dates) %in% 2010:2018)
-pcp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
+pcp_grid_points <-  read.csv("Used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
 
 # Loop for calculating the daily precipitation of each basin 
 pcpday_bas_list <- list()

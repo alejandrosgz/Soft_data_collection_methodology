@@ -8,12 +8,16 @@
    # Used libraries
    library(sf)
    library(tidyverse)
+
+   # Environment: set working directory to the main folder of the repository
+
+   #setwd("......\Soft_data_collection_methodology")
    
    
    # FILE 1.- Subbasins csv file
    
    # Input data: Shapefile with the delineated subbasins. 
-   subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
+   subbasins <- read_sf("Used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
    # Changing column names
    subbasins_csv <- subbasins %>% rename(Basin_ID = id) %>% 
    #Calculating area
@@ -26,7 +30,7 @@
    st_drop_geometry(.) %>% 
    # Ordering table
    .[,c("Basin", "Basin_ID", "area", "gauging_code", "region")]
-   write.csv(x = subbasins_csv, file = "used_files/Created_csv/1_basins_file.csv", row.names = F)
+   write.csv(x = subbasins_csv, file = "Used_files/Created_csv/1_basins_file.csv", row.names = F)
    
    
    # FILE 2. Gauging points csv file
@@ -34,9 +38,9 @@
    #Input data: weather grid and delineated subbasins. NOTE THAT BOTH CRSs MUST BE THE SAME.
    
    # Gauging points: Note that the IDs for precipitation and temperature stations is constant, and therefore only one file is necessary.
-   pcp_points <- read_sf("used_files/GIS/Shapefiles/grid_tagus.shp")
+   pcp_points <- read_sf("Used_files/GIS/Shapefiles/weather_grid_UTM.shp")
    
-   subbasins <- read_sf("used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
+   subbasins <- read_sf("Used_files/GIS/Shapefiles/basins_studied.shp") %>% arrange(., id)
    
    # 2.1. Buffer created for subbasins (1 km distance)
    
@@ -50,7 +54,7 @@
    
    grid_points_clip_csv <- grid_points_clip %>% st_drop_geometry(.) %>% rename(Basin_ID = id)
    
-   write.csv(x = grid_points_clip_csv, file = "used_files/Created_csv/ids_stations_file.csv", row.names = F)
+   write.csv(x = grid_points_clip_csv, file = "Used_files/Created_csv/ids_stations_file.csv", row.names = F)
    
    
    
@@ -63,7 +67,7 @@
    grid_points <- pcp_points %>% mutate(Selected_points = case_when(ID %in% pcps_selected_id ~ "Selected", 
                                    TRUE ~ "No selected"))
    
-   tagus_upp <- read_sf("used_files/GIS/Shapefiles/modeled_basin.shp")
+   tagus_upp <- read_sf("Used_files/GIS/Shapefiles/modeled_basin.shp")
    
      ggplot()+
      geom_sf(data = tagus_upp, fill = "transparent", color = "black", linewidth = 1)+
@@ -73,7 +77,9 @@
      guides(fill = "none")+ 
      geom_sf(data = grid_points, aes(shape = Selected_points), size = 2)+
      scale_shape_manual(values = c(1, 16))+
-     theme_bw()
+     theme_bw()+
+       coord_sf(crs = st_crs('+proj=moll'),xlim = c(-260000, -305000), 
+                ylim = c(4840000, 4890000))
    
 
 

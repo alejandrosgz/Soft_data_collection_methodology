@@ -78,15 +78,15 @@
    
    
    # File with IDs, names, regions and areas of the basin, and gauging stations codes  
-   basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") 
+   basins_file <- read.csv("Used_files/Created_csv/1_basins_file.csv") 
    
    # Gaugin stations data
-   gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
+   gauging_data_tagus <- read.csv("Used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
      tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
      .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
    
    #Alphas calculated in previous script
-   alphas_tibble <- read.csv("used_files/Created_csv/3_alpha_estimation.csv")
+   alphas_tibble <- read.csv("Used_files/Created_csv/3_alpha_estimation.csv")
    
    
    alphas_tibble$regions <- factor(alphas_tibble$regions, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
@@ -96,12 +96,12 @@
    
    
    # Daily precipitation obtention
-   path <- "used_files/Data/Climate_data_extracted/pcp_spain/" # Directory where the precipitation file for each point of the grid is located
+   path <- "Used_files/Data/Climate_data_extracted/pcp_spain/" # Directory where the precipitation file for each point of the grid is located
    init_date <- as.Date("1951-01-01")
    end_date <- as.Date("2019-12-31")
    dates <- seq(init_date, end_date, 1) # A sequence of dates for the entire period with data is created
    period_dates <- tibble(dates) %>% filter(., year(dates) %in% 2010:2018)
-   pcp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
+   pcp_grid_points <-  read.csv("Used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
    
    # Loop for calculating the daily precipitation of each basin 
    pcpday_bas_list <- list()
@@ -1225,7 +1225,7 @@
    
     # Saving the obtained values in a csv file
     gw_tibble <-  tibble(basins_file[,c("Basin","Basin_ID","region")],alpha = alpha_used, BFImax = bfimax_used, BF_Rate = bf_rates) 
-     write.csv(gw_tibble, "used_files/Created_csv/4_groundwater_results.csv", quote = F, row.names = F)
+     write.csv(gw_tibble, "Used_files/Created_csv/4_groundwater_results.csv", quote = F, row.names = F)
   
     
     
@@ -1342,7 +1342,7 @@
   library(patchwork)
   pars_effect_plot <-  bfi_plot + alpha_plot # Plot of the two parameters effect
   
-  #ggsave(plot = pars_effect_plot, filename = "D:/Trabajo/Papers/Paper_caracterizacion/soft_data_obtaining/figs/parameters_effect_plot.tiff",
+  #ggsave(plot = pars_effect_plot, filename = "Figures/parameters_effect_plot.tiff",
          device = "png", width = 18, height = 12, dpi = 600)
   
   
@@ -1380,9 +1380,9 @@
     xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
   plot_b4 <- (pcp_plot2 / bf_plot_2 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
   
-  #ggsave(plot = plot_b4, filename = "figs/subb_4_bfsep.png",
+  #ggsave(plot = plot_b4, filename = "Figures/subb_4_bfsep.png",
          device = "png", width = 10, height = 8, dpi = 600)
-  #ggsave(plot = plot_b4, filename = "D:/Trabajo/Papers/Paper_caracterizacion/soft_data_obtaining/figs/subb_4_bfsep.tiff",
+  #ggsave(plot = plot_b4, filename = "Figures/subb_4_bfsep.tiff",
          device = "tiff", width = 10, height = 8, dpi = 600)
   
 
@@ -1421,5 +1421,5 @@
   # Plot comparing the peak regarding the entire time period
   plott <- bf_plot_1 /bf_plot 
   
-  #ggsave(plot = plott, filename = "figs/subb_4_bfsep.png",
+  #ggsave(plot = plott, filename = "Figures/subb_4_bfsep.png",
          device = "png", width = 14, height = 10, dpi = 600)

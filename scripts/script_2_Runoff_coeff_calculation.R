@@ -17,11 +17,11 @@
    # Used files
    
        #Created csvs
-       basins_file <- read.csv("used_files/Created_csv/1_basins_file.csv") # File with IDs, names, regions and areas of the basin, and gauging stations codes  
-       pcp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") # File with IDs, names, and location of the grid points, and basins data  
+       basins_file <- read.csv("Used_files/Created_csv/1_basins_file.csv") # File with IDs, names, regions and areas of the basin, and gauging stations codes  
+       pcp_grid_points <-  read.csv("Used_files/Created_csv/2_ids_stations_file.csv") # File with IDs, names, and location of the grid points, and basins data  
        
        # Streamflow data
-       gauging_data_tagus <- read.csv("used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
+       gauging_data_tagus <- read.csv("Used_files/Data/Gauging_data/afliq.csv", sep = ";") %>% 
          tibble(.,"cod" = indroea, "date" = fecha, "obs_flow" = caudal) %>% 
          .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
        
@@ -72,13 +72,13 @@
    
    #### Precipitation calculation ####
    
-   path <- "used_files/Data/Climate_data_extracted/pcp_spain/" # Directory where the precipitation file for each point of the grid is located
+   path <- "Used_files/Data/Climate_data_extracted/pcp_spain/" # Directory where the precipitation file for each point of the grid is located
    
    init_date <- as.Date("1951-01-01")
    end_date <- as.Date("2019-12-31")
    dates <- seq(init_date, end_date, 1) # A sequence of dates for the entire period with data is created
    
-   pcp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
+   pcp_grid_points <-  read.csv("Used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
    
    # Loop for calculating the annual precipitation of each basin trough the average of the annual precipitation for each station within the basin
    pcp_bas_list <- list() #empty list
@@ -131,8 +131,8 @@
    end_date <- as.Date("2019-12-31")
    dates <- seq(init_date, end_date, 1) # A sequence of dates for the entire serie is created
    
-   path <- "used_files/Data/Climate_data_extracted/tmp_spain/" # Directory where the temperature file for each point of the grid is located
-   tmp_grid_points <-  read.csv("used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
+   path <- "Used_files/Data/Climate_data_extracted/tmp_spain/" # Directory where the temperature file for each point of the grid is located
+   tmp_grid_points <-  read.csv("Used_files/Created_csv/2_ids_stations_file.csv") %>% arrange(., Basin_ID)  # File with IDs, names, and location of the grid points, and basins data  
    
    # Loop for calculating the temperature of each basin trough the average of the annual temperature (Max, min, mean) for each station within the basin
    tmp_bas_list <- list() #empty list 

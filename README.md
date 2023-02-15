@@ -23,7 +23,7 @@ Other files are related to the repository functioning or to the output adjustmen
 
 Within the repository, three directories can be found:
 
-#### 1. used_files directory
+#### 1. Used_files directory
 
 The data necessary to reproduce the work is located in the **used_files** folder, which contains three folders within:
 
@@ -45,11 +45,11 @@ The data necessary to reproduce the work is located in the **used_files** folder
     
  * **GIS** This directory contains all the vector and raster data used for this work. It have two folders:
  
-    + **Shapefiles** Directory that includes the shp (and related) files that has been used for this work: the upper sector of the Tagus River basin (**modeled_basin**), the delineated subbasins (**basins_studied**), weather grids (**grid_tagus**), gauging stations (**gauging_stations**) and the permeability map(**permeabilit_map**).
+    + **Shapefiles** Directory that includes the shp (and related) files that has been used for this work: the upper sector of the Tagus River basin (**modeled_basin**), the delineated subbasins (**basins_studied**), weather points of the entire AEMET grid (**weather_grid_UTM**), gauging stations (**gauging_stations**) and the permeability map(**permeabilit_map**).
  
     + **Delineation.zip** Compressed folder which contains three raster layers: the digital elevation model (**ClipMDTproj.tif**) used to create the drainage direction (**drainage_direction_Tagus.tif**) and accumulation rasters (**drainage_acumulation_Tagus.tif**), which were used to delineate the subbasins. This file was compressed to reduce its weight.
 
-#### 2. scripts directory
+#### 2. Scripts directory
 
 The code for reproducing all the results of the paper can be found in the folder **scripts**, where 5 scripts are located: 
  
@@ -64,9 +64,9 @@ The code for reproducing all the results of the paper can be found in the folder
  * **script_5_Plots_scripts.R** Can be used to generate the figures included in the manuscript. Note that Figure 2 it is not possible to be reproduced with the included precipitation data, as it uses data from all the upper third of the Tagus River basin.  
 
 
-#### 3. Figs directory
+#### 3. Figures directory
 
-**Figs** directory contains the images used in the manuscript
+**Figures** directory contains the images used in the manuscript
 
 
 ### Instructions for the user
