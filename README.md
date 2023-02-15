@@ -85,11 +85,11 @@ For reproducing the groundwater assessment, as it has been done manually, the us
 
 ### License
 
-The content of this repository is licensed under the MIT License.
+The content of this repository is licensed under the [MIT License](https://github.com/alejandrosgz/Soft_data_collection_methodology/blob/main/LICENSE).
 
 ### Citation
 
-**Note**: Currently this project is work in progress and the manuscript is about to be submitted. Please check the citation for an update .
+**Note**: This project is currently work in progress and the manuscript is about to be submitted. Please check the citation at a later time for updates.
 
 Sánchez Gómez A.: *Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin*, GitHub Repository, https://github.com/alejandrosgz/Soft_data_collection_methodology, 2023.
 
