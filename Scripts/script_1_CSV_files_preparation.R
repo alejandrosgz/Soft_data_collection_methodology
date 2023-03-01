@@ -24,8 +24,8 @@
    mutate(area = st_area(.)) %>% 
    # Introducing the gauging stations codes (Manually)
    mutate(gauging_code = c(3231, 3049, 3211, 3001, 3045, 3040,
-                           3249, 3172, 3193, 3251, 3186, 3173,
-                           3164, 3165, 3212, 3268, 3237, 3030, 3060)) %>% 
+                           3249, 3172, 3193, 3251, 3030, 3173,
+                           3164, 3165, 3212, 3268, 3237, 3186 , 3060)) %>% 
    # Spatial data is no longer necessary
    st_drop_geometry(.) %>% 
    # Ordering table
@@ -78,8 +78,8 @@
      geom_sf(data = grid_points, aes(shape = Selected_points), size = 2)+
      scale_shape_manual(values = c(1, 16))+
      theme_bw()+
-       coord_sf(crs = st_crs('+proj=moll'),xlim = c(-260000, -305000), 
-                ylim = c(4840000, 4890000))
+       coord_sf(crs = st_crs('+proj=moll'),xlim = c(-130000, -440000), 
+                ylim = c(4710000, 4950000))
    
 
 

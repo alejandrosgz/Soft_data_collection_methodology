@@ -215,8 +215,8 @@ subbasins_csv <- subbasins %>% rename(Basin_ID = id) %>%
 mutate(area = st_area(.)) %>% 
 # Introducing the gauging stations codes (Manually)
 mutate(gauging_code = c(3231, 3049, 3211, 3001, 3045, 3040,
-       3249, 3172, 3193, 3251, 3186, 3173, 3164, 3165, 3212, 
-       3268, 3237, 3030, 3060)) %>% 
+       3249, 3172, 3193, 3251, 3030 , 3173, 3164, 3165, 3212, 
+       3268, 3237, 3186, 3060)) %>% 
 # Spatial data is no longer necessary
 st_drop_geometry(.) %>% 
 # Ordering table

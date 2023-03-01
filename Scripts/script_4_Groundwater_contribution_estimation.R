@@ -697,30 +697,29 @@
    (pcp_plot / bf_plot )+plot_layout(widths = c(2, 2), heights = c(3, 5))
    ggplotly(bf_plot)
    
-   # Basin 11, Priego Trabaque, gauging code = 3186, region = DTBJ
-   #Mean Alpha obtained : 0.943, Max 0.96, Min 0.92
+   # Basin 11, Ventosa, gauging code = 3030, region = DTBJ
+   #Mean Alpha obtained : 0.973, Max 0.99, 0.949
    
-   priegotra_flow <-  gauging_data_tagus %>% filter(., cod == 3186) %>% filter(year(date) %in% 2010:2018) %>% mutate(day = seq(1, length(date), 1))
-   priegotra_pcp <-   tibble(pcpday_bas_list[[12]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[12]][[1]]))) 
+   ventosa_flow <-  gauging_data_tagus %>% filter(., cod == 3030) %>% filter(year(date) %in% 2010:2018) %>% mutate(day = seq(1, length(date), 1))
+   ventosa_pcp <-   tibble(pcpday_bas_list[[19]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[19]][[1]]))) 
+   ventosa_all <- ventosa_flow %>% left_join(ventosa_pcp, "date") %>% .[,c(1,2,4,3,5)]
    
-   priegotra_all <- priegotra_flow %>% left_join(priegotra_pcp, "date") %>% .[,c(1,2,4,3,5)]
-   
-   obs_data <- as.data.frame(priegotra_all)
+   obs_data <- as.data.frame(ventosa_all)
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.96
+   alfa <- 0.989
    bfi_max <- 0.5
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
-   n <- priegotra_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
+   n <- ventosa_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
    
    # Peak selection
-   # 1100-1280
-   # 1460-1630
-   # 28-270
+   # 1110-1340
+   # 1830-2000
+   # 2970-3160
    
-   peak_1 <- n[c(1100:1280),]
+   peak_1 <- n[c(1110:1340),]
    bf_plot_1 <- ggplot(peak_1, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
      geom_area(aes(y = baseflow, fill = "Baseflow"))+ scale_fill_manual(values = c("dimgray", "cornflowerblue"))+theme_bw()+ 
      ylab("Flow (mB3/s)")+xlab("")+ theme(text = element_text(size = 15))+labs(fill = "")
@@ -728,7 +727,7 @@
      xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
    (pcp_plot1 / bf_plot_1 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
    
-   peak_2 <- n[c(1460:1630),]
+   peak_2 <- n[c(1830:2000),]
    bf_plot_2 <- ggplot(peak_2, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
      geom_area(aes(y = baseflow, fill = "Baseflow"))+ scale_fill_manual(values = c("dimgray", "cornflowerblue"))+theme_bw()+ 
      ylab("Flow (mB3/s)")+xlab("")+ theme(text = element_text(size = 15))+labs(fill = "")
@@ -736,7 +735,7 @@
      xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
    (pcp_plot2 / bf_plot_2 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
    
-   peak_3 <- n[c(28:270),]
+   peak_3 <- n[c(2970:3160),]
    bf_plot_3 <- ggplot(peak_3, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
      geom_area(aes(y = baseflow, fill = "Baseflow"))+ scale_fill_manual(values = c("dimgray", "cornflowerblue"))+theme_bw()+ 
      ylab("Flow (mB3/s)")+xlab("")+ theme(text = element_text(size = 15))+labs(fill = "")
@@ -745,7 +744,7 @@
    (pcp_plot3 / bf_plot_3 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
    
    sum(bfsep$B) / (sum(bfsep$B)+sum(bfsep$R))
-
+   
    bf_plot <- ggplot(n, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
      geom_area(aes(y = baseflow, fill = "Baseflow"))+ scale_fill_manual(values = c("dimgray", "cornflowerblue"))+theme_bw()+ 
      ylab("Flow (mB3/s)")+xlab("")+ theme(text = element_text(size = 15))+labs(fill = "")
@@ -1096,29 +1095,31 @@
      xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
    (pcp_plot / bf_plot )+plot_layout(widths = c(2, 2), heights = c(3, 5))
    
-   # Basin 18, Ventosa, gauging code = 3030, region = Mix
-   #Mean Alpha obtained : 0.973, Max 0.99, 0.949
    
-   ventosa_flow <-  gauging_data_tagus %>% filter(., cod == 3030) %>% filter(year(date) %in% 2010:2018) %>% mutate(day = seq(1, length(date), 1))
-   ventosa_pcp <-   tibble(pcpday_bas_list[[19]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[19]][[1]]))) 
-   ventosa_all <- ventosa_flow %>% left_join(ventosa_pcp, "date") %>% .[,c(1,2,4,3,5)]
+   # Basin 18, Priego Trabaque, gauging code = 3186, region = MIX
+   #Mean Alpha obtained : 0.943, Max 0.96, Min 0.92
    
-   obs_data <- as.data.frame(ventosa_all)
+   priegotra_flow <-  gauging_data_tagus %>% filter(., cod == 3186) %>% filter(year(date) %in% 2010:2018) %>% mutate(day = seq(1, length(date), 1))
+   priegotra_pcp <-   tibble(pcpday_bas_list[[12]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[12]][[1]]))) 
+   
+   priegotra_all <- priegotra_flow %>% left_join(priegotra_pcp, "date") %>% .[,c(1,2,4,3,5)]
+   
+   obs_data <- as.data.frame(priegotra_all)
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.985
-   bfi_max <- 0.6
+   alfa <- 0.96
+   bfi_max <- 0.5
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
-   n <- ventosa_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
+   n <- priegotra_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
    
    # Peak selection
-   # 1110-1340
-   # 1830-2000
-   # 2970-3160
+   # 1100-1280
+   # 1460-1630
+   # 28-270
    
-   peak_1 <- n[c(1110:1340),]
+   peak_1 <- n[c(1100:1280),]
    bf_plot_1 <- ggplot(peak_1, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
      geom_area(aes(y = baseflow, fill = "Baseflow"))+ scale_fill_manual(values = c("dimgray", "cornflowerblue"))+theme_bw()+ 
      ylab("Flow (mB3/s)")+xlab("")+ theme(text = element_text(size = 15))+labs(fill = "")
@@ -1126,7 +1127,7 @@
      xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
    (pcp_plot1 / bf_plot_1 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
    
-   peak_2 <- n[c(1830:2000),]
+   peak_2 <- n[c(1460:1630),]
    bf_plot_2 <- ggplot(peak_2, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
      geom_area(aes(y = baseflow, fill = "Baseflow"))+ scale_fill_manual(values = c("dimgray", "cornflowerblue"))+theme_bw()+ 
      ylab("Flow (mB3/s)")+xlab("")+ theme(text = element_text(size = 15))+labs(fill = "")
@@ -1134,14 +1135,14 @@
      xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
    (pcp_plot2 / bf_plot_2 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
    
-   peak_3 <- n[c(2970:3160),]
+   peak_3 <- n[c(28:270),]
    bf_plot_3 <- ggplot(peak_3, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
      geom_area(aes(y = baseflow, fill = "Baseflow"))+ scale_fill_manual(values = c("dimgray", "cornflowerblue"))+theme_bw()+ 
      ylab("Flow (mB3/s)")+xlab("")+ theme(text = element_text(size = 15))+labs(fill = "")
    pcp_plot3 <- ggplot(peak_3, aes( x=date))+geom_bar(aes(y = precipitation), stat = "identity", position = "identity", fill = "skyblue")+  scale_y_reverse()+theme_bw()+
      xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
    (pcp_plot3 / bf_plot_3 )+plot_layout(widths = c(2, 2), heights = c(3, 5)) 
-  
+   
    sum(bfsep$B) / (sum(bfsep$B)+sum(bfsep$R))
    
    bf_plot <- ggplot(n, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
@@ -1152,6 +1153,7 @@
    
    (pcp_plot / bf_plot )+plot_layout(widths = c(2, 2), heights = c(3, 5))
    ggplotly(bf_plot)
+   
    
    # Basin 19, Bujaralo, gauging code = 3060, region = Mix
    #Mean Alpha obtained : 0.976, Max 0.988, Min 0.962
@@ -1214,13 +1216,13 @@
    # Values of the Baseflow (groundwater) rates obtained with the code above
     
     alpha_used <- c(0.975,	0.965,	0.951,	0.982,	0.985,	0.97,	0.95,	0.975,	
-                    0.95,	0.926,	0.96,	0.95,	0.97,	0.92,	0.9,	0.975,	0.99,	0.985,	0.985)
+                    0.95,	0.926,		0.989,	0.95,	0.97,	0.92,	0.9,	0.975,	0.99, 0.96,	0.985)
 
     bfimax_used <- c(0.25,	0.2,	0.25,	0.5,	0.6,	0.45,	0.5,	0.45,	0.45,	0.4,
-                     0.5,	0.4,	0.4,	0.25,	0.3,	0.55,	0.55,	0.6,	0.55)
+                     0.5,	0.4,	0.4,	0.25,	0.3,	0.55,	0.55,	0.5,	0.55)
       
     bf_rates <- c( 0.24, 0.19, 0.24, 0.49, 0.57, 0.42, 0.49, 0.45, 0.39,
-                   0.39, 0.46, 0.38, 0.39, 0.25, 0.29, 0.54, 0.54, 0.59, 0.54)
+                   0.39, 0.49, 0.38, 0.39, 0.25, 0.29, 0.54, 0.54, 0.46, 0.54)
     
    
     # Saving the obtained values in a csv file

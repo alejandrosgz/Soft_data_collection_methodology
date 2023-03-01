@@ -543,6 +543,50 @@
    2.71828182846^-(0.039977)
    1-(0.039977)
    
+   # Basin 11, Ventosa, gauging code = 3030, region = Dtbj
+   #Alphas obtained :  0.9925588, 0.9768892, 0.9488667
+   ventosa <- gauging_data_tagus %>% filter(., cod == 3030) %>% filter(year(date) > 2009)
+   # Peak selection: Three representative peaks
+   ggplotly(ggplot(ventosa, aes( x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   # 1470-1670
+   # 1150-1320
+   # 3380-3420
+   
+   peak_1_vent <- ventosa[c(1470:1670),]
+   ggplotly(ggplot(peak_1_vent, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   # Q0 (maximum baseflow) is when x = 61
+   plot(peak_1_vent$obs_flow[61:101]~ peak_1_vent$date[61:101], type = "l")
+   #Linear adjustment for estimating alpha
+   plot(log(peak_1_vent$obs_flow[61:101])~ peak_1_vent$date[61:101], type = "l")
+   reg_pk1 <- lm(log(peak_1_vent$obs_flow[61:101])~seq(1, length(peak_1_vent$date[61:101]), 1))
+   summary(reg_pk1) #alpha = -0.007469, R2 = 0.92
+   
+   2.71828182846^-(0.007469)
+   1-(0.007469 )
+   
+   peak_2_vent <- ventosa[c(1150:1320),]
+   ggplotly(ggplot(peak_2_vent, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   # Q0 (maximum baseflow) is when x = 48
+   plot(peak_2_vent$obs_flow[48:63]~ peak_2_vent$date[48:63], type = "l")
+   #Linear adjustment for estimating alpha
+   plot(log(peak_2_vent$obs_flow[48:63])~ peak_2_vent$date[48:63], type = "l")
+   reg_pk2 <- lm(log(peak_2_vent$obs_flow[48:63])~seq(1, length(peak_2_vent$date[48:63]), 1))
+   summary(reg_pk2) #alpha = -0.023382, R2 = 0.86
+   
+   2.71828182846^-(0.023382)
+   1-(0.023382)
+   
+   peak_3_vent <- ventosa[c(3380:3420),]
+   ggplotly(ggplot(peak_3_vent, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   # Q0 (maximum baseflow) is when x = 26
+   plot(peak_3_vent$obs_flow[26:38]~ peak_3_vent$date[26:38], type = "l")
+   #Linear adjustment for estimating alpha
+   plot(log(peak_3_vent$obs_flow[26:38])~ peak_3_vent$date[26:38], type = "l")
+   reg_pk3 <- lm(log(peak_3_vent$obs_flow[26:38])~seq(1, length(peak_3_vent$date[26:38]), 1))
+   summary(reg_pk3) #alpha = -0.052487, R2 = 0.95
+   
+   2.71828182846^-(0.052487)
+   1-(0.052487)
    
    # Basin 12, La Peraleja, gauging code = 3173, region = DTBJ
    #Alphas obtained : 0.921143, 0.9540082, 0.9075379
@@ -819,52 +863,51 @@
    2.71828182846^-(0.009738)
    1-(0.009738)
    
-
-   # Basin 18, Ventosa, gauging code = 3030, region = Mix
-   #Alphas obtained :  0.9925588, 0.9768892, 0.9488667
-   ventosa <- gauging_data_tagus %>% filter(., cod == 3030) %>% filter(year(date) > 2009)
+   
+   # Basin 18, Priego Trabaque, gauging code = 3186, region = Mix
+   #Alphas obtained : 0.9208851 , 0.9474719, 0.9608115
+   priegotra <- gauging_data_tagus %>% filter(., cod == 3186) %>% filter(year(date) > 2009)
    # Peak selection: Three representative peaks
-   ggplotly(ggplot(ventosa, aes( x = seq(1, length(date), 1), y = obs_flow))+geom_line())
-   # 1470-1670
-   # 1150-1320
-   # 3380-3420
+   ggplotly(ggplot(priegotra, aes( x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   # 1100-1280
+   # 1460-1630
+   # 3370-3460
    
-   peak_1_vent <- ventosa[c(1470:1670),]
-   ggplotly(ggplot(peak_1_vent, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
-   # Q0 (maximum baseflow) is when x = 61
-   plot(peak_1_vent$obs_flow[61:101]~ peak_1_vent$date[61:101], type = "l")
+   peak_1_prietra <- priegotra[c(1100:1280),]
+   ggplotly(ggplot(peak_1_prietra, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   # Q0 (maximum baseflow) is when x = 89
+   plot(peak_1_prietra$obs_flow[89:104]~ peak_1_prietra$date[89:104], type = "l")
    #Linear adjustment for estimating alpha
-   plot(log(peak_1_vent$obs_flow[61:101])~ peak_1_vent$date[61:101], type = "l")
-   reg_pk1 <- lm(log(peak_1_vent$obs_flow[61:101])~seq(1, length(peak_1_vent$date[61:101]), 1))
-   summary(reg_pk1) #alpha = -0.007469, R2 = 0.92
+   plot(log(peak_1_prietra$obs_flow[89:104])~ peak_1_prietra$date[89:104], type = "l")
+   reg_pk1 <- lm(log(peak_1_prietra$obs_flow[89:104])~seq(1, length(peak_1_prietra$date[89:104]), 1))
+   summary(reg_pk1) #alpha = -0.08242, R2 = 0.95
    
-   2.71828182846^-(0.007469)
-   1-(0.007469 )
+   2.71828182846^-(0.08242)
+   1-(0.08242)
    
-   peak_2_vent <- ventosa[c(1150:1320),]
-   ggplotly(ggplot(peak_2_vent, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   peak_2_prietra <- priegotra[c(1460:1630),]
+   ggplotly(ggplot(peak_2_prietra, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    # Q0 (maximum baseflow) is when x = 48
-   plot(peak_2_vent$obs_flow[48:63]~ peak_2_vent$date[48:63], type = "l")
+   plot(peak_2_prietra$obs_flow[48:60]~ peak_2_prietra$date[48:60], type = "l")
    #Linear adjustment for estimating alpha
-   plot(log(peak_2_vent$obs_flow[48:63])~ peak_2_vent$date[48:63], type = "l")
-   reg_pk2 <- lm(log(peak_2_vent$obs_flow[48:63])~seq(1, length(peak_2_vent$date[48:63]), 1))
-   summary(reg_pk2) #alpha = -0.023382, R2 = 0.86
+   plot(log(peak_2_prietra$obs_flow[48:60])~ peak_2_prietra$date[48:60], type = "l")
+   reg_pk2 <- lm(log(peak_2_prietra$obs_flow[48:60])~seq(1, length(peak_2_prietra$date[48:60]), 1))
+   summary(reg_pk2) #alpha = -0.053958, R2 = 0.87
    
-   2.71828182846^-(0.023382)
-   1-(0.023382)
+   2.71828182846^-(0.053958)
+   1-(0.053958)
    
-   peak_3_vent <- ventosa[c(3380:3420),]
-   ggplotly(ggplot(peak_3_vent, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
-   # Q0 (maximum baseflow) is when x = 26
-   plot(peak_3_vent$obs_flow[26:38]~ peak_3_vent$date[26:38], type = "l")
+   peak_3_prietra <- priegotra[c(3370:3460),]
+   ggplotly(ggplot(peak_3_prietra, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
+   # Q0 (maximum baseflow) is when x = 37
+   plot(peak_3_prietra$obs_flow[37:60]~ peak_3_prietra$date[37:60], type = "l")
    #Linear adjustment for estimating alpha
-   plot(log(peak_3_vent$obs_flow[26:38])~ peak_3_vent$date[26:38], type = "l")
-   reg_pk3 <- lm(log(peak_3_vent$obs_flow[26:38])~seq(1, length(peak_3_vent$date[26:38]), 1))
-   summary(reg_pk3) #alpha = -0.052487, R2 = 0.95
+   plot(log(peak_3_prietra$obs_flow[37:60])~ peak_3_prietra$date[37:60], type = "l")
+   reg_pk3 <- lm(log(peak_3_prietra$obs_flow[37:60])~seq(1, length(peak_3_prietra$date[37:60]), 1))
+   summary(reg_pk3) #alpha = -0.039977 , R2 = 0.99
    
-   2.71828182846^-(0.052487)
-   1-(0.052487)
-   
+   2.71828182846^-(0.039977)
+   1-(0.039977)
    
    # Basin 19, Bujaralo, gauging code = 3060, region = Mix
    #Alphas obtained :  0.9775362, 0.9882891, 0.9617796
@@ -914,22 +957,45 @@
    
    #Obtained alpha values for each of the basins through the recession curve adjustment and determination coefficients
    
-   alphas <- c(0.9641022, 0.9776144, 0.9721647, 0.9645728,
-               0.9420848, 0.9469329, 0.9589081, 0.9260473, 0.9681386, 0.9856145, 0.9834357, 
-               0.9760807, 0.9897529, 0.9707561, 0.965227, 0.9151292, 0.9387557, 0.9657213, 
-               0.9462959, 0.9489312, 0.943499, 0.9726986, 0.9664391, 0.9698062, 0.9632243, 
-               0.9357191, 0.9063679, 0.9432395, 0.944205, 0.8910097, 0.9208851 , 0.9474719,
-               0.9608115,  0.921143, 0.9540082, 0.9075379,  0.9771452, 0.967856, 0.9517413, 
-               0.9130451, 0.9254178, 0.9206273, 0.876867, 0.8598477, 0.8595038, 0.9753392,
-               0.9488866, 0.9444335, 0.9898914, 0.9860147, 0.9903093, 0.9925588, 0.9768892, 
-               0.9488667, 0.9775362, 0.9882891, 0.9617796)
+   alphas <- c(0.9641022, 0.9776144, 0.9721647, 
+               0.9645728, 0.9420848, 0.9469329, 
+               0.9589081, 0.9260473, 0.9681386, 
+               0.9856145, 0.9834357, 0.9760807, 
+               0.9897529, 0.9707561, 0.965227, 
+               0.9151292, 0.9387557, 0.9657213, 
+               0.9462959, 0.9489312, 0.943499, 
+               0.9726986, 0.9664391, 0.9698062, 
+               0.9632243, 0.9357191, 0.9063679, 
+               0.9432395, 0.944205, 0.8910097, 
+               0.9925588, 0.9768892, 0.9488667,
+               0.9211430, 0.9540082, 0.9075379,  
+               0.9771452, 0.967856, 0.9517413, 
+               0.9130451, 0.9254178, 0.9206273,
+               0.876867, 0.8598477, 0.8595038, 
+               0.9753392, 0.9488866, 0.9444335, 
+               0.9898914, 0.9860147, 0.9903093, 
+               0.9208851, 0.9474719, 0.9608115,   
+               0.9775362, 0.9882891, 0.9617796)
    
-   det_coefs <- c(0.9728, 0.9673, 0.9223 ,0.9926 , 0.9889, 0.9856,
-                  0.9711 , 0.9007 , 0.9789 , 0.9515 , 0.9288 , 0.969 , 0.9538 , 0.9776 , 0.9258 ,
-                  0.96 , 0.9279 , 0.9742 , 0.972 , 0.9592 , 0.8686 , 0.9635 , 0.9807 , 0.923 , 0.9531 ,
-                  0.9703, 0.9755, 0.9628 , 0.9612,  0.9748 , 0.9481 , 0.8649,  0.9856 , 0.9684, 0.9298, 
-                  0.8952, 0.9678,  0.9395 , 0.9799 , 0.9059 , 0.987 , 0.9881, 0.8463 , 0.9524 , 0.9708 , 
-                  0.9816, 0.9469, 0.9866, 0.9541 , 0.8964, 0.9802, 0.9226, 0.8626 , 0.9548 , 0.9638 , 0.9651 , 0.9854 )
+   det_coefs <- c(0.9728, 0.9673, 0.9223,
+                  0.9926 , 0.9889, 0.9856,
+                  0.9711 , 0.9007 , 0.9789,
+                  0.9515 , 0.9288 , 0.969,
+                  0.9538 , 0.9776 , 0.9258,
+                  0.9600 , 0.9279 , 0.9742,
+                  0.972 , 0.9592 , 0.8686,
+                  0.9635 , 0.9807 , 0.923 ,
+                  0.9531 , 0.9703, 0.9755, 
+                  0.9628 , 0.9612,  0.9748 , 
+                  0.9226, 0.8626 , 0.9548 ,
+                  0.9684, 0.9298, 0.8952, 
+                  0.9678,  0.9395 , 0.9799 , 
+                  0.9059 , 0.987 , 0.9881, 
+                  0.8463 , 0.9524 , 0.9708 , 
+                  0.9816, 0.9469, 0.9866, 
+                  0.9541 , 0.8964, 0.9802, 
+                  0.9481 , 0.8649,  0.9856 ,
+                  0.9638 , 0.9651 , 0.9854 )
    
 
    #### FINAL TABLE ####

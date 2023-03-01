@@ -179,8 +179,8 @@ div.csl-indent {
 <section id="department-computational-landscape-ecology.-helmholtz-centre-for-environmental-research." class="level7">
 <p class="heading"><sup>3</sup> Department Computational Landscape Ecology. Helmholtz Centre for Environmental Research.</p>
 </section>
-<section id="stone-environmental-eu." class="level7">
-<p class="heading"><sup>4</sup> Stone Environmental EU.</p>
+<section id="stone-environmental-inc." class="level7">
+<p class="heading"><sup>4</sup> Stone Environmental, Inc.</p>
 </section>
 </section>
 <section id="abstract" class="level3">
@@ -196,29 +196,31 @@ div.csl-indent {
 <p>Hydrological modelling has thrived in the last decades, and particularly during the last few years, mostly due to the increase of computational capacity and the availability of related open software <span class="citation" data-cites="singh_hydrologic_2018 fu_review_2019">(<a href="#ref-singh_hydrologic_2018" role="doc-biblioref">Singh 2018</a>; <a href="#ref-fu_review_2019" role="doc-biblioref">Fu et al. 2019</a>)</span> which usually comes with friendly guided-user interfaces. This has enriched the knowledge about this discipline, bringing to the scientific community new insights about hydrological questions and contributing to assess the hydrological risks that the humanity faces in a worldwide context of uncertainty. However, the fact of having readily available hydrological modelling tools also entails some risks: their users, from different backgrounds, might not have comprehensive knowledge of hydrological process, and thus they might rely on model outputs without the necessary critical thinking <span class="citation" data-cites="seibert_dialog_2002 efstratiadis_one_2010">(<a href="#ref-seibert_dialog_2002" role="doc-biblioref">Seibert and McDonnell 2002</a>; <a href="#ref-efstratiadis_one_2010" role="doc-biblioref">Efstratiadis and Koutsoyiannis 2010</a>)</span>.</p>
 <p>Particularly, hydrological modelling applications often present results which are solely based on analyzing the performance of a certain metric (or metrics) for the calibrated variable (e.g., streamflow, evapotranspiration, etc.), without further discussing if the hydrological processes in the model that are yielding this metric value resemble the reality of the area that is being modelled <span class="citation" data-cites="bahremand_hess_2016 acero_triana_beyond_2019">(<a href="#ref-bahremand_hess_2016" role="doc-biblioref">Bahremand 2016</a>; <a href="#ref-acero_triana_beyond_2019" role="doc-biblioref">Acero Triana et al. 2019</a>)</span>. The problem of equifinality within modelling techniques is well known: unrealistic parameter values can provide statistically satisfactory simulations <span class="citation" data-cites="muleta_model_2012 molina-navarro_impact_2017">(<a href="#ref-muleta_model_2012" role="doc-biblioref">Muleta 2012</a>; <a href="#ref-molina-navarro_impact_2017" role="doc-biblioref">Molina-Navarro et al. 2017</a>)</span>. Thus, when it comes to hydrological modelling, and particularly to catchment scale modelling, modelers should at least ensure that the main components in the water balance are properly represented and the contribution of the different streamflow components (surface, lateral and groundwater contribution) resembles what is expected in the analyzed catchment.</p>
 <p>Some researchers have noticed about this issue in recent years, proposing the use of soft calibration techniques in order to guarantee realistic hydrological models <span class="citation" data-cites="arnold_hydrological_2015">(<a href="#ref-arnold_hydrological_2015" role="doc-biblioref">Arnold et al. 2015</a>)</span>. Soft calibration precisely consists of assessing model results against soft data, such as annual averages of the water balance components or the expected relative contribution of the different components of streamflow. Soft calibration might be followed by hard calibration, which would involve the comparison of simulated vs.&nbsp;observed time series of a certain variable. The works of Pfannerstill et al. <span class="citation" data-cites="pfannerstill_how_2017">(<a href="#ref-pfannerstill_how_2017" role="doc-biblioref">2017</a>)</span> and Chawanda et al. <span class="citation" data-cites="chawanda_mass_2020">(<a href="#ref-chawanda_mass_2020" role="doc-biblioref">2020</a>)</span> are examples of successful experiences using soft data in hydrological modelling calibration.</p>
-<p>Two key soft data variables are the runoff coefficient and the baseflow index <span class="citation" data-cites="blume_rainfallrunoff_2007">(<a href="#ref-blume_rainfallrunoff_2007" role="doc-biblioref">Blume, Zehe, and Bronstert 2007</a>)</span>. Runoff coefficient is the fraction of precipitation volume that becomes streamflow. This variable it is not constant and depends on factor such as lithology, topography and the characteristics of the precipitation events. When considering a hydrological series, this coefficient can also be used to estimate the evapotranspiration, which is the main loss of the water balance in Mediterranean regions. Opposite to streamflow, evapotranspiration cannot be directly measured at basin scale. Thus, despite having some limitations, the runoff coefficient helps to understand the water balance of a certain basin. The limitations of this assumption (other than those derived from human activity) are related to climate variability, the storage of water in the aquifers or soils, groundwater interbasins connections, or groundwater that becomes streamflow downstream the gauging stations. Therefore, the groundwater systems should be known before validating the runoff coefficient, and enough long time series should be used to ensure that the storage of water is null and the time series climate is representative of the basin <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(i.e., more than 30 years of data in Mediterranean regions, <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. The estimation of this variable can be done if precipitation and flow data are available, the higher the resolution and reliability of the data the better. There are different methods to estimate this variable, with the SCS runoff curve number method of the USA Soil Conservation Service being the best known <span class="citation" data-cites="mockus_national_nodate">(<a href="#ref-mockus_national_nodate" role="doc-biblioref">Mockus and Engineer, n.d.</a>)</span>. Despite the availability of streamflow and precipitation data in Spain, works estimating this variable in the literature are limited to specific rainfall events, focusing on the factors that influence runoff generation <span class="citation" data-cites="kirkby_influence_2002 rodriguez-blanco_rainfallrunoff_2012">(e.g., <a href="#ref-kirkby_influence_2002" role="doc-biblioref">Kirkby, Bracken, and Reaney 2002</a>; <a href="#ref-rodriguez-blanco_rainfallrunoff_2012" role="doc-biblioref">Rodríguez-Blanco, Taboada-Castro, and Taboada-Castro 2012</a>)</span>. To the best of our knowledge, there is a lack of studies analyzing long time series that could be used for modeling purposes.</p>
-<p>Baseflow is the component of the streamflow that does not immediately respond to the precipitation, but it is released from natural water storage systems such as glaciers or aquifers. Groundwater is the main source of baseflow in Mediterranean areas, and it is the responsible of maintain a permanent flow during low flow periods, i.e., during dry periods, which is particularly relevant regarding water quality and ecosystems functioning. It is therefore a key element of the water balance, which can suppose more than half of the total runoff <span class="citation" data-cites="jodar_groundwater_2017 sanchez-gomez_streamflow_2023">(<a href="#ref-jodar_groundwater_2017" role="doc-biblioref">Jódar et al. 2017</a>; <a href="#ref-sanchez-gomez_streamflow_2023" role="doc-biblioref">Sánchez-Gómez et al. 2023</a>)</span>. Groundwater depends on factors such as lithology, topography, climate or land use: the presence of aquifer rocks is needed for the existence of groundwater, and recharge processes are mainly determined by the topography, land covers, soil types and the characteristics of the precipitation events. The baseflow index indicates the fraction of the total streamflow that comes from groundwater systems. This variable can be estimated trough different methods, such as using hydrological models <span class="citation" data-cites="samper_hydrological_2015">(<a href="#ref-samper_hydrological_2015" role="doc-biblioref">Samper, Pisani, and Espinha Marques 2015</a>)</span>, mass-balance methods with chemical tracers <span class="citation" data-cites="ortega_using_2015">(<a href="#ref-ortega_using_2015" role="doc-biblioref">Ortega et al. 2015</a>)</span>, or applying numerical or graphical methods to streamflow records to perform a separation of its components (baseflow and direct runoff). Regarding the latter, different digital filters that perform this separation have been developed, allowing to estimate the baseflow index with only streamflow data <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
-<p>The values of runoff coefficient or baseflow index for a certain catchment can be sometimes found in the literature, since previous hydrological studies might exist. Some works might also provide expected values for certain regions, depending on their climate and/or their hydrogeological characteristics <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(e.g., <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. However, an ideal soft calibration procedure would involve obtaining runoff coefficient and baseflow index estimates for the catchment that is being analyzed and the period that is being modeled. This would help guaranteeing that the model is simulating the hydrological processes in a realistic manner, providing also a more robust starting point for the subsequent hard calibration. Thus, to avoid the issue of creating unrealistic hydrological models above discussed, there is a need to develop procedures and methodologies that facilitate soft data variables for a certain area and period, thus encouraging modellers to address soft calibration before hard calibration.</p>
-<p>The main goal of this work is to present a reproducible methodology developed in R for collecting soft data in a certain area and time period, particularly the runoff coefficient and the baseflow index. To prove the usefulness of this work, a study case for the Tagus River basin (Spain) is also presented, since the research team is developing a high-detailed hydrological model with SWAT+ for its upper sector <span class="citation" data-cites="sanchez-gomez_innovative_2022">(<a href="#ref-sanchez-gomez_innovative_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Sastre-Merlín, et al. 2022</a>)</span>. Furthermore, this study case shows how this methodology allows to obtain different values of these two coefficients in different geological regions within the basin, which might be convenient since addressing a zonal calibration depending on the geological properties turns into a more robust and realistic model <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. 2022</a>)</span>. The proposed methodology uses precipitation and streamflow data to derive those two coefficients, together with expert knowledge: gridded precipitation data and streamflow from gauging stations were used to calculate the runoff coefficient for different subbasins in natural regime, while expert knowledge guided the application of a baseflow filter function to estimate the baseflow index from streamflow data.</p>
+<p>Within what is defined as soft data, there can be information of various types, from a range of expected values for a model parameter to a maximum streamflow value based on historical records <span class="citation" data-cites="efstratiadis_one_2010">(<a href="#ref-efstratiadis_one_2010" role="doc-biblioref">Efstratiadis and Koutsoyiannis 2010</a>)</span>. Among this variety, two key soft data variables in Mediterranean regions are the runoff coefficient and the baseflow index <span class="citation" data-cites="blume_rainfallrunoff_2007">(<a href="#ref-blume_rainfallrunoff_2007" role="doc-biblioref">Blume, Zehe, and Bronstert 2007</a>)</span>. Runoff coefficient is the fraction of precipitation volume that becomes streamflow. This variable it is not constant and depends on factor such as lithology, topography and the characteristics of the precipitation events. When considering a hydrological series, this coefficient can also be used to estimate the evapotranspiration, which is the main loss of the water balance in Mediterranean regions. Opposite to streamflow, evapotranspiration cannot be directly measured at basin scale. Thus, despite having some limitations, the runoff coefficient helps to understand the water balance of a certain basin. The limitations of this assumption (other than those derived from human activity) are related to climate variability, the storage of water in the aquifers or soils, groundwater interbasins connections, or groundwater that becomes streamflow downstream the gauging stations. Therefore, the groundwater systems should be known before validating the runoff coefficient, and enough long time series should be used to ensure that the storage of water is null and the time series climate is representative of the basin <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(i.e., more than 30 years of data in Mediterranean regions, <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. The estimation of this variable can be done if precipitation and flow data are available, the higher the resolution and reliability of the data the better. Despite the availability of streamflow and precipitation data in Spain, works estimating this variable in the literature are limited to specific rainfall events, focusing on the factors that influence runoff generation <span class="citation" data-cites="kirkby_influence_2002 rodriguez-blanco_rainfallrunoff_2012">(e.g., <a href="#ref-kirkby_influence_2002" role="doc-biblioref">Kirkby, Bracken, and Reaney 2002</a>; <a href="#ref-rodriguez-blanco_rainfallrunoff_2012" role="doc-biblioref">Rodríguez-Blanco, Taboada-Castro, and Taboada-Castro 2012</a>)</span>. To the best of our knowledge, there is a lack of studies analyzing long time series that could be used for modeling purposes.</p>
+<p>Baseflow is the portion of the streamflow that is released from natural water storage systems such as glaciers or aquifers, and therefore does not respond immediately to precipitation events. Even though streamflow released by the soil (i.e., lateral) is also delayed, its delay is smaller and therefore is not considered baseflow. Groundwater is the main source of baseflow in Mediterranean areas, and it is the responsible of maintain a permanent flow during low flow periods, i.e., during dry periods, which is particularly relevant regarding water quality and ecosystems functioning. It is therefore a key element of the water balance, which can support more than half of the total runoff <span class="citation" data-cites="jodar_groundwater_2017 sanchez-gomez_streamflow_2023">(<a href="#ref-jodar_groundwater_2017" role="doc-biblioref">Jódar et al. 2017</a>; <a href="#ref-sanchez-gomez_streamflow_2023" role="doc-biblioref">Sánchez-Gómez et al. 2023</a>)</span>. Groundwater depends on factors such as lithology, topography, climate or land use: the presence of aquifer rocks is needed for the existence of groundwater, and recharge processes are mainly determined by the topography, land covers, soil types and the characteristics of the precipitation events. The baseflow index indicates the fraction of the total streamflow that comes from groundwater systems. This variable can be estimated trough different methods, such as using hydrological models <span class="citation" data-cites="samper_hydrological_2015">(<a href="#ref-samper_hydrological_2015" role="doc-biblioref">Samper, Pisani, and Espinha Marques 2015</a>)</span>, mass-balance methods with chemical tracers <span class="citation" data-cites="ortega_using_2015">(<a href="#ref-ortega_using_2015" role="doc-biblioref">Ortega et al. 2015</a>)</span>, or applying numerical or graphical methods to streamflow records to perform a separation of its components (baseflow and direct runoff). Regarding the latter, different digital filters that perform this separation have been developed, allowing to estimate the baseflow index with only streamflow data <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
+<p>The importance of these variables in Mediterranean regions is due to the fact that they refer to the amount of water that is not evaporated, and of this, how much of it comes from aquifers, and therefore has an availability that is not immediately dependent on rainfall. Values of runoff coefficient or baseflow index for a certain catchment can be sometimes found in literature, since previous hydrological studies might exist. Some works might also provide expected values for certain regions, depending on their climate and/or their hydrogeological characteristics <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(e.g., <a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. However, an ideal soft calibration procedure would involve obtaining runoff coefficient and baseflow index estimates for the catchment that is being analyzed and the period that is being modeled. This would help guaranteeing that the model is simulating the hydrological processes in a realistic manner, providing also a more robust starting point for the subsequent hard calibration. Thus, to avoid the issue of creating unrealistic hydrological models, there is a need to develop procedures and methodologies that facilitate soft data variables for a certain area and period, thus encouraging modelers to address soft calibration before hard calibration.</p>
+<p>The main goal of this work is to present a reproducible methodology developed in R for collecting soft data in a certain area and time period, particularly the runoff coefficient and the baseflow index. To prove the usefulness of this work, a study case for the Tagus River basin (Spain) is also presented, since the research team is developing a high-detailed hydrological model with SWAT+ for its upper sector <span class="citation" data-cites="sanchez-gomez_innovative_2022">(<a href="#ref-sanchez-gomez_innovative_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Sastre-Merlín, et al. 2022</a>)</span>. The Tagus River Basin is geologically very heterogeneous, so this case study also shows how this methodology allows to obtain different values of these two coefficients in different geological regions within the basin, which might be convenient since addressing a zonal calibration depending on the geological properties turns into a more robust and realistic model <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. 2022</a>)</span>. The proposed methodology uses precipitation and streamflow data to derive those two coefficients, together with expert knowledge: gridded precipitation data and streamflow from gauging stations were used to calculate the runoff coefficient for different subbasins in natural regime, while expert knowledge guided the application of a baseflow filter function to estimate the baseflow index from streamflow data.</p>
 <p>The following sections of the manuscript describe the work done in detail, presenting an R script that could be applied in any region with gridded precipitation and streamflow data. Besides, the study case presented in the Tagus River basin, has in turn served to address a deep analysis of some of its hydrological processes, gaining knowledge about this region.</p>
 </section>
 <section id="study-area" class="level3">
 <h3 class="anchored" data-anchor-id="study-area">2. Study area</h3>
-<p>The Tagus River (<a href="#fig-location">Figure&nbsp;1</a>) is the longest in the Iberian Peninsula, and its basin is the most populated. Water resources in this basin are scarce considering the high demand of water, and it is expected that climate change will exacerbate this situation. In addition, a water transfer system extract water from the headwaters of the Tagus River to the southeast of Spain to supply irrigation and human consumption demands. Thus, realistic hydrological modelling of this catchment is of utmost importance in order to guarantee reliable future assessments of, for example, climate change impacts.</p>
-<p>The upper sector of the Tagus River basin (3,388 km²) covers around 47% of the extension of the entire basin. This sector is delimited by three mountain ranges: the Central System in the north, the Iberian System in the east, and the Toledo Mountains in the south. Altitude ranges from 2,400 m.a.s.l. in some peaks of the Central System to 360 m.a.s.l. in Talavera de la Reina (Toledo), the outlet of the upper basin. The upper sector of the basin (<a href="#fig-location">Figure&nbsp;1</a>) is characterized by a continental Mediterranean climate, which varies depending on factors such as altitude, proximity to the ocean and latitude. Chazarra et al. <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">2018</a>)</span> classified this sector as temperate (C) and dry (B) following the Köppen-Geiger climate classification for the period 1980-2010. The mean precipitation for this period was around 550 mm, with values higher than 1.400 mm in the Central System, and lower than 400 mm in the driest areas of the southern sector. The mean temperature is around 12ºC, which varies between 13ºC in the east, 17ºC in the west and 8ºC to 10ºC in the Central System <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">Chazarra Bernabé et al. 2018</a>)</span>. The average precipitation and water yield of the basin has been reduced in the last decades, which could be attributed to the impacts of climate change <span class="citation" data-cites="garcia_serie_2017">(<a href="#ref-garcia_serie_2017" role="doc-biblioref">García, Fernández-Victorio, and Calzado 2017</a>)</span>.</p>
-<p>Natural vegetation and agricultural lands are the main land covers of the area, occupying around 48% and 47%, respectively of the total area, being cereals the dominant crop. Urban use covers around 3% of the total area, being approximately 8 million inhabitants in this sector of the basin. Therefore, relevant water demands are located in this area, with noticeable environmental and social implications.</p>
-<p>In this sector of the basin, the confluence of different mountain systems with different bedrocks has originated a heterogeneous geological configuration, which gives rise to differences in the main hydrological processes. Direct runoff is expected to predominate in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers, thus being the baseflow index more relevant. The sedimentary deposits of the basin also have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability. This basin, therefore, is a complex system which requires a comprehensive methodology to be modeled. This modelling process would benefit from a soft calibration phase towards the realistic simulation of the different geological sector. For such a purpose, collection of soft data is needed, and the methodology followed to achieve this task is described and discussed below.</p>
+<p>The Tagus River (<a href="#fig-location">Figure&nbsp;1</a>) is the longest river, and its basin is the most populated river basin on the Iberian Peninsula. Water resources in this basin are scarce considering the high demand of water. It is expected that climate change will exacerbate this situation <span class="citation" data-cites="bednar-friedl_europe_2022">(<a href="#ref-bednar-friedl_europe_2022" role="doc-biblioref">Bednar-Friedl et al. 2022</a>)</span>. In addition, a water transfer system extract water from the headwaters of the Tagus River to the southeast of Spain to supply irrigation and human consumption demands. Thus, realistic hydrological modelling of this catchment is of utmost importance in order to make reliable future assessments of, for example, climate change impacts.</p>
+<p>The study area for this work is the upper sector of the Tagus River basin (UTRB), which has a size of 3,388 km², i.e., approximately 47% of the entire Tagus River basin. This sector is delimited by three mountain ranges: the Central System in the north, the Iberian System in the east, and the Toledo Mountains in the south. Its altitude ranges from 2,400 m.a.s.l. in the Central System mountain range to 360 m.a.s.l. in Talavera de la Reina (Toledo), the outlet of the UTRB. The study area (<a href="#fig-location">Figure&nbsp;1</a>) is characterized by a continental Mediterranean climate, which varies depending on factors such as altitude, proximity to the ocean and latitude. Chazarra et al. <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">2018</a>)</span> classified this sector as temperate (C) and dry (B) following the Köppen-Geiger climate classification for the period 1980 to 2010. The mean precipitation for the period 1980 to 2010 was around 550 mm, with values higher than 1.400 mm in the Central System, and lower than 400 mm in the driest areas of the southern part of the UTRB. The mean temperature is around 12ºC, which varies between 13ºC in the east, 17ºC in the west and 8ºC to 10ºC in the Central System <span class="citation" data-cites="chazarra_bernabe_mapas_2018">(<a href="#ref-chazarra_bernabe_mapas_2018" role="doc-biblioref">Chazarra Bernabé et al. 2018</a>)</span>. The average precipitation and water yield of the basin decreased over the last decades, which could be attributed to the impacts of climate change <span class="citation" data-cites="garcia_serie_2017">(<a href="#ref-garcia_serie_2017" role="doc-biblioref">García, Fernández-Victorio, and Calzado 2017</a>)</span>.</p>
+<p>Natural vegetation and agricultural lands are the main land cover of the UTRB, occupying around 48% and 47% of the total area, respectively of the total area. Cereals were identified as the dominant crops. Urban land use covers around 3% of the total area, utilized by approximately 8 million inhabitants. Therefore, relevant water demands are present in this area, with noticeable environmental and social implications.</p>
+<p>The UTRB is characterized by a heterogeneous geology, due to mountain systems with different bedrocks. Different hydrological processes will therefore control the runoff in the respective geological zones <span class="citation" data-cites="custodio_hidrologisubterranea_1983">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. (<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">2022</a>)</span>. Direct runoff is expected to be predominant in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers. Thus baseflow is expected to be more relevant there. The sedimentary deposits of the basin have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability.</p>
 <div id="fig-location" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figures/Studied_basinss.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Study area location, lithology, permeability and selected basins.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Study area location, lithology, permeability and selected basins. Source: IGME (Pozo Gómez, 2009)</figcaption><p></p>
 </figure>
 </div>
 </section>
 <section id="methodology" class="level3">
 <h3 class="anchored" data-anchor-id="methodology">3. Methodology</h3>
+<p>Modeling the complex hydrological system of the UTRB with its diverse hydrogeology can greatly benefit from spatially distributed soft information on the dominant hydrological processes. Therefore, the aim of the workflow, which is outlined below, is to derive the runoff and baseflow coefficients for several subbasins located in the different geological zones with their varying permeabilities and to find general hydrological characteristics for the geological zones which can be utilized in a spatially distributed soft calibration of the UTRB.</p>
 <section id="subbasins-and-time-series-selection" class="level4">
 <h4 class="anchored" data-anchor-id="subbasins-and-time-series-selection">3.1. Subbasins and time series selection</h4>
+<p>The selection of subbasins was based on three main criteria, which were i) the availability of updated streamflow records, ii) the underlying lithology of a catchment, and iii) the requirement of having a mostly undisturbed regime without any major reservoirs in the catchment or significant water withdrawals from the catchment. In total 18 subbasins were identified as suitable to be used in the calculation of runoff and baseflow coefficients for the different geologic zones (Figure 1).</p>
 <p>The objective of the methodology presented in this manuscript is to collect and derive soft data (runoff and baseflow coefficients) in different geological regions of the upper sector of the Tagus River basin with varying permeability, thus gaining knowledge about the main hydrological processes in each region that would guarantee a realistic soft calibration of a model under development. For this purpose, several subbasins have been selected considering various factors (<a href="#fig-location">Figure&nbsp;1</a>). The availability of updated streamflow records was the first selection factor. To characterize the runoff and baseflow coefficients of a certain catchment, the longer the time series the better, being advisable a minimum time series of 30 years <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. However, in this study case the plan is to calibrate the model between 2010 and 2018, thus in order to simulate it in a realistic manner, the coefficients for that period had to be derived. Besides, despite it is not too large, this period has enough climatic variability to be considered representative of the global climate of the basin, having dry, wet, and medium years (<a href="#fig-pcp_plot">Figure&nbsp;2</a>), so results obtained during the soft data extraction might also serve to gain hydrological knowledge of the catchment. The current effect of climate change on this basin has to be taken into account as well: the precipitation is being reduced and the temperature is rising (i.e., comparing the time series 1960-2018 and 2000-2018, mean annual temperature has increased 0.5ºC and annual precipitation has been reduced by 7%). Thus, a longer period may not be representative of the current situation.</p>
 <div id="fig-pcp_plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -244,8 +246,8 @@ div.csl-indent {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">area =</span> <span class="fu">st_area</span>(.)) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Introducing the gauging stations codes (Manually)</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">gauging_code =</span> <span class="fu">c</span>(<span class="dv">3231</span>, <span class="dv">3049</span>, <span class="dv">3211</span>, <span class="dv">3001</span>, <span class="dv">3045</span>, <span class="dv">3040</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="dv">3249</span>, <span class="dv">3172</span>, <span class="dv">3193</span>, <span class="dv">3251</span>, <span class="dv">3186</span>, <span class="dv">3173</span>, <span class="dv">3164</span>, <span class="dv">3165</span>, <span class="dv">3212</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="dv">3268</span>, <span class="dv">3237</span>, <span class="dv">3030</span>, <span class="dv">3060</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="dv">3249</span>, <span class="dv">3172</span>, <span class="dv">3193</span>, <span class="dv">3251</span>, <span class="dv">3030</span> , <span class="dv">3173</span>, <span class="dv">3164</span>, <span class="dv">3165</span>, <span class="dv">3212</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="dv">3268</span>, <span class="dv">3237</span>, <span class="dv">3186</span>, <span class="dv">3060</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial data is no longer necessary</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">st_drop_geometry</span>(.) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordering table</span></span>
@@ -467,12 +469,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_runoff_rates" class="anchored">
 
-<div id="rxqbudryfj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="brqmtobvyz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#rxqbudryfj) .gt_table {
+:where(#brqmtobvyz) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -497,7 +499,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_heading {
+:where(#brqmtobvyz) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -509,12 +511,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_caption {
+:where(#brqmtobvyz) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#rxqbudryfj) .gt_title {
+:where(#brqmtobvyz) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -526,7 +528,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#rxqbudryfj) .gt_subtitle {
+:where(#brqmtobvyz) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -538,13 +540,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#rxqbudryfj) .gt_bottom_border {
+:where(#brqmtobvyz) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_col_headings {
+:where(#brqmtobvyz) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -559,7 +561,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_col_heading {
+:where(#brqmtobvyz) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -579,7 +581,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rxqbudryfj) .gt_column_spanner_outer {
+:where(#brqmtobvyz) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -591,15 +593,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#rxqbudryfj) .gt_column_spanner_outer:first-child {
+:where(#brqmtobvyz) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#rxqbudryfj) .gt_column_spanner_outer:last-child {
+:where(#brqmtobvyz) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#rxqbudryfj) .gt_column_spanner {
+:where(#brqmtobvyz) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -611,7 +613,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#rxqbudryfj) .gt_group_heading {
+:where(#brqmtobvyz) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -637,7 +639,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#rxqbudryfj) .gt_empty_group_heading {
+:where(#brqmtobvyz) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -652,15 +654,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#rxqbudryfj) .gt_from_md > :first-child {
+:where(#brqmtobvyz) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#rxqbudryfj) .gt_from_md > :last-child {
+:where(#brqmtobvyz) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#rxqbudryfj) .gt_row {
+:where(#brqmtobvyz) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -679,7 +681,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rxqbudryfj) .gt_stub {
+:where(#brqmtobvyz) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -692,7 +694,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rxqbudryfj) .gt_stub_row_group {
+:where(#brqmtobvyz) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -706,11 +708,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#rxqbudryfj) .gt_row_group_first td {
+:where(#brqmtobvyz) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#rxqbudryfj) .gt_summary_row {
+:where(#brqmtobvyz) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -720,16 +722,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rxqbudryfj) .gt_first_summary_row {
+:where(#brqmtobvyz) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_first_summary_row.thick {
+:where(#brqmtobvyz) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#rxqbudryfj) .gt_last_summary_row {
+:where(#brqmtobvyz) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -739,7 +741,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_grand_summary_row {
+:where(#brqmtobvyz) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -749,7 +751,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rxqbudryfj) .gt_first_grand_summary_row {
+:where(#brqmtobvyz) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -759,11 +761,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_striped {
+:where(#brqmtobvyz) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#rxqbudryfj) .gt_table_body {
+:where(#brqmtobvyz) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -772,7 +774,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#rxqbudryfj) .gt_footnotes {
+:where(#brqmtobvyz) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -786,7 +788,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_footnote {
+:where(#brqmtobvyz) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -795,7 +797,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rxqbudryfj) .gt_sourcenotes {
+:where(#brqmtobvyz) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -809,7 +811,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rxqbudryfj) .gt_sourcenote {
+:where(#brqmtobvyz) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -817,64 +819,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rxqbudryfj) .gt_left {
+:where(#brqmtobvyz) .gt_left {
   text-align: left;
 }
 
-:where(#rxqbudryfj) .gt_center {
+:where(#brqmtobvyz) .gt_center {
   text-align: center;
 }
 
-:where(#rxqbudryfj) .gt_right {
+:where(#brqmtobvyz) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#rxqbudryfj) .gt_font_normal {
+:where(#brqmtobvyz) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#rxqbudryfj) .gt_font_bold {
+:where(#brqmtobvyz) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#rxqbudryfj) .gt_font_italic {
+:where(#brqmtobvyz) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#rxqbudryfj) .gt_super {
+:where(#brqmtobvyz) .gt_super {
   font-size: 65%;
 }
 
-:where(#rxqbudryfj) .gt_footnote_marks {
+:where(#brqmtobvyz) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#rxqbudryfj) .gt_asterisk {
+:where(#brqmtobvyz) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#rxqbudryfj) .gt_indent_1 {
+:where(#brqmtobvyz) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#rxqbudryfj) .gt_indent_2 {
+:where(#brqmtobvyz) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#rxqbudryfj) .gt_indent_3 {
+:where(#brqmtobvyz) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#rxqbudryfj) .gt_indent_4 {
+:where(#brqmtobvyz) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#rxqbudryfj) .gt_indent_5 {
+:where(#brqmtobvyz) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -910,16 +912,16 @@ div.csl-indent {
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.05</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.09</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
-<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13.00</td>
-<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">508</td>
-<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.023</td>
+<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12.91</td>
+<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">483</td>
+<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.040</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.02</td>
-<td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.03</td></tr>
+<td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.08</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
-<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11.68</td>
-<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">620</td>
-<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.162</td>
-<td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.06</td>
+<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11.72</td>
+<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">632</td>
+<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.153</td>
+<td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.03</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.36</td></tr>
   </tbody>
   
@@ -943,12 +945,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_alphas" class="anchored">
 
-<div id="qumyzfbfrm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vayxldgbdx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#qumyzfbfrm) .gt_table {
+:where(#vayxldgbdx) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -973,7 +975,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_heading {
+:where(#vayxldgbdx) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -985,12 +987,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_caption {
+:where(#vayxldgbdx) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#qumyzfbfrm) .gt_title {
+:where(#vayxldgbdx) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1002,7 +1004,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#qumyzfbfrm) .gt_subtitle {
+:where(#vayxldgbdx) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1014,13 +1016,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#qumyzfbfrm) .gt_bottom_border {
+:where(#vayxldgbdx) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_col_headings {
+:where(#vayxldgbdx) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1035,7 +1037,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_col_heading {
+:where(#vayxldgbdx) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1055,7 +1057,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#qumyzfbfrm) .gt_column_spanner_outer {
+:where(#vayxldgbdx) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1067,15 +1069,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#qumyzfbfrm) .gt_column_spanner_outer:first-child {
+:where(#vayxldgbdx) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#qumyzfbfrm) .gt_column_spanner_outer:last-child {
+:where(#vayxldgbdx) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#qumyzfbfrm) .gt_column_spanner {
+:where(#vayxldgbdx) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1087,7 +1089,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#qumyzfbfrm) .gt_group_heading {
+:where(#vayxldgbdx) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1113,7 +1115,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#qumyzfbfrm) .gt_empty_group_heading {
+:where(#vayxldgbdx) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1128,15 +1130,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#qumyzfbfrm) .gt_from_md > :first-child {
+:where(#vayxldgbdx) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#qumyzfbfrm) .gt_from_md > :last-child {
+:where(#vayxldgbdx) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#qumyzfbfrm) .gt_row {
+:where(#vayxldgbdx) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1155,7 +1157,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#qumyzfbfrm) .gt_stub {
+:where(#vayxldgbdx) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1168,7 +1170,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qumyzfbfrm) .gt_stub_row_group {
+:where(#vayxldgbdx) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1182,11 +1184,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#qumyzfbfrm) .gt_row_group_first td {
+:where(#vayxldgbdx) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#qumyzfbfrm) .gt_summary_row {
+:where(#vayxldgbdx) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1196,16 +1198,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qumyzfbfrm) .gt_first_summary_row {
+:where(#vayxldgbdx) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_first_summary_row.thick {
+:where(#vayxldgbdx) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#qumyzfbfrm) .gt_last_summary_row {
+:where(#vayxldgbdx) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1215,7 +1217,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_grand_summary_row {
+:where(#vayxldgbdx) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1225,7 +1227,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qumyzfbfrm) .gt_first_grand_summary_row {
+:where(#vayxldgbdx) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1235,11 +1237,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_striped {
+:where(#vayxldgbdx) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#qumyzfbfrm) .gt_table_body {
+:where(#vayxldgbdx) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1248,7 +1250,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#qumyzfbfrm) .gt_footnotes {
+:where(#vayxldgbdx) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1262,7 +1264,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_footnote {
+:where(#vayxldgbdx) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1271,7 +1273,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qumyzfbfrm) .gt_sourcenotes {
+:where(#vayxldgbdx) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1285,7 +1287,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#qumyzfbfrm) .gt_sourcenote {
+:where(#vayxldgbdx) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1293,64 +1295,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#qumyzfbfrm) .gt_left {
+:where(#vayxldgbdx) .gt_left {
   text-align: left;
 }
 
-:where(#qumyzfbfrm) .gt_center {
+:where(#vayxldgbdx) .gt_center {
   text-align: center;
 }
 
-:where(#qumyzfbfrm) .gt_right {
+:where(#vayxldgbdx) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#qumyzfbfrm) .gt_font_normal {
+:where(#vayxldgbdx) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#qumyzfbfrm) .gt_font_bold {
+:where(#vayxldgbdx) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#qumyzfbfrm) .gt_font_italic {
+:where(#vayxldgbdx) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#qumyzfbfrm) .gt_super {
+:where(#vayxldgbdx) .gt_super {
   font-size: 65%;
 }
 
-:where(#qumyzfbfrm) .gt_footnote_marks {
+:where(#vayxldgbdx) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#qumyzfbfrm) .gt_asterisk {
+:where(#vayxldgbdx) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#qumyzfbfrm) .gt_indent_1 {
+:where(#vayxldgbdx) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#qumyzfbfrm) .gt_indent_2 {
+:where(#vayxldgbdx) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#qumyzfbfrm) .gt_indent_3 {
+:where(#vayxldgbdx) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#qumyzfbfrm) .gt_indent_4 {
+:where(#vayxldgbdx) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#qumyzfbfrm) .gt_indent_5 {
+:where(#vayxldgbdx) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1417,12 +1419,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_gw_results" class="anchored">
 
-<div id="zmldtxwscn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mxqunnfcfw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#zmldtxwscn) .gt_table {
+:where(#mxqunnfcfw) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1447,7 +1449,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_heading {
+:where(#mxqunnfcfw) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1459,12 +1461,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_caption {
+:where(#mxqunnfcfw) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#zmldtxwscn) .gt_title {
+:where(#mxqunnfcfw) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1476,7 +1478,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#zmldtxwscn) .gt_subtitle {
+:where(#mxqunnfcfw) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1488,13 +1490,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#zmldtxwscn) .gt_bottom_border {
+:where(#mxqunnfcfw) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_col_headings {
+:where(#mxqunnfcfw) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1509,7 +1511,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_col_heading {
+:where(#mxqunnfcfw) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1529,7 +1531,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#zmldtxwscn) .gt_column_spanner_outer {
+:where(#mxqunnfcfw) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1541,15 +1543,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#zmldtxwscn) .gt_column_spanner_outer:first-child {
+:where(#mxqunnfcfw) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#zmldtxwscn) .gt_column_spanner_outer:last-child {
+:where(#mxqunnfcfw) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#zmldtxwscn) .gt_column_spanner {
+:where(#mxqunnfcfw) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1561,7 +1563,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#zmldtxwscn) .gt_group_heading {
+:where(#mxqunnfcfw) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1587,7 +1589,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#zmldtxwscn) .gt_empty_group_heading {
+:where(#mxqunnfcfw) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1602,15 +1604,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#zmldtxwscn) .gt_from_md > :first-child {
+:where(#mxqunnfcfw) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#zmldtxwscn) .gt_from_md > :last-child {
+:where(#mxqunnfcfw) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#zmldtxwscn) .gt_row {
+:where(#mxqunnfcfw) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1629,7 +1631,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#zmldtxwscn) .gt_stub {
+:where(#mxqunnfcfw) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1642,7 +1644,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zmldtxwscn) .gt_stub_row_group {
+:where(#mxqunnfcfw) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1656,11 +1658,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#zmldtxwscn) .gt_row_group_first td {
+:where(#mxqunnfcfw) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#zmldtxwscn) .gt_summary_row {
+:where(#mxqunnfcfw) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1670,16 +1672,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zmldtxwscn) .gt_first_summary_row {
+:where(#mxqunnfcfw) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_first_summary_row.thick {
+:where(#mxqunnfcfw) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#zmldtxwscn) .gt_last_summary_row {
+:where(#mxqunnfcfw) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1689,7 +1691,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_grand_summary_row {
+:where(#mxqunnfcfw) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1699,7 +1701,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zmldtxwscn) .gt_first_grand_summary_row {
+:where(#mxqunnfcfw) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1709,11 +1711,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_striped {
+:where(#mxqunnfcfw) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#zmldtxwscn) .gt_table_body {
+:where(#mxqunnfcfw) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1722,7 +1724,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#zmldtxwscn) .gt_footnotes {
+:where(#mxqunnfcfw) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1736,7 +1738,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_footnote {
+:where(#mxqunnfcfw) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1745,7 +1747,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zmldtxwscn) .gt_sourcenotes {
+:where(#mxqunnfcfw) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1759,7 +1761,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zmldtxwscn) .gt_sourcenote {
+:where(#mxqunnfcfw) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1767,64 +1769,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zmldtxwscn) .gt_left {
+:where(#mxqunnfcfw) .gt_left {
   text-align: left;
 }
 
-:where(#zmldtxwscn) .gt_center {
+:where(#mxqunnfcfw) .gt_center {
   text-align: center;
 }
 
-:where(#zmldtxwscn) .gt_right {
+:where(#mxqunnfcfw) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#zmldtxwscn) .gt_font_normal {
+:where(#mxqunnfcfw) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#zmldtxwscn) .gt_font_bold {
+:where(#mxqunnfcfw) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#zmldtxwscn) .gt_font_italic {
+:where(#mxqunnfcfw) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#zmldtxwscn) .gt_super {
+:where(#mxqunnfcfw) .gt_super {
   font-size: 65%;
 }
 
-:where(#zmldtxwscn) .gt_footnote_marks {
+:where(#mxqunnfcfw) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#zmldtxwscn) .gt_asterisk {
+:where(#mxqunnfcfw) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#zmldtxwscn) .gt_indent_1 {
+:where(#mxqunnfcfw) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#zmldtxwscn) .gt_indent_2 {
+:where(#mxqunnfcfw) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#zmldtxwscn) .gt_indent_3 {
+:where(#mxqunnfcfw) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#zmldtxwscn) .gt_indent_4 {
+:where(#mxqunnfcfw) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#zmldtxwscn) .gt_indent_5 {
+:where(#mxqunnfcfw) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1852,13 +1854,13 @@ div.csl-indent {
 <td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.45</td>
 <td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.43</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
-<td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.960</td>
+<td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.970</td>
 <td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.43</td>
-<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.41</td></tr>
+<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.42</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
-<td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.959</td>
-<td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.47</td>
-<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.46</td></tr>
+<td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.955</td>
+<td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.45</td>
+<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.44</td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">
@@ -1913,12 +1915,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="rukkubtwjo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wljoqkqump" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#rukkubtwjo) .gt_table {
+:where(#wljoqkqump) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1943,7 +1945,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_heading {
+:where(#wljoqkqump) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1955,12 +1957,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_caption {
+:where(#wljoqkqump) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#rukkubtwjo) .gt_title {
+:where(#wljoqkqump) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1972,7 +1974,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#rukkubtwjo) .gt_subtitle {
+:where(#wljoqkqump) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1984,13 +1986,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#rukkubtwjo) .gt_bottom_border {
+:where(#wljoqkqump) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_col_headings {
+:where(#wljoqkqump) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2005,7 +2007,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_col_heading {
+:where(#wljoqkqump) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2025,7 +2027,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rukkubtwjo) .gt_column_spanner_outer {
+:where(#wljoqkqump) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2037,15 +2039,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#rukkubtwjo) .gt_column_spanner_outer:first-child {
+:where(#wljoqkqump) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#rukkubtwjo) .gt_column_spanner_outer:last-child {
+:where(#wljoqkqump) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#rukkubtwjo) .gt_column_spanner {
+:where(#wljoqkqump) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2057,7 +2059,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#rukkubtwjo) .gt_group_heading {
+:where(#wljoqkqump) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2083,7 +2085,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#rukkubtwjo) .gt_empty_group_heading {
+:where(#wljoqkqump) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2098,15 +2100,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#rukkubtwjo) .gt_from_md > :first-child {
+:where(#wljoqkqump) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#rukkubtwjo) .gt_from_md > :last-child {
+:where(#wljoqkqump) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#rukkubtwjo) .gt_row {
+:where(#wljoqkqump) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2125,7 +2127,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rukkubtwjo) .gt_stub {
+:where(#wljoqkqump) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2138,7 +2140,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rukkubtwjo) .gt_stub_row_group {
+:where(#wljoqkqump) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2152,11 +2154,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#rukkubtwjo) .gt_row_group_first td {
+:where(#wljoqkqump) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#rukkubtwjo) .gt_summary_row {
+:where(#wljoqkqump) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2166,16 +2168,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rukkubtwjo) .gt_first_summary_row {
+:where(#wljoqkqump) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_first_summary_row.thick {
+:where(#wljoqkqump) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#rukkubtwjo) .gt_last_summary_row {
+:where(#wljoqkqump) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2185,7 +2187,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_grand_summary_row {
+:where(#wljoqkqump) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2195,7 +2197,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rukkubtwjo) .gt_first_grand_summary_row {
+:where(#wljoqkqump) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2205,11 +2207,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_striped {
+:where(#wljoqkqump) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#rukkubtwjo) .gt_table_body {
+:where(#wljoqkqump) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2218,7 +2220,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#rukkubtwjo) .gt_footnotes {
+:where(#wljoqkqump) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2232,7 +2234,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_footnote {
+:where(#wljoqkqump) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2241,7 +2243,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rukkubtwjo) .gt_sourcenotes {
+:where(#wljoqkqump) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2255,7 +2257,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rukkubtwjo) .gt_sourcenote {
+:where(#wljoqkqump) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2263,64 +2265,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rukkubtwjo) .gt_left {
+:where(#wljoqkqump) .gt_left {
   text-align: left;
 }
 
-:where(#rukkubtwjo) .gt_center {
+:where(#wljoqkqump) .gt_center {
   text-align: center;
 }
 
-:where(#rukkubtwjo) .gt_right {
+:where(#wljoqkqump) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#rukkubtwjo) .gt_font_normal {
+:where(#wljoqkqump) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#rukkubtwjo) .gt_font_bold {
+:where(#wljoqkqump) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#rukkubtwjo) .gt_font_italic {
+:where(#wljoqkqump) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#rukkubtwjo) .gt_super {
+:where(#wljoqkqump) .gt_super {
   font-size: 65%;
 }
 
-:where(#rukkubtwjo) .gt_footnote_marks {
+:where(#wljoqkqump) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#rukkubtwjo) .gt_asterisk {
+:where(#wljoqkqump) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#rukkubtwjo) .gt_indent_1 {
+:where(#wljoqkqump) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#rukkubtwjo) .gt_indent_2 {
+:where(#wljoqkqump) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#rukkubtwjo) .gt_indent_3 {
+:where(#wljoqkqump) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#rukkubtwjo) .gt_indent_4 {
+:where(#wljoqkqump) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#rukkubtwjo) .gt_indent_5 {
+:where(#wljoqkqump) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2350,7 +2352,7 @@ div.csl-indent {
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">IMP</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">252</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">2010-2019</td>
-<td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
+<td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">No, 273 days missing</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">3, Villarejo de Montalban (3211)</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">IMP</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">136</td>
@@ -2370,7 +2372,7 @@ div.csl-indent {
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">CRB</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">118</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">2010-2019</td>
-<td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
+<td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">No, 273 days missing</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">7, Jabalera (3249)</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">85</td>
@@ -2391,10 +2393,10 @@ div.csl-indent {
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">222</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1978-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
-    <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11, Priego Trabraque (3186)</td>
+    <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11, Ventosa (3030)</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
-<td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">389</td>
-<td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1969-2019</td>
+<td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">942</td>
+<td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1945-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12, La Peraleja (3173)</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
@@ -2410,7 +2412,7 @@ div.csl-indent {
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">279</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">2011-2019</td>
-<td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
+<td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">No, 546 days missing</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">15, Malpica (3212)</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">412</td>
@@ -2426,10 +2428,10 @@ div.csl-indent {
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">319</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1975-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
-    <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18, Ventosa (3030)</td>
+    <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18, Priego Trabraque (3186)</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
-<td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">942</td>
-<td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1945-2019</td>
+<td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">389</td>
+<td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1969-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">19, Bujalaro (3060)</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
@@ -2448,12 +2450,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="njdgvdaqgw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jcpjskytpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#njdgvdaqgw) .gt_table {
+:where(#jcpjskytpn) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2478,7 +2480,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_heading {
+:where(#jcpjskytpn) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2490,12 +2492,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_caption {
+:where(#jcpjskytpn) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#njdgvdaqgw) .gt_title {
+:where(#jcpjskytpn) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2507,7 +2509,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#njdgvdaqgw) .gt_subtitle {
+:where(#jcpjskytpn) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2519,13 +2521,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#njdgvdaqgw) .gt_bottom_border {
+:where(#jcpjskytpn) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_col_headings {
+:where(#jcpjskytpn) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2540,7 +2542,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_col_heading {
+:where(#jcpjskytpn) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2560,7 +2562,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#njdgvdaqgw) .gt_column_spanner_outer {
+:where(#jcpjskytpn) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2572,15 +2574,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#njdgvdaqgw) .gt_column_spanner_outer:first-child {
+:where(#jcpjskytpn) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#njdgvdaqgw) .gt_column_spanner_outer:last-child {
+:where(#jcpjskytpn) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#njdgvdaqgw) .gt_column_spanner {
+:where(#jcpjskytpn) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2592,7 +2594,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#njdgvdaqgw) .gt_group_heading {
+:where(#jcpjskytpn) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2618,7 +2620,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#njdgvdaqgw) .gt_empty_group_heading {
+:where(#jcpjskytpn) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2633,15 +2635,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#njdgvdaqgw) .gt_from_md > :first-child {
+:where(#jcpjskytpn) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#njdgvdaqgw) .gt_from_md > :last-child {
+:where(#jcpjskytpn) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#njdgvdaqgw) .gt_row {
+:where(#jcpjskytpn) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2660,7 +2662,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#njdgvdaqgw) .gt_stub {
+:where(#jcpjskytpn) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2673,7 +2675,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#njdgvdaqgw) .gt_stub_row_group {
+:where(#jcpjskytpn) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2687,11 +2689,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#njdgvdaqgw) .gt_row_group_first td {
+:where(#jcpjskytpn) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#njdgvdaqgw) .gt_summary_row {
+:where(#jcpjskytpn) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2701,16 +2703,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#njdgvdaqgw) .gt_first_summary_row {
+:where(#jcpjskytpn) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_first_summary_row.thick {
+:where(#jcpjskytpn) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#njdgvdaqgw) .gt_last_summary_row {
+:where(#jcpjskytpn) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2720,7 +2722,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_grand_summary_row {
+:where(#jcpjskytpn) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2730,7 +2732,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#njdgvdaqgw) .gt_first_grand_summary_row {
+:where(#jcpjskytpn) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2740,11 +2742,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_striped {
+:where(#jcpjskytpn) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#njdgvdaqgw) .gt_table_body {
+:where(#jcpjskytpn) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2753,7 +2755,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#njdgvdaqgw) .gt_footnotes {
+:where(#jcpjskytpn) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2767,7 +2769,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_footnote {
+:where(#jcpjskytpn) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2776,7 +2778,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#njdgvdaqgw) .gt_sourcenotes {
+:where(#jcpjskytpn) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2790,7 +2792,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#njdgvdaqgw) .gt_sourcenote {
+:where(#jcpjskytpn) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2798,64 +2800,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#njdgvdaqgw) .gt_left {
+:where(#jcpjskytpn) .gt_left {
   text-align: left;
 }
 
-:where(#njdgvdaqgw) .gt_center {
+:where(#jcpjskytpn) .gt_center {
   text-align: center;
 }
 
-:where(#njdgvdaqgw) .gt_right {
+:where(#jcpjskytpn) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#njdgvdaqgw) .gt_font_normal {
+:where(#jcpjskytpn) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#njdgvdaqgw) .gt_font_bold {
+:where(#jcpjskytpn) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#njdgvdaqgw) .gt_font_italic {
+:where(#jcpjskytpn) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#njdgvdaqgw) .gt_super {
+:where(#jcpjskytpn) .gt_super {
   font-size: 65%;
 }
 
-:where(#njdgvdaqgw) .gt_footnote_marks {
+:where(#jcpjskytpn) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#njdgvdaqgw) .gt_asterisk {
+:where(#jcpjskytpn) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#njdgvdaqgw) .gt_indent_1 {
+:where(#jcpjskytpn) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#njdgvdaqgw) .gt_indent_2 {
+:where(#jcpjskytpn) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#njdgvdaqgw) .gt_indent_3 {
+:where(#jcpjskytpn) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#njdgvdaqgw) .gt_indent_4 {
+:where(#jcpjskytpn) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#njdgvdaqgw) .gt_indent_5 {
+:where(#jcpjskytpn) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2961,12 +2963,12 @@ div.csl-indent {
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.15</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11</td>
-<td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Priego Trabraque</td>
-<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11.29</td>
-<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">626</td>
-<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.03</td>
-<td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.01</td>
-<td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.08</td></tr>
+<td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Ventosa</td>
+<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11.03</td>
+<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">553</td>
+<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.08</td>
+<td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.05</td>
+<td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.14</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">La Peraleja</td>
@@ -3017,12 +3019,12 @@ div.csl-indent {
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.10</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18</td>
-<td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Ventosa</td>
-<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11.03</td>
-<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">553</td>
-<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.08</td>
-<td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.05</td>
-<td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.14</td></tr>
+<td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Priego Trabraque</td>
+<td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11.29</td>
+<td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">626</td>
+<td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.03</td>
+<td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.01</td>
+<td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.08</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">19</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Bujalaro</td>
@@ -3045,12 +3047,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="rdxarsxpxg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hxhldqchzv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#rdxarsxpxg) .gt_table {
+:where(#hxhldqchzv) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3075,7 +3077,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_heading {
+:where(#hxhldqchzv) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -3087,12 +3089,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_caption {
+:where(#hxhldqchzv) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#rdxarsxpxg) .gt_title {
+:where(#hxhldqchzv) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3104,7 +3106,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#rdxarsxpxg) .gt_subtitle {
+:where(#hxhldqchzv) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3116,13 +3118,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#rdxarsxpxg) .gt_bottom_border {
+:where(#hxhldqchzv) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_col_headings {
+:where(#hxhldqchzv) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -3137,7 +3139,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_col_heading {
+:where(#hxhldqchzv) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3157,7 +3159,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rdxarsxpxg) .gt_column_spanner_outer {
+:where(#hxhldqchzv) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3169,15 +3171,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#rdxarsxpxg) .gt_column_spanner_outer:first-child {
+:where(#hxhldqchzv) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#rdxarsxpxg) .gt_column_spanner_outer:last-child {
+:where(#hxhldqchzv) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#rdxarsxpxg) .gt_column_spanner {
+:where(#hxhldqchzv) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -3189,7 +3191,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#rdxarsxpxg) .gt_group_heading {
+:where(#hxhldqchzv) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3215,7 +3217,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#rdxarsxpxg) .gt_empty_group_heading {
+:where(#hxhldqchzv) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3230,15 +3232,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#rdxarsxpxg) .gt_from_md > :first-child {
+:where(#hxhldqchzv) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#rdxarsxpxg) .gt_from_md > :last-child {
+:where(#hxhldqchzv) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#rdxarsxpxg) .gt_row {
+:where(#hxhldqchzv) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3257,7 +3259,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rdxarsxpxg) .gt_stub {
+:where(#hxhldqchzv) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3270,7 +3272,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdxarsxpxg) .gt_stub_row_group {
+:where(#hxhldqchzv) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3284,11 +3286,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#rdxarsxpxg) .gt_row_group_first td {
+:where(#hxhldqchzv) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#rdxarsxpxg) .gt_summary_row {
+:where(#hxhldqchzv) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3298,16 +3300,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdxarsxpxg) .gt_first_summary_row {
+:where(#hxhldqchzv) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_first_summary_row.thick {
+:where(#hxhldqchzv) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#rdxarsxpxg) .gt_last_summary_row {
+:where(#hxhldqchzv) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3317,7 +3319,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_grand_summary_row {
+:where(#hxhldqchzv) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3327,7 +3329,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdxarsxpxg) .gt_first_grand_summary_row {
+:where(#hxhldqchzv) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3337,11 +3339,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_striped {
+:where(#hxhldqchzv) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#rdxarsxpxg) .gt_table_body {
+:where(#hxhldqchzv) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3350,7 +3352,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#rdxarsxpxg) .gt_footnotes {
+:where(#hxhldqchzv) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3364,7 +3366,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_footnote {
+:where(#hxhldqchzv) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3373,7 +3375,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdxarsxpxg) .gt_sourcenotes {
+:where(#hxhldqchzv) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3387,7 +3389,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdxarsxpxg) .gt_sourcenote {
+:where(#hxhldqchzv) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3395,64 +3397,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdxarsxpxg) .gt_left {
+:where(#hxhldqchzv) .gt_left {
   text-align: left;
 }
 
-:where(#rdxarsxpxg) .gt_center {
+:where(#hxhldqchzv) .gt_center {
   text-align: center;
 }
 
-:where(#rdxarsxpxg) .gt_right {
+:where(#hxhldqchzv) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#rdxarsxpxg) .gt_font_normal {
+:where(#hxhldqchzv) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#rdxarsxpxg) .gt_font_bold {
+:where(#hxhldqchzv) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#rdxarsxpxg) .gt_font_italic {
+:where(#hxhldqchzv) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#rdxarsxpxg) .gt_super {
+:where(#hxhldqchzv) .gt_super {
   font-size: 65%;
 }
 
-:where(#rdxarsxpxg) .gt_footnote_marks {
+:where(#hxhldqchzv) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#rdxarsxpxg) .gt_asterisk {
+:where(#hxhldqchzv) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#rdxarsxpxg) .gt_indent_1 {
+:where(#hxhldqchzv) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#rdxarsxpxg) .gt_indent_2 {
+:where(#hxhldqchzv) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#rdxarsxpxg) .gt_indent_3 {
+:where(#hxhldqchzv) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#rdxarsxpxg) .gt_indent_4 {
+:where(#hxhldqchzv) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#rdxarsxpxg) .gt_indent_5 {
+:where(#hxhldqchzv) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3535,11 +3537,11 @@ div.csl-indent {
 <td headers="BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.40</td>
 <td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.39</td></tr>
     <tr><td headers="Subbasin ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11</td>
-<td headers="Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Priego Trabraque</td>
+<td headers="Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Ventosa</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
-<td headers="alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.960</td>
+<td headers="alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.989</td>
 <td headers="BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.50</td>
-<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.46</td></tr>
+<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.49</td></tr>
     <tr><td headers="Subbasin ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12</td>
 <td headers="Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">La Peraleja</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
@@ -3577,11 +3579,11 @@ div.csl-indent {
 <td headers="BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.55</td>
 <td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.54</td></tr>
     <tr><td headers="Subbasin ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18</td>
-<td headers="Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Ventosa</td>
+<td headers="Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Priego Trabraque</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
-<td headers="alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.985</td>
-<td headers="BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.60</td>
-<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.59</td></tr>
+<td headers="alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.960</td>
+<td headers="BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.50</td>
+<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.46</td></tr>
     <tr><td headers="Subbasin ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">19</td>
 <td headers="Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Bujalaro</td>
 <td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
@@ -3619,6 +3621,9 @@ Arnold, M. A. Youssef, H. Yen, M. J. White, A. Y. Sheshukov, A. M. Sadeghi, D. N
 <div id="ref-bahremand_hess_2016" class="csl-entry" role="doc-biblioentry">
 Bahremand, Abdolreza. 2016. <span>“<span>HESS</span> Opinions: Advocating Process Modeling and de-Emphasizing Parameter Estimation.”</span> <em>Hydrology and Earth System Sciences</em> 20 (4): 1433–45. <a href="https://doi.org/10.5194/hess-20-1433-2016">https://doi.org/10.5194/hess-20-1433-2016</a>.
 </div>
+<div id="ref-bednar-friedl_europe_2022" class="csl-entry" role="doc-biblioentry">
+Bednar-Friedl, B., R. Biesbroek, D. N. Schmidt, P. Alexander, K. Y. Børsheim, J. Carnicer, E. Georgopoulou, et al. 2022. <span>“Europe.”</span> In <em>Climate Change 2022: Impacts, Adaptation and Vulnerability. Contribution of Working Group <span>II</span> to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by H. O. Pörtner, D. C. Roberts, M. Tignor, E. S. Poloczanska, K. Mintenbeck, A. Alegría, M. Craig, et al., 1817–927. Cambridge, <span>UK</span>; New York, <span>USA</span>: Cambridge University Press. <a href="https://doi.org/10.1017/9781009325844.015.1817">https://doi.org/10.1017/9781009325844.015.1817</a>.
+</div>
 <div id="ref-blume_rainfallrunoff_2007" class="csl-entry" role="doc-biblioentry">
 Blume, Theresa, Erwin Zehe, and Axel Bronstert. 2007. <span>“Rainfall—Runoff Response, Event-Based Runoff Coefficients and Hydrograph Separation.”</span> <em>Hydrological Sciences Journal</em> 52 (5): 843–62. <a href="https://doi.org/10.1623/hysj.52.5.843">https://doi.org/10.1623/hysj.52.5.843</a>.
 </div>
@@ -3632,7 +3637,7 @@ Chapman, Tom. 1999. <span>“A Comparison of Algorithms for Stream Flow Recessio
 Chawanda, Celray James, Jeffrey Arnold, Wim Thiery, and Ann van Griensven. 2020. <span>“Mass Balance Calibration and Reservoir Representations for Large-Scale Hydrological Impact Studies Using <span>SWAT</span>+.”</span> <em>Climatic Change</em> 163 (3): 1307–27. <a href="https://doi.org/10.1007/s10584-020-02924-x">https://doi.org/10.1007/s10584-020-02924-x</a>.
 </div>
 <div id="ref-chazarra_bernabe_mapas_2018" class="csl-entry" role="doc-biblioentry">
-Chazarra Bernabé, Andrés, Elena Flórez García, Beatriz Peraza Sánchez, Teresa Tohá Rebull, Belinda Lorenzo Mariño, Elías Criado Pinto, José Vicente Moreno García, Ramiro Romero Fresneda, and Roser Botey Fullat. 2018. <em>Mapas climáticos de España (1981-2010) y <span>ETo</span> (1996-2016)</em>. Agencia Estatal de Meteorología. <a href="https://doi.org/10.31978/014-18-004-2">https://doi.org/10.31978/014-18-004-2</a>.
+Chazarra Bernabé, Andrés, Elena Flórez García, Beatriz Peraza Sánchez, Teresa Tohá Rebull, Belinda Lorenzo Mariño, Elías Criado Pinto, José Vicente Moreno García, Ramiro Romero Fresneda, and Roser Botey Fullat. 2018. <em>Mapas Climáticos de España (1981-2010) y <span>ETo</span> (1996-2016)</em>. Agencia Estatal de Meteorología. <a href="https://doi.org/10.31978/014-18-004-2">https://doi.org/10.31978/014-18-004-2</a>.
 </div>
 <div id="ref-custodio_hidrologisubterranea_1983" class="csl-entry" role="doc-biblioentry">
 Custodio, Emilio, and Manuel Ramón Llamas. 1983. <em>Hidrología Subterránea</em>. Barcelona: Omega, S.A.
@@ -3647,13 +3652,13 @@ Efstratiadis, Andreas, and Demetris Koutsoyiannis. 2010. <span>“One Decade of 
 Fu, Baihua, Wendy S. Merritt, Barry F. W. Croke, Tony R. Weber, and Anthony J. Jakeman. 2019. <span>“A Review of Catchment-Scale Water Quality and Erosion Models and a Synthesis of Future Prospects.”</span> <em>Environmental Modelling &amp; Software</em> 114 (April): 75–97. <a href="https://doi.org/10.1016/j.envsoft.2018.12.008">https://doi.org/10.1016/j.envsoft.2018.12.008</a>.
 </div>
 <div id="ref-garcia_serie_2017" class="csl-entry" role="doc-biblioentry">
-García, Candelas Peral, Beatriz Navascués Fernández-Victorio, and Petra Ramos Calzado. 2017. <em>Serie de precipitación diaria en rejilla con fines climáticos</em>. Agencia Estatal de Meteorología. <a href="https://doi.org/10.31978/014-17-009-5">https://doi.org/10.31978/014-17-009-5</a>.
+García, Candelas Peral, Beatriz Navascués Fernández-Victorio, and Petra Ramos Calzado. 2017. <em>Serie de Precipitación Diaria En Rejilla Con Fines Climáticos</em>. Agencia Estatal de Meteorología. <a href="https://doi.org/10.31978/014-17-009-5">https://doi.org/10.31978/014-17-009-5</a>.
 </div>
 <div id="ref-iannone_gt_2022" class="csl-entry" role="doc-biblioentry">
 Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, JooYoung Seo, and RStudio. 2022. <em>Gt: Easily Create Presentation-Ready Display Tables</em> (version 0.8.0). <a href="https://CRAN.R-project.org/package=gt">https://CRAN.R-project.org/package=gt</a>.
 </div>
 <div id="ref-ign_centro_2010" class="csl-entry" role="doc-biblioentry">
-IGN. 2010. <span>“Centro de Descargas Del <span>CNIG</span> (<span>IGN</span>). Centro de Descargas Del <span>CNIG</span>.”</span> 2010. <a href="http://centrodedescargas.cnig.es">http://centrodedescargas.cnig.es</a>.
+IGN. 2010. <span>“Centro de Descargas Del <span>CNIG</span> (<span>IGN</span>).”</span> 2010. <a href="http://centrodedescargas.cnig.es">http://centrodedescargas.cnig.es</a>.
 </div>
 <div id="ref-jodar_groundwater_2017" class="csl-entry" role="doc-biblioentry">
 Jódar, Jorge, José Antonio Cabrera, Sergio Martos-Rosillo, Ana Ruiz-Constán, Antonio González-Ramón, Luis Javier Lambán, Christian Herrera, and Emilio Custodio. 2017. <span>“Groundwater Discharge in High-Mountain Watersheds: A Valuable Resource for Downstream Semi-Arid Zones. The Case of the Bérchules River in Sierra Nevada (Southern Spain).”</span> <em>Science of The Total Environment</em> 593-594 (September): 760–72. <a href="https://doi.org/10.1016/j.scitotenv.2017.03.190">https://doi.org/10.1016/j.scitotenv.2017.03.190</a>.
@@ -3669,9 +3674,6 @@ Maillet, Edmon. 1905. <span>“Essais d’hydraulique Souterraine Et Fluviale.�
 </div>
 <div id="ref-martin-loeches_hydrogeochemistry_2020" class="csl-entry" role="doc-biblioentry">
 Martín-Loeches, Miguel, Javier Pavón-García, Eugenio Molina-Navarro, Pedro Martínez-Santos, Carlos Almeida, Jaime Reyes-López, Ignacio Cienfuegos-Hevia, and Antonio Sastre-Merlín. 2020. <span>“Hydrogeochemistry of Granitic Mountain Zones and the Influence of Adjacent Sedimentary Basins at Their Tectonic Borders: The Case of the Spanish Central System Batholith: Hidrogeoquímica de Regiões Montanhosas Graníticas e Influência de Bacias Sedimentares Adjacentes Nas Bordas Tectônicas: Caso Do Batólito Do Sistema Central Espanhol.”</span> <em>Hidrogeoquímica de Zonas Montañosas Graníticas e Influencia de Las Cuencas Sedimentarias Adyacentes En Sus Bordes Tectónicos: El Caso Del Batolito Del Sistema Central Español.</em> 28 (7): 2477–2500. <a href="https://doi.org/10.1007/s10040-020-02202-1">https://doi.org/10.1007/s10040-020-02202-1</a>.
-</div>
-<div id="ref-mockus_national_nodate" class="csl-entry" role="doc-biblioentry">
-Mockus, Victor, and Eydraulic Engineer. n.d. <span>“<span>NATIONAL</span> <span>ENGINEERING</span> <span>HANDBOOK</span> <span>SECTION</span> 4 <span>HYDROLOGY</span>.”</span>
 </div>
 <div id="ref-molina-navarro_impact_2017" class="csl-entry" role="doc-biblioentry">
 Molina-Navarro, Eugenio, Hans E. Andersen, Anders Nielsen, Hans Thodsen, and Dennis Trolle. 2017. <span>“The Impact of the Objective Function in Multi-Site and Multi-Variable Calibration of the <span>SWAT</span> Model.”</span> <em>Environmental Modelling &amp; Software</em> 93 (July): 255–67. <a href="https://doi.org/10.1016/j.envsoft.2017.03.018">https://doi.org/10.1016/j.envsoft.2017.03.018</a>.
