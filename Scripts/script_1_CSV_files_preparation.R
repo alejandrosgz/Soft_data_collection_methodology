@@ -54,7 +54,7 @@
    
    grid_points_clip_csv <- grid_points_clip %>% st_drop_geometry(.) %>% rename(Basin_ID = id)
    
-   write.csv(x = grid_points_clip_csv, file = "Used_files/Created_csv/ids_stations_file.csv", row.names = F)
+   write.csv(x = grid_points_clip_csv, file = "Used_files/Created_csv/2_ids_stations_file.csv", row.names = F)
    
    
    
