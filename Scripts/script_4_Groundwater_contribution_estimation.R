@@ -311,8 +311,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.982
-   bfi_max <- 0.5
+   alfa <- 0.992
+   bfi_max <- 0.55
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- peralejo_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -369,8 +369,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.985
-   bfi_max <- 0.6
+   alfa <- 0.995
+   bfi_max <- 0.65
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- priegoes_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -425,8 +425,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.97
-   bfi_max <- 0.45
+   alfa <- 0.99
+   bfi_max <- 0.55
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- santamaria_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -480,8 +480,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.95
-   bfi_max <- 0.5
+   alfa <- 0.985
+   bfi_max <- 0.4
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- javalera_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -536,8 +536,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.975
-   bfi_max <- 0.45
+   alfa <- 0.995
+   bfi_max <- 0.55
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- huete_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -593,7 +593,7 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.95
+   alfa <- 0.98
    bfi_max <- 0.45
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
@@ -651,8 +651,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.926
-   bfi_max <- 0.4
+   alfa <- 0.98
+   bfi_max <- 0.5
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- pueblanueva_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -708,8 +708,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.989
-   bfi_max <- 0.5
+   alfa <- 0.99
+   bfi_max <- 0.45
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- ventosa_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -765,7 +765,7 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.95
+   alfa <- 0.985
    bfi_max <- 0.4
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
@@ -822,8 +822,10 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.97
+   alfa <- 0.998
    bfi_max <- 0.4
+   
+   obs_data[132,] <- obs_data[131,] # Anomalous record
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- villaseq_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -832,6 +834,7 @@
    # 1310-1700
    # 2130-2420
    # 2975-3172
+   
    
    peak_1 <- n[c(1310:1700),]
    bf_plot_1 <- ggplot(peak_1, aes(x = date))+ geom_area(aes(y = obs_flow, fill = "Observed"))+ 
@@ -880,7 +883,7 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.92
+   alfa <- 0.985
    bfi_max <- 0.25
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
@@ -937,8 +940,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.9
-   bfi_max <- 0.3
+   alfa <- 0.98
+   bfi_max <- 0.25
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- malpica_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -994,7 +997,7 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.975
+   alfa <- 0.992
    bfi_max <- 0.55
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
@@ -1051,8 +1054,8 @@
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.99
-   bfi_max <- 0.5
+   alfa <- 0.995
+   bfi_max <- 0.3
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- romanones_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -1095,6 +1098,7 @@
      xlab(label = "")+theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), text = element_text(size = 15))+ylab("Precipitation (mm)")
    (pcp_plot / bf_plot )+plot_layout(widths = c(2, 2), heights = c(3, 5))
    
+   ggplotly(bf_plot)
    
    # Basin 18, Priego Trabaque, gauging code = 3186, region = MIX
    #Mean Alpha obtained : 0.943, Max 0.96, Min 0.92
@@ -1102,13 +1106,15 @@
    priegotra_flow <-  gauging_data_tagus %>% filter(., cod == 3186) %>% filter(year(date) %in% 2010:2018) %>% mutate(day = seq(1, length(date), 1))
    priegotra_pcp <-   tibble(pcpday_bas_list[[12]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[12]][[1]]))) 
    
+   priegotra_flow[3038,] <- priegotra_flow[3037,] # Anomalous record
+   
    priegotra_all <- priegotra_flow %>% left_join(priegotra_pcp, "date") %>% .[,c(1,2,4,3,5)]
    
    obs_data <- as.data.frame(priegotra_all)
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.96
+   alfa <- 0.995
    bfi_max <- 0.5
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
@@ -1159,15 +1165,15 @@
    #Mean Alpha obtained : 0.976, Max 0.988, Min 0.962
    
    bujaralo_flow <-  gauging_data_tagus %>% filter(., cod == 3060) %>% filter(year(date) %in% 2010:2018) %>% mutate(day = seq(1, length(date), 1))
-   bujaralo_pcp <-   tibble(pcpday_bas_list[[20]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[20]][[1]])))
+   bujaralo_pcp <-   tibble(pcpday_bas_list[[19]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[19]][[1]])))
    bujaralo_all <- bujaralo_flow %>% left_join(bujaralo_pcp, "date") %>% .[,c(1,2,4,3,5)]
    
    obs_data <- as.data.frame(bujaralo_all)
    ggplotly(ggplot(obs_data, aes(x = seq(1, length(date), 1), y = obs_flow))+geom_line())
    
    #Filter parameters
-   alfa <- 0.985
-   bfi_max <- 0.55
+   alfa <- 0.995
+   bfi_max <- 0.45
    
    bfsep <- baseflow_sep(df = obs_data, Q = "obs_flow", alpha = alfa, BFIma =bfi_max, method = "two_param")
    n <- bujaralo_all %>% mutate(baseflow = bfsep$B, runoff = bfsep$R)
@@ -1215,14 +1221,23 @@
    
    # Values of the Baseflow (groundwater) rates obtained with the code above
     
-    alpha_used <- c(0.975,	0.965,	0.951,	0.982,	0.985,	0.97,	0.95,	0.975,	
-                    0.95,	0.926,		0.989,	0.95,	0.97,	0.92,	0.9,	0.975,	0.99, 0.96,	0.985)
+    alpha_used <- c(0.975,	0.965,	0.951,	
+                    0.992,	0.995,	0.99,	
+                    0.985,	0.995,	  0.98,	0.98,
+                    0.99,	0.985,	0.998,	
+                    0.985,	0.98,	0.992,	0.995, 0.995,	0.995)
 
-    bfimax_used <- c(0.25,	0.2,	0.25,	0.5,	0.6,	0.45,	0.5,	0.45,	0.45,	0.4,
-                     0.5,	0.4,	0.4,	0.25,	0.3,	0.55,	0.55,	0.5,	0.55)
+    bfimax_used <- c(0.25,	0.2,	0.25,
+                     0.55,	0.65,	0.55,
+                     0.4,	0.55,	0.45,	0.5,
+                     0.45,	0.4,	0.4,	
+                     0.25,	0.25,	0.55,	0.3,	0.5,	0.45)
       
-    bf_rates <- c( 0.24, 0.19, 0.24, 0.49, 0.57, 0.42, 0.49, 0.45, 0.39,
-                   0.39, 0.49, 0.38, 0.39, 0.25, 0.29, 0.54, 0.54, 0.46, 0.54)
+    bf_rates <- c( 0.24, 0.19, 0.24, 
+                   0.51, 0.58, 0.44, 
+                   0.35, 0.44, 0.37, 0.41,
+                   0.44, 0.32, 0.28,
+                   0.21, 0.2, 0.51, 0.28, 0.38, 0.42)
     
    
     # Saving the obtained values in a csv file

@@ -2,19 +2,19 @@ Basin,Basin_ID,region,alpha,BFImax,BF_Rate
 Navaluenga,1,IMP,0.975,0.25,0.24
 Matallana,2,IMP,0.965,0.2,0.19
 Villarejo de Montalban,3,IMP,0.951,0.25,0.24
-Peralejo de las Truchas,4,CRB,0.982,0.5,0.49
-Priego Escabas,5,CRB,0.985,0.6,0.57
-Santa Maria del Val,6,CRB,0.97,0.45,0.42
-Jabalera,7,DTAL,0.95,0.5,0.49
-Huete,8,DTAL,0.975,0.45,0.45
-Torote,9,DTAL,0.95,0.45,0.39
-La Pueblanueva,10,DTAL,0.926,0.4,0.39
-Ventosa,11,DTBJ,0.989,0.5,0.49
-La Peraleja,12,DTBJ,0.95,0.4,0.38
-Villasequilla de Yepes,13,DTBJ,0.97,0.4,0.39
-Valverde de los Arroyos,14,MIX,0.92,0.25,0.25
-Malpica,15,MIX,0.9,0.3,0.29
-Taravillas,16,MIX,0.975,0.55,0.54
-Romanones,17,MIX,0.99,0.55,0.54
-Priego Trabraque,18,MIX,0.96,0.5,0.46
-Bujalaro,19,MIX,0.985,0.55,0.54
+Peralejo de las Truchas,4,CRB,0.992,0.55,0.51
+Priego Escabas,5,CRB,0.995,0.65,0.58
+Santa Maria del Val,6,CRB,0.99,0.55,0.44
+Jabalera,7,DTAL,0.985,0.4,0.35
+Huete,8,DTAL,0.995,0.55,0.44
+Torote,9,DTAL,0.98,0.45,0.37
+La Pueblanueva,10,DTAL,0.98,0.5,0.41
+Ventosa,11,DTBJ,0.99,0.45,0.44
+La Peraleja,12,DTBJ,0.985,0.4,0.32
+Villasequilla de Yepes,13,DTBJ,0.998,0.4,0.28
+Valverde de los Arroyos,14,MIX,0.985,0.25,0.21
+Malpica,15,MIX,0.98,0.25,0.2
+Taravillas,16,MIX,0.992,0.55,0.51
+Romanones,17,MIX,0.995,0.3,0.28
+Priego Trabraque,18,MIX,0.995,0.5,0.38
+Bujalaro,19,MIX,0.995,0.45,0.42
