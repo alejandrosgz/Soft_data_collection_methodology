@@ -416,7 +416,7 @@
    (pcp_plot / bf_plot )+plot_layout(widths = c(2, 2), heights = c(3, 5))
     ggplotly(bf_plot)
    
-   # Basin 6, Santa MarC-a del Val, gauging code = 3040, region = CRB
+   # Basin 6, Santa Maria del Val, gauging code = 3040, region = CRB
    #Mean Alpha obtained : 0.987, Max 0.989, Min 0.983
    santamaria_flow <-  gauging_data_tagus %>% filter(., cod == 3040) %>% filter(year(date) %in% 2011:2018) %>% mutate(day = seq(1, length(date), 1))
    santamaria_pcp <-   tibble(pcpday_bas_list[[7]]) %>% mutate(day = seq(1, length(pcpday_bas_list[[7]][[1]]))) 

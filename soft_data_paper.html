@@ -221,22 +221,24 @@ div.csl-indent {
 <section id="subbasins-and-time-series-selection" class="level4">
 <h4 class="anchored" data-anchor-id="subbasins-and-time-series-selection">3.1. Subbasins and time series selection</h4>
 <p>The selection of subbasins was based on three main criteria, which were i) the availability of updated streamflow records, ii) the underlying lithology of a catchment, and iii) the requirement of having a mostly undisturbed regime without any major reservoirs in the catchment or significant water withdrawals from the catchment. In total 18 subbasins were identified as suitable to be used in the calculation of runoff and baseflow coefficients for the different geologic zones (Figure 1).</p>
-<p>The objective of the methodology presented in this manuscript is to collect and derive soft data (runoff and baseflow coefficients) in different geological regions of the upper sector of the Tagus River basin with varying permeability, thus gaining knowledge about the main hydrological processes in each region that would guarantee a realistic soft calibration of a model under development. For this purpose, several subbasins have been selected considering various factors (<a href="#fig-location">Figure&nbsp;1</a>). The availability of updated streamflow records was the first selection factor. To characterize the runoff and baseflow coefficients of a certain catchment, the longer the time series the better, being advisable a minimum time series of 30 years <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. However, in this study case the plan is to calibrate the model between 2010 and 2018, thus in order to simulate it in a realistic manner, the coefficients for that period had to be derived. Besides, despite it is not too large, this period has enough climatic variability to be considered representative of the global climate of the basin, having dry, wet, and medium years (<a href="#fig-pcp_plot">Figure&nbsp;2</a>), so results obtained during the soft data extraction might also serve to gain hydrological knowledge of the catchment. The current effect of climate change on this basin has to be taken into account as well: the precipitation is being reduced and the temperature is rising (i.e., comparing the time series 1960-2018 and 2000-2018, mean annual temperature has increased 0.5ºC and annual precipitation has been reduced by 7%). Thus, a longer period may not be representative of the current situation.</p>
+<p>For the characterization of the runoff and besaflow coeficcients it is recommended to emplow streamflow records with a a length around 30 years <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. Continuative modeling tasks in the UTRB however focus on the time window 2010 to 2018. As a consequence, the runoff and baseflow coefficients should also be calculated for the same time period, in order to account for the current climate conditions and to avoid any impact of earlier climate conditions which may have been different due to climate change. Overall, the mean annual temperature has increased by 0.5ºC and annual precipitation decreased by 7% in the UTRB when comparing the time periods 1960 to 2018 and 2000 to 2018 (see <a href="#fig-pcp_plot">Figure&nbsp;2</a> for precipitation). Thus, a longer time period may not be representative for the time period of interest. Further, the selected time period 2000 to 2018 shows a large interannual variability in the climatic variables which is in a similar range to the full time window 1960 to 2018 with dry, wet, and average years (Figure 2). Hence, calculating runoff and baseflow coefficients from the shorter time period will account for different climatic conditions</p>
 <div id="fig-pcp_plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figures/precipitation_tagus.tiff" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Modeled basin annual and average precipitation (1951-2018) and selected period (in blue).</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: UTRB annual and average precipitation (1951-2018) and selected period (in blue).</figcaption><p></p>
 </figure>
 </div>
-<p>Since different geological regions are object of study, lithology was the second factor considered for selecting the subbasins. Four different geological zones were defined according to the permeability of the basin <span class="citation" data-cites="del_pozo_gomez_mapa_2009">(<a href="#ref-del_pozo_gomez_mapa_2009" role="doc-biblioref">Pozo Gómez 2009</a>)</span>, and at least three basins representative of each of these regions were selected (<a href="#fig-location">Figure&nbsp;1</a>). Five basins with a mixed lithology were also chosen, in order to characterize the hydrological behaviour in heterogeneous regions (MIX). The geological regions defined were: an impervious region (IMP), with by metamorphic and igneous impervious rocks; a high and medium permeability carbonate region (CRB), a high permeability detrital region (DTAL), conformed by Tertiary sedimentary rocks and Quaternary sediments; and a low permeability detrital region (DTBJ), conformed by detrital and evaporitic materials (i.e., marls, gypsum). Unfortunately, there is not geologically homogeneous gauged subbasins within the low permeability detrital region, so subbasins with abundance of these materials were selected as representative, despite being mixed with other materials too.</p>
-<p>For an accurate estimation of the runoff and baseflow coefficient, subbasins in natural regime were selected, thus without relevant reservoirs or water withdrawals, being this the last selection criterion.</p>
-<p>Streamflow gauged data was analyzed in each subbasin to ensure its reliability, both with graphical and statistical methods. Information about the selected subbasins and their available streamflow data can be found in Appendix I. Some of the subbasins (subbasins 2, 6 and 14) did not have data for the entire time series, and therefore the coefficients have been calculated for the years with complete gauging data. Verify the data availability for the entire period is recommended, as the used source of streamflow data does not warn about missing data, which can lead to incorrect results.</p>
+<p>Four different geological regions or substrates were defined according to the lithology and permeability of the UTRB <span class="citation" data-cites="del_pozo_gomez_mapa_2009">(<a href="#ref-del_pozo_gomez_mapa_2009" role="doc-biblioref">Pozo Gómez 2009</a>)</span>. The defined regions are: an impervious region (IMP), with low and very low permeability metamorphic and igneous rocks; a carbonate region (CRB), composed by carbonate rocks with high and medium permeability mainly; a high and medium permeability detrital region (DTH), conformed by high and medium permeability Tertiary sedimentary rocks and Quaternary sediments; and a low permeability detrital region (DTL), conformed by detrital and evaporitic materials with low permeability (i.e., marls, gypsum).</p>
+<p>As most of the subbasins had more than one type of substrates within, the proportion of each type of material in each subbasin was calculated (XXXX). Subbasins where at least 70% of the area was composed of one substrate were considered representative for the IMP, CRB and DTH regions. However, for the DTL substrates, there was not any gauged subbasin with enough cover, and therefore subbasins with at least 25% of this substrate were considered representative. At least three representative subbasins were selected for each geological zone (<a href="#fig-location">Figure&nbsp;1</a>), and six basins with a mixed lithology were also chosen, in order to characterize the hydrological behaviour in heterogeneous regions (MIX).</p>
+<p>Verification of the data availability for the entire period is recommended, as the used source of streamflow data does not warn about missing data, which can lead to incorrect results. Gauged streamflow data was analyzed for each subbasin to ensure its reliability, both with graphical and statistical methods. Information about the selected subbasins and their available streamflow data can be found in Appendix I. Some of the subbasins (subbasins 2, 6 and 14) did not have data for the entire time series, and therefore the coefficients have been calculated for the years with complete gauging data.</p>
 </section>
 <section id="input-data-and-basins-delineation" class="level4">
 <h4 class="anchored" data-anchor-id="input-data-and-basins-delineation">3.2. Input data and basins delineation</h4>
 <p>The presented methodology requires some input data and also some files that have to be created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.</p>
-<p>Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, <span class="citation" data-cites="garcia_serie_2017">García, Fernández-Victorio, and Calzado (<a href="#ref-garcia_serie_2017" role="doc-biblioref">2017</a>)</span>), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Streamflow data was collected from the CEDEX streamflow gauging stations yearly report <span class="citation" data-cites="cedex_anuario_2021">(<a href="#ref-cedex_anuario_2021" role="doc-biblioref">CEDEX 2021</a>)</span>, which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, <em>afliq.csv</em>).</p>
-<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region. Then, the <em>sf</em> and <em>dplyr</em> packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">Pebesma 2018</a>; <a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">Wickham and RStudio 2022</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>1_basins_file.csv</em>.</p>
+<p>Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, <span class="citation" data-cites="garcia_serie_2017">García, Fernández-Victorio, and Calzado (<a href="#ref-garcia_serie_2017" role="doc-biblioref">2017</a>)</span>), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Gridded meteorological databases can overcome problems such as the temporal and spatial absence of data, but also have certain limitations that must be taken into account <span class="citation" data-cites="ensor_statistical_2008">(e.g., increasing the frequency of low precipitation events or reducing the frequency of heavy precipitation events, <a href="#ref-ensor_statistical_2008" role="doc-biblioref">Ensor and Robeson 2008</a>)</span>. In this case, the objective will be to calculate annual values, for which these data bases are successful.</p>
+<p>Streamflow data was collected from the CEDEX streamflow gauging stations yearly report <span class="citation" data-cites="cedex_anuario_2021">(<a href="#ref-cedex_anuario_2021" role="doc-biblioref">CEDEX 2021</a>)</span>, which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, <em>afliq.csv</em>).</p>
+<p>After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span> was used. For the subbasins´ delineation, the <em>r.watershed</em> command was used for creating from the digital elevation model a <em>Drainage direction</em> and a <em>Number of cells that drain through each cell</em> raster, using as attributes a <em>Minimum size of exterior watershed</em> of 10000 m² and <em>Enabling single flow direction</em>. With the <em>r.water.outlet</em> command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command <em>r.to.vect</em> was used to convert the generated raster into vector format (using the <em>Smoooth corners of areas features</em> option), and all the generated basins were merged using the <em>Merge vector layers</em> QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region.</p>
+<p>From this point on, all the work has been developed from R-Studio <span class="citation" data-cites="rstudio_team_rstudio_2020">(<a href="#ref-rstudio_team_rstudio_2020" role="doc-biblioref">RStudio Team 2020</a>)</span> using different libraries <span class="citation" data-cites="wickham_readr_2022 pebesma_simple_2018 spinu_lubridate_2023 sievert_plotly_2022 pedersen_patchwork_2022 iannone_gt_2022">Wickham and RStudio (<a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">2022</a>)</span>. The <em>sf</em> and <em>dplyr</em> packages <span class="citation" data-cites="pebesma_simple_2018 wickham_tidyverse_2022">(<a href="#ref-pebesma_simple_2018" role="doc-biblioref">Pebesma 2018</a>; <a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">Wickham and RStudio 2022</a>,)</span> have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file <em>1_basins_file.csv</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data: Shapefile with the delineated subbasins </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>subbasins <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"Used_files/GIS/Shapefiles/basins_studied.shp"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., id)</span>
@@ -254,7 +256,7 @@ div.csl-indent {
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>.[,<span class="fu">c</span>(<span class="st">"Basin"</span>, <span class="st">"Basin_ID"</span>, <span class="st">"area"</span>, <span class="st">"gauging_code"</span>, <span class="st">"region"</span>)]</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span>subbasins_csv, <span class="at">file =</span> <span class="st">"Used_files/Created_csv/1_basins_file.csv"</span>, <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In order to estimate the precipitation and temperature for each subbasin, it was necessary to know which points of the weather grids are located within. A grid vector layer was created with all the weather points of the AEMET grid, and those points located inside a 1 km buffer performed for each of the subbasins were identified. The buffer and clipping processes were performed with sf package. The buffer distance depends on the data resolution, and in this case it has been considered appropriated. A csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it is) has been created and saved as <em>2_ids_stations_file.csv</em>. Note that in this case the identifiers and location of precipitation and temperature points of the grid matched, thus being only necessary to have one file for both variables.</p>
+<p>In order to estimate the precipitation and temperature for each subbasin, it was necessary to identify the weather grid cells that are located within the respective subbasins. For this purpose, a vector layer was created with the centroids of the weather grid cells. Weather data points that are located within a 1 km buffer of a subbasin boundary were assigned to the respective subbasin. The buffer and clipping processes were performed with the sf package. The buffer distance width depends on the data resolution, and has to be chosen in each case. In this case, 1 km of distance allowed to consider points located close enough to the boundaries of the subbasins for providing representative values. A csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it attributed to) was created and saved as <em>2_ids_stations_file.csv</em>. Note that in the used weather datasets, the identifiers and location of the precipitation and temperature grid points are the same, so only one file is needed for both variables. If it is not the case (e.g., different datasets are being used for precipitation and temperature), two different files have to be created (following the same methodology) and used for the precipitation-temperature calculation respectively.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gauging points</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pcp_points <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"Used_files/GIS/Shapefiles/weather_grid_UTM.shp"</span>)</span>
@@ -268,7 +270,7 @@ div.csl-indent {
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>grid_points_clip_csv <span class="ot">&lt;-</span> grid_points_clip <span class="sc">%&gt;%</span> <span class="fu">st_drop_geometry</span>(.) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Basin_ID =</span> id)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> grid_points_clip_csv, <span class="at">file =</span> <span class="st">"Used_files/Created_csv/2_ids_stations_file.csv"</span>, <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>With these two csv files (created from the subbasins and weather grid vectorial layers) the methodology can be carried out. Two more csv files will be created with the results of the baseflow index assessment, as explained in the respective section (3.4). Examples of these files are available for the reader in order to allow reproducibility of the work (see Data availability section). From this point on, all the work has been developed from R-Studio <span class="citation" data-cites="rstudio_team_rstudio_2020">(<a href="#ref-rstudio_team_rstudio_2020" role="doc-biblioref">RStudio Team 2020</a>)</span> using different libraries <span class="citation" data-cites="wickham_readr_2022 pebesma_simple_2018 spinu_lubridate_2023 sievert_plotly_2022 pedersen_patchwork_2022 iannone_gt_2022">Wickham and RStudio (<a href="#ref-wickham_tidyverse_2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>The two generated csv files (created from the subbasin and weather vector layers) are the input files required for the calculation of the runoff and base flow coefficients. A third csv file will be created with the results of the baseflow index obtained, as explained in section 3.4. Example files are available in the accompanying GitHub repository (see Data availability section)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File with basins data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>basins_file <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Used_files/Created_csv/1_basins_file.csv"</span>) </span>
@@ -392,7 +394,7 @@ div.csl-indent {
 <p><span id="eq-gw_linear_recession"><span class="math display">\[ ln(Q_{t}) = ln(Q_{0})-α * t \tag{4}\]</span></span></p>
 <p>Considering <a href="#eq-alpha_rec_constant">Equation&nbsp;2</a> and <a href="#eq-gw_recession">Equation&nbsp;3</a> when <span class="math inline">\(t = 1\)</span>, and making the assumption that during the recession all the flow is baseflow, it can be deduced that:</p>
 <p><span id="eq-alpha_conversion"><span class="math display">\[alpha = e^{-α} \tag{5}\]</span></span></p>
-<p>The effects of these parameters on the baseflow estimation have been assessed to know their importance (<a href="#fig-parameters_effect">Figure&nbsp;3</a>). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. <em>BFImax</em> affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the <em>BFImax</em> values. <em>alpha</em> controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of <em>alpha</em> less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of <em>alpha</em> prevent the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher <em>BFImax</em> values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore <em>alpha</em> value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
+<p>The effects of these parameters on the baseflow estimation have been assessed to know their functioning and importance (<a href="#fig-parameters_effect">Figure&nbsp;3</a>). Both parameters have been proved in a wide range of values, and both are noticeable sensitive to the baseflow component separation. <em>BFImax</em> affects directly to the amount of baseflow that the filter estimates, as it is the maximum percentage expected, being the estimated baseflow line directly proportional to the <em>BFImax</em> values. <em>alpha</em> controls the immediacy of the baseflow response to episodes of flood or recession, being higher values of <em>alpha</em> less sensitive to those changes. It also influences on the amount of baseflow that is calculated, as high values of <em>alpha</em> prevent the baseflow estimated to be high. Both parameters are closely related to the lithology of a basin: basins with aquifer systems will have a higher contribution of groundwater to the streamflow than impervious basins, and therefore should have higher <em>BFImax</em> values; and permeable basins with higher aquifer-river connectivity (i.e., sandy aquifers) will be more sensitive to recharge-discharge episodes than basins with less permeable substrates (e.g., clayey lithologies aquifers) and therefore <em>alpha</em> value, which is related to the transmissivity, will be lower. Then, the properties of a basin must be taken into account before setting these parameters of the baseflow filter, as other authors reported <span class="citation" data-cites="kang_baseflow_2022">(<a href="#ref-kang_baseflow_2022" role="doc-biblioref">Kang et al. 2022</a>)</span>.</p>
 <div id="fig-parameters_effect" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figures/parameters_effect_plot.png" class="img-fluid figure-img"></p>
@@ -402,24 +404,25 @@ div.csl-indent {
 <p>In order to provide realistic values to the baseflow filter, <em>alpha</em> has been estimated for each basin, and <em>BFImax</em> has been established considering the recommended ranges depending on the basin properties <span class="citation" data-cites="eckhardt_how_2005">(<a href="#ref-eckhardt_how_2005" role="doc-biblioref">Eckhardt 2005</a>)</span>, expert knowledge and ensuring that the baseflow separation obtained is realistic through its graphical representation.</p>
 <p>For the estimation of <em>alpha</em>, the groundwater recession constant (α) was calculated using the function attributed to Maillet <span class="citation" data-cites="maillet_essais_1905">(<a href="#ref-maillet_essais_1905" role="doc-biblioref">1905</a>)</span>, <a href="#eq-gw_recession">Equation&nbsp;3</a>. This equation assumes that the aquifer behaves like a reservoir which releases water following a linear function, and although this assumption is not strictly correct, it is considered a valid and convenient simplification <span class="citation" data-cites="wittenberg_baseflow_1999">(<a href="#ref-wittenberg_baseflow_1999" role="doc-biblioref">Wittenberg 1999</a>)</span>. In this way, from daily streamflow records, the groundwater recession constant can be estimated through a linear regression of the recession curve, where the slope is this constant. The groundwater recession curve was identified for three representative streamflow peaks in each subbasin. These peaks were selected considering aspects such as their magnitude, duration and shape (<a href="#fig-recession_curve">Figure&nbsp;4</a>). A linear regression of the neperian logarithm of the streamflow on the recession time (<a href="#fig-recession_curve">Figure&nbsp;4</a>) was performed using the <em>stats::lm()</em> function, obtaining a linear equation similar to <a href="#eq-gw_recession">Equation&nbsp;3</a>. The initial point of the recession curve has been selected when the direct runoff ceased and the baseflow took maximum values. Despite the ambiguity in determining the beginning and the end of the recession curve <span class="citation" data-cites="blume_rainfallrunoff_2007">(<a href="#ref-blume_rainfallrunoff_2007" role="doc-biblioref">Blume, Zehe, and Bronstert 2007</a>)</span>, representing the streamflow with a semi logarithmic axis can help to determine these points, since the recession curve conforms approximately to a straight line (<a href="#fig-recession_curve">Figure&nbsp;4</a>). A minimum of 10 days of recession curve, which ensures that the linearity of the equation is a good approximation <span class="citation" data-cites="chapman_comparison_1999">(<a href="#ref-chapman_comparison_1999" role="doc-biblioref">Chapman 1999</a>)</span>, and a minimum value of determination coefficient 0.8 were used as criteria for calculating the groundwater recession constant. Despite a recession curve without any precipitation is desirable for adjusting the linear regression, it was not always possible to comply with this condition due to the data itself. Following this methodology, the linear regression equation slope (α) has been calculated for deriving the <em>alpha</em> parameter <a href="#eq-alpha_conversion">Equation&nbsp;5</a>, as showed below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Performed for subbasin 4, Peralejo</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   peralejo <span class="ot">&lt;-</span> gauging_data_tagus <span class="sc">%&gt;%</span> <span class="fu">filter</span>(., cod <span class="sc">==</span> <span class="dv">3001</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">&gt;</span> <span class="dv">2009</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Performed for the Peak 3</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   peak_3_peralejo <span class="ot">&lt;-</span> peralejo[<span class="fu">c</span>(<span class="dv">3360</span><span class="sc">:</span><span class="dv">3475</span>),] </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Recession curve definition and regression</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   recession_curve <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">flow =</span> peak_3_peralejo<span class="sc">$</span>obs_flow[<span class="dv">55</span><span class="sc">:</span><span class="dv">90</span>], </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">day =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">length</span>(peak_3_peralejo<span class="sc">$</span>date[<span class="dv">55</span><span class="sc">:</span><span class="dv">90</span>]), <span class="dv">1</span>))</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>   reg_pk3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(recession_curve<span class="sc">$</span>flow)<span class="sc">~</span>recession_curve<span class="sc">$</span>day)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>   Recession_constant <span class="ot">&lt;-</span>  reg_pk3[[<span class="dv">1</span>]][[<span class="dv">2</span>]]</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>   Intercept <span class="ot">&lt;-</span> reg_pk3[[<span class="dv">1</span>]][[<span class="dv">1</span>]]</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>   <span class="co">#Recession constant for the Peak 3 is -0.024 and 1.77 is the intercept. </span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>   <span class="co"># alpha value equals to e^(-0.024) = 0.977</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Performed for subbasin 5, Priego Escabas</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   prieg_esc <span class="ot">&lt;-</span> gauging_data_tagus <span class="sc">%&gt;%</span> <span class="fu">filter</span>(., cod <span class="sc">==</span> <span class="dv">3045</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">%in%</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2018</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Performed for the Peak 1</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>   peak_1_pres <span class="ot">&lt;-</span> prieg_esc[<span class="fu">c</span>(<span class="dv">980</span><span class="sc">:</span><span class="dv">1500</span>),]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Recession curve definition and regression</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   recession_curve <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">flow =</span> peak_1_pres<span class="sc">$</span>obs_flow[<span class="dv">225</span><span class="sc">:</span><span class="dv">350</span>], </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">day =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">length</span>(peak_1_pres<span class="sc">$</span>date[<span class="dv">225</span><span class="sc">:</span><span class="dv">350</span>]), <span class="dv">1</span>))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>   reg_pk1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(recession_curve<span class="sc">$</span>flow)<span class="sc">~</span>recession_curve<span class="sc">$</span>day)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>   Recession_constant <span class="ot">&lt;-</span>  reg_pk1[[<span class="dv">1</span>]][[<span class="dv">2</span>]]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>   Intercept <span class="ot">&lt;-</span> reg_pk1[[<span class="dv">1</span>]][[<span class="dv">1</span>]]</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>   <span class="co">#Recession constant for the Peak 3 is -0.0084 and 1.308 is the intercept. </span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>   <span class="co"># alpha value equals to exp(-0.0084) = 0.992</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="fig-recession_curve" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="Figures/peaks_selection_adjustment.png" class="img-fluid figure-img"></p>
+<p><img src="Figures/peaks_selection_adjustment_b5.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;4: Peaks selection, groundwater recession curve identification and linear adjustment performed for subbasin 4.</figcaption><p></p>
 </figure>
 </div>
@@ -427,33 +430,32 @@ div.csl-indent {
 <p><span id="eq-bf_contribution"><span class="math display">\[ Bf_c =  \frac {\sum_{1}^{n} bf_k}  {\sum_{1}^{n} (bf_k + rn_k)}    \tag{6}\]</span></span></p>
 <p>The following example shows for one subbasin how the filter has been used. This example is represented in <a href="#fig-bfsep_example">Figure&nbsp;5</a>, where daily precipitation has been represented above the baselow estimation in order to help to perform the streamflow components separation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Example of baseflow filter application to Subbasin 4</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Mean Alpha obtained : 0.982, Max 0.986, Min 0.976</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   peralejo_flow <span class="ot">&lt;-</span>  gauging_data_tagus <span class="sc">%&gt;%</span> <span class="fu">filter</span>(., cod <span class="sc">==</span> <span class="dv">3001</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">%in%</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2018</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">mutate</span>(<span class="at">day =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">length</span>(date), <span class="dv">1</span>))</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>   peralejo_pcp <span class="ot">&lt;-</span> pcpday_bas4 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">day =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">length</span>  (pcpday_bas4<span class="sc">$</span>date)))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Joining pcp and streamflow data by date and creating data frame</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>   peralejo_all <span class="ot">&lt;-</span> peralejo_flow <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(peralejo_pcp, <span class="st">"date"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">as.data.frame</span>(.[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>)])</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>   <span class="co">#Filter parameters</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>   alfa <span class="ot">&lt;-</span> <span class="fl">0.982</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>   bfi_max <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Running the filter</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>   bfsep <span class="ot">&lt;-</span> <span class="fu">baseflow_sep</span>(<span class="at">df =</span> peralejo_all, </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Q =</span> <span class="st">"obs_flow"</span>, </span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                         <span class="at">alpha =</span> alfa, </span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                         <span class="at">BFIma =</span>bfi_max, </span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                         <span class="at">method =</span> <span class="st">"two_param"</span>)</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>   bfsep_tibble <span class="ot">&lt;-</span> peralejo_all <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">baseflow =</span> bfsep<span class="sc">$</span>B, <span class="co">#baseflow</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">runoff =</span> bfsep<span class="sc">$</span>R)   <span class="co">#runoff</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculating the streamflow contribution</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sum</span>(bfsep_tibble<span class="sc">$</span>baseflow) <span class="sc">/</span> (<span class="fu">sum</span>(bfsep_tibble<span class="sc">$</span>baseflow)<span class="sc">+</span><span class="fu">sum</span>(bfsep_tibble<span class="sc">$</span>runoff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Example of baseflow filter application to Subbasin 5</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Mean Alpha obtained : 0.994, Max 0.9954, Min 0.9916</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   prieg_esc_flow <span class="ot">&lt;-</span> gauging_data_tagus <span class="sc">%&gt;%</span> <span class="fu">filter</span>(., cod <span class="sc">==</span> <span class="dv">3045</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">%in%</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2018</span>) </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>   prieg_esc_pcp <span class="ot">&lt;-</span> pcpday_bas_list[[<span class="dv">5</span>]] </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Joining pcp and streamflow data by date and creating data frame</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>   prieg_esc_all <span class="ot">&lt;-</span> prieg_esc_flow <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(prieg_esc_pcp, <span class="st">"date"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">as.data.frame</span>(.[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>)])</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>   <span class="co">#Filter parameters</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>   alfa <span class="ot">&lt;-</span> <span class="fl">0.994</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>   bfi_max <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Running the filter</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>   bfsep <span class="ot">&lt;-</span> <span class="fu">baseflow_sep</span>(<span class="at">df =</span> prieg_esc_all, </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Q =</span> <span class="st">"obs_flow"</span>, </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">alpha =</span> alfa, </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                         <span class="at">BFIma =</span>bfi_max, </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                         <span class="at">method =</span> <span class="st">"two_param"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>   bfsep_tibble <span class="ot">&lt;-</span> prieg_esc_all <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">baseflow =</span> bfsep<span class="sc">$</span>B, <span class="co">#baseflow</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">runoff =</span> bfsep<span class="sc">$</span>R)   <span class="co">#runoff</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculating the streamflow contribution</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sum</span>(bfsep_tibble<span class="sc">$</span>baseflow) <span class="sc">/</span> (<span class="fu">sum</span>(bfsep_tibble<span class="sc">$</span>baseflow)<span class="sc">+</span><span class="fu">sum</span>(bfsep_tibble<span class="sc">$</span>runoff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="fig-bfsep_example" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="Figures/subb_4_bfsep.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: Baseflow separation example performed for the peak 2 of the subbasin 4.</figcaption><p></p>
+<p><img src="Figures/subb_5_bfsep.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: Baseflow separation example performed for the peak 1 of the subbasin 5.</figcaption><p></p>
 </figure>
 </div>
 <p>The estimation of baseflow contribution has been performed through a more complex and subjective method than the runoff coefficient calculation. The use of a baseflow filter program allows to make the hydrograph components division in an easy way, but also can leads to unrealistic results, since some key factors are not automatically taken into account by the filter and thus need expert knowledge supervision. The filter used, based on two parameters, is relatively simple but also allows to take into account factors such as porosity and transmissivity when separating the hydrograph, therefore being able to reproduce the groundwater systems behavior. As the <em>alpha</em> and baseflow index estimation has been performed through a manual process, the obtained values have been saved on the csv files <em>3_alpha_estimation.csv</em> and <em>4_groundwater_results.csv</em>, respectively.</p>
@@ -469,12 +471,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_runoff_rates" class="anchored">
 
-<div id="cabvtwqstz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gratdezpxz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#cabvtwqstz) .gt_table {
+:where(#gratdezpxz) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -499,7 +501,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_heading {
+:where(#gratdezpxz) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -511,12 +513,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_caption {
+:where(#gratdezpxz) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#cabvtwqstz) .gt_title {
+:where(#gratdezpxz) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -528,7 +530,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#cabvtwqstz) .gt_subtitle {
+:where(#gratdezpxz) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -540,13 +542,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#cabvtwqstz) .gt_bottom_border {
+:where(#gratdezpxz) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_col_headings {
+:where(#gratdezpxz) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -561,7 +563,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_col_heading {
+:where(#gratdezpxz) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -581,7 +583,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#cabvtwqstz) .gt_column_spanner_outer {
+:where(#gratdezpxz) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -593,15 +595,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#cabvtwqstz) .gt_column_spanner_outer:first-child {
+:where(#gratdezpxz) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#cabvtwqstz) .gt_column_spanner_outer:last-child {
+:where(#gratdezpxz) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#cabvtwqstz) .gt_column_spanner {
+:where(#gratdezpxz) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -613,7 +615,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#cabvtwqstz) .gt_group_heading {
+:where(#gratdezpxz) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,7 +641,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#cabvtwqstz) .gt_empty_group_heading {
+:where(#gratdezpxz) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -654,15 +656,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#cabvtwqstz) .gt_from_md > :first-child {
+:where(#gratdezpxz) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#cabvtwqstz) .gt_from_md > :last-child {
+:where(#gratdezpxz) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#cabvtwqstz) .gt_row {
+:where(#gratdezpxz) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -681,7 +683,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#cabvtwqstz) .gt_stub {
+:where(#gratdezpxz) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -694,7 +696,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#cabvtwqstz) .gt_stub_row_group {
+:where(#gratdezpxz) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -708,11 +710,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#cabvtwqstz) .gt_row_group_first td {
+:where(#gratdezpxz) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#cabvtwqstz) .gt_summary_row {
+:where(#gratdezpxz) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -722,16 +724,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#cabvtwqstz) .gt_first_summary_row {
+:where(#gratdezpxz) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_first_summary_row.thick {
+:where(#gratdezpxz) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#cabvtwqstz) .gt_last_summary_row {
+:where(#gratdezpxz) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -741,7 +743,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_grand_summary_row {
+:where(#gratdezpxz) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -751,7 +753,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#cabvtwqstz) .gt_first_grand_summary_row {
+:where(#gratdezpxz) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -761,11 +763,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_striped {
+:where(#gratdezpxz) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#cabvtwqstz) .gt_table_body {
+:where(#gratdezpxz) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -774,7 +776,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#cabvtwqstz) .gt_footnotes {
+:where(#gratdezpxz) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -788,7 +790,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_footnote {
+:where(#gratdezpxz) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -797,7 +799,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#cabvtwqstz) .gt_sourcenotes {
+:where(#gratdezpxz) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -811,7 +813,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#cabvtwqstz) .gt_sourcenote {
+:where(#gratdezpxz) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -819,64 +821,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#cabvtwqstz) .gt_left {
+:where(#gratdezpxz) .gt_left {
   text-align: left;
 }
 
-:where(#cabvtwqstz) .gt_center {
+:where(#gratdezpxz) .gt_center {
   text-align: center;
 }
 
-:where(#cabvtwqstz) .gt_right {
+:where(#gratdezpxz) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#cabvtwqstz) .gt_font_normal {
+:where(#gratdezpxz) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#cabvtwqstz) .gt_font_bold {
+:where(#gratdezpxz) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#cabvtwqstz) .gt_font_italic {
+:where(#gratdezpxz) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#cabvtwqstz) .gt_super {
+:where(#gratdezpxz) .gt_super {
   font-size: 65%;
 }
 
-:where(#cabvtwqstz) .gt_footnote_marks {
+:where(#gratdezpxz) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#cabvtwqstz) .gt_asterisk {
+:where(#gratdezpxz) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#cabvtwqstz) .gt_indent_1 {
+:where(#gratdezpxz) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#cabvtwqstz) .gt_indent_2 {
+:where(#gratdezpxz) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#cabvtwqstz) .gt_indent_3 {
+:where(#gratdezpxz) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#cabvtwqstz) .gt_indent_4 {
+:where(#gratdezpxz) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#cabvtwqstz) .gt_indent_5 {
+:where(#gratdezpxz) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -905,13 +907,13 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.400</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.37</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.45</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">14.04</td>
 <td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">503</td>
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.065</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.05</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.09</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12.91</td>
 <td headers="Mean Precipitation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">483</td>
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.040</td>
@@ -935,7 +937,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The influence of the lithology is highlighted when aggregating at region scale. For example, although temperature is slightly higher and precipitation is slightly lower in the high permeability detrital region, its runoff coefficient doubles the runoff coefficient of the low permeability region. Runoff coefficient is higher in the IMP and CRB regions, where not only precipitation and temperature are more favorable for generating runoff, but also lithology and the mountainous topography. Regions DTAL and DTBJ are flatter and warmer than the CRB region, and evapotranspiration is favored under these conditions <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. It should be noted the subbasins selected in CRB region are closely located (<a href="#fig-location">Figure&nbsp;1</a>), thus they have a similar climate. Therefore, the runoff coefficient varies less than in the IMP region, where subbasin 3 is located in a more arid region than subbasins 1 and 2. Regardless this, the CRB region seems to be less influenced by climate than IMP region, which could be explained by its aquifer properties, allowing a higher recharge thus limiting the amount of water available for evapotranspiration. In DTAL and DTBJ regions, runoff coefficient its always lower than 10% (even 4% in DTBJ), which indicates that most of the precipitation becomes evapotranspirated. Even though some areas of the DTBJ region subbasins are conformed by medium permeability carbonate and detrital materials, runoff coefficient in this region is much lower than in DTAL, which points to a high influence of the presence of low permeability materials, which in combination with a flat topography, low precipitation and warmer temperatures lead to a very high evapotranspiration. Precisely due to the flat topography, it should be also acknowledged the possibility that a small amount of the recharged water might be released to the streamflow downstream the gauging points, but it is not expected to be a significant amount since the subbasins selected are relatively large.</p>
+<p>The influence of the lithology is highlighted when aggregating at region scale. For example, although temperature is slightly higher and precipitation is slightly lower in the high permeability detrital region, its runoff coefficient doubles the runoff coefficient of the low permeability region. Runoff coefficient is higher in the IMP and CRB regions, where not only precipitation and temperature are more favorable for generating runoff, but also lithology and the mountainous topography. Regions DTH and DTL are flatter and warmer than the CRB region, and evapotranspiration is favored under these conditions <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. It should be noted the subbasins selected in CRB region are closely located (<a href="#fig-location">Figure&nbsp;1</a>), thus they have a similar climate. Therefore, the runoff coefficient varies less than in the IMP region, where subbasin 3 is located in a more arid region than subbasins 1 and 2. Regardless this, the CRB region seems to be less influenced by climate than IMP region, which could be explained by its aquifer properties, allowing a higher recharge thus limiting the amount of water available for evapotranspiration. In DTH and DTL regions, runoff coefficient its always lower than 10% (even 4% in DTL), which indicates that most of the precipitation becomes evapotranspirated. Even though some areas of the DTL region subbasins are conformed by medium permeability carbonate and detrital materials, runoff coefficient in this region is much lower than in DTH, which points to a high influence of the presence of low permeability materials, which in combination with a flat topography, low precipitation and warmer temperatures lead to a very high evapotranspiration. Precisely due to the flat topography, it should be also acknowledged the possibility that a small amount of the recharged water might be released to the streamflow downstream the gauging points, but it is not expected to be a significant amount since the subbasins selected are relatively large.</p>
 <p>Subbasins with mixed lithology yielded the widest range of runoff coefficient values, which could be expected. In line with the results discussed above, mixed lithology subbasins where igneous, metamorphic or carbonated materials dominate showed higher runoff coefficients, while the lowest values were obtained in those mixed subbasins where detrital materials with low permeability are present (e.g., subbasin 17, Appendix II).</p>
 </section>
 <section id="baseflow-index-values" class="level4">
@@ -949,12 +951,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_alphas" class="anchored">
 
-<div id="gjigtbvkvx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hnqzpkmfgt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#gjigtbvkvx) .gt_table {
+:where(#hnqzpkmfgt) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -979,7 +981,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_heading {
+:where(#hnqzpkmfgt) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -991,12 +993,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_caption {
+:where(#hnqzpkmfgt) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#gjigtbvkvx) .gt_title {
+:where(#hnqzpkmfgt) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1008,7 +1010,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#gjigtbvkvx) .gt_subtitle {
+:where(#hnqzpkmfgt) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1020,13 +1022,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#gjigtbvkvx) .gt_bottom_border {
+:where(#hnqzpkmfgt) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_col_headings {
+:where(#hnqzpkmfgt) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1041,7 +1043,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_col_heading {
+:where(#hnqzpkmfgt) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1061,7 +1063,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#gjigtbvkvx) .gt_column_spanner_outer {
+:where(#hnqzpkmfgt) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1073,15 +1075,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#gjigtbvkvx) .gt_column_spanner_outer:first-child {
+:where(#hnqzpkmfgt) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#gjigtbvkvx) .gt_column_spanner_outer:last-child {
+:where(#hnqzpkmfgt) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#gjigtbvkvx) .gt_column_spanner {
+:where(#hnqzpkmfgt) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1093,7 +1095,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#gjigtbvkvx) .gt_group_heading {
+:where(#hnqzpkmfgt) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1119,7 +1121,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#gjigtbvkvx) .gt_empty_group_heading {
+:where(#hnqzpkmfgt) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1134,15 +1136,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#gjigtbvkvx) .gt_from_md > :first-child {
+:where(#hnqzpkmfgt) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#gjigtbvkvx) .gt_from_md > :last-child {
+:where(#hnqzpkmfgt) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#gjigtbvkvx) .gt_row {
+:where(#hnqzpkmfgt) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1161,7 +1163,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#gjigtbvkvx) .gt_stub {
+:where(#hnqzpkmfgt) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1174,7 +1176,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gjigtbvkvx) .gt_stub_row_group {
+:where(#hnqzpkmfgt) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1188,11 +1190,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#gjigtbvkvx) .gt_row_group_first td {
+:where(#hnqzpkmfgt) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#gjigtbvkvx) .gt_summary_row {
+:where(#hnqzpkmfgt) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1202,16 +1204,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gjigtbvkvx) .gt_first_summary_row {
+:where(#hnqzpkmfgt) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_first_summary_row.thick {
+:where(#hnqzpkmfgt) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#gjigtbvkvx) .gt_last_summary_row {
+:where(#hnqzpkmfgt) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1221,7 +1223,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_grand_summary_row {
+:where(#hnqzpkmfgt) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1231,7 +1233,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gjigtbvkvx) .gt_first_grand_summary_row {
+:where(#hnqzpkmfgt) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1241,11 +1243,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_striped {
+:where(#hnqzpkmfgt) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#gjigtbvkvx) .gt_table_body {
+:where(#hnqzpkmfgt) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1254,7 +1256,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#gjigtbvkvx) .gt_footnotes {
+:where(#hnqzpkmfgt) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1268,7 +1270,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_footnote {
+:where(#hnqzpkmfgt) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1277,7 +1279,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gjigtbvkvx) .gt_sourcenotes {
+:where(#hnqzpkmfgt) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1291,7 +1293,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#gjigtbvkvx) .gt_sourcenote {
+:where(#hnqzpkmfgt) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1299,64 +1301,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#gjigtbvkvx) .gt_left {
+:where(#hnqzpkmfgt) .gt_left {
   text-align: left;
 }
 
-:where(#gjigtbvkvx) .gt_center {
+:where(#hnqzpkmfgt) .gt_center {
   text-align: center;
 }
 
-:where(#gjigtbvkvx) .gt_right {
+:where(#hnqzpkmfgt) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#gjigtbvkvx) .gt_font_normal {
+:where(#hnqzpkmfgt) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#gjigtbvkvx) .gt_font_bold {
+:where(#hnqzpkmfgt) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#gjigtbvkvx) .gt_font_italic {
+:where(#hnqzpkmfgt) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#gjigtbvkvx) .gt_super {
+:where(#hnqzpkmfgt) .gt_super {
   font-size: 65%;
 }
 
-:where(#gjigtbvkvx) .gt_footnote_marks {
+:where(#hnqzpkmfgt) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#gjigtbvkvx) .gt_asterisk {
+:where(#hnqzpkmfgt) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#gjigtbvkvx) .gt_indent_1 {
+:where(#hnqzpkmfgt) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#gjigtbvkvx) .gt_indent_2 {
+:where(#hnqzpkmfgt) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#gjigtbvkvx) .gt_indent_3 {
+:where(#hnqzpkmfgt) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#gjigtbvkvx) .gt_indent_4 {
+:where(#hnqzpkmfgt) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#gjigtbvkvx) .gt_indent_5 {
+:where(#hnqzpkmfgt) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1382,12 +1384,12 @@ div.csl-indent {
 <td headers="Mean determination coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.927</td>
 <td headers="Mean alpha value" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.991</td>
 <td headers="Alpha standard deviation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.004</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Average recession curve time (days)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">48</td>
 <td headers="Mean determination coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.910</td>
 <td headers="Mean alpha value" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.964</td>
 <td headers="Alpha standard deviation" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.012</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Average recession curve time (days)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">79</td>
 <td headers="Mean determination coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.897</td>
 <td headers="Mean alpha value" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.976</td>
@@ -1411,7 +1413,7 @@ div.csl-indent {
 </div>
 <p>It should be reminded that <em>alpha</em> in this baseflow filter is not the classical recession constant (α), and when <em>alpha</em> approximates to 1, α approximates to 0. Besides, when α tends to 0, it becomes close to <span class="math inline">\(1-alpha\)</span>, considering the Taylor development of the <a href="#eq-gw_recession">Equation&nbsp;3</a>. The obtained <em>alpha</em> values showed relevant differences in the immediacy of baseflow response. The lowest value was obtained for the carbonate (CRB) region, which is expected considering its hydrogeological behavior (i.e., relevant karst aquifers with fractures, where recharge and release events response quickly to precipitation events and with enough storage capacity to maintain the streamflow during dry season). It also matches with a larger baseflow index expected, as mentioned above.</p>
 <p>Considering the lithology, the highest alpha value would have been expected for the impervious region (IMP), since barely any baseflow response is expected there. However, the obtained value was not significantly different from other regions in the basin (<a href="#tbl-reg_alphas">Table&nbsp;2</a>). Most probably, consecutive precipitation events in these subbasins and snowmelt processes could be maintaining a baseflow level which is not a result of groundwater contribution, and thus hindering recession constant calculation.</p>
-<p>Regarding the detrital regions, the high permeability one showed the highest alpha value. The porosity of the high permeability materials, despite being higher than the materials of the CRB region, does not have fractures, which could have led to a slower recession response. The low permeability detrital region (DTBJ) showed an alpha value similar to the DTAL region, instead of being higher (thus less sensitive), as it would be expected. However, as mentioned before, the subbasins selected for the DTBJ region do not only consist of materials with low permeability, complicating results comparison. In fact, the DTBJ region seems to have a relevant contribution of baseflow, and its response to precipitation events seems to be slow (which can be explained to a low transmissivity derived from the low permeability materials). A graphical comparison of the hydrographs for one hydrological year (October-September) among subbasins located in the different geological regions is included in Appendix III, allowing to visualize some of the previous insights.</p>
+<p>Regarding the detrital regions, the high permeability one showed the highest alpha value. The porosity of the high permeability materials, despite being higher than the materials of the CRB region, does not have fractures, which could have led to a slower recession response. The low permeability detrital region (DTL) showed an alpha value similar to the DTH region, instead of being higher (thus less sensitive), as it would be expected. However, as mentioned before, the subbasins selected for the DTL region do not only consist of materials with low permeability, complicating results comparison. In fact, the DTL region seems to have a relevant contribution of baseflow, and its response to precipitation events seems to be slow (which can be explained to a low transmissivity derived from the low permeability materials). A graphical comparison of the hydrographs for one hydrological year (October-September) among subbasins located in the different geological regions is included in Appendix III, allowing to visualize some of the previous insights.</p>
 <p>Once the three <em>alpha</em> values were obtained for each basin, a range of potential <em>alpha</em> values was estimated. Different values within this range were used for running the filter, in order to obtain a realistic separation of the hydrograph components. The values of <em>BFImax</em> were based both in the recommended values and in the expert knowledge of each basin, and the baseflow index was calculated for the entire period with <a href="#eq-bf_contribution">Equation&nbsp;6</a>. The results obtained through this methodology are highly influenced by the parameters used (specially <em>BFImax</em>), and therefore it is a subjective methodology. However, it is a useful tool that, used based on expert knowledge criterion, helps to estimate the relevance of groundwater contribution to the streamflow, thus further aiding in eventual soft calibration procedures.</p>
 <p>After using this methodology, authors want to highlight some considerations or advises in order to help other modelers.</p>
 <p>First, regarding the filter parameters, although <em>alpha</em> has been calculated from real hydrographs and <em>BFImax</em> values are recommended in literature, the values of the parameters must be settled by the user considering the basin characteristics. The influence that some factors (such as snowmelt or precipitations during the recession curve) have on the <em>alpha</em> value calculation should be considered. Therefore, the obtained <em>alpha</em> average does not necessarily have to be the used value, and it can be modified depending on factors such as the mentioned. Regarding the <em>BFImax</em> parameter, which will influence in a major extent the result obtained, should be adjusted carefully after reviewing the basin lithology and the characteristics of the peaks (e.g., recession curves during first months of the year could be also altered by snowmelt, which can suppose most of the baseflow in regions with snow processes, particularly if they are impervious). Adjustment of this parameter has been subjective in some subbasins with an impervious lithology (e.g., Basin 1, Navaluenga), as looking at the hydrograph, groundwater contribution should not be neglected despite presumably being impervious <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">Martín-Loeches et al. 2020</a>)</span>. As <a href="#fig-parameters_effect">Figure&nbsp;3</a> shows, both parameters are sensitive to the baseflow separation, and a realistic baseflow separation has been prioritized rather than using the calculated or recommended parameter values for <em>alpha</em> and <em>BFImax</em>.</p>
@@ -1429,12 +1431,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_gw_results" class="anchored">
 
-<div id="fsummzekqt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="afigptzzel" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#fsummzekqt) .gt_table {
+:where(#afigptzzel) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1459,7 +1461,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_heading {
+:where(#afigptzzel) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1471,12 +1473,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_caption {
+:where(#afigptzzel) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#fsummzekqt) .gt_title {
+:where(#afigptzzel) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1488,7 +1490,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#fsummzekqt) .gt_subtitle {
+:where(#afigptzzel) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1500,13 +1502,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#fsummzekqt) .gt_bottom_border {
+:where(#afigptzzel) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_col_headings {
+:where(#afigptzzel) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1521,7 +1523,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_col_heading {
+:where(#afigptzzel) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1541,7 +1543,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#fsummzekqt) .gt_column_spanner_outer {
+:where(#afigptzzel) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1553,15 +1555,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#fsummzekqt) .gt_column_spanner_outer:first-child {
+:where(#afigptzzel) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#fsummzekqt) .gt_column_spanner_outer:last-child {
+:where(#afigptzzel) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#fsummzekqt) .gt_column_spanner {
+:where(#afigptzzel) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1573,7 +1575,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#fsummzekqt) .gt_group_heading {
+:where(#afigptzzel) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1599,7 +1601,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#fsummzekqt) .gt_empty_group_heading {
+:where(#afigptzzel) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1614,15 +1616,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#fsummzekqt) .gt_from_md > :first-child {
+:where(#afigptzzel) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#fsummzekqt) .gt_from_md > :last-child {
+:where(#afigptzzel) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#fsummzekqt) .gt_row {
+:where(#afigptzzel) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1641,7 +1643,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#fsummzekqt) .gt_stub {
+:where(#afigptzzel) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1654,7 +1656,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsummzekqt) .gt_stub_row_group {
+:where(#afigptzzel) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1668,11 +1670,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#fsummzekqt) .gt_row_group_first td {
+:where(#afigptzzel) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#fsummzekqt) .gt_summary_row {
+:where(#afigptzzel) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1682,16 +1684,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsummzekqt) .gt_first_summary_row {
+:where(#afigptzzel) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_first_summary_row.thick {
+:where(#afigptzzel) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#fsummzekqt) .gt_last_summary_row {
+:where(#afigptzzel) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1701,7 +1703,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_grand_summary_row {
+:where(#afigptzzel) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1711,7 +1713,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsummzekqt) .gt_first_grand_summary_row {
+:where(#afigptzzel) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1721,11 +1723,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_striped {
+:where(#afigptzzel) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#fsummzekqt) .gt_table_body {
+:where(#afigptzzel) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1734,7 +1736,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#fsummzekqt) .gt_footnotes {
+:where(#afigptzzel) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1748,7 +1750,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_footnote {
+:where(#afigptzzel) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1757,7 +1759,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsummzekqt) .gt_sourcenotes {
+:where(#afigptzzel) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1771,7 +1773,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#fsummzekqt) .gt_sourcenote {
+:where(#afigptzzel) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1779,64 +1781,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#fsummzekqt) .gt_left {
+:where(#afigptzzel) .gt_left {
   text-align: left;
 }
 
-:where(#fsummzekqt) .gt_center {
+:where(#afigptzzel) .gt_center {
   text-align: center;
 }
 
-:where(#fsummzekqt) .gt_right {
+:where(#afigptzzel) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#fsummzekqt) .gt_font_normal {
+:where(#afigptzzel) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#fsummzekqt) .gt_font_bold {
+:where(#afigptzzel) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#fsummzekqt) .gt_font_italic {
+:where(#afigptzzel) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#fsummzekqt) .gt_super {
+:where(#afigptzzel) .gt_super {
   font-size: 65%;
 }
 
-:where(#fsummzekqt) .gt_footnote_marks {
+:where(#afigptzzel) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#fsummzekqt) .gt_asterisk {
+:where(#afigptzzel) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#fsummzekqt) .gt_indent_1 {
+:where(#afigptzzel) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#fsummzekqt) .gt_indent_2 {
+:where(#afigptzzel) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#fsummzekqt) .gt_indent_3 {
+:where(#afigptzzel) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#fsummzekqt) .gt_indent_4 {
+:where(#afigptzzel) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#fsummzekqt) .gt_indent_5 {
+:where(#afigptzzel) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1859,18 +1861,14 @@ div.csl-indent {
 <td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.994</td>
 <td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.55</td>
 <td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.46</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
-<td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.984</td>
-<td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.39</td>
-<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.34</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
-<td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.995</td>
-<td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.38</td>
-<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.30</td></tr>
     <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">MIX</td>
 <td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.990</td>
 <td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.36</td>
 <td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.31</td></tr>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">NA</td>
+<td headers="Mean alpha used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.989</td>
+<td headers="Mean BFImax used" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.39</td>
+<td headers="Estimated baseflow index" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.32</td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">
@@ -1885,7 +1883,7 @@ div.csl-indent {
 </div>
 <p>Subbasins located in geological regions with low permeability were expected to have lower baseflow index, while those located in regions with relevant aquifers were expected to have higher rates. A baseflow index around 20% has been estimated for the igneous and metamorphic region (IMP). This value might be considered high for impervious basins, but based in the knowledge about the studied subbasins and the assessment performed, it seems correct. Some indicators, such as the presence of flow during dry periods or phreatophyte vegetation can be used as indicators of groundwater contribution, and these indicators has been observed in some of the subbasins characterized as impervious in this work <span class="citation" data-cites="martin-loeches_hydrogeochemistry_2020">(<a href="#ref-martin-loeches_hydrogeochemistry_2020" role="doc-biblioref">Martín-Loeches et al. 2020</a>)</span>.</p>
 <p>As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies <span class="citation" data-cites="sanchez-gomez_optimization_2022">(<a href="#ref-sanchez-gomez_optimization_2022" role="doc-biblioref">Sánchez-Gómez, Martínez-Pérez, Pérez-Chavero, et al. 2022</a>)</span> and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix II).</p>
-<p>Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTAL). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTBJ) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTBJ region are noticeable lower than in DTAL region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTBJ region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTBJ region reveal this behavior, since a baseflow is maintained throughout the year (Appendix III). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.</p>
+<p>Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTH). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTL) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTL region are noticeable lower than in DTH region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTL region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTL region reveal this behavior, since a baseflow is maintained throughout the year (Appendix III). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.</p>
 <p>In the subbasins located in mixed lithology regions, the baseflow index obtained in average is around 46%, thus relatively high. It could be explained because four of these subbasins (subbasins 16 to 19, Appendix IV) are constituted in a greater extent by carbonate materials, from medium to very high permeability (<a href="#fig-location">Figure&nbsp;1</a>), while only two of these subbasins have impervious igneous and metamorphic materials.</p>
 </section>
 </section>
@@ -1925,12 +1923,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="tbjakpkgiy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="besjarbnug" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#tbjakpkgiy) .gt_table {
+:where(#besjarbnug) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1955,7 +1953,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_heading {
+:where(#besjarbnug) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1967,12 +1965,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_caption {
+:where(#besjarbnug) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#tbjakpkgiy) .gt_title {
+:where(#besjarbnug) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1984,7 +1982,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#tbjakpkgiy) .gt_subtitle {
+:where(#besjarbnug) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1996,13 +1994,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#tbjakpkgiy) .gt_bottom_border {
+:where(#besjarbnug) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_col_headings {
+:where(#besjarbnug) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2017,7 +2015,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_col_heading {
+:where(#besjarbnug) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2037,7 +2035,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#tbjakpkgiy) .gt_column_spanner_outer {
+:where(#besjarbnug) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2049,15 +2047,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#tbjakpkgiy) .gt_column_spanner_outer:first-child {
+:where(#besjarbnug) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#tbjakpkgiy) .gt_column_spanner_outer:last-child {
+:where(#besjarbnug) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#tbjakpkgiy) .gt_column_spanner {
+:where(#besjarbnug) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2069,7 +2067,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#tbjakpkgiy) .gt_group_heading {
+:where(#besjarbnug) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2095,7 +2093,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#tbjakpkgiy) .gt_empty_group_heading {
+:where(#besjarbnug) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2110,15 +2108,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#tbjakpkgiy) .gt_from_md > :first-child {
+:where(#besjarbnug) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#tbjakpkgiy) .gt_from_md > :last-child {
+:where(#besjarbnug) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#tbjakpkgiy) .gt_row {
+:where(#besjarbnug) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2137,7 +2135,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#tbjakpkgiy) .gt_stub {
+:where(#besjarbnug) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2150,7 +2148,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tbjakpkgiy) .gt_stub_row_group {
+:where(#besjarbnug) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2164,11 +2162,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#tbjakpkgiy) .gt_row_group_first td {
+:where(#besjarbnug) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#tbjakpkgiy) .gt_summary_row {
+:where(#besjarbnug) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2178,16 +2176,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tbjakpkgiy) .gt_first_summary_row {
+:where(#besjarbnug) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_first_summary_row.thick {
+:where(#besjarbnug) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#tbjakpkgiy) .gt_last_summary_row {
+:where(#besjarbnug) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2197,7 +2195,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_grand_summary_row {
+:where(#besjarbnug) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2207,7 +2205,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tbjakpkgiy) .gt_first_grand_summary_row {
+:where(#besjarbnug) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2217,11 +2215,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_striped {
+:where(#besjarbnug) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#tbjakpkgiy) .gt_table_body {
+:where(#besjarbnug) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2230,7 +2228,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#tbjakpkgiy) .gt_footnotes {
+:where(#besjarbnug) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2244,7 +2242,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_footnote {
+:where(#besjarbnug) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2253,7 +2251,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tbjakpkgiy) .gt_sourcenotes {
+:where(#besjarbnug) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2267,7 +2265,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#tbjakpkgiy) .gt_sourcenote {
+:where(#besjarbnug) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2275,64 +2273,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#tbjakpkgiy) .gt_left {
+:where(#besjarbnug) .gt_left {
   text-align: left;
 }
 
-:where(#tbjakpkgiy) .gt_center {
+:where(#besjarbnug) .gt_center {
   text-align: center;
 }
 
-:where(#tbjakpkgiy) .gt_right {
+:where(#besjarbnug) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#tbjakpkgiy) .gt_font_normal {
+:where(#besjarbnug) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#tbjakpkgiy) .gt_font_bold {
+:where(#besjarbnug) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#tbjakpkgiy) .gt_font_italic {
+:where(#besjarbnug) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#tbjakpkgiy) .gt_super {
+:where(#besjarbnug) .gt_super {
   font-size: 65%;
 }
 
-:where(#tbjakpkgiy) .gt_footnote_marks {
+:where(#besjarbnug) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#tbjakpkgiy) .gt_asterisk {
+:where(#besjarbnug) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#tbjakpkgiy) .gt_indent_1 {
+:where(#besjarbnug) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#tbjakpkgiy) .gt_indent_2 {
+:where(#besjarbnug) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#tbjakpkgiy) .gt_indent_3 {
+:where(#besjarbnug) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#tbjakpkgiy) .gt_indent_4 {
+:where(#besjarbnug) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#tbjakpkgiy) .gt_indent_5 {
+:where(#besjarbnug) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2384,37 +2382,37 @@ div.csl-indent {
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">2010-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">No, 273 days missing</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">7, Jabalera (3249)</td>
-<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">85</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1977-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">8, Huete (3172)</td>
-<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">359</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1965-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">9, Torote (3193)</td>
-<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">255</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1972-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">10, La Pueblanueva (3251)</td>
-<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">222</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1978-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11, Ventosa (3030)</td>
-<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">942</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1945-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12, La Peraleja (3173)</td>
-<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">261</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1966-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
     <tr><td headers="ID, subbasin and streamflow station code" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13, Villasequilla de Yepes (3164)</td>
-<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+<td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1321</td>
 <td headers="Streamflow data availability" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1971-2019</td>
 <td headers="Complete data (2010-2018)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Yes</td></tr>
@@ -2460,12 +2458,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="jmeilvdhfj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rlzmwaihjx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#jmeilvdhfj) .gt_table {
+:where(#rlzmwaihjx) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2490,7 +2488,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_heading {
+:where(#rlzmwaihjx) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2502,12 +2500,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_caption {
+:where(#rlzmwaihjx) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#jmeilvdhfj) .gt_title {
+:where(#rlzmwaihjx) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2519,7 +2517,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#jmeilvdhfj) .gt_subtitle {
+:where(#rlzmwaihjx) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2531,13 +2529,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#jmeilvdhfj) .gt_bottom_border {
+:where(#rlzmwaihjx) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_col_headings {
+:where(#rlzmwaihjx) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2552,7 +2550,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_col_heading {
+:where(#rlzmwaihjx) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2572,7 +2570,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#jmeilvdhfj) .gt_column_spanner_outer {
+:where(#rlzmwaihjx) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2584,15 +2582,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#jmeilvdhfj) .gt_column_spanner_outer:first-child {
+:where(#rlzmwaihjx) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#jmeilvdhfj) .gt_column_spanner_outer:last-child {
+:where(#rlzmwaihjx) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#jmeilvdhfj) .gt_column_spanner {
+:where(#rlzmwaihjx) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2604,7 +2602,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#jmeilvdhfj) .gt_group_heading {
+:where(#rlzmwaihjx) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2630,7 +2628,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#jmeilvdhfj) .gt_empty_group_heading {
+:where(#rlzmwaihjx) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2645,15 +2643,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#jmeilvdhfj) .gt_from_md > :first-child {
+:where(#rlzmwaihjx) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#jmeilvdhfj) .gt_from_md > :last-child {
+:where(#rlzmwaihjx) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#jmeilvdhfj) .gt_row {
+:where(#rlzmwaihjx) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2672,7 +2670,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#jmeilvdhfj) .gt_stub {
+:where(#rlzmwaihjx) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2685,7 +2683,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jmeilvdhfj) .gt_stub_row_group {
+:where(#rlzmwaihjx) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2699,11 +2697,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#jmeilvdhfj) .gt_row_group_first td {
+:where(#rlzmwaihjx) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#jmeilvdhfj) .gt_summary_row {
+:where(#rlzmwaihjx) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2713,16 +2711,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jmeilvdhfj) .gt_first_summary_row {
+:where(#rlzmwaihjx) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_first_summary_row.thick {
+:where(#rlzmwaihjx) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#jmeilvdhfj) .gt_last_summary_row {
+:where(#rlzmwaihjx) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2732,7 +2730,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_grand_summary_row {
+:where(#rlzmwaihjx) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2742,7 +2740,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jmeilvdhfj) .gt_first_grand_summary_row {
+:where(#rlzmwaihjx) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2752,11 +2750,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_striped {
+:where(#rlzmwaihjx) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#jmeilvdhfj) .gt_table_body {
+:where(#rlzmwaihjx) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2765,7 +2763,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#jmeilvdhfj) .gt_footnotes {
+:where(#rlzmwaihjx) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2779,7 +2777,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_footnote {
+:where(#rlzmwaihjx) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2788,7 +2786,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jmeilvdhfj) .gt_sourcenotes {
+:where(#rlzmwaihjx) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2802,7 +2800,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jmeilvdhfj) .gt_sourcenote {
+:where(#rlzmwaihjx) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2810,64 +2808,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jmeilvdhfj) .gt_left {
+:where(#rlzmwaihjx) .gt_left {
   text-align: left;
 }
 
-:where(#jmeilvdhfj) .gt_center {
+:where(#rlzmwaihjx) .gt_center {
   text-align: center;
 }
 
-:where(#jmeilvdhfj) .gt_right {
+:where(#rlzmwaihjx) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#jmeilvdhfj) .gt_font_normal {
+:where(#rlzmwaihjx) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#jmeilvdhfj) .gt_font_bold {
+:where(#rlzmwaihjx) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#jmeilvdhfj) .gt_font_italic {
+:where(#rlzmwaihjx) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#jmeilvdhfj) .gt_super {
+:where(#rlzmwaihjx) .gt_super {
   font-size: 65%;
 }
 
-:where(#jmeilvdhfj) .gt_footnote_marks {
+:where(#rlzmwaihjx) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#jmeilvdhfj) .gt_asterisk {
+:where(#rlzmwaihjx) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#jmeilvdhfj) .gt_indent_1 {
+:where(#rlzmwaihjx) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#jmeilvdhfj) .gt_indent_2 {
+:where(#rlzmwaihjx) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#jmeilvdhfj) .gt_indent_3 {
+:where(#rlzmwaihjx) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#jmeilvdhfj) .gt_indent_4 {
+:where(#rlzmwaihjx) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#jmeilvdhfj) .gt_indent_5 {
+:where(#rlzmwaihjx) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2939,7 +2937,7 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.45</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.19</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.74</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">7</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Jabalera</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13.75</td>
@@ -2947,7 +2945,7 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.09</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.03</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.24</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">8</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Huete</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13.29</td>
@@ -2955,7 +2953,7 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.05</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.02</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.10</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">9</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Torote</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13.23</td>
@@ -2963,7 +2961,7 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.06</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.03</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.10</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTAL</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTH</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">10</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">La Pueblanueva</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">15.89</td>
@@ -2971,7 +2969,7 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.06</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.01</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.15</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Ventosa</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11.03</td>
@@ -2979,7 +2977,7 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.08</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.05</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.14</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">La Peraleja</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13.32</td>
@@ -2987,7 +2985,7 @@ div.csl-indent {
 <td headers="Mean Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.02</td>
 <td headers="Min Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.01</td>
 <td headers="Max Runoff coefficient" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0.06</td></tr>
-    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTBJ</td>
+    <tr><td headers="Region" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">DTL</td>
 <td headers="Basin_ID" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13</td>
 <td headers="Basin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">Villasequilla de Yepes</td>
 <td headers="Mean Temperature" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">14.39</td>
@@ -3057,12 +3055,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="jxwewvhxnd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="aytkeruzgr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#jxwewvhxnd) .gt_table {
+:where(#aytkeruzgr) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3087,7 +3085,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_heading {
+:where(#aytkeruzgr) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -3099,12 +3097,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_caption {
+:where(#aytkeruzgr) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#jxwewvhxnd) .gt_title {
+:where(#aytkeruzgr) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3116,7 +3114,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#jxwewvhxnd) .gt_subtitle {
+:where(#aytkeruzgr) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3128,13 +3126,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#jxwewvhxnd) .gt_bottom_border {
+:where(#aytkeruzgr) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_col_headings {
+:where(#aytkeruzgr) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -3149,7 +3147,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_col_heading {
+:where(#aytkeruzgr) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3169,7 +3167,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#jxwewvhxnd) .gt_column_spanner_outer {
+:where(#aytkeruzgr) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3181,15 +3179,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#jxwewvhxnd) .gt_column_spanner_outer:first-child {
+:where(#aytkeruzgr) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#jxwewvhxnd) .gt_column_spanner_outer:last-child {
+:where(#aytkeruzgr) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#jxwewvhxnd) .gt_column_spanner {
+:where(#aytkeruzgr) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -3201,7 +3199,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#jxwewvhxnd) .gt_group_heading {
+:where(#aytkeruzgr) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3227,7 +3225,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#jxwewvhxnd) .gt_empty_group_heading {
+:where(#aytkeruzgr) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3242,15 +3240,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#jxwewvhxnd) .gt_from_md > :first-child {
+:where(#aytkeruzgr) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#jxwewvhxnd) .gt_from_md > :last-child {
+:where(#aytkeruzgr) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#jxwewvhxnd) .gt_row {
+:where(#aytkeruzgr) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3269,7 +3267,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#jxwewvhxnd) .gt_stub {
+:where(#aytkeruzgr) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3282,7 +3280,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jxwewvhxnd) .gt_stub_row_group {
+:where(#aytkeruzgr) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3296,11 +3294,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#jxwewvhxnd) .gt_row_group_first td {
+:where(#aytkeruzgr) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#jxwewvhxnd) .gt_summary_row {
+:where(#aytkeruzgr) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3310,16 +3308,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jxwewvhxnd) .gt_first_summary_row {
+:where(#aytkeruzgr) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_first_summary_row.thick {
+:where(#aytkeruzgr) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#jxwewvhxnd) .gt_last_summary_row {
+:where(#aytkeruzgr) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3329,7 +3327,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_grand_summary_row {
+:where(#aytkeruzgr) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3339,7 +3337,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jxwewvhxnd) .gt_first_grand_summary_row {
+:where(#aytkeruzgr) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3349,11 +3347,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_striped {
+:where(#aytkeruzgr) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#jxwewvhxnd) .gt_table_body {
+:where(#aytkeruzgr) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3362,7 +3360,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#jxwewvhxnd) .gt_footnotes {
+:where(#aytkeruzgr) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3376,7 +3374,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_footnote {
+:where(#aytkeruzgr) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3385,7 +3383,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jxwewvhxnd) .gt_sourcenotes {
+:where(#aytkeruzgr) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3399,7 +3397,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#jxwewvhxnd) .gt_sourcenote {
+:where(#aytkeruzgr) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3407,64 +3405,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#jxwewvhxnd) .gt_left {
+:where(#aytkeruzgr) .gt_left {
   text-align: left;
 }
 
-:where(#jxwewvhxnd) .gt_center {
+:where(#aytkeruzgr) .gt_center {
   text-align: center;
 }
 
-:where(#jxwewvhxnd) .gt_right {
+:where(#aytkeruzgr) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#jxwewvhxnd) .gt_font_normal {
+:where(#aytkeruzgr) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#jxwewvhxnd) .gt_font_bold {
+:where(#aytkeruzgr) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#jxwewvhxnd) .gt_font_italic {
+:where(#aytkeruzgr) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#jxwewvhxnd) .gt_super {
+:where(#aytkeruzgr) .gt_super {
   font-size: 65%;
 }
 
-:where(#jxwewvhxnd) .gt_footnote_marks {
+:where(#aytkeruzgr) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#jxwewvhxnd) .gt_asterisk {
+:where(#aytkeruzgr) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#jxwewvhxnd) .gt_indent_1 {
+:where(#aytkeruzgr) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#jxwewvhxnd) .gt_indent_2 {
+:where(#aytkeruzgr) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#jxwewvhxnd) .gt_indent_3 {
+:where(#aytkeruzgr) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#jxwewvhxnd) .gt_indent_4 {
+:where(#aytkeruzgr) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#jxwewvhxnd) .gt_indent_5 {
+:where(#aytkeruzgr) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3615,7 +3613,7 @@ div.csl-indent {
 <p class="heading">Appendix III: Hydrographs for one hydrological year comparison</p>
 <div id="fig-hydrographs" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="Figures/hydrographs.png" class="img-fluid figure-img"></p>
+<p><img src="Figures/hydrographs_comp.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;7: Hydrographs comparison of subbasins located in the different geological regions.</figcaption><p></p>
 </figure>
 </div>
@@ -3657,6 +3655,9 @@ Eckhardt, K. 2005. <span>“How to Construct Recursive Digital Filters for Basef
 </div>
 <div id="ref-efstratiadis_one_2010" class="csl-entry" role="doc-biblioentry">
 Efstratiadis, Andreas, and Demetris Koutsoyiannis. 2010. <span>“One Decade of Multi-Objective Calibration Approaches in Hydrological Modelling: A Review.”</span> <em>Hydrological Sciences Journal</em> 55 (1): 58–78. <a href="https://doi.org/10.1080/02626660903526292">https://doi.org/10.1080/02626660903526292</a>.
+</div>
+<div id="ref-ensor_statistical_2008" class="csl-entry" role="doc-biblioentry">
+Ensor, Leslie A., and Scott M. Robeson. 2008. <span>“Statistical Characteristics of Daily Precipitation: Comparisons of Gridded and Point Datasets.”</span> <em>Journal of Applied Meteorology and Climatology</em> 47 (9): 2468–76. <a href="https://doi.org/10.1175/2008JAMC1757.1">https://doi.org/10.1175/2008JAMC1757.1</a>.
 </div>
 <div id="ref-fu_review_2019" class="csl-entry" role="doc-biblioentry">
 Fu, Baihua, Wendy S. Merritt, Barry F. W. Croke, Tony R. Weber, and Anthony J. Jakeman. 2019. <span>“A Review of Catchment-Scale Water Quality and Erosion Models and a Synthesis of Future Prospects.”</span> <em>Environmental Modelling &amp; Software</em> 114 (April): 75–97. <a href="https://doi.org/10.1016/j.envsoft.2018.12.008">https://doi.org/10.1016/j.envsoft.2018.12.008</a>.
