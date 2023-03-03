@@ -1,58 +1,58 @@
-Basins,Basin_IDs,regions,alphas,det_coefs
-Navaluenga,1,IMP,0.9641022,0.9728
-Navaluenga,1,IMP,0.9776144,0.9673
-Navaluenga,1,IMP,0.9721647,0.9223
-Matallana,2,IMP,0.9645728,0.9926
-Matallana,2,IMP,0.9420848,0.9889
-Matallana,2,IMP,0.9469329,0.9856
-Villarejo de Montalban,3,IMP,0.9589081,0.9711
-Villarejo de Montalban,3,IMP,0.9260473,0.9007
-Villarejo de Montalban,3,IMP,0.9681386,0.9789
-Peralejo de las Truchas,4,CRB,0.9856145,0.9515
-Peralejo de las Truchas,4,CRB,0.9834357,0.9288
-Peralejo de las Truchas,4,CRB,0.9760807,0.969
-Priego Escabas,5,CRB,0.9897529,0.9538
-Priego Escabas,5,CRB,0.9707561,0.9776
-Priego Escabas,5,CRB,0.965227,0.9258
-Santa Maria del Val,6,CRB,0.9151292,0.96
-Santa Maria del Val,6,CRB,0.9387557,0.9279
-Santa Maria del Val,6,CRB,0.9657213,0.9742
-Jabalera,7,DTAL,0.9462959,0.972
-Jabalera,7,DTAL,0.9489312,0.9592
-Jabalera,7,DTAL,0.943499,0.8686
-Huete,8,DTAL,0.9726986,0.9635
-Huete,8,DTAL,0.9664391,0.9807
-Huete,8,DTAL,0.9698062,0.923
-Torote,9,DTAL,0.9632243,0.9531
-Torote,9,DTAL,0.9357191,0.9703
-Torote,9,DTAL,0.9063679,0.9755
-La Pueblanueva,10,DTAL,0.9432395,0.9628
-La Pueblanueva,10,DTAL,0.944205,0.9612
-La Pueblanueva,10,DTAL,0.8910097,0.9748
-Ventosa,11,DTBJ,0.9925588,0.9226
-Ventosa,11,DTBJ,0.9768892,0.8626
-Ventosa,11,DTBJ,0.9488667,0.9548
-La Peraleja,12,DTBJ,0.921143,0.9684
-La Peraleja,12,DTBJ,0.9540082,0.9298
-La Peraleja,12,DTBJ,0.9075379,0.8952
-Villasequilla de Yepes,13,DTBJ,0.9771452,0.9678
-Villasequilla de Yepes,13,DTBJ,0.967856,0.9395
-Villasequilla de Yepes,13,DTBJ,0.9517413,0.9799
-Valverde de los Arroyos,14,MIX,0.9130451,0.9059
-Valverde de los Arroyos,14,MIX,0.9254178,0.987
-Valverde de los Arroyos,14,MIX,0.9206273,0.9881
-Malpica,15,MIX,0.876867,0.8463
-Malpica,15,MIX,0.8598477,0.9524
-Malpica,15,MIX,0.8595038,0.9708
-Taravillas,16,MIX,0.9753392,0.9816
-Taravillas,16,MIX,0.9488866,0.9469
-Taravillas,16,MIX,0.9444335,0.9866
-Romanones,17,MIX,0.9898914,0.9541
-Romanones,17,MIX,0.9860147,0.8964
-Romanones,17,MIX,0.9903093,0.9802
-Priego Trabraque,18,MIX,0.9208851,0.9481
-Priego Trabraque,18,MIX,0.9474719,0.8649
-Priego Trabraque,18,MIX,0.9608115,0.9856
-Bujalaro,19,MIX,0.9775362,0.9638
-Bujalaro,19,MIX,0.9882891,0.9651
-Bujalaro,19,MIX,0.9617796,0.9854
+Basins,Basin_IDs,regions,ndays,det_coefs,gwrec_cnst,alphas
+Navaluenga,1,IMP,62,0.9518,-0.0201,0.9801
+Navaluenga,1,IMP,90,0.9668,-0.0321,0.9684
+Navaluenga,1,IMP,69,0.8052,-0.0197,0.9805
+Matallana,2,IMP,21,0.9914,-0.0359,0.9647
+Matallana,2,IMP,61,0.9828,-0.0545,0.9485
+Matallana,2,IMP,45,0.9917,-0.045,0.9559
+Villarejo de Montalban,3,IMP,20,0.9711,-0.042,0.9589
+Villarejo de Montalban,3,IMP,21,0.9611,-0.0812,0.922
+Villarejo de Montalban,3,IMP,38,0.9789,-0.0324,0.9681
+Peralejo de las Truchas,4,CRB,201,0.9406,-0.0051,0.9949
+Peralejo de las Truchas,4,CRB,188,0.9125,-0.0063,0.9937
+Peralejo de las Truchas,4,CRB,101,0.9786,-0.0083,0.9918
+Priego Escabas,5,CRB,125,0.9641,-0.0084,0.9916
+Priego Escabas,5,CRB,135,0.8374,-0.0046,0.9954
+Priego Escabas,5,CRB,159,0.8506,-0.0063,0.9937
+Santa Maria del Val,6,CRB,96,0.9413,-0.011,0.9891
+Santa Maria del Val,6,CRB,161,0.9644,-0.0117,0.9884
+Santa Maria del Val,6,CRB,126,0.9577,-0.0171,0.9831
+Jabalera,7,DTAL,65,0.9426,-0.0228,0.9774
+Jabalera,7,DTAL,41,0.9671,-0.0499,0.9513
+Jabalera,7,DTAL,53,0.8966,-0.0327,0.9678
+Huete,8,DTAL,73,0.8991,-0.0172,0.9829
+Huete,8,DTAL,61,0.9052,-0.0227,0.9776
+Huete,8,DTAL,61,0.8612,-0.0276,0.9728
+Torote,9,DTAL,74,0.8786,-0.0281,0.9723
+Torote,9,DTAL,35,0.8526,-0.0405,0.9603
+Torote,9,DTAL,30,0.935,-0.0479,0.9533
+La Pueblanueva,10,DTAL,29,0.854,-0.0348,0.9658
+La Pueblanueva,10,DTAL,33,0.9408,-0.0413,0.9596
+La Pueblanueva,10,DTAL,29,0.9887,-0.0831,0.9202
+Ventosa,11,DTBJ,103,0.8605,-0.0079,0.9921
+Ventosa,11,DTBJ,89,0.9322,-0.0071,0.9929
+Ventosa,11,DTBJ,45,0.9158,-0.0097,0.9903
+La Peraleja,12,DTBJ,89,0.9117,-0.0342,0.9663
+La Peraleja,12,DTBJ,61,0.9234,-0.0485,0.9526
+La Peraleja,12,DTBJ,25,0.8973,-0.081,0.9222
+Villasequilla de Yepes,13,DTBJ,139,0.915,-0.0093,0.9907
+Villasequilla de Yepes,13,DTBJ,86,0.8486,-0.0132,0.9869
+Villasequilla de Yepes,13,DTBJ,77,0.8655,-0.014,0.9861
+Valverde de los Arroyos,14,MIX,41,0.9836,-0.0459,0.9551
+Valverde de los Arroyos,14,MIX,38,0.987,-0.0753,0.9274
+Valverde de los Arroyos,14,MIX,55,0.9627,-0.0472,0.9539
+Malpica,15,MIX,19,0.9508,-0.0617,0.9401
+Malpica,15,MIX,55,0.948,-0.0343,0.9663
+Malpica,15,MIX,25,0.9705,-0.1019,0.9032
+Taravillas,16,MIX,75,0.9333,-0.0141,0.986
+Taravillas,16,MIX,109,0.9575,-0.0081,0.9919
+Taravillas,16,MIX,71,0.8538,-0.012,0.988
+Romanones,17,MIX,103,0.9285,-0.0059,0.9941
+Romanones,17,MIX,122,0.8779,-0.0099,0.9901
+Romanones,17,MIX,69,0.9419,-0.008,0.9921
+Priego Trabraque,18,MIX,131,0.953,-0.0145,0.9856
+Priego Trabraque,18,MIX,72,0.8021,-0.012,0.9881
+Priego Trabraque,18,MIX,67,0.9224,-0.0167,0.9834
+Bujalaro,19,MIX,37,0.8518,-0.0127,0.9874
+Bujalaro,19,MIX,94,0.9569,-0.0117,0.9884
+Bujalaro,19,MIX,72,0.9624,-0.011,0.9891

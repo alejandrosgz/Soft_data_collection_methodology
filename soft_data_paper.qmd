@@ -584,14 +584,21 @@ Subbasins with mixed lithology yielded the widest range of runoff coefficient va
  
 alphas_tibble <- read.csv("Used_files/Created_csv/3_alpha_estimation.csv") %>% 
 mutate(regions = factor(regions, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX")))
-            
 regions <-  factor(basins_file$region, levels = c("IMP", "CRB", "DTAL", "DTBJ", "MIX"))
          
+tab_bas <- alphas_tibble %>% group_by(Basins, regions) %>% summarise(ndays = round(mean(ndays),0), dcoef_bas = round(mean(det_coefs), 3), 
+               gwrec_ct = round(mean(gwrec_cnst),3),alpha_bas = round(mean(alphas), 3)) %>% 
+      inner_join(., basins_file[, c("Basin","Basin_ID")], c("Basins" = "Basin")) %>% 
+      mutate(bas_id = paste(Basin_ID, Basins, sep = " ")) %>% arrange(., Basin_ID) %>% .[, c(8, 2:6)]
    
-tab <- alphas_tibble %>% group_by(Basins) %>% summarise(alpha_bas = mean(alphas), dcoef_bas = mean(det_coefs)) %>% cbind(regions) %>%  group_by(regions)   %>%  summarise(alpha_reg = round(mean(alpha_bas), 3), alpha_sd = round(sd(alpha_bas), 3), det_coef_reg = round(mean(dcoef_bas), 3)) 
-colnames(tab) <- c("Region", "Mean alpha value", "Alpha standard deviation", "Mean determination coefficient")
+tab_reg <- tab_bas %>% group_by(regions) %>% 
+      summarise(ndays = round(mean(ndays),0), dcoef_reg = round(mean(dcoef_bas), 3), 
+      alpha_reg = round(mean(alpha_bas), 3), alpha_sd = round(sd(alpha_bas), 3))
+
+colnames(tab_reg) <- c("Region", "Average recession curve time (days)",  "Mean determination coefficient", "Mean alpha value", "Alpha standard deviation")
+
   
-apa(tab)%>% tab_footnote("")
+apa(tab_reg)%>% tab_footnote("")
   
 ```
 
