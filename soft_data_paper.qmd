@@ -4,13 +4,13 @@
 bibliography: Paper_soft_data_collection.bib
 highlight-style: zenburn
 format: 
-   #docx: 
-   #  reference-doc: template.docx
-   #  fig-align: center
-   html: 
-    toc: true
-    toc-depth: 4
-    editor: visual
+   docx: 
+     reference-doc: template.docx
+     fig-align: center
+   #html: 
+   # toc: true
+   # toc-depth: 4
+   # editor: visual
 ---
 
 ```{r Used_libraries}
@@ -125,7 +125,7 @@ apa <- function(x){#, title = " ") {
 
 ## Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin.
 
-##### Alejandro Sánchez-Gómez*^1^, Katrin Bieger^2^, Silvia Martínez-Pérez^1^, Christoph Schürz^3^, Hendrik Rathjens^4^, Eugenio Molina-Navarro^1^.
+##### Alejandro Sánchez-Gómez\*^1^, Katrin Bieger^2^, Christoph Schürz^3^, Silvia Martínez-Pérez^1^, Hendrik Rathjens^4^, Eugenio Molina-Navarro^1^.
 
 ####### ^1^ Department of Geology, Geography and Environment. University of Alcalá.
 
@@ -163,7 +163,7 @@ The importance of these variables in Mediterranean regions is due to the fact th
 
 The main goal of this work is to present a reproducible methodology developed in R for collecting soft data in a certain area and time period, particularly the runoff coefficient and the baseflow index. To prove the usefulness of this work, a study case for the Tagus River basin (Spain) is also presented, since the research team is developing a high-detailed hydrological model with SWAT+ for its upper sector [@sanchez-gomez_innovative_2022]. The Tagus River Basin is geologically very heterogeneous, so this case study also shows how this methodology allows to obtain different values of these two coefficients in different geological regions within the basin, which might be convenient since addressing a zonal calibration depending on the geological properties turns into a more robust and realistic model [@sanchez-gomez_optimization_2022]. The proposed methodology uses precipitation and streamflow data to derive those two coefficients, together with expert knowledge: gridded precipitation data and streamflow from gauging stations were used to calculate the runoff coefficient for different subbasins in natural regime, while expert knowledge guided the application of a baseflow filter function to estimate the baseflow index from streamflow data.
 
-The following sections of the manuscript describe the work done in detail, presenting an R script that could be applied in any region with gridded precipitation and streamflow data. Besides, the study case presented in the Tagus River basin, has in turn served to address a deep analysis of some of its hydrological processes, gaining knowledge about this region.
+The following sections of the manuscript describe the work done in detail, presenting an R workflow that could be applied in any region with gridded precipitation and streamflow data. Besides, the study case presented in the Tagus River basin, has in turn served to address a deep analysis of some of its hydrological processes, gaining knowledge about this region.
 
 ### 2. Study area
 
@@ -175,13 +175,37 @@ Natural vegetation and agricultural lands are the main land cover of the UTRB, o
 
 The UTRB is characterized by a heterogeneous geology, due to mountain systems with different bedrocks. Different hydrological processes will therefore control the runoff in the respective geological zones [@custodio_hidrologisubterranea_1983, @sanchez-gomez_optimization_2022]. Direct runoff is expected to be predominant in the Central System and in the Toledo mountains, which are conformed by igneous and metamorphic rocks with low permeability. In contrast, the carbonate rocks of the Iberian System configure important aquifers. Thus baseflow is expected to be more relevant there. The sedimentary deposits of the basin have varying hydrological properties, with Tertiary rocks and Quaternary alluvial sediments with high permeability that are relevant aquifers in some regions, while there is also detrital and evaporitic materials with low permeability.
 
-![Study area location, lithology, permeability and selected basins. Source: IGME (Pozo GÃ³mez, 2009)](Figures/Studied_basinss.png){#fig-location}
+![Study area location, lithology, permeability and selected basins (see section 3.2). Source: IGME (Pozo Gómez, 2009)](Figures/Studied_basinss.png){#fig-location}
 
 ### 3. Methodology
 
 Modeling the complex hydrological system of the UTRB with its diverse hydrogeology can greatly benefit from spatially distributed soft information on the dominant hydrological processes. Therefore, the aim of the workflow, which is outlined below, is to derive the runoff and baseflow coefficients for several subbasins located in the different geological zones with their varying permeabilities and to find general hydrological characteristics for the geological zones which can be utilized in a spatially distributed soft calibration of the UTRB.
 
-#### 3.1. Subbasins and time series selection
+#### 3.1. Framework, input data and workflow
+
+In order to help the reader to follow the performed methodology, this section explains its framework, key processes and the input data needed to reproduce it. R [@r_core_team_r_2022] and some of its libraries [@wickham_readr_2022; @pebesma_simple_2018, @wickham_tidyverse_2022; @spinu_lubridate_2023; @sievert_plotly_2022; @pedersen_patchwork_2022; @iannone_gt_2022] are the main software used in this methodology and some of its libraries. However, as it will be explained below, the use of GIS software is also recommended for one of the steps.
+
+The presented methodology requires some input datasets and also some files that have to be created by the user. These requirements are the following: i) a file or directory with daily flow data for gauging stations with an identifier; ii) a directory with gridded meteorological data (precipitation and temperature) and a vector file with the location and identifier of the grid points; and iii) a vector layer with the basin or basins to be analyzed. Depending on the availability of the required datasets in other countries, the user might make some adaptations of the code, but with the used data sources in this study case, this methodology can be fully reproduced for the entire Spanish territory.
+
+Two main datasets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, @garcia_serie_2017), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Gridded meteorological databases can overcome problems such as the temporal and spatial absence of data, but also have certain limitations that must be taken into account [e.g., increasing the frequency of low precipitation events or reducing the frequency of heavy precipitation events, @ensor_statistical_2008]. In this case, the objective will be to calculate annual values, for which these data bases are successful. Regarding the vector layer containing the location and identifier of the weather grid cells, it can be created as a point vector file using the centroids of the weather grid cells.
+
+Streamflow data was collected from the CEDEX streamflow gauging stations yearly report [@cedex_anuario_2021], which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, *afliq.csv*).
+
+Both datasets were analysed with graphical and statistical methods to ensure its reliability. In the case of the streamflow, the availability of enough available data was proved and it can be found in Appendix I. Those gauging stations with enough data were used to select the studied subbasins according to the criteria explained in section 3.2.
+
+The last required input is a vector file containing the polygon of the drainage areas or basins to be analyzed. This step was intentionally taken out of the R workflow, and was performed in QGIS [version 3.22, @qgis_development_team_qgis_2022]. The reasons are that a GIS software allows to obtain this delineation in a easier way and facilitates to the user compare the obtained delineation with other data (e.g., previous delineation, a digital elevation model, etc.), which might results in a more reliable delineation. For this process a digital elevation model was obtained from the National Geographic Institute [@ign_centro_2010], and the GRASS module [@neteler_grass_2012] was used.
+
+@fig-worflow represents a workflow chart of the main steps of the methodology.
+
+![Methodology workflow chart.](Figures/workflow.png){#fig-worflow}
+
+Once the datasets explained above have been prepared and the basins to be studied have been selected and delineated, the first step of the R workflow consist in creating two csv files which contains data about the basins to be analyzed and about the weather points located within. Section 3.3. details how to create these files, which will allow to perform the basins characterization.
+
+The basins characterization is composed of two branches, the runoff coefficient calculation and the baseflow index calculation, explained in the points 3.4 and 3.5, respectively. The runoff coefficient calculation can be performed automatically at annual basis through the code, and consist in calculating the average annual precipitation, the annual runoff and their rate. The baseflow index estimation has been performed through a baseflow filter, estimating the value of one of the parameters before.
+
+This methodology takes advantage of hydrological and meteorological datasets and software such as digital baseflow filters to evaluate two key variables in the water balance of Mediterranean basins. This assessment can be used to characterize basins and obtain information for modelling purposes.
+
+#### 3.2. Subbasins and time series selection
 
 The selection of subbasins was based on three main criteria, which were i) the availability of updated streamflow records, ii) the underlying lithology of a catchment, and iii) the requirement of having a mostly undisturbed regime without any major reservoirs in the catchment or significant water withdrawals from the catchment. In total 18 subbasins were identified as suitable to be used in the calculation of runoff and baseflow coefficients for the different geologic zones (Figure 1).
 
@@ -195,17 +219,9 @@ As most of the subbasins had more than one type of substrates within, the propor
 
 Verification of the data availability for the entire period is recommended, as the used source of streamflow data does not warn about missing data, which can lead to incorrect results. Gauged streamflow data was analyzed for each subbasin to ensure its reliability, both with graphical and statistical methods. Information about the selected subbasins and their available streamflow data can be found in Appendix I. Some of the subbasins (subbasins 2, 6 and 14) did not have data for the entire time series, and therefore the coefficients have been calculated for the years with complete gauging data.
 
-#### 3.2. Input data and basins delineation
+#### 3.3. Input data and basins delineation
 
-The presented methodology requires some input data and also some files that have to be created by the user. In this section, the input data used in this work and the methodology followed to create the files are described.
-
-Two main data sets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, @garcia_serie_2017), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Gridded meteorological databases can overcome problems such as the temporal and spatial absence of data, but also have certain limitations that must be taken into account [e.g., increasing the frequency of low precipitation events or reducing the frequency of heavy precipitation events, @ensor_statistical_2008]. In this case, the objective will be to calculate annual values, for which these data bases are successful.
-
-Streamflow data was collected from the CEDEX streamflow gauging stations yearly report [@cedex_anuario_2021], which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, *afliq.csv*).
-
-After verifying that the selected gauging stations for each subbasin had enough and reliable data, the first step was to delineate the subbasins, i.e., the drainage area for each of the gauging stations. For this purpose, a digital elevation model was obtained from the National Geographic Institute [@ign_centro_2010], and the GRASS module [@neteler_grass_2012] in QGIS [version 3.22, @qgis_development_team_qgis_2022] was used. For the subbasins´ delineation, the *r.watershed* command was used for creating from the digital elevation model a *Drainage direction* and a *Number of cells that drain through each cell* raster, using as attributes a *Minimum size of exterior watershed* of 10000 m² and *Enabling single flow direction*. With the *r.water.outlet* command, using the drainage direction raster generated and indicating the coordinates of the gauging stations (outlets of the subbasins), the drainage area was delineated for each subbasin. The command *r.to.vect* was used to convert the generated raster into vector format (using the *Smoooth corners of areas features* option), and all the generated basins were merged using the *Merge vector layers* QGIS command. The attribute table of this vector layer can be edited to include factors for grouping basins, as in this case has been done with the geological region.
-
-From this point on, all the work has been developed from R-Studio [@rstudio_team_rstudio_2020] using different libraries [@wickham_readr_2022; @pebesma_simple_2018, @wickham_tidyverse_2022; @spinu_lubridate_2023; @sievert_plotly_2022; @pedersen_patchwork_2022; @iannone_gt_2022]. The *sf* and *dplyr* packages [@pebesma_simple_2018; @wickham_tidyverse_2022,] have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file *1_basins_file.csv*.
+The steps followed to create the csv files used in this work is described in this section. Using as input the vector file of the delineated subbasins, the *sf* and *dplyr* packages [@pebesma_simple_2018; @wickham_tidyverse_2022] have been used to calculate the area of the subbasins, and a new field with the identifier of the gauging station for each subbasin have been added, finally creating the file *1_basins_file.csv*. The used code can be seen below.
 
 ```{r}
 #| echo: true
@@ -228,7 +244,7 @@ st_drop_geometry(.) %>%
 write.csv(x =subbasins_csv, file = "Used_files/Created_csv/1_basins_file.csv", row.names = F)
 ```
 
-In order to estimate the precipitation and temperature for each subbasin, it was necessary to identify the weather grid cells that are located within the respective subbasins. For this purpose, a vector layer was created with the centroids of the weather grid cells. Weather data points that are located within a 1 km buffer of a subbasin boundary were assigned to the respective subbasin. The buffer and clipping processes were performed with the sf package. The buffer distance width depends on the data resolution, and has to be chosen in each case. In this case, 1 km of distance allowed to consider points located close enough to the boundaries of the subbasins for providing representative values. A csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it attributed to) was created and saved as *2_ids_stations_file.csv*. Note that in the used weather datasets, the identifiers and location of the precipitation and temperature grid points are the same, so only one file is needed for both variables. If it is not the case (e.g., different datasets are being used for precipitation and temperature), two different files have to be created (following the same methodology) and used for the precipitation-temperature calculation respectively.
+In order to estimate the precipitation and temperature for each subbasin, it was necessary to identify the weather grid cells that are located within the respective subbasins and create a csv file to save this information. Using the weather grid vector file, those points located within a 1 km buffer of a subbasin boundary were assigned to the respective subbasin. The buffer and clipping processes were performed with the sf package. The buffer distance width depends on the weather data resolution, and has to be chosen in each case. In this case, 1 km of distance allowed to consider points located close enough to the boundaries of the subbasins for providing representative values. The csv file containing the identifier of each grid point located in the subbasins (also indicating in which subbasin it attributed to) was created and saved as *2_ids_stations_file.csv*. Note that in the used weather datasets, the identifiers and location of the precipitation and temperature grid points are the same, so only one file is needed for both variables. If it is not the case (e.g., different datasets are being used for precipitation and temperature), two different files have to be created (following the same methodology) and used for the precipitation-temperature calculation respectively in section 3.4.
 
 ```{r}
 #| echo: true
@@ -247,7 +263,7 @@ grid_points_clip_csv <- grid_points_clip %>% st_drop_geometry(.) %>% rename(Basi
 write.csv(x = grid_points_clip_csv, file = "Used_files/Created_csv/2_ids_stations_file.csv", row.names = F)
 ```
 
-The two generated csv files (created from the subbasin and weather vector layers) are the input files required for the calculation of the runoff and base flow coefficients. A third csv file will be created with the results of the baseflow index obtained, as explained in section 3.4. Example files are available in the accompanying GitHub repository (see Data availability section)
+The two generated csv files (created from the subbasin and weather vector layers) are the input files required for the calculation of the runoff and baseflow coefficients. Two more files will be created to store the estimations obtained with the baseflow evaluation steps, as explained in section 3.5. These files are *3_alpha_estimation.csv*, which contains tha estimated alpha values and other data pf this step, and the *4_groundwater_results.csv*, where the used values of the filter parameters and the bbaseflow index estimations are saved. These files can be found in the accompanying GitHub repository (see Data availability section) and can be used as example files.
 
 ```{r used_files}
 #| eval: true
@@ -264,9 +280,9 @@ gauging_data_tagus <- read.csv("Used_files/Data/Gauging_data/afliq.csv", sep = "
   .[, c("cod", "date", "obs_flow")] %>% mutate(date = dmy(date))
 ```
 
-#### 3.3. Runoff coefficient calculation
+#### 3.4. Runoff coefficient calculation
 
-For the calculation of the runoff coefficient, precipitation, temperature and streamflow data were used. The csv files created in section 3.2 were used for this purpose, as the area calculated and the identifiers of the gauging stations and the grid points located within the buffer of each subbasin were necessary.
+For the calculation of the runoff coefficient, precipitation, temperature and streamflow data were used. The csv files created in section 3.3 were used for this purpose, as the area calculated and the identifiers of the gauging stations and the grid points located within the buffer of each subbasin were necessary.
 
 From all the gauging stations inside the Tagus River basin, the ones used for this work were filtered using their identifier. Then, gauged data was aggregated from daily values (m³/s) to annual contribution (mm/year) using the basins area. As mentioned above, basins 2, 6 and 14, despite not having data since 2010, were selected because they were in natural regime, being other basins representative of their lithology regulated. In this way, an annual runoff value (mm) was obtained for each of the studied basins using the code below.
 
@@ -443,7 +459,7 @@ The runoff coefficient was calculated for each year from the runoff and precipit
                               Runoffrt_sd = mean(Runoff_rate_sd)) 
 ```
 
-#### 3.4. Baseflow contribution estimation
+#### 3.5. Baseflow contribution estimation
 
 In this work, the baseflow contribution has been calculated for the 19 selected subbasins using a baseflow filter function based on the equation proposed by [@eckhardt_how_2005], @eq-bf_filter. This equation calculates the baseflow for a day (b~k~) based on the two filter parameters (*alpha* and *BFImax*) and the streamflow of this day (y~k~).
 
@@ -572,7 +588,7 @@ runoff_reg_tab <- runoff_rate_tibble %>% mutate(Region = factor(Region, levels =
 
 ```
 
-The influence of the lithology is highlighted when aggregating at region scale. For example, although temperature is higher and precipitation is lower in the DTH region, in average, its runoff coefficient is around 60% higher than the DTL runoff coefficient. Runoff coefficient is higher in the IMP and CRB regions, where not only precipitation and temperature are more favorable for generating runoff, but also lithology and the mountainous topography. Regions DTH and DTL are flatter and warmer than the CRB region, and evapotranspiration is favored under these conditions [@custodio_hidrologisubterranea_1983]. It should be noted the subbasins selected in CRB region are closely located (@fig-location), thus they have a similar climate. Therefore, the runoff coefficient varies less than in the IMP region, where subbasin 3 is located in a more arid and warmer region than subbasins 1 and 2. Regardless this, the CRB region seems to be less influenced by climate than IMP region (the runoff coefficient range is narrower), which could be explained by its aquifer properties, allowing a higher recharge thus limiting the amount of water available for evapotranspiration. 
+The influence of the lithology is highlighted when aggregating at region scale. For example, although temperature is higher and precipitation is lower in the DTH region, in average, its runoff coefficient is around 60% higher than the DTL runoff coefficient. Runoff coefficient is higher in the IMP and CRB regions, where not only precipitation and temperature are more favorable for generating runoff, but also lithology and the mountainous topography. Regions DTH and DTL are flatter and warmer than the CRB region, and evapotranspiration is favored under these conditions [@custodio_hidrologisubterranea_1983]. It should be noted the subbasins selected in CRB region are closely located (@fig-location), thus they have a similar climate. Therefore, the runoff coefficient varies less than in the IMP region, where subbasin 3 is located in a more arid and warmer region than subbasins 1 and 2. Regardless this, the CRB region seems to be less influenced by climate than IMP region (the runoff coefficient range is narrower), which could be explained by its aquifer properties, allowing a higher recharge thus limiting the amount of water available for evapotranspiration.
 
 In DTH and DTL regions, runoff coefficient its always lower than 10%, which indicates that most of the precipitation becomes evapotranspirated. Even though some areas of the DTL region subbasins are conformed by medium permeability carbonate and detrital materials (XXXX), runoff coefficient in this region is lower than in DTH, which points to a high influence of the presence of low permeability materials, which in combination with a flat topography, low precipitation and warmer temperatures, lead to a very high evapotranspiration. Precisely due to the flat topography, it should be also acknowledged the possibility that a small amount of the recharged water might be released to the streamflow downstream the gauging points, but it is not expected to be a significant amount since the subbasins selected are relatively large.
 
@@ -580,9 +596,7 @@ Subbasins used to characterize regions with a mixed lithology (MIX) yielded the 
 
 #### 4.2. Groundwater contribution analysis
 
-In this section, both the groundwater recession estimation and the baseflow index values are presented.
-
-@tbl-reg_alphas summarizes at region scale the results of the *alpha* estimation process. Concretely, the average duration of the recession curve, the average determination coefficient, and the average alpha value and standard deviation are showed. These variables have been previously calculated at basin scale.
+In this section, both the groundwater recession estimation and the baseflow index values are presented. @tbl-reg_alphas summarizes at region scale the results of the *alpha* estimation process. Concretely, the average duration of the recession curve, the average determination coefficient, and the average alpha value and standard deviation are showed. These variables have been previously calculated at basin scale.
 
 ```{r alpha_values}
 #| eval: true
@@ -621,7 +635,7 @@ The obtained *alpha* values are related to the recession curve duration and magn
 
 A range of potential *alpha* values to introduce in the filter were estimated, as mentioned in the Methodology section. Different values within (and in some cases out of) this range were used for running the baseflow filter, in order to obtain a realistic separation of the hydrograph components. The values of *BFImax* were based both in the recommended values and in the expert knowledge of each basin, and the baseflow index was calculated for the entire period with @eq-bf_contribution. In spite of the estimated *alpha* values and recommended *BFImax* values, the final values of the parameters were chosen taking into account the obtained streamflow components separation for the three different peaks and for the entire time series [@tbl-reg_gw_results], as a realistic separation was preferred than using the estimated values.
 
-@tbl-reg_gw_results shows the average values of the parameters used for the different regions and the value of the baseflow index estimated with the aplication of the baseflow filter. Appendix II contains this information for each of the subbasins. 
+@tbl-reg_gw_results shows the average values of the parameters used for the different regions and the value of the baseflow index estimated with the aplication of the baseflow filter. Appendix II contains this information for each of the subbasins.
 
 ```{r Groundwater_regions}
 #| eval: true
@@ -639,13 +653,13 @@ Subbasins located in geological regions with low permeability were expected to h
 
 As expected, the carbonate region (CRB) showed the highest baseflow index: it is dominated by a carbonate geology with karst processes and is climate its colder and more humid. Around 50% of the streamflow has been estimated as groundwater contribution, which matches with previous studies [@sanchez-gomez_optimization_2022] and it might be a realistic value taking into account the region properties. This rate is higher in some of the studied subbasins, e.g., subbasin 6, where a 57% percent of groundwater contribution has been estimated (Appendix II).
 
-Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTH). As mentioned in the Methodology (section 3.1), this could be because the subbasins considered as representative of the low permeability detrital region (DTL) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTL region are noticeable lower than in DTH region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTL region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTL region reveal this behavior, since a baseflow is maintained throughout the year (Appendix III). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.
+Regarding the two detrital regions, despite their different permeability, the obtained values of groundwater contribution were close, slightly larger in the high permeability region (DTH). As mentioned in the Methodology (section 3.2), this could be because the subbasins considered as representative of the low permeability detrital region (DTL) are constituted by mixed materials (with relevant areas of carbonate and detrital materials with medium and high permeability). Precipitation is low in the sector of the Tagus River basin where these two detrital regions are located, with lower altitudes and a flatter landscape. However, runoff coefficients obtained for DTL region are noticeable lower than in DTH region, pointing to a very high evapotranspiration, and reducing in consequence the total streamflow. Baseflow index in the DTL region might be higher than expected, since in their permeable areas a fraction of water percolates (becoming recharge and thus less exposed to evapotranspiration). The hydrographs of the subbasins within the DTL region reveal this behavior, since a baseflow is maintained throughout the year (Appendix III). On the contrary, in the low permeability areas, percolation is reduced and water is therefore highly exposed to evapotranspiration. Actually, the differences in the hydrological behavior in the defined detrital regions become more evident when comparing the runoff coefficient than when comparing the baseflow index, as already discussed.
 
 In the subbasins located in mixed lithology regions, the baseflow index obtained in average is around 46%, thus relatively high. It could be explained because four of these subbasins (subbasins 16 to 19, Appendix IV) are constituted in a greater extent by carbonate materials, from medium to very high permeability (@fig-location), while only two of these subbasins have impervious igneous and metamorphic materials.
 
 After implementing this methodology of groundater contribution assessment, authors want to highlight some considerations or advises in order to help other modelers.
 
-First, regarding the use of the filter, it should be noted that the obtained groundwater contribution values are highly influenced by the parameters used (specially *BFImax*), and therefore this methodology has a subjective component. However, baseflow filters are useful tools that, used based on expert knowledge criterion, help to estimate the relevance of groundwater contribution to the streamflow in an easier and cheaper way in regard with other methodologies, thus further aiding in eventual soft calibration procedures. 
+First, regarding the use of the filter, it should be noted that the obtained groundwater contribution values are highly influenced by the parameters used (specially *BFImax*), and therefore this methodology has a subjective component. However, baseflow filters are useful tools that, used based on expert knowledge criterion, help to estimate the relevance of groundwater contribution to the streamflow in an easier and cheaper way in regard with other methodologies, thus further aiding in eventual soft calibration procedures.
 
 In this study case, although *alpha* has been estimated from real hydrographs and recommended *BFImax* values can be found in literature [@eckhardt_how_2005], these values have been adjusted in order to obtaining a realistic separation of the streamflow components considering the basin characteristics and through trial and error. The estimated *alpha* or recommended *BFImax* can be used as first values, and then be adapted, thus estimating alpha and find reasonable *BFImax* values is recommended. The estimated *alpha* values leaded in some cases to a quick response of the baseflow, which was not realistic. Values higher than 0.95 are therefore recommended for this parameter. Regarding *BFImax*, the values recommended in the baseflow filter manuscript [@eckhardt_how_2005] leaded to an overestimation of the baseflow, but could be appropiate for another regions.
 
