@@ -169,8 +169,8 @@ div.csl-indent {
 </div>
 <section id="soft-data-collection-for-realistic-hydrological-modelling-a-reproducible-methodology-developed-in-r-for-the-tagus-river-basin." class="level2">
 <h2 class="anchored" data-anchor-id="soft-data-collection-for-realistic-hydrological-modelling-a-reproducible-methodology-developed-in-r-for-the-tagus-river-basin.">Soft data collection for realistic hydrological modelling: a reproducible methodology developed in R for the Tagus River basin.</h2>
-<section id="alejandro-sánchez-gómez1-katrin-bieger2-silvia-martínez-pérez1-christoph-schürz3-hendrik-rathjens4-eugenio-molina-navarro1." class="level5">
-<h5 class="anchored" data-anchor-id="alejandro-sánchez-gómez1-katrin-bieger2-silvia-martínez-pérez1-christoph-schürz3-hendrik-rathjens4-eugenio-molina-navarro1.">Alejandro Sánchez-Gómez*<sup>1</sup>, Katrin Bieger<sup>2</sup>, Silvia Martínez-Pérez<sup>1</sup>, Christoph Schürz<sup>3</sup>, Hendrik Rathjens<sup>4</sup>, Eugenio Molina-Navarro<sup>1</sup>.</h5>
+<section id="alejandro-sánchez-gómez1-katrin-bieger2-christoph-schürz3-silvia-martínez-pérez1-hendrik-rathjens4-eugenio-molina-navarro1." class="level5">
+<h5 class="anchored" data-anchor-id="alejandro-sánchez-gómez1-katrin-bieger2-christoph-schürz3-silvia-martínez-pérez1-hendrik-rathjens4-eugenio-molina-navarro1.">Alejandro Sánchez-Gómez*<sup>1</sup>, Katrin Bieger<sup>2</sup>, Christoph Schürz<sup>3</sup>, Silvia Martínez-Pérez<sup>1</sup>, Hendrik Rathjens<sup>4</sup>, Eugenio Molina-Navarro<sup>1</sup>.</h5>
 <section id="department-of-geology-geography-and-environment.-university-of-alcalá." class="level7">
 <p class="heading"><sup>1</sup> Department of Geology, Geography and Environment. University of Alcalá.</p>
 </section>
@@ -225,9 +225,9 @@ div.csl-indent {
 <p>The presented methodology requires some input datasets and also some files that have to be created by the user. These requirements are the following: i) a file or directory with daily flow data for gauging stations with an identifier; ii) a directory with gridded meteorological data (precipitation and temperature) and a vector file with the location and identifier of the grid points; and iii) a vector layer with the basin or basins to be analyzed. Depending on the availability of the required datasets in other countries, the user might make some adaptations of the code, but with the used data sources in this study case, this methodology can be fully reproduced for the entire Spanish territory.</p>
 <p>Two main datasets have been used in this work, one for weather data and one for streamflow data, both at daily scale. Precipitation and temperature data were obtained from the Spanish Meteorological Agency (AEMET) grid (5 km resolution, <span class="citation" data-cites="garcia_serie_2017">García, Fernández-Victorio, and Calzado (<a href="#ref-garcia_serie_2017" role="doc-biblioref">2017</a>)</span>), with available data for the entire Spanish territory from 1951 to 2019. The purpose for using this input is that allows to know accurately the amount of renewable water resources in each of the studied subbasins. Gridded meteorological databases can overcome problems such as the temporal and spatial absence of data, but also have certain limitations that must be taken into account <span class="citation" data-cites="ensor_statistical_2008">(e.g., increasing the frequency of low precipitation events or reducing the frequency of heavy precipitation events, <a href="#ref-ensor_statistical_2008" role="doc-biblioref">Ensor and Robeson 2008</a>)</span>. In this case, the objective will be to calculate annual values, for which these data bases are successful. Regarding the vector layer containing the location and identifier of the weather grid cells, it can be created as a point vector file using the centroids of the weather grid cells.</p>
 <p>Streamflow data was collected from the CEDEX streamflow gauging stations yearly report <span class="citation" data-cites="cedex_anuario_2021">(<a href="#ref-cedex_anuario_2021" role="doc-biblioref">CEDEX 2021</a>)</span>, which contains daily measurements of the gauging stations located in Spain and grouped by hydrographic demarcation (having downloaded those located within the Tagus River basin, <em>afliq.csv</em>).</p>
-<p>Both datasets were analysed with graphical and statistical methods to ensure its reliability. In the case of the streamflow, the availability of enough available data was proved and it can be found in Appendix I. Those gauging stations with enough data were used to select the studied subbasins according to the criteria explained in section 3.2.</p>
+<p>Both datasets were analysed to ensure its reliability, both with graphical and statistical methods. In the case of streamflow data, verification of its data availability for the entire period is recommended and has been performed (Appendix I), as the used source does not warn about missing data, which can lead to incorrect results. Those gauging stations with enough data were used to select the studied subbasins according to the criteria explained in section 3.2. Some of the subbasins did not have data for the entire time series, and therefore the coefficients have been calculated for the years with complete gauging data.</p>
 <p>The last required input is a vector file containing the polygon of the drainage areas or basins to be analyzed. This step was intentionally taken out of the R workflow, and was performed in QGIS <span class="citation" data-cites="qgis_development_team_qgis_2022">(version 3.22, <a href="#ref-qgis_development_team_qgis_2022" role="doc-biblioref">QGIS Development Team 2022</a>)</span>. The reasons are that a GIS software allows to obtain this delineation in a easier way and facilitates to the user compare the obtained delineation with other data (e.g., previous delineation, a digital elevation model, etc.), which might results in a more reliable delineation. For this process a digital elevation model was obtained from the National Geographic Institute <span class="citation" data-cites="ign_centro_2010">(<a href="#ref-ign_centro_2010" role="doc-biblioref">IGN 2010</a>)</span>, and the GRASS module <span class="citation" data-cites="neteler_grass_2012">(<a href="#ref-neteler_grass_2012" role="doc-biblioref">Neteler et al. 2012</a>)</span> was used.</p>
-<p>In <a href="#fig-worflow">Figure&nbsp;2</a>, a workflow chart of the main steps of the methodology is represented.</p>
+<p><a href="#fig-worflow">Figure&nbsp;2</a> represents a workflow chart of the main steps of the methodology.</p>
 <div id="fig-worflow" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figures/workflow.png" class="img-fluid figure-img"></p>
@@ -240,17 +240,17 @@ div.csl-indent {
 </section>
 <section id="subbasins-and-time-series-selection" class="level4">
 <h4 class="anchored" data-anchor-id="subbasins-and-time-series-selection">3.2. Subbasins and time series selection</h4>
-<p>The selection of subbasins was based on three main criteria, which were i) the availability of updated streamflow records, ii) the underlying lithology of a catchment, and iii) the requirement of having a mostly undisturbed regime without any major reservoirs in the catchment or significant water withdrawals from the catchment. In total 18 subbasins were identified as suitable to be used in the calculation of runoff and baseflow coefficients for the different geologic zones (Figure 1).</p>
-<p>For the characterization of the runoff and baseflow coeficcients it is recommended to employ streamflow records with a a length around 30 years <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. Continuative modeling tasks in the UTRB however focus on the time window 2010 to 2018. As a consequence, the runoff and baseflow coefficients should also be calculated for the same time period, in order to account for the current climate conditions and to avoid any impact of earlier climate conditions which may have been different due to climate change. Overall, the mean annual temperature has increased by 0.5ºC and annual precipitation decreased by 7% in the UTRB when comparing the time periods 1960 to 2018 and 2000 to 2018 (see <a href="#fig-pcp_plot">Figure&nbsp;3</a> for precipitation). Thus, a longer time period may not be representative for the time period of interest. Further, the selected time period 2010 to 2018 shows a large interannual variability in the climatic variables which is in a similar range to the full time window 1960 to 2018 with dry, wet, and average years (Figure 2). Hence, calculating runoff and baseflow coefficients from the shorter time period will account for different climatic conditions</p>
+<p>The selection of subbasins was based on three main criteria, which were i) the availability of updated streamflow records, ii) the underlying lithology of a catchment, and iii) the requirement of having a mostly undisturbed regime without any major reservoirs in the catchment or significant water withdrawals from the catchment. In total 19 subbasins were identified as suitable to be used in the calculation of runoff and baseflow coefficients for the different geologic zones (Figure 1).</p>
+<p>For the characterization of the runoff and baseflow coefficients it is recommended to employ streamflow records with a a length around 30 years <span class="citation" data-cites="custodio_hidrologisubterranea_1983">(<a href="#ref-custodio_hidrologisubterranea_1983" role="doc-biblioref">Custodio and Llamas 1983</a>)</span>. Continuative modeling tasks in the UTRB however focus on the time window 2010 to 2018. As a consequence, the runoff and baseflow coefficients should also be calculated for the same time period, in order to account for the current climate conditions and to avoid any impact of earlier climate conditions which may have been different due to climate change. Overall, the mean annual temperature has increased by 0.5ºC and annual precipitation decreased by 7% in the UTRB when comparing the time periods 1960 to 2018 and 2000 to 2018 (see <a href="#fig-pcp_plot">Figure&nbsp;3</a> for precipitation). Thus, a longer time period may not be representative for the time period of interest. Further, the selected time period 2010 to 2018 shows a large interannual variability in the climatic variables which is in a similar range to the full time window 1960 to 2018 with dry, wet, and average years (Figure 2). Hence, calculating runoff and baseflow coefficients from the shorter time period will account for different climatic conditions</p>
 <div id="fig-pcp_plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figures/precipitation_tagus.tiff" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3: UTRB annual and average precipitation (1951-2018) and selected period (in blue).</figcaption><p></p>
 </figure>
 </div>
-<p>Four different geological regions or substrates were defined according to the lithology and permeability of the UTRB <span class="citation" data-cites="del_pozo_gomez_mapa_2009">(<a href="#ref-del_pozo_gomez_mapa_2009" role="doc-biblioref">Pozo Gómez 2009</a>)</span>. The defined regions are: an impervious region (IMP), with low and very low permeability metamorphic and igneous rocks; a carbonate region (CRB), composed by carbonate rocks with high and medium permeability mainly; a high and medium permeability detrital region (DTH), conformed by high and medium permeability Tertiary sedimentary rocks and Quaternary sediments; and a low permeability detrital region (DTL), conformed by detrital and evaporitic materials with low permeability (i.e., marls, gypsum).</p>
-<p>As most of the subbasins had more than one type of substrates within, the proportion of each type of material in each subbasin was calculated (XXXX). Subbasins where at least 70% of the area was composed of one substrate were considered representative for the IMP, CRB and DTH regions. However, for the DTL substrates, there was not any gauged subbasin with enough cover, and therefore subbasins with at least 25% of this substrate were considered representative. At least three representative subbasins were selected for each geological zone (<a href="#fig-location">Figure&nbsp;1</a>), and six basins with a mixed lithology were also chosen, in order to characterize the hydrological behaviour in heterogeneous regions (MIX).</p>
-<p>Verification of the data availability for the entire period is recommended, as the used source of streamflow data does not warn about missing data, which can lead to incorrect results. Gauged streamflow data was analyzed for each subbasin to ensure its reliability, both with graphical and statistical methods. Information about the selected subbasins and their available streamflow data can be found in Appendix I. Some of the subbasins (subbasins 2, 6 and 14) did not have data for the entire time series, and therefore the coefficients have been calculated for the years with complete gauging data.</p>
+<p>Four different geological regions or substrates were defined according to the lithology and permeability of the UTRB <span class="citation" data-cites="del_pozo_gomez_mapa_2009">(<a href="#ref-del_pozo_gomez_mapa_2009" role="doc-biblioref">Pozo Gómez 2009</a>)</span>. The defined regions are: i) an impervious region (IMP), with low and very low permeability metamorphic and igneous rocks; ii) a carbonate region (CRB), composed by carbonate rocks with high and medium permeability mainly; iii) a high and medium permeability detrital region (DTH), conformed by high and medium permeability Tertiary sedimentary rocks and Quaternary sediments; and iv) a low permeability detrital region (DTL), conformed by detrital and evaporitic materials with low permeability (i.e., marls, gypsum).</p>
+<p>As most of the subbasins had more than one type of substrates within, the proportion of each type of material in each subbasin was calculated, and can be found in Appendix I. Subbasins where at least 70% of the area was composed of one substrate were considered representative for the IMP, CRB and DTH regions. However, for the DTL substrates, there was not any gauged subbasin with enough cover, and therefore subbasins with at least 25% of this substrate were considered representative. At least three representative subbasins were selected for each geological zone (<a href="#fig-location">Figure&nbsp;1</a>), and six basins with a mixed lithology were also chosen, in order to characterize the hydrological behaviour in heterogeneous regions (MIX).</p>
+<p>More information about the selected subbasins and their available streamflow data can be found in Appendix I. As mentioned, some of the subbasins (subbasins 2, 6 and 14) did not have data for the entire time series, and therefore the coefficients have been calculated for the years with complete gauging data. Since the missing data only affected a small part of the period, it was decided to use these subbasins despite this lack of data.</p>
 </section>
 <section id="input-data-and-basins-delineation" class="level4">
 <h4 class="anchored" data-anchor-id="input-data-and-basins-delineation">3.3. Input data and basins delineation</h4>
@@ -488,12 +488,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_runoff_rates" class="anchored">
 
-<div id="uajvdaygqm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xpmnytxnbc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#uajvdaygqm) .gt_table {
+:where(#xpmnytxnbc) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -518,7 +518,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_heading {
+:where(#xpmnytxnbc) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -530,12 +530,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_caption {
+:where(#xpmnytxnbc) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#uajvdaygqm) .gt_title {
+:where(#xpmnytxnbc) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -547,7 +547,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#uajvdaygqm) .gt_subtitle {
+:where(#xpmnytxnbc) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -559,13 +559,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#uajvdaygqm) .gt_bottom_border {
+:where(#xpmnytxnbc) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_col_headings {
+:where(#xpmnytxnbc) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -580,7 +580,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_col_heading {
+:where(#xpmnytxnbc) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -600,7 +600,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#uajvdaygqm) .gt_column_spanner_outer {
+:where(#xpmnytxnbc) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -612,15 +612,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#uajvdaygqm) .gt_column_spanner_outer:first-child {
+:where(#xpmnytxnbc) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#uajvdaygqm) .gt_column_spanner_outer:last-child {
+:where(#xpmnytxnbc) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#uajvdaygqm) .gt_column_spanner {
+:where(#xpmnytxnbc) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -632,7 +632,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#uajvdaygqm) .gt_group_heading {
+:where(#xpmnytxnbc) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -658,7 +658,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#uajvdaygqm) .gt_empty_group_heading {
+:where(#xpmnytxnbc) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -673,15 +673,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#uajvdaygqm) .gt_from_md > :first-child {
+:where(#xpmnytxnbc) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#uajvdaygqm) .gt_from_md > :last-child {
+:where(#xpmnytxnbc) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#uajvdaygqm) .gt_row {
+:where(#xpmnytxnbc) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -700,7 +700,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#uajvdaygqm) .gt_stub {
+:where(#xpmnytxnbc) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -713,7 +713,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uajvdaygqm) .gt_stub_row_group {
+:where(#xpmnytxnbc) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -727,11 +727,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#uajvdaygqm) .gt_row_group_first td {
+:where(#xpmnytxnbc) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#uajvdaygqm) .gt_summary_row {
+:where(#xpmnytxnbc) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -741,16 +741,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uajvdaygqm) .gt_first_summary_row {
+:where(#xpmnytxnbc) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_first_summary_row.thick {
+:where(#xpmnytxnbc) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#uajvdaygqm) .gt_last_summary_row {
+:where(#xpmnytxnbc) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -760,7 +760,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_grand_summary_row {
+:where(#xpmnytxnbc) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -770,7 +770,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uajvdaygqm) .gt_first_grand_summary_row {
+:where(#xpmnytxnbc) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -780,11 +780,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_striped {
+:where(#xpmnytxnbc) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#uajvdaygqm) .gt_table_body {
+:where(#xpmnytxnbc) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -793,7 +793,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#uajvdaygqm) .gt_footnotes {
+:where(#xpmnytxnbc) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -807,7 +807,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_footnote {
+:where(#xpmnytxnbc) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -816,7 +816,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uajvdaygqm) .gt_sourcenotes {
+:where(#xpmnytxnbc) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -830,7 +830,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#uajvdaygqm) .gt_sourcenote {
+:where(#xpmnytxnbc) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -838,64 +838,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#uajvdaygqm) .gt_left {
+:where(#xpmnytxnbc) .gt_left {
   text-align: left;
 }
 
-:where(#uajvdaygqm) .gt_center {
+:where(#xpmnytxnbc) .gt_center {
   text-align: center;
 }
 
-:where(#uajvdaygqm) .gt_right {
+:where(#xpmnytxnbc) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#uajvdaygqm) .gt_font_normal {
+:where(#xpmnytxnbc) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#uajvdaygqm) .gt_font_bold {
+:where(#xpmnytxnbc) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#uajvdaygqm) .gt_font_italic {
+:where(#xpmnytxnbc) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#uajvdaygqm) .gt_super {
+:where(#xpmnytxnbc) .gt_super {
   font-size: 65%;
 }
 
-:where(#uajvdaygqm) .gt_footnote_marks {
+:where(#xpmnytxnbc) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#uajvdaygqm) .gt_asterisk {
+:where(#xpmnytxnbc) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#uajvdaygqm) .gt_indent_1 {
+:where(#xpmnytxnbc) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#uajvdaygqm) .gt_indent_2 {
+:where(#xpmnytxnbc) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#uajvdaygqm) .gt_indent_3 {
+:where(#xpmnytxnbc) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#uajvdaygqm) .gt_indent_4 {
+:where(#xpmnytxnbc) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#uajvdaygqm) .gt_indent_5 {
+:where(#xpmnytxnbc) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -969,12 +969,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_alphas" class="anchored">
 
-<div id="ivsvnlyrez" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="smszvdowke" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#ivsvnlyrez) .gt_table {
+:where(#smszvdowke) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -999,7 +999,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_heading {
+:where(#smszvdowke) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1011,12 +1011,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_caption {
+:where(#smszvdowke) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ivsvnlyrez) .gt_title {
+:where(#smszvdowke) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1028,7 +1028,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#ivsvnlyrez) .gt_subtitle {
+:where(#smszvdowke) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1040,13 +1040,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#ivsvnlyrez) .gt_bottom_border {
+:where(#smszvdowke) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_col_headings {
+:where(#smszvdowke) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1061,7 +1061,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_col_heading {
+:where(#smszvdowke) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1081,7 +1081,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ivsvnlyrez) .gt_column_spanner_outer {
+:where(#smszvdowke) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1093,15 +1093,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#ivsvnlyrez) .gt_column_spanner_outer:first-child {
+:where(#smszvdowke) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ivsvnlyrez) .gt_column_spanner_outer:last-child {
+:where(#smszvdowke) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ivsvnlyrez) .gt_column_spanner {
+:where(#smszvdowke) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1113,7 +1113,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#ivsvnlyrez) .gt_group_heading {
+:where(#smszvdowke) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1139,7 +1139,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#ivsvnlyrez) .gt_empty_group_heading {
+:where(#smszvdowke) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1154,15 +1154,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#ivsvnlyrez) .gt_from_md > :first-child {
+:where(#smszvdowke) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ivsvnlyrez) .gt_from_md > :last-child {
+:where(#smszvdowke) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ivsvnlyrez) .gt_row {
+:where(#smszvdowke) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1181,7 +1181,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ivsvnlyrez) .gt_stub {
+:where(#smszvdowke) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1194,7 +1194,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ivsvnlyrez) .gt_stub_row_group {
+:where(#smszvdowke) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1208,11 +1208,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#ivsvnlyrez) .gt_row_group_first td {
+:where(#smszvdowke) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ivsvnlyrez) .gt_summary_row {
+:where(#smszvdowke) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1222,16 +1222,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ivsvnlyrez) .gt_first_summary_row {
+:where(#smszvdowke) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_first_summary_row.thick {
+:where(#smszvdowke) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ivsvnlyrez) .gt_last_summary_row {
+:where(#smszvdowke) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1241,7 +1241,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_grand_summary_row {
+:where(#smszvdowke) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1251,7 +1251,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ivsvnlyrez) .gt_first_grand_summary_row {
+:where(#smszvdowke) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1261,11 +1261,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_striped {
+:where(#smszvdowke) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#ivsvnlyrez) .gt_table_body {
+:where(#smszvdowke) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1274,7 +1274,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#ivsvnlyrez) .gt_footnotes {
+:where(#smszvdowke) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1288,7 +1288,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_footnote {
+:where(#smszvdowke) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1297,7 +1297,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ivsvnlyrez) .gt_sourcenotes {
+:where(#smszvdowke) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1311,7 +1311,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ivsvnlyrez) .gt_sourcenote {
+:where(#smszvdowke) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1319,64 +1319,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ivsvnlyrez) .gt_left {
+:where(#smszvdowke) .gt_left {
   text-align: left;
 }
 
-:where(#ivsvnlyrez) .gt_center {
+:where(#smszvdowke) .gt_center {
   text-align: center;
 }
 
-:where(#ivsvnlyrez) .gt_right {
+:where(#smszvdowke) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ivsvnlyrez) .gt_font_normal {
+:where(#smszvdowke) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ivsvnlyrez) .gt_font_bold {
+:where(#smszvdowke) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ivsvnlyrez) .gt_font_italic {
+:where(#smszvdowke) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ivsvnlyrez) .gt_super {
+:where(#smszvdowke) .gt_super {
   font-size: 65%;
 }
 
-:where(#ivsvnlyrez) .gt_footnote_marks {
+:where(#smszvdowke) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#ivsvnlyrez) .gt_asterisk {
+:where(#smszvdowke) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ivsvnlyrez) .gt_indent_1 {
+:where(#smszvdowke) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ivsvnlyrez) .gt_indent_2 {
+:where(#smszvdowke) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ivsvnlyrez) .gt_indent_3 {
+:where(#smszvdowke) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ivsvnlyrez) .gt_indent_4 {
+:where(#smszvdowke) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ivsvnlyrez) .gt_indent_5 {
+:where(#smszvdowke) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1438,12 +1438,12 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-reg_gw_results" class="anchored">
 
-<div id="nftulqpujp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ugkikwnrho" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#nftulqpujp) .gt_table {
+:where(#ugkikwnrho) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1468,7 +1468,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_heading {
+:where(#ugkikwnrho) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1480,12 +1480,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_caption {
+:where(#ugkikwnrho) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#nftulqpujp) .gt_title {
+:where(#ugkikwnrho) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1497,7 +1497,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#nftulqpujp) .gt_subtitle {
+:where(#ugkikwnrho) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1509,13 +1509,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#nftulqpujp) .gt_bottom_border {
+:where(#ugkikwnrho) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_col_headings {
+:where(#ugkikwnrho) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -1530,7 +1530,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_col_heading {
+:where(#ugkikwnrho) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1550,7 +1550,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#nftulqpujp) .gt_column_spanner_outer {
+:where(#ugkikwnrho) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1562,15 +1562,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#nftulqpujp) .gt_column_spanner_outer:first-child {
+:where(#ugkikwnrho) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#nftulqpujp) .gt_column_spanner_outer:last-child {
+:where(#ugkikwnrho) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#nftulqpujp) .gt_column_spanner {
+:where(#ugkikwnrho) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -1582,7 +1582,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#nftulqpujp) .gt_group_heading {
+:where(#ugkikwnrho) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1608,7 +1608,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#nftulqpujp) .gt_empty_group_heading {
+:where(#ugkikwnrho) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1623,15 +1623,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#nftulqpujp) .gt_from_md > :first-child {
+:where(#ugkikwnrho) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#nftulqpujp) .gt_from_md > :last-child {
+:where(#ugkikwnrho) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#nftulqpujp) .gt_row {
+:where(#ugkikwnrho) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1650,7 +1650,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#nftulqpujp) .gt_stub {
+:where(#ugkikwnrho) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1663,7 +1663,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#nftulqpujp) .gt_stub_row_group {
+:where(#ugkikwnrho) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1677,11 +1677,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#nftulqpujp) .gt_row_group_first td {
+:where(#ugkikwnrho) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#nftulqpujp) .gt_summary_row {
+:where(#ugkikwnrho) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1691,16 +1691,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#nftulqpujp) .gt_first_summary_row {
+:where(#ugkikwnrho) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_first_summary_row.thick {
+:where(#ugkikwnrho) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#nftulqpujp) .gt_last_summary_row {
+:where(#ugkikwnrho) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1710,7 +1710,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_grand_summary_row {
+:where(#ugkikwnrho) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1720,7 +1720,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#nftulqpujp) .gt_first_grand_summary_row {
+:where(#ugkikwnrho) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1730,11 +1730,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_striped {
+:where(#ugkikwnrho) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#nftulqpujp) .gt_table_body {
+:where(#ugkikwnrho) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1743,7 +1743,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#nftulqpujp) .gt_footnotes {
+:where(#ugkikwnrho) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1757,7 +1757,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_footnote {
+:where(#ugkikwnrho) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1766,7 +1766,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#nftulqpujp) .gt_sourcenotes {
+:where(#ugkikwnrho) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1780,7 +1780,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#nftulqpujp) .gt_sourcenote {
+:where(#ugkikwnrho) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1788,64 +1788,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#nftulqpujp) .gt_left {
+:where(#ugkikwnrho) .gt_left {
   text-align: left;
 }
 
-:where(#nftulqpujp) .gt_center {
+:where(#ugkikwnrho) .gt_center {
   text-align: center;
 }
 
-:where(#nftulqpujp) .gt_right {
+:where(#ugkikwnrho) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#nftulqpujp) .gt_font_normal {
+:where(#ugkikwnrho) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#nftulqpujp) .gt_font_bold {
+:where(#ugkikwnrho) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#nftulqpujp) .gt_font_italic {
+:where(#ugkikwnrho) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#nftulqpujp) .gt_super {
+:where(#ugkikwnrho) .gt_super {
   font-size: 65%;
 }
 
-:where(#nftulqpujp) .gt_footnote_marks {
+:where(#ugkikwnrho) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#nftulqpujp) .gt_asterisk {
+:where(#ugkikwnrho) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#nftulqpujp) .gt_indent_1 {
+:where(#ugkikwnrho) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#nftulqpujp) .gt_indent_2 {
+:where(#ugkikwnrho) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#nftulqpujp) .gt_indent_3 {
+:where(#ugkikwnrho) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#nftulqpujp) .gt_indent_4 {
+:where(#ugkikwnrho) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#nftulqpujp) .gt_indent_5 {
+:where(#ugkikwnrho) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1935,7 +1935,6 @@ div.csl-indent {
 
 
 
-
 </section>
 </section>
 
@@ -1947,12 +1946,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="ykdbhsggav" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qcokxicuwf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#ykdbhsggav) .gt_table {
+:where(#qcokxicuwf) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1977,7 +1976,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_heading {
+:where(#qcokxicuwf) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1989,12 +1988,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_caption {
+:where(#qcokxicuwf) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ykdbhsggav) .gt_title {
+:where(#qcokxicuwf) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2006,7 +2005,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#ykdbhsggav) .gt_subtitle {
+:where(#qcokxicuwf) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2018,13 +2017,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#ykdbhsggav) .gt_bottom_border {
+:where(#qcokxicuwf) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_col_headings {
+:where(#qcokxicuwf) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2039,7 +2038,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_col_heading {
+:where(#qcokxicuwf) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2059,7 +2058,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ykdbhsggav) .gt_column_spanner_outer {
+:where(#qcokxicuwf) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2071,15 +2070,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#ykdbhsggav) .gt_column_spanner_outer:first-child {
+:where(#qcokxicuwf) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ykdbhsggav) .gt_column_spanner_outer:last-child {
+:where(#qcokxicuwf) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ykdbhsggav) .gt_column_spanner {
+:where(#qcokxicuwf) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2091,7 +2090,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#ykdbhsggav) .gt_group_heading {
+:where(#qcokxicuwf) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2117,7 +2116,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#ykdbhsggav) .gt_empty_group_heading {
+:where(#qcokxicuwf) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2132,15 +2131,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#ykdbhsggav) .gt_from_md > :first-child {
+:where(#qcokxicuwf) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ykdbhsggav) .gt_from_md > :last-child {
+:where(#qcokxicuwf) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ykdbhsggav) .gt_row {
+:where(#qcokxicuwf) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2159,7 +2158,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ykdbhsggav) .gt_stub {
+:where(#qcokxicuwf) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2172,7 +2171,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ykdbhsggav) .gt_stub_row_group {
+:where(#qcokxicuwf) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2186,11 +2185,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#ykdbhsggav) .gt_row_group_first td {
+:where(#qcokxicuwf) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ykdbhsggav) .gt_summary_row {
+:where(#qcokxicuwf) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2200,16 +2199,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ykdbhsggav) .gt_first_summary_row {
+:where(#qcokxicuwf) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_first_summary_row.thick {
+:where(#qcokxicuwf) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ykdbhsggav) .gt_last_summary_row {
+:where(#qcokxicuwf) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2219,7 +2218,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_grand_summary_row {
+:where(#qcokxicuwf) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2229,7 +2228,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ykdbhsggav) .gt_first_grand_summary_row {
+:where(#qcokxicuwf) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2239,11 +2238,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_striped {
+:where(#qcokxicuwf) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#ykdbhsggav) .gt_table_body {
+:where(#qcokxicuwf) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2252,7 +2251,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#ykdbhsggav) .gt_footnotes {
+:where(#qcokxicuwf) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2266,7 +2265,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_footnote {
+:where(#qcokxicuwf) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2275,7 +2274,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ykdbhsggav) .gt_sourcenotes {
+:where(#qcokxicuwf) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2289,7 +2288,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ykdbhsggav) .gt_sourcenote {
+:where(#qcokxicuwf) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2297,64 +2296,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ykdbhsggav) .gt_left {
+:where(#qcokxicuwf) .gt_left {
   text-align: left;
 }
 
-:where(#ykdbhsggav) .gt_center {
+:where(#qcokxicuwf) .gt_center {
   text-align: center;
 }
 
-:where(#ykdbhsggav) .gt_right {
+:where(#qcokxicuwf) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ykdbhsggav) .gt_font_normal {
+:where(#qcokxicuwf) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ykdbhsggav) .gt_font_bold {
+:where(#qcokxicuwf) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ykdbhsggav) .gt_font_italic {
+:where(#qcokxicuwf) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ykdbhsggav) .gt_super {
+:where(#qcokxicuwf) .gt_super {
   font-size: 65%;
 }
 
-:where(#ykdbhsggav) .gt_footnote_marks {
+:where(#qcokxicuwf) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#ykdbhsggav) .gt_asterisk {
+:where(#qcokxicuwf) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ykdbhsggav) .gt_indent_1 {
+:where(#qcokxicuwf) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ykdbhsggav) .gt_indent_2 {
+:where(#qcokxicuwf) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ykdbhsggav) .gt_indent_3 {
+:where(#qcokxicuwf) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ykdbhsggav) .gt_indent_4 {
+:where(#qcokxicuwf) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ykdbhsggav) .gt_indent_5 {
+:where(#qcokxicuwf) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2477,17 +2476,15 @@ div.csl-indent {
 </div>
 </div>
 </div>
-</div></section><section id="appendix-ii-runoff-coefficients-and-baseflow-indexes-obtained-for-subbasins" class="level8 appendix"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
-<p class="heading">Appendix II: Runoff coefficients and baseflow indexes obtained for subbasins</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="zqlgacnjfu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hbhboxasot" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#zqlgacnjfu) .gt_table {
+:where(#hbhboxasot) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2512,7 +2509,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_heading {
+:where(#hbhboxasot) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2524,12 +2521,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_caption {
+:where(#hbhboxasot) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#zqlgacnjfu) .gt_title {
+:where(#hbhboxasot) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2541,7 +2538,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#zqlgacnjfu) .gt_subtitle {
+:where(#hbhboxasot) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2553,13 +2550,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#zqlgacnjfu) .gt_bottom_border {
+:where(#hbhboxasot) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_col_headings {
+:where(#hbhboxasot) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -2574,7 +2571,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_col_heading {
+:where(#hbhboxasot) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2594,7 +2591,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#zqlgacnjfu) .gt_column_spanner_outer {
+:where(#hbhboxasot) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2606,15 +2603,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#zqlgacnjfu) .gt_column_spanner_outer:first-child {
+:where(#hbhboxasot) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#zqlgacnjfu) .gt_column_spanner_outer:last-child {
+:where(#hbhboxasot) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#zqlgacnjfu) .gt_column_spanner {
+:where(#hbhboxasot) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -2626,7 +2623,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#zqlgacnjfu) .gt_group_heading {
+:where(#hbhboxasot) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2652,7 +2649,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#zqlgacnjfu) .gt_empty_group_heading {
+:where(#hbhboxasot) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2667,15 +2664,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#zqlgacnjfu) .gt_from_md > :first-child {
+:where(#hbhboxasot) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#zqlgacnjfu) .gt_from_md > :last-child {
+:where(#hbhboxasot) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#zqlgacnjfu) .gt_row {
+:where(#hbhboxasot) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2694,7 +2691,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#zqlgacnjfu) .gt_stub {
+:where(#hbhboxasot) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2707,7 +2704,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zqlgacnjfu) .gt_stub_row_group {
+:where(#hbhboxasot) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2721,11 +2718,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#zqlgacnjfu) .gt_row_group_first td {
+:where(#hbhboxasot) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#zqlgacnjfu) .gt_summary_row {
+:where(#hbhboxasot) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2735,16 +2732,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zqlgacnjfu) .gt_first_summary_row {
+:where(#hbhboxasot) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_first_summary_row.thick {
+:where(#hbhboxasot) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#zqlgacnjfu) .gt_last_summary_row {
+:where(#hbhboxasot) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2754,7 +2751,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_grand_summary_row {
+:where(#hbhboxasot) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2764,7 +2761,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zqlgacnjfu) .gt_first_grand_summary_row {
+:where(#hbhboxasot) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2774,11 +2771,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_striped {
+:where(#hbhboxasot) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#zqlgacnjfu) .gt_table_body {
+:where(#hbhboxasot) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2787,7 +2784,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#zqlgacnjfu) .gt_footnotes {
+:where(#hbhboxasot) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2801,7 +2798,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_footnote {
+:where(#hbhboxasot) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2810,7 +2807,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zqlgacnjfu) .gt_sourcenotes {
+:where(#hbhboxasot) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2824,7 +2821,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#zqlgacnjfu) .gt_sourcenote {
+:where(#hbhboxasot) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2832,64 +2829,619 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#zqlgacnjfu) .gt_left {
+:where(#hbhboxasot) .gt_left {
   text-align: left;
 }
 
-:where(#zqlgacnjfu) .gt_center {
+:where(#hbhboxasot) .gt_center {
   text-align: center;
 }
 
-:where(#zqlgacnjfu) .gt_right {
+:where(#hbhboxasot) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#zqlgacnjfu) .gt_font_normal {
+:where(#hbhboxasot) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#zqlgacnjfu) .gt_font_bold {
+:where(#hbhboxasot) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#zqlgacnjfu) .gt_font_italic {
+:where(#hbhboxasot) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#zqlgacnjfu) .gt_super {
+:where(#hbhboxasot) .gt_super {
   font-size: 65%;
 }
 
-:where(#zqlgacnjfu) .gt_footnote_marks {
+:where(#hbhboxasot) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#zqlgacnjfu) .gt_asterisk {
+:where(#hbhboxasot) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#zqlgacnjfu) .gt_indent_1 {
+:where(#hbhboxasot) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#zqlgacnjfu) .gt_indent_2 {
+:where(#hbhboxasot) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#zqlgacnjfu) .gt_indent_3 {
+:where(#hbhboxasot) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#zqlgacnjfu) .gt_indent_4 {
+:where(#hbhboxasot) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#zqlgacnjfu) .gt_indent_5 {
+:where(#hbhboxasot) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Subbasins total area and relative area of each geologic substrate (%)</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="ID and Subbasin">ID and Subbasin</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Total area (sq. km)">Total area (sq. km)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="IMP %">IMP %</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CRB %">CRB %</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="DTH %">DTH %</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="DTL %">DTL %</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1, Navaluenga</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">699</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">98</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">2</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">2, Matallana</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">252</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">92</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">8</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">3, Villarejo de Montalban</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">136</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">79</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">4</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">17</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">4, Peralejo de las Truchas</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">409</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">2</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">83</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">8</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">7</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">5, Priego Escabas</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">329</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">74</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">24</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">6, Santa Maria del Val</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">118</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">86</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">9</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">5</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">7, Jabalera</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">85</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">14</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">85</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">8, Huete</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">359</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">9</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">74</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">17</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">9, Torote</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">255</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">100</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">10, La Pueblanueva</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">222</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">23</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">77</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">11, Priego Trabraque</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">942</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">27</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">57</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">16</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12, La Peraleja</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">261</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">73</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">26</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">13, Villasequilla de Yepes</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1321</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">35</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">48</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">14, Valverde de los Arroyos</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">279</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">62</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">8</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">12</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">15, Malpica</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">412</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">52</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">5</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">43</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">16, Taravillas</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">184</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">19</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">59</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">4</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">17, Romanones</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">319</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">0</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">57</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">29</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">14</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">18, Ventosa</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">389</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">5</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">50</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">17</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">27</td></tr>
+    <tr><td headers="ID and Subbasin" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">19, Bujalaro</td>
+<td headers="Total area (sq. km)" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">1028</td>
+<td headers="IMP %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">3</td>
+<td headers="CRB %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">44</td>
+<td headers="DTH %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">23</td>
+<td headers="DTL %" class="gt_row gt_center" style="border-top-width: 0.005px; border-top-style: solid; border-top-color: white; border-bottom-width: 0.005px; border-bottom-style: solid; border-bottom-color: white; text-align: center; background-color: #FFFFFF;">29</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div></section><section id="appendix-ii-runoff-coefficients-and-baseflow-indexes-obtained-for-subbasins" class="level8 appendix"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
+<p class="heading">Appendix II: Runoff coefficients and baseflow indexes obtained for subbasins</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="xpikpuhsuc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#xpikpuhsuc) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #FFFFFF;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#xpikpuhsuc) .gt_title {
+  color: #333333;
+  font-size: 16px;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#xpikpuhsuc) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#xpikpuhsuc) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#xpikpuhsuc) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#xpikpuhsuc) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#xpikpuhsuc) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#xpikpuhsuc) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#xpikpuhsuc) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#xpikpuhsuc) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#xpikpuhsuc) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#xpikpuhsuc) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#xpikpuhsuc) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#xpikpuhsuc) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xpikpuhsuc) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#xpikpuhsuc) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#xpikpuhsuc) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xpikpuhsuc) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#xpikpuhsuc) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xpikpuhsuc) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#xpikpuhsuc) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+}
+
+:where(#xpikpuhsuc) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xpikpuhsuc) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xpikpuhsuc) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xpikpuhsuc) .gt_left {
+  text-align: left;
+}
+
+:where(#xpikpuhsuc) .gt_center {
+  text-align: center;
+}
+
+:where(#xpikpuhsuc) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#xpikpuhsuc) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#xpikpuhsuc) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#xpikpuhsuc) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#xpikpuhsuc) .gt_super {
+  font-size: 65%;
+}
+
+:where(#xpikpuhsuc) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#xpikpuhsuc) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#xpikpuhsuc) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#xpikpuhsuc) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#xpikpuhsuc) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#xpikpuhsuc) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#xpikpuhsuc) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3079,12 +3631,12 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="rdgyfywqjv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ttwcjnihyb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#rdgyfywqjv) .gt_table {
+:where(#ttwcjnihyb) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3109,7 +3661,7 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_heading {
+:where(#ttwcjnihyb) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -3121,12 +3673,12 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_caption {
+:where(#ttwcjnihyb) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#rdgyfywqjv) .gt_title {
+:where(#ttwcjnihyb) .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3138,7 +3690,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#rdgyfywqjv) .gt_subtitle {
+:where(#ttwcjnihyb) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3150,13 +3702,13 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-:where(#rdgyfywqjv) .gt_bottom_border {
+:where(#ttwcjnihyb) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_col_headings {
+:where(#ttwcjnihyb) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #000000;
@@ -3171,7 +3723,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_col_heading {
+:where(#ttwcjnihyb) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3191,7 +3743,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rdgyfywqjv) .gt_column_spanner_outer {
+:where(#ttwcjnihyb) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3203,15 +3755,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#rdgyfywqjv) .gt_column_spanner_outer:first-child {
+:where(#ttwcjnihyb) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#rdgyfywqjv) .gt_column_spanner_outer:last-child {
+:where(#ttwcjnihyb) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#rdgyfywqjv) .gt_column_spanner {
+:where(#ttwcjnihyb) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -3223,7 +3775,7 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#rdgyfywqjv) .gt_group_heading {
+:where(#ttwcjnihyb) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3249,7 +3801,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#rdgyfywqjv) .gt_empty_group_heading {
+:where(#ttwcjnihyb) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3264,15 +3816,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#rdgyfywqjv) .gt_from_md > :first-child {
+:where(#ttwcjnihyb) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#rdgyfywqjv) .gt_from_md > :last-child {
+:where(#ttwcjnihyb) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#rdgyfywqjv) .gt_row {
+:where(#ttwcjnihyb) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3291,7 +3843,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#rdgyfywqjv) .gt_stub {
+:where(#ttwcjnihyb) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3304,7 +3856,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdgyfywqjv) .gt_stub_row_group {
+:where(#ttwcjnihyb) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3318,11 +3870,11 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#rdgyfywqjv) .gt_row_group_first td {
+:where(#ttwcjnihyb) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#rdgyfywqjv) .gt_summary_row {
+:where(#ttwcjnihyb) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3332,16 +3884,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdgyfywqjv) .gt_first_summary_row {
+:where(#ttwcjnihyb) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_first_summary_row.thick {
+:where(#ttwcjnihyb) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#rdgyfywqjv) .gt_last_summary_row {
+:where(#ttwcjnihyb) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3351,7 +3903,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_grand_summary_row {
+:where(#ttwcjnihyb) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3361,7 +3913,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdgyfywqjv) .gt_first_grand_summary_row {
+:where(#ttwcjnihyb) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3371,11 +3923,11 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_striped {
+:where(#ttwcjnihyb) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#rdgyfywqjv) .gt_table_body {
+:where(#ttwcjnihyb) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3384,7 +3936,7 @@ div.csl-indent {
   border-bottom-color: #000000;
 }
 
-:where(#rdgyfywqjv) .gt_footnotes {
+:where(#ttwcjnihyb) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3398,7 +3950,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_footnote {
+:where(#ttwcjnihyb) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3407,7 +3959,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdgyfywqjv) .gt_sourcenotes {
+:where(#ttwcjnihyb) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3421,7 +3973,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#rdgyfywqjv) .gt_sourcenote {
+:where(#ttwcjnihyb) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3429,64 +3981,64 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#rdgyfywqjv) .gt_left {
+:where(#ttwcjnihyb) .gt_left {
   text-align: left;
 }
 
-:where(#rdgyfywqjv) .gt_center {
+:where(#ttwcjnihyb) .gt_center {
   text-align: center;
 }
 
-:where(#rdgyfywqjv) .gt_right {
+:where(#ttwcjnihyb) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#rdgyfywqjv) .gt_font_normal {
+:where(#ttwcjnihyb) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#rdgyfywqjv) .gt_font_bold {
+:where(#ttwcjnihyb) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#rdgyfywqjv) .gt_font_italic {
+:where(#ttwcjnihyb) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#rdgyfywqjv) .gt_super {
+:where(#ttwcjnihyb) .gt_super {
   font-size: 65%;
 }
 
-:where(#rdgyfywqjv) .gt_footnote_marks {
+:where(#ttwcjnihyb) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#rdgyfywqjv) .gt_asterisk {
+:where(#ttwcjnihyb) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#rdgyfywqjv) .gt_indent_1 {
+:where(#ttwcjnihyb) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#rdgyfywqjv) .gt_indent_2 {
+:where(#ttwcjnihyb) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#rdgyfywqjv) .gt_indent_3 {
+:where(#ttwcjnihyb) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#rdgyfywqjv) .gt_indent_4 {
+:where(#ttwcjnihyb) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#rdgyfywqjv) .gt_indent_5 {
+:where(#ttwcjnihyb) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3641,8 +4193,6 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">Figure&nbsp;8: Hydrographs comparison of subbasins located in the different geological regions.</figcaption><p></p>
 </figure>
 </div>
-</div></section><section id="appendix-iv-repository-readme-file" class="level8 appendix"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
-<p class="heading">Appendix IV: Repository README file</p>
 </div></section><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-acero_triana_beyond_2019" class="csl-entry" role="doc-biblioentry">
 Acero Triana, Juan S., Maria L. Chu, Jorge A. Guzman, Daniel N. Moriasi, and Jean L. Steiner. 2019. <span>“Beyond Model Metrics: The Perils of Calibrating Hydrologic Models.”</span> <em>Journal of Hydrology</em> 578 (November): 124032. <a href="https://doi.org/10.1016/j.jhydrol.2019.124032">https://doi.org/10.1016/j.jhydrol.2019.124032</a>.
