@@ -801,7 +801,7 @@ read.csv("Used_files/Created_csv/1_basins_file.csv") %>% left_join(., data_range
 
 subb_lithology <- read.csv("Used_files/GIS/Shapefiles/Basins_lithology.csv")
 
-subb_lithology %>% mutate("ID and Subbasin" = paste(ï..id, ", ", Basin, sep = "")) %>% 
+subb_lithology %>% mutate("ID and Subbasin" = paste(id, ", ", Basin, sep = "")) %>% 
   mutate("Total area (sq. km)" = Area) %>% .[, c(8, 9, 4:7)] %>% 
   rename(., "IMP %" = "IMP", "CRB %" = "CRB", "DTH %" = "DTH", "DTL %" = "DTL") %>% apa(., "Subbasins total area and relative area of each geologic substrate (%)")
 
