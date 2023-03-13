@@ -33,7 +33,7 @@ The data necessary to reproduce the work is located in the **used_files** folder
     
     + **2_ids_stations_file.csv** Contains the ID, name and location of each weather grid point located within the buffer of each basin (*ID*, *NAME*, *LAT*, *LONG*, *ELEVATION*). The basins where they are located (both ID and name are also indicated, as some points are present in more than one contiguous subbasins). Note that in this case, precipitation and temperature points IDs were the same, but if not one file for each grid should be created and used. Created with Script 1.
     
-    + **3_alpha_estimation.csv** This file contains for each basin the alpha obtained with the regression for the three peaks (*alphas*) and their determination coefficients *det_coefs*. The name, ID and region of each basin is also included. Created with the results of the Script 3 (**script_3_alphas_calculation.R**).
+    + **3_alpha_estimation.csv** This file contains for each basin the duration of the recession curve (*ndays*) and the determination coefficients obtained with their regression (*det_coefs*) and the groundwater recession constant and alpha obtained for the three peaks (*gwrec_cnst*,*alphas*). The name, ID and region of each basin is also included. Created with the results of the Script 3 (**script_3_alphas_calculation.R**).
     
     + **4_groundwater_results.csv** This file has been used to save the data obtained during the baseflow index estimation. Concretely, for each basin, the alpha and BFImax parameters values used for the filter and the estimated baseflow index (columns *alpha*, *BFImax*, *BF_Rate*, respectively) are stored. Created with the results of the Script 4 (**script_4_Groundwater_contribution_estimation.R**).
  
@@ -45,9 +45,9 @@ The data necessary to reproduce the work is located in the **used_files** folder
     
  * **GIS** This directory contains all the vector and raster data used for this work. It have two folders:
  
-    + **Shapefiles** Directory that includes the shp (and related) files that has been used for this work: the upper sector of the Tagus River basin (**modeled_basin**), the delineated subbasins (**basins_studied**), weather points of the entire AEMET grid (**weather_grid_UTM**), gauging stations (**gauging_stations**) and the permeability map(**permeabilit_map**).
+    + **Shapefiles** Directory that includes the shp (and related) files that has been used for this work: the upper sector of the Tagus River basin (**modeled_basin**), the delineated subbasins (**basins_studied**), weather points of the entire AEMET grid (**weather_grid_UTM**), gauging stations (**gauging_stations**) and the permeability map(**permeabilit_map**). A csv file created from the permeability map and the basins studied files contains the proportion of each subbasin conformed by each lithology (**Basins_lithology.csv**).
  
-    + **Delineation.zip** Compressed folder which contains three raster layers: the digital elevation model (**ClipMDTproj.tif**) used to create the drainage direction (**drainage_direction_Tagus.tif**) and accumulation rasters (**drainage_acumulation_Tagus.tif**), which were used to delineate the subbasins. This file was compressed to reduce its weight.
+    + **Delineation.zip** Compressed folder which contains three raster layers: the digital elevation model (**ClipMDTproj.tif**) used to create the drainage direction (**drainage_direction_Tagus.tif**) and accumulation rasters (**drainage_acumulation_Tagus.tif**), which were used to delineate the subbasins with the GRASS tools. This file was compressed to reduce its weight.
 
 #### 2. Scripts directory
 
@@ -57,7 +57,7 @@ The code for reproducing all the results of the paper can be found in the folder
 
  * **script_2_Runoff_rate calculation.R** Include all the code necessary to calculate the runoff coefficients at annual and average basis, for subbasins and geological regions. With this script, the annual precipitation, temperature, runoff and runoff coefficient can be calculated.
  
- * **script_3_alphas_calculation.R** Allow to calculate the *alpha* values using a linear regression. Three recession curves for each subbasins have been performed, and the determination coefficient and standard variation values have been extracted.
+ * **script_3_alphas_calculation.R** Allow to calculate the *alpha* values using a linear regression. Three recession curves for each subbasin have been performed, and the length of the recession curve, the determination coefficient, the alpha values and their standard deviation have been extracted.
  
  * **script_4_Groundwater_contribution_estimation.R** Include all the code necessary to apply the baseflow filter for three peaks in each subbasins and calculating the groundwater contribution to the streamflow. 
  
